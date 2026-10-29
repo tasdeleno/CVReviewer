@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Daniel Price",
+    "email": "daniel.price@example.com",
+    "phone": "07700 900 303",
+    "url": "",
+    "summary": "",
+    "location": "Wakefield"
+  },
+  "workExperiences": [
+    {
+      "company": "Rosewood Care Home",
+      "jobTitle": "Healthcare Assistant",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Helped residents with personal care, meals and mobility",
+        "Recorded fluid intake and food charts",
+        "Supported nurses during medication rounds",
+        "Kept residents' rooms clean and safe"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Wakefield College",
+      "degree": "Diploma in Health and Social Care",
+      "date": "2019 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Good communication skills, manual handling, first aid"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

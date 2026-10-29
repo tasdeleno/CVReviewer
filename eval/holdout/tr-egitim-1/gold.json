@@ -1,0 +1,180 @@
+{
+  "id": "tr-egitim-1",
+  "lang": "tr",
+  "sector": "eğitim",
+  "title": "İngilizce Öğretmeni",
+  "keywords": [
+    {
+      "term": "pedagojik formasyon",
+      "aliases": [
+        "formasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ders planı",
+      "aliases": [
+        "ders planı hazırlama",
+        "lesson planning",
+        "lesson plans"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sınıf yönetimi",
+      "aliases": [
+        "classroom management"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ölçme ve değerlendirme",
+      "aliases": [
+        "ölçme değerlendirme",
+        "assessment",
+        "assessments"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CEFR",
+      "aliases": [
+        "Avrupa Dilleri Ortak Çerçevesi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "akıllı tahta",
+      "aliases": [
+        "smart board",
+        "interactive whiteboard"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "dijital eğitim araçları",
+      "aliases": [
+        "Google Classroom",
+        "digital learning tools"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CELTA/TESOL",
+      "aliases": [
+        "CELTA",
+        "TESOL"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "veli iletişimi",
+      "aliases": [
+        "velilerle iletişim",
+        "veli görüşmeleri",
+        "parent meetings",
+        "parent communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "öğrenci gelişimi takibi",
+      "aliases": [
+        "öğrenci gelişimi",
+        "student progress",
+        "progress reports"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "okul etkinlikleri",
+      "aliases": [
+        "okul içi etkinlikler",
+        "İngilizce kulübü",
+        "English club",
+        "extracurricular activities"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "pedagojik formasyon",
+        "ders planı",
+        "sınıf yönetimi",
+        "ölçme ve değerlendirme",
+        "CEFR",
+        "akıllı tahta",
+        "dijital eğitim araçları",
+        "CELTA/TESOL",
+        "veli iletişimi",
+        "öğrenci gelişimi takibi",
+        "okul etkinlikleri"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "pedagojik formasyon",
+        "ders planı",
+        "ölçme ve değerlendirme",
+        "öğrenci gelişimi takibi"
+      ],
+      "missing": [
+        "sınıf yönetimi",
+        "CEFR",
+        "akıllı tahta",
+        "dijital eğitim araçları",
+        "CELTA/TESOL",
+        "veli iletişimi",
+        "okul etkinlikleri"
+      ]
+    },
+    "weak": {
+      "present": [
+        "veli iletişimi"
+      ],
+      "missing": [
+        "pedagojik formasyon",
+        "ders planı",
+        "sınıf yönetimi",
+        "ölçme ve değerlendirme",
+        "CEFR",
+        "akıllı tahta",
+        "dijital eğitim araçları",
+        "CELTA/TESOL",
+        "öğrenci gelişimi takibi",
+        "okul etkinlikleri"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "title",
+      "weak-verbs",
+      "unquantified"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified"
+    ]
+  }
+}

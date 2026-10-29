@@ -1,0 +1,56 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Deniz Aksoy",
+    "email": "deniz.aksoy@example.com",
+    "phone": "0555 010 2601",
+    "url": "",
+    "summary": "5 yıllık deneyimli İngilizce öğretmeniyim; ortaokul düzeyinde CEFR temelli dersler veriyorum.",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Yıldız Koleji",
+      "jobTitle": "English Teacher",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Planned and delivered weekly lesson plans for 6 middle-school classes (A1-B1)",
+        "Designed CEFR-aligned assessments; 85% of students reached their target level",
+        "Used smart board activities and Google Classroom for homework and quizzes",
+        "Applied clear classroom management routines that cut behaviour referrals by 40%",
+        "Wrote termly student progress reports and held 60+ parent meetings a year",
+        "Ran the school English club and the annual drama festival"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gazi Üniversitesi",
+      "degree": "İngiliz Dili Eğitimi (Lisans)",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": [
+        "Pedagojik formasyon dahil"
+      ]
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "CELTA (2021), Google Classroom, akıllı tahta, Kahoot"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

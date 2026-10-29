@@ -1,0 +1,64 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Zeynep Arslan",
+    "email": "zeynep.arslan@example.com",
+    "phone": "0555 010 2201",
+    "url": "",
+    "summary": "Erişkin yoğun bakımda 6 yıllık deneyime sahip, hasta güvenliğini önceleyen ve ekip çalışmasına önem veren yoğun bakım hemşiresiyim.",
+    "location": "İzmir"
+  },
+  "workExperiences": [
+    {
+      "company": "Ege Şehir Hastanesi",
+      "jobTitle": "Yoğun Bakım Hemşiresi",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "24 yataklı erişkin yoğun bakımda vardiya başına 2-3 hastanın bakımını üstlendim",
+        "Mekanik ventilatördeki hastaların takibini yaptım, ekstübasyon sürecine aktif katkı verdim",
+        "İlaç uygulamalarını ve sıvı-elektrolit takibini protokole uygun yürüttüm; 3 yılda sıfır ilaç hatası",
+        "Enfeksiyon kontrol komitesiyle çalışarak el hijyeni uyumunu %78'den %94'e çıkardım",
+        "Tüm hemşirelik kayıtlarını HBYS üzerinde eksiksiz tuttum",
+        "Hasta ve yakınlarına taburculuk eğitimi verdim; ayda ortalama 15 aileyle görüştüm",
+        "Vital bulgu takibinde erken uyarı skorunu kullanarak 40+ kötüleşen hastayı zamanında bildirdim",
+        "Yeni başlayan 5 hemşirenin oryantasyonunda iletişim becerileri ve ekip içi devir teslim eğitimleri verdim"
+      ]
+    },
+    {
+      "company": "Karşıyaka Devlet Hastanesi",
+      "jobTitle": "Servis Hemşiresi",
+      "date": "2017 - 2019",
+      "descriptions": [
+        "Dahiliye servisinde 30 yatakta hasta bakımı ve hemşirelik bakım planlarını uyguladım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ege Üniversitesi",
+      "degree": "Hemşirelik (Lisans)",
+      "date": "2013 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "BLS, ALS, yoğun bakım hemşireliği sertifikası (2021), HBYS, İngilizce (B1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

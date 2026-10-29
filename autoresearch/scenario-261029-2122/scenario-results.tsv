@@ -1,0 +1,23 @@
+iteration	timestamp	scenario	dimension	classification	severity	description
+1	2026-10-29T21:51	CV-ilan analizi	Data	new	high	Rakam içeren kısaltmalar (B2B, GA4, 3PL, ES6, HTML5, ISO 9001) maddeyi 'sayılı' gösteriyor; unquantified kuralı /\d/ ile yanılıyor (B1'de tr-satis-1 medium)
+1	2026-10-29T21:51	CV-ilan analizi	Data	new	high	Kıvrık kesme işareti (’, U+2019) ile ek: "SAP’ta", "Excel’de" — Word/Canva çıktısında yaygın; düz ' ile eğitilmiş ek kuralı kaçırabilir
+1	2026-10-29T21:51	CV-ilan analizi	Data	new	high	Yeni sektör sözlük boşluğu: sağlık (BLS/ALS, EMR/EHR, yoğun bakım/ICU, HBYS), lojistik (WMS, SAP EWM, Incoterms, 3PL, gümrük), eğitim (QTS/PGCE, pedagojik formasyon, CEFR, safeguarding/SEN) — EN↔TR eşleşmesi sözlükte yok; holdout genelleşmeyi ölçer
+1	2026-10-29T21:51	CV-ilan analizi	Data	new	medium	Bölü ile birleşik terimler: "BLS/ALS", "TMS/WMS", "EMR/EHR" — tek mi iki ayrı anahtar kelime mi; gold'da alternatif olarak ayrı yazılmalı
+2	2026-10-29T21:52	CV-ilan analizi	Validation	new	high	Kariyer.net tarzı birleşik başlık "Genel Nitelikler ve İş Tanımı": hem gereksinim hem sorumluluk aynı blokta; önem bloğu yanlış atanabilir
+2	2026-10-29T21:52	CV-ilan analizi	Validation	new	high	TR demografik şartlar gereksinim listesinde: "Askerlik hizmetini tamamlamış", "25-40 yaş arası", "Kadın/erkek" — gold'da anahtar kelime DEĞİL; motor bunları beceri sayarsa precision düşer
+2	2026-10-29T21:52	CV-ilan analizi	Validation	new	high	Satır içi tercih öğe düzeyinde: "SAP EWM (tercihen) veya benzeri bir WMS", "Power BI a plus", "ideally with ICU experience" — yalnız ilgili öğe preferred, satırın geri kalanı required
+2	2026-10-29T21:52	CV-ilan analizi	Validation	new	medium	Deneyim yılı ifadeleri ("en az 3 yıl", "3+ yıl", "minimum of 5 years", "2-4 years") anahtar kelime üretmemeli; gold'a eklenmez (PRD 6 ayrı)
+3	2026-10-29T21:53	CV-ilan analizi	Happy path	new	low	Yeni sektörde strong CV ilan terimlerini maddelerde birebir kullanıyor, standart tek sütun; motorun temel doğruluğu yeni alanda
+3	2026-10-29T21:53	CV-ilan analizi	Happy path	new	medium	Çapraz dil: TR ilan (Yoğun Bakım Hemşiresi) ↔ EN CV (ICU Nurse); EN ilan (Supply Chain Analyst) ↔ TR CV
+4	2026-10-29T21:54	CV-ilan analizi	UX	new	high	Unvan eşanlamı/çevirisi: "Staff Nurse"≈"Registered Nurse", "Logistics Specialist"≈"Lojistik Uzmanı", "Year 4 Class Teacher"≈"Primary School Teacher" — title önerisi BEKLENMEZ
+4	2026-10-29T21:54	CV-ilan analizi	UX	new	high	Cümle ortasında zayıf fiil: "Depo sayımlarından sorumluydum ve haftalık raporladım", "I was responsible for…", "Took part in…" — madde başı/sonu desenleri kaçırıyor
+4	2026-10-29T21:54	CV-ilan analizi	UX	new	high	40 kelimeyi aşan madde: mevcut gold'da long-bullets hiç pozitif değil; metrik bu türü hiç ölçmüyor
+4	2026-10-29T21:54	CV-ilan analizi	UX	new	medium	Yurt dışına EN başvuran TR adayın CV'sinde Date of Birth / Marital Status / Military Service: Completed — PRD 5 için veri (henüz ölçülen tür değil)
+5	2026-10-29T21:55	CV-ilan analizi	Data	new	medium	TR ay adlarıyla tarih: "Eylül 2019 – Halen", "09/2019 - Günümüz", en-dash ve "present" — PRD 6 için gerçekçi tarih çeşitliliği
+5	2026-10-29T21:55	CV-ilan analizi	Data	new	medium	Süs madde işaretleri (▪, ➢, –) ve numaralı maddeler "1)" — madde ayrıştırma
+5	2026-10-29T21:55	CV-ilan analizi	Data	extension	high	Başlıksız CV: özet ve maddeler ayrıştırılamıyor, motor özet var sanıyor (B1 tr-pazarlama-1 medium); yeni sektörde tekrar
+6	2026-10-29T21:56	CV-ilan analizi	Data	extension	medium	Karışık dil CV: TR bölüm başlıkları, EN maddeler (eğitim sektörü öğretmen CV'si)
+6	2026-10-29T21:56	CV-ilan analizi	UX	extension	medium	Özet rol değil hedef söylüyor: "İngilizce öğretmenliğine geçmek istiyorum" → title beklenir
+6	2026-10-29T21:56	CV-ilan analizi	UX	new	medium	İma ile kanıt: "EPIC'te hasta kayıtları" → EMR, "pandas" → Python, "Salesforce'a kaydettim" → CRM; only-in-skills fazladan çıkmamalı
+7	2026-10-29T21:57	CV-ilan analizi	Validation	extension	low	Paragraf düzyazı ilan (başlıksız): her şey intro/normal; mevcut en-sales-1 benzeri
+7	2026-10-29T21:57	CV-ilan analizi	UX	extension	low	Soft skill yalnız sıfat listesi ("çalışkan, takım oyuncusu") — mevcut soft-skills önerisi kapsıyor

@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Priya Shah",
+    "email": "priya.shah@example.com",
+    "phone": "07700 900 401",
+    "url": "",
+    "summary": "Analytical, problem-solving supply chain analyst with 7 years in food retail.",
+    "location": "Manchester"
+  },
+  "workExperiences": [
+    {
+      "company": "Northern Retail Group",
+      "jobTitle": "Supply Chain Analyst",
+      "date": "2018 - Present",
+      "descriptions": [
+        "Rebuilt the weekly demand forecasting model for 3,000 SKUs in Excel and Python, combining promotional calendars, seasonality and store-level sales history, and presented the results in the monthly S&OP meeting, which cut forecast error from 32% to 21% within two quarters",
+        "Set safety stock and reorder points for 2 distribution centres, reducing stockouts by 18% while lowering inventory by 9%",
+        "Tracked 40 suppliers and two 3PL partners against service-level KPIs in a monthly scorecard",
+        "Built Power BI dashboards used daily by 25 operations managers",
+        "Wrote SQL queries against the SAP data warehouse to automate 6 weekly inventory reports",
+        "Presented findings to the operations director and site leads"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Manchester",
+      "degree": "BSc Mathematics",
+      "date": "2013 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel (Power Query, pivot tables), SQL, Python, Power BI, SAP"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

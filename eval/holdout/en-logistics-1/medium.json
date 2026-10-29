@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Tom Fletcher",
+    "email": "tom.fletcher@example.com",
+    "phone": "07700 900 402",
+    "url": "",
+    "summary": "Logistics coordinator with 4 years in contract logistics and B2B distribution.",
+    "location": "Bolton"
+  },
+  "workExperiences": [
+    {
+      "company": "FastLane Logistics Ltd",
+      "jobTitle": "Logistics Coordinator",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Coordinated B2B deliveries for 3PL clients across the North West",
+        "Updated B2B order status in SAP S4 and Excel",
+        "Helped prepare weekly KPI reports for 3PL account managers",
+        "Rebooked missed deliveries with carriers",
+        "Checked supplier invoices against S4 purchase orders",
+        "Kept warehouse stock levels accurate in the WMS"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Bolton College",
+      "degree": "Level 3 Business Diploma",
+      "date": "2016 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SAP, Excel, WMS"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

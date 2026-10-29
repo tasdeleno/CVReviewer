@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Jake Morris",
+    "email": "jake.morris@example.com",
+    "phone": "07700 900 503",
+    "url": "",
+    "summary": "Teaching assistant supporting KS2 pupils in a busy primary school.",
+    "location": "Bristol"
+  },
+  "workExperiences": [
+    {
+      "company": "Elmwood Primary School",
+      "jobTitle": "Teaching Assistant",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Ran small-group reading sessions using Read Write Inc.",
+        "Supported a pupil with an EHCP on a one-to-one basis",
+        "Helped the class teacher with displays and marking",
+        "Completed safeguarding training"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "City of Bristol College",
+      "degree": "Certificate in Supporting Teaching and Learning",
+      "date": "2021 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Reading support, MS Office, first aid"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

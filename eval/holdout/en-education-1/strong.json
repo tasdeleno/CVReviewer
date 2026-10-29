@@ -1,0 +1,55 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Laura Bennett",
+    "email": "laura.bennett@example.com",
+    "phone": "07700 900 501",
+    "url": "",
+    "summary": "KS2 class teacher with QTS and 6 years' experience; maths subject leader, strong communicator and team player.",
+    "location": "Bristol"
+  },
+  "workExperiences": [
+    {
+      "company": "Hillside Primary School",
+      "jobTitle": "Year 4 Class Teacher",
+      "date": "2018 - Present",
+      "descriptions": [
+        "Planned and taught National Curriculum lessons for a class of 30 Year 4 pupils",
+        "Used assessment for learning to track pupil progress each half-term; 88% met age-related expectations",
+        "Differentiated work for 5 pupils with SEN, working closely with the SENCo",
+        "Led maths as subject leader across KS2 since 2021",
+        "Ran weekly phonics catch-up groups for 8 pupils",
+        "Kept parents informed through termly meetings and Google Classroom updates",
+        "Completed annual safeguarding and child protection training"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of the West of England",
+      "degree": "PGCE Primary (QTS)",
+      "date": "2016 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Google Classroom, ICT, behaviour management (Positive Behaviour Policy)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

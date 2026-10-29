@@ -1,0 +1,266 @@
+{
+  "id": "en-health-1",
+  "lang": "en",
+  "sector": "health",
+  "title": "Registered Nurse",
+  "keywords": [
+    {
+      "term": "patient care",
+      "aliases": [
+        "person-centred care",
+        "person-centered care",
+        "nursing care",
+        "hasta bakımı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "medication administration",
+      "aliases": [
+        "administer medications",
+        "administered medications",
+        "ilaç uygulama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "IV therapy",
+      "aliases": [
+        "intravenous therapy",
+        "IV medications",
+        "IV fluids"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "wound care",
+      "aliases": [
+        "wound management",
+        "wound dressings",
+        "yara bakımı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "post-operative care",
+      "aliases": [
+        "post-operative observations",
+        "postoperative care",
+        "post-operative"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "EPR",
+      "aliases": [
+        "electronic patient record",
+        "EMR",
+        "EHR",
+        "electronic health record",
+        "hospital information system",
+        "HBYS"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "multidisciplinary team",
+      "aliases": [
+        "MDT",
+        "multidisciplinary"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "NMC registration",
+      "aliases": [
+        "NMC",
+        "NMC registered"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "BLS",
+      "aliases": [
+        "Basic Life Support",
+        "temel yaşam desteği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ALS",
+      "aliases": [
+        "Advanced Life Support",
+        "ACLS",
+        "ileri yaşam desteği"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "acute care",
+      "aliases": [
+        "acute ward",
+        "acute surgical",
+        "acute setting"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "surgical ward",
+      "aliases": [
+        "surgical",
+        "general surgery",
+        "cerrahi"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "communication",
+        "iletişim becerileri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "attention to detail",
+      "aliases": [
+        "detail-oriented",
+        "detaylara dikkat"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "infection prevention and control",
+      "aliases": [
+        "infection control",
+        "infection prevention",
+        "IPC",
+        "enfeksiyon kontrolü"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mentoring",
+      "aliases": [
+        "mentored",
+        "mentorship",
+        "mentor"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "discharge planning",
+      "aliases": [
+        "discharge"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "patient care",
+        "medication administration",
+        "IV therapy",
+        "wound care",
+        "post-operative care",
+        "EPR",
+        "multidisciplinary team",
+        "NMC registration",
+        "BLS",
+        "ALS",
+        "acute care",
+        "surgical ward",
+        "communication skills",
+        "infection prevention and control",
+        "mentoring",
+        "discharge planning"
+      ],
+      "missing": [
+        "attention to detail"
+      ]
+    },
+    "medium": {
+      "present": [
+        "patient care",
+        "medication administration",
+        "IV therapy",
+        "wound care",
+        "EPR",
+        "BLS",
+        "infection prevention and control"
+      ],
+      "missing": [
+        "post-operative care",
+        "multidisciplinary team",
+        "NMC registration",
+        "ALS",
+        "acute care",
+        "surgical ward",
+        "communication skills",
+        "attention to detail",
+        "mentoring",
+        "discharge planning"
+      ]
+    },
+    "weak": {
+      "present": [
+        "patient care",
+        "communication skills"
+      ],
+      "missing": [
+        "medication administration",
+        "IV therapy",
+        "wound care",
+        "post-operative care",
+        "EPR",
+        "multidisciplinary team",
+        "NMC registration",
+        "BLS",
+        "ALS",
+        "acute care",
+        "surgical ward",
+        "attention to detail",
+        "infection prevention and control",
+        "mentoring",
+        "discharge planning"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "long-bullets",
+      "only-in-skills"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  }
+}

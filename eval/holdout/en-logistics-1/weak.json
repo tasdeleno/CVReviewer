@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Selin Öztürk",
+    "email": "selin.ozturk@example.com",
+    "phone": "0555 010 2503",
+    "url": "",
+    "summary": "",
+    "location": "Bursa"
+  },
+  "workExperiences": [
+    {
+      "company": "Uludağ Tekstil",
+      "jobTitle": "Satın Alma Asistanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Tedarikçilerden teklif toplayıp Excel’de karşılaştırma tabloları hazırladım",
+        "Sipariş takibi ve fatura kontrolü yaptım",
+        "Logo programında stok kartlarını güncelledim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Uludağ Üniversitesi",
+      "degree": "İşletme (Lisans)",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Logo Tiger, İngilizce (orta)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

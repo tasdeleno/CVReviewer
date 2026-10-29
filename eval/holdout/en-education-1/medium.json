@@ -1,0 +1,53 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Ayşe Polat",
+    "email": "ayse.polat@example.com",
+    "phone": "+90 555 010 2702",
+    "url": "",
+    "summary": "Primary teacher with 6 years in Turkish state schools, relocating to the UK.",
+    "location": "Ankara, Türkiye"
+  },
+  "workExperiences": [
+    {
+      "company": "Atatürk İlkokulu, Ankara",
+      "jobTitle": "Primary Teacher",
+      "date": "Eylül 2018 - Halen",
+      "descriptions": [
+        "Taught all subjects to primary classes of 28-32 pupils",
+        "Prepared lesson plans following the Turkish primary curriculum",
+        "Responsible for parent meetings and student progress reports",
+        "Supported pupils with learning difficulties in inclusive classes",
+        "Used the smart board and the EBA digital platform every day"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ankara University",
+      "degree": "BEd Primary Education",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, EBA, English (C1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

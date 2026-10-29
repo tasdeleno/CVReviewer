@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Burak Şahin",
+    "email": "burak.sahin@example.com",
+    "phone": "+90 555 010 2202",
+    "url": "",
+    "summary": "ICU nurse with 3 years of experience in an adult intensive care unit.",
+    "location": "Izmir, Türkiye"
+  },
+  "workExperiences": [
+    {
+      "company": "Aegean University Hospital",
+      "jobTitle": "ICU Nurse",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Provided nursing care to ventilated patients in the adult intensive care unit",
+        "Monitored patients on mechanical ventilation together with the respiratory therapist",
+        "Administered medications according to physician orders",
+        "Recorded vital signs and care notes in the hospital information system",
+        "Responsible for patient and family education before discharge",
+        "Worked in a team of 12 nurses on rotating shifts"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Dokuz Eylül University",
+      "degree": "BSc Nursing",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "BLS certified, Turkish (native), English (B2)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

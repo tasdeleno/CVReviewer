@@ -1,11 +1,12 @@
 # Eval korpusu (sentetik)
 
-CV ile iş ilanı anahtar kelime eşleştirme aracı için **tamamen kurgusal** değerlendirme verisi. Tüm kişi, şirket, e-posta (example.com) ve telefon (555) bilgileri uydurmadır; gerçek kişi/kurum ile ilgisi yoktur.
+CV ile iş ilanı anahtar kelime eşleştirme aracı için **tamamen kurgusal** değerlendirme verisi. Tüm kişi, şirket, e-posta (example.com) ve telefon (555, 07700 900) bilgileri uydurmadır; gerçek kişi/kurum ile ilgisi yoktur.
 
 ## İçerik
-- 12 ilan: 6 sektör (yazılım, veri, pazarlama, finans, İK, satış) x EN + TR.
-- Her ilan için 3 CV: `strong`, `medium`, `weak` (çapraz dil çiftleri dahil).
-- `dev/` (8 ilan) ve `holdout/` (4 ilan: en-hr-1, tr-ik-1, en-sales-1, tr-satis-1). Dizin düzeni aynıdır.
+- 18 ilan: 9 sektör × EN + TR. Her ilan için 3 CV: `strong`, `medium`, `weak` (çapraz dil çiftleri dahil).
+- `dev/` (12 ilan): yazılım, veri, pazarlama, finans, İK, satış. İK ve satış 2026-10-29'a kadar holdout'tu; 6 kez toplam skoruna bakıldığı için dev'e taşındı.
+- `holdout/` (6 ilan, **holdout v2**): sağlık, lojistik, eğitim. Hiç görülmemiş sektörler; `autoresearch/scenario-261029-2122/` kenar durumlarını taşır (Kariyer.net birleşik başlığı, TR demografik şartlar, satır içi tercih, unvan eşanlamı/çevirisi, rakamlı kısaltmalar, cümle ortasında zayıf fiil, 40+ kelimelik madde, kıvrık kesme işaretli ekler). Gold iki bağımsız etiketleyiciyle kör yazıldı. Not: holdout v2'yi motoru geliştiren oturum yazdı; içeriği bilinir, bu yüzden tur sırasında holdout dosyaları ve raporu açılmaz.
+- Dizin düzeni iki split'te aynıdır.
 
 ## Dosyalar (`<split>/<id>/`)
 - `ad.txt`: ilan düz metni.
@@ -65,9 +66,14 @@ B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm 
 - Uyuşmazlık 2: tr-satis-1 medium'da "B2B" sayı değil. Motordaki `/\d/` kuralı B2B'yi sayı sayıyor; bu bir tur 2 adayı.
 - Önem metriği yüksek çıkıyor, çünkü veri setinde satır içi tercih işareti olan yalnızca bir gold terimi var. Adım 3'te bu tür senaryolar eklenecek.
 
+**B2 (veri seti yeniden düzenlendi, Adım 3):** dev 91.9 (12 ilan), holdout v2 79.3 (6 yeni sektör ilanı; yalnızca toplam skor okundu, 1. bakış).
+- Eski holdout'un dev'e girmesiyle önem doğruluğu 96.3'e düştü (154/160); metrik artık ayırt edici. Öneri F1 79.5, var/eksik 468/480.
+- Holdout v2 ile dev arasındaki 12.6 puanlık fark beklenen bir sonuç: sağlık, lojistik ve eğitim terimleri sözlükte yok. Bu fark, motorun genelleşip genelleşmediğinin ölçüsü. Kapatmak için holdout'a özgü sözlük eklemek ezber olur ve yasak.
+- Holdout v2 gold'u kör yazıldı. Önemde 95/95, var/eksikte 284/285, önerilerde 107/108 uyum. İki uyuşmazlıkta daha katı okuma seçildi.
+
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
-Holdout'a bugüne kadar 5 kez **toplam skor** olarak bakıldı (ayrıntısına hiç bakılmadı). Tekrarlı bakış hafif seçim yanlılığı yaratır; birkaç tur daha sonra yeni bir holdout seti üretmek gerekebilir.
+Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. Holdout v2'ye 1 kez bakıldı (B2).
 
 ## Sonraki tur adayları (öncelik sırasıyla)
 1. ~~Önce ölçüm düzeltmesi~~ (yapıldı, B0): motor kelimesi önce adını tam taşıdığı gold'a bağlanır, yoksa içinde geçtiği gold'a ("Leadership" → "team leadership"), böylece "Excel" artık VBA'nın "Excel macros" alias'ına bağlanmıyor. Bir gold birden çok motor kelimesine denk gelirse herhangi biri bulunduysa "var". Gold'da present+missing terimleri tam bölmüyorsa eval hata verir.

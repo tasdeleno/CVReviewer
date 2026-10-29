@@ -1,0 +1,56 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Elif Kaya",
+    "email": "elif.kaya@example.com",
+    "phone": "+90 555 010 2302",
+    "url": "",
+    "summary": "Registered nurse with 4 years of experience in internal medicine, seeking a nursing position in the UK.",
+    "location": "Ankara, Türkiye"
+  },
+  "workExperiences": [
+    {
+      "company": "Ankara City Hospital",
+      "jobTitle": "Nurse, Internal Medicine Ward",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Provided nursing care to patients on a 30-bed internal medicine ward",
+        "Administered medications and IV fluids according to doctor orders",
+        "Was responsible for recording vital signs and patient notes in the hospital information system",
+        "Assisted with wound dressings and infection control checks"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hacettepe University",
+      "degree": "BSc Nursing",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "BLS certificate, MS Office, English (IELTS 7.0)"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "Date of Birth: 14.03.1997",
+      "Marital Status: Single",
+      "Nationality: Turkish"
+    ]
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "Personal Information",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}
