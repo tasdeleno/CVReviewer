@@ -20,7 +20,7 @@
         "software as a service",
         "subscription software"
       ],
-      "importance": "required"
+      "importance": "preferred"
     },
     {
       "term": "CRM",

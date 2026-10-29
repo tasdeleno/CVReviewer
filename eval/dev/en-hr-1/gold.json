@@ -136,7 +136,7 @@
     {
       "term": "LinkedIn Recruiter",
       "aliases": [],
-      "importance": "preferred"
+      "importance": "required"
     }
   ],
   "resumes": {
