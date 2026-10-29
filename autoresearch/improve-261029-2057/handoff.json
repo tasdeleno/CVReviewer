@@ -1,0 +1,24 @@
+{
+  "version": "2.1.0",
+  "source": "improve",
+  "timestamp": "2026-10-29T21:15:00",
+  "status": "SATURATED",
+  "results_tsv": "autoresearch/improve-261029-2057/results.tsv",
+  "findings": [
+    {"rank": 1, "feature": "Zorunlu/tercih doğruluğu + TR demografik şartlar", "tier": "must-have", "confidence": "MEDIUM", "prd_path": "prd-onem-ve-tr-demografik.md"},
+    {"rank": 2, "feature": "Unvan eşanlamları", "tier": "must-have", "confidence": "HIGH", "prd_path": "prd-unvan-esanlamlari.md"},
+    {"rank": 3, "feature": "PDF metin çıkarma sağlığı", "tier": "must-have", "confidence": "HIGH", "prd_path": "prd-pdf-cikarma-sagligi.md"},
+    {"rank": 4, "feature": "Satır düzeyi yazım kontrolleri", "tier": "must-have", "confidence": "HIGH", "prd_path": "prd-satir-duzeyi-yazim.md"},
+    {"rank": 5, "feature": "Yurt dışı kişisel bilgi kontrolü", "tier": "must-have", "confidence": "HIGH", "prd_path": "prd-yurt-disi-kisisel-bilgi.md"},
+    {"rank": 6, "feature": "Deneyim yılı şartı (yüzdesel)", "tier": "must-have", "confidence": "MEDIUM", "prd_path": "prd-deneyim-yili.md"},
+    {"rank": 7, "feature": "Eşleşme şeffaflığı ve skor açıklaması", "tier": "must-have", "confidence": "HIGH", "prd_path": "prd-eslesme-seffafligi.md"}
+  ],
+  "config": {
+    "goal": "CV-iş ilanı uyum analizi ve bölüm bölüm öneri kalitesi",
+    "icp": "EN/TR CV kullanan, gizliliğe duyarlı, ücretsiz ve yerel araç arayan iş arayanlar",
+    "depth": "standard",
+    "categories_explored": ["ICP challenges", "Competitor gaps", "UX & experience"],
+    "insights_total": 14,
+    "prds_generated": 7
+  }
+}
