@@ -24,6 +24,15 @@ Etiket CV JSON'u ve ilan metninden, iyi bir CV danışmanının vereceği öneri
 
 Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) var/eksik doğruluğuyla zaten ölçüldüğü için etiketlenmez.
 
+## Önem etiketleme kılavuzu (`keywords[].importance`)
+- `preferred`: Terim yalnızca bir tercih bağlamında geçiyor. Tercih bağlamı şunlardır: "ideally", "nice to have", "a plus", "tercihen", "tercih sebebi", ya da "Preferred" veya "Artılar" gibi bir bölüm.
+- `required`: Terim görev ya da şart satırlarında en az bir kez nitelemesiz geçiyor. Bu durumda aynı terimin tercih bağlamında da geçmesi sonucu değiştirmez (**zorunlu kazanır**).
+- Şirket tanıtımındaki geçişler ("Series B SaaS company") şart sayılmaz.
+- Bu kural dış kaynakla doğrulanmış değil, bir konvansiyondur (2026-10-30). Literatürde ve piyasadaki araçlarda çakışma durumu için bir kural bulunamadı.
+- Gerçek ilan denemesinden sonra gözden geçirilecek. Tartışmalı etiketler:
+  - SAP (en-finance-1): "month-end close in SAP" ve "ERP, ideally SAP". İkinci ifade "ERP zorunlu, SAP tercih" diye de okunabilir.
+  - LinkedIn Recruiter (en-hr-1): sorumluluklarda ve "Nice to have" satırında geçiyor.
+
 ## Kural
 **Holdout motor geliştirme sırasında açılmaz.** Ayarlama/hata ayıklama yalnızca `dev/` üzerinde yapılır; holdout sadece nihai ölçüm içindir.
 
@@ -55,7 +64,7 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 - Tur sonu reviewer düzeltmeleri motoru değiştirirse dev ve holdout yeniden ölçülür ve sonuç commit mesajına yazılır.
 
 ## Durum (2026-10-30)
-Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0, B1, B2) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
+Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0, B1, B2, B3) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
 
 | Aşama | Ne değişti | Dev | Holdout |
 |---|---|---|---|
@@ -64,9 +73,20 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | B0 | ölçüm düzeltmesi (gold bağlama) | 96.2 | 90.4 (eski) |
 | B1 | metriğe öneri F1 ve önem doğruluğu eklendi | 94.0 | 86.7 (eski) |
 | B2 | eski holdout dev'e taşındı, holdout v2 eklendi | 91.9 | 79.3 (v2) |
-| **Tur 2 sonu** | motor (9 değişiklik) | **94.9** | **80.8 (v2)** |
+| Tur 2 sonu | motor (9 değişiklik) | 94.9 | 80.8 (v2) |
+| **B3** | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | **94.9** | **80.8 (v2, yeniden ölçülmedi)** |
 
 Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
+
+**B3 (aday 0):** "Önem etiketleme kılavuzu" yazıldı ve dev gold'unda iki etiket buna göre düzeltildi.
+- en-sales-1'de SaaS zorunludan tercihe indi. SaaS yalnızca şirket tanıtımında ve "ideally selling SaaS" içinde geçiyor.
+- en-hr-1'de LinkedIn Recruiter tercihten zorunluya çıktı. Terim bir sorumluluk satırında geçiyor.
+
+Bileşenler değişmedi: önem 158/160, EVAL_SCORE 94.9. LinkedIn Recruiter doğruya döndü, SaaS yanlışa düştü (motor `normal` veriyor). B2B hâlâ yanlış.
+
+Holdout yeniden ölçülmedi, çünkü ne motor ne de holdout gold'u değişti.
+
+Önceki aday 0 notundaki "SAP yanlış etiketlenmiş" tespiti hatalıydı. SAP sorumluluklarda da nitelemesiz geçiyor ("month-end close in SAP"), bu yüzden kurala göre zorunlu kalıyor.
 
 ### Ayrıntılar
 
@@ -88,10 +108,18 @@ B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm 
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
 Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. **Holdout v2'ye 3 kez bakıldı** (B2, tur 2 sonu, review düzeltmelerinden sonra); hepsinde yalnızca toplam skor okundu, ayrıntılı rapor hiç açılmadı.
+- **Kazara 4. bakış (2026-10-30, aday 0 hazırlığı):** `eval/` üzerinde çalıştırılan bir grep, `report-holdout.md`'den üç "Yanlış önem" satırını gösterdi: ALS (gold tercih, motor zorunlu), SAP (gold zorunlu, motor tercih) ve BLS (gold zorunlu, motor tercih).
+- Bu üç satır satır içi tercih kuralının (aday 1) holdout'taki hatalarını ele veriyor, yani aday 1 için yanlılık riski taşıyor.
+- Bundan sonra grep'ler `eval/dev` ile sınırlandırılmalı.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-0. **Önce ölçüm tutarlılığı (tur dışı, ayrı commit):** Dev gold'u "ERP, ideally SAP" (en-finance-1) ve "ideally selling SaaS" (en-sales-1) ifadelerini zorunlu etiketlemiş. Holdout v2 ve kılavuz ise "ideally" ile nitelenen öğeyi tercih sayıyor. Dev gold kılavuza göre düzeltilip yeni baseline alınmadan satır içi tercih kapsamı (aday 1, PRD 1) denenemez. Ayrıca LinkedIn Recruiter (en-hr-1) hem sorumluluklarda hem "Nice to have" satırında geçiyor; gold tercih diyor, motor en yüksek önemi alıyor. Hangisinin doğru olduğuna karar verilmeli.
-1. **Satır içi tercih kapsamı (PRD 1):** "tercihen", "ideally" ve "a plus" yalnızca ait olduğu öğeyi tercih yapmalı ("Google Analytics (tercihen GA4), Search Console…"). Bunun için önce aday 0 yapılmalı.
+1. **Satır içi tercih kapsamı (PRD 1):** "tercihen", "ideally" ve "a plus" yalnızca ait oldukları öğeyi tercih yapmalı. Örnek: "Google Analytics (tercihen GA4), Search Console…" satırında yalnızca GA4 tercih olmalı.
+   - Şu an "ideally" `INLINE_PREFERRED` listesinde (`keywords.ts`) yok.
+   - Yalnızca bu işaretin eklenmesi SaaS'ı (en-sales-1) düzeltmez:
+     - "Series B SaaS company" ilk satırda `normal` çıkıyor ve birleştirmede en yüksek önem alındığı için sonuç `normal` kalıyor.
+     - Tanıtımdaki alan kelimelerini atlayan kural yalnızca başlıklı ilanlarda çalışıyor, en-sales-1'de ise hiç başlık yok.
+     - SaaS'ın düzelmesi için başlıksız ilanlarda da tanıtım cümlesinin atlanması gerekiyor. Bu yapılmazsa SaaS bilinen bir açık olarak kalır.
+   - Ağırlık `preferred` için 0.5 olduğundan sıralama metriği (36/36) o turda ayrıca izlenmeli.
 2. **Sektör genelleşmesi:** Holdout v2 farkı (14.1) büyük ölçüde sözlükte olmayan sağlık, lojistik ve eğitim terimlerinden kaynaklanıyor. Holdout'a bakarak sözlük doldurmak ezber olur. Doğru yol, sözlüğü holdout'u görmeden genel kaynaklardan genişletmek ya da sözlük dışı terimleri (ilandaki kısaltmalar, isim öbekleri) daha iyi çıkarmak.
 3. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
@@ -99,6 +127,10 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
    - FP&A Analyst ≈ Financial Analyst unvanı tanınmıyor.
    - ROLE_WORDS'de "partner" yok, bu yüzden "Talent Acquisition Partner" ilanında unvan önerisi hiç çıkmıyor.
    - İma ile kanıtta fazladan `only-in-skills`: blog yazıları → content marketing.
+   - **Gold'da ERP eksik:** en-finance-1 ("Experience with an ERP") ve tr-finans-1 ("ERP programlarında tecrübeli") ilanlarında ERP bir şart, ama gold'da yok. Motor ERP'yi çıkarıyor ve bu şu an fazladan sayılıyor.
+     - Ayrı bir etiketleme işi, tur dışında yapılmalı.
+     - SAP için dış görüşün önerdiği okumayla birlikte ele alınmalı: kategori (ERP) zorunlu, örnek araç (SAP) tercih.
+   - "What you'll be doing" başlığı tanınmıyor (`HEADING_PATTERNS`'taki "what you'll do" bu ifadeyi kapsamıyor). Bu yüzden en-hr-1'in sorumluluk satırları ilk bölüm (`intro`) sayılıyor. Şu an sonucu değiştirmiyor (LOW).
 4. **Review'dan kalan LOW'lar:**
    - Ölçülmemiş madde kontrolü bitişik birimleri (5GB, 10km, 40hrs) ad sayıyor.
    - Madde yedeği, deneyim bölümü hiç ayrıştırılamadığında madde işaretli beceri ve eğitim satırlarını da madde sayıyor (`suggest.ts`'teki ponytail notu).
@@ -107,4 +139,4 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 5. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
 6. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
 
-Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
+Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.

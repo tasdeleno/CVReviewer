@@ -45,7 +45,7 @@ Kalan bütün bulgular yerel kural ya da sözlük ile yapılabilir.
 ## Uygulama durumu (2026-10-30)
 | PRD | Durum |
 |---|---|
-| 1 Zorunlu/tercih ve TR demografik şartlar | Kısmen yapıldı. Tur 2'de "Artılar" başlığı ve "big plus"/"strong plus" işaretleri eklendi. Öğe düzeyinde tercih kapsamı, dev gold'undaki "ideally" tutarsızlığı nedeniyle bekliyor (eval/README aday 0). Demografik şartların ayrıştırılması ve önem için ek sinyaller henüz yok. |
+| 1 Zorunlu/tercih ve TR demografik şartlar | Kısmen yapıldı. Tur 2'de "Artılar" başlığı ve "big plus"/"strong plus" işaretleri eklendi. Öğe düzeyinde tercih kapsamı bekliyor. Engeli olan dev gold tutarsızlığı B3'te kapandı (eval/README "Önem etiketleme kılavuzu"). Sıradaki iş eval/README aday 1. Demografik şartların ayrıştırılması ve önem için ek sinyaller henüz yok. |
 | 2 Unvan eşanlamları | Büyük ölçüde yapıldı (tur 2): EN/TR eşanlam ve çeviri grupları, kapsam kelimeleri, "Head of X". Eksikler: FP&A ≈ Financial ve ROLE_WORDS'de "partner". |
 | 3 PDF metin sağlığı | Yapılmadı. |
 | 4 Satır düzeyi yazım | Kısmen yapıldı. Zayıf fiil kapsamı genişledi (tur 2); zamir, klişe ve fiil tekrarı kontrolleri yok. |
