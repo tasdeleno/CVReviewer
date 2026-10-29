@@ -93,7 +93,9 @@ export const detectLang = (text: string): Lang => {
 // ponytail: suffix allow-list instead of a real stemmer; upgrade to a Snowball Turkish
 // stemmer if eval shows too many misses on inflected forms.
 // prettier-ignore
-const EN_SUFFIXES = ["s", "es", "ed", "d", "ing", "er", "ers", "or", "ors", "ment", "ments"];
+// "ize"/"ise" verbs a tool name takes: "Dockerized", "containerised"
+const EN_SUFFIXES = ["s", "es", "ed", "d", "ing", "er", "ers", "or", "ors", "ment", "ments",
+  "ize", "izes", "ized", "izing", "ise", "ises", "ised", "ising"];
 // Folded Turkish suffixes (vowel harmony collapses after folding: ı->i, ü->u)
 // prettier-ignore
 const TR_SUFFIXES = ["lar", "ler", "da", "de", "ta", "te", "dan", "den", "tan", "ten", "nda", "nde", "ndan", "nden",

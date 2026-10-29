@@ -345,6 +345,8 @@ const IMPLIED_BY: Record<string, string> = {
   "cloud": "AWS, Azure, GCP, Google Cloud",
   "data modeling": "star schema, snowflake schema, dimensional modeling, data model, data models|veri modeli, boyutsal modelleme",
   "SQL": "PostgreSQL, MySQL, SQL Server, T-SQL, PL/SQL, BigQuery, Snowflake",
+  // Python-only libraries: using them is using Python
+  "Python": "pandas, NumPy, PySpark, scikit-learn, PyTorch, Django, Flask, FastAPI, pytest",
   "code review": "pull request reviews, PR reviews, reviewed pull requests",
   "CRM": "Salesforce, HubSpot, Zoho, Dynamics 365",
   "ERP": "SAP, Oracle ERP, NetSuite, Logo Tiger, Netsis, Microsoft Dynamics",

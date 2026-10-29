@@ -12,6 +12,7 @@ import {
   hasLetterAndIsAllUpperCase,
 } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/common-features";
 import { getTextWithHighestFeatureScore } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/feature-scoring-system";
+import { BULLET_POINTS } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/bullet-points";
 
 // Name
 export const matchOnlyLetterSpaceOrPeriod = (item: TextItem) =>
@@ -65,6 +66,10 @@ const hasSlash = (item: TextItem) => item.text.includes("/");
 
 // Summary
 const has4OrMoreWords = (item: TextItem) => item.text.split(" ").length >= 4;
+// Experience bullets land in the header when their heading isn't recognized ("Career
+// History", no headings at all); they are not a summary
+const startsWithBullet = (item: TextItem) =>
+  BULLET_POINTS.some((bullet) => item.text.trim().startsWith(bullet));
 
 /**
  *              Unique Attribute
@@ -138,7 +143,9 @@ const SUMMARY_FEATURE_SETS: FeatureSet[] = [
   [isBold, -1], // Name
   [hasAt, -4], // Email
   [hasParenthesis, -3], // Phone
+  [matchPhone, -4, false], // Phone without parentheses: "+1 555 010 1133"
   [matchCityAndState, -4, false], // Location
+  [startsWithBullet, -4], // Experience bullet
 ];
 
 export const extractProfile = (sections: ResumeSectionToLines) => {

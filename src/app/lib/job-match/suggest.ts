@@ -1,12 +1,14 @@
 import { foldText } from "lib/fold-text";
 import type { Resume } from "lib/redux/types";
 import type { TextItems } from "lib/parse-resume-from-pdf/types";
+import { BULLET_POINTS } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/bullet-points";
 import { getSkillLabel } from "lib/job-match/dictionary";
 import type { KeywordMatch } from "lib/job-match";
 import {
   tokenize,
   toTokenizedText,
   hasPhrase,
+  tokenMatches,
   type Lang,
 } from "lib/job-match/text";
 
@@ -83,9 +85,12 @@ const quote = (text: string) =>
   `«${text.length > 110 ? text.slice(0, 107) + "…" : text}»`;
 
 // prettier-ignore
-const WEAK_START_EN = /^(responsible for|helped|assisted|worked on|involved in|participated in|duties included|tasked with|handled|in charge of)\b/i;
+const WEAK_START_EN = /^((was|were) )?(responsible for|help(ed|s)?|assist(ed|s)?|support(ed|s)?|worked on|involved in|participated in|duties included|tasked with|handled|in charge of)\b(?! (desk|team)\b)/i;
 // prettier-ignore
-const WEAK_END_TR = /(sorumluydum|sorumlu oldum|yardımcı oldum|destek oldum|görev aldım|yer aldım|katıldım|ilgilendim|çalıştım)\.?$/i;
+const WEAK_END_TR = /(yer aldım|katıldım|ilgilendim|çalıştım)\.?$/i;
+// Duty phrasing that is weak wherever it sits: "…işlerinden sorumluydum ve …"
+// prettier-ignore
+const WEAK_ANY_TR = /(sorumluydum|sorumlu oldum|yardımcı oldum|destek oldum|destek verdim|görev aldım)(?=[\s,.;]|$)/i;
 const STRONG_VERBS: Record<Lang, string> = {
   en: "Led, Built, Reduced, Increased, Launched, Automated",
   tr: "yönettim, geliştirdim, azalttım, artırdım, hayata geçirdim, otomatize ettim",
@@ -125,6 +130,43 @@ const ROLE_WORDS = ["analyst", "developer", "engineer", "manager", "specialist",
 // prettier-ignore
 const SENIORITY_WORDS = new Set(["senior", "sr", "junior", "jr", "principal", "staff", "mid", "midlevel",
   "head", "kidemli", "uzman", "yardimcisi"]);
+// Title words with the same meaning in EN/TR (folded), so "Data Engineer" satisfies
+// "Veri Mühendisi" and "Frontend Developer" satisfies "Frontend Geliştirici"
+const MANAGER_WORDS = ["manager", "mudur", "yonetici"];
+// prettier-ignore
+const TITLE_SYNONYMS = [["engineer", "developer", "muhendis", "gelistirici"], ["specialist", "uzman"],
+  ["analyst", "analist"], MANAGER_WORDS, ["representative", "temsilci"],
+  ["coordinator", "koordinator"], ["consultant", "danisman"], ["designer", "tasarimci"],
+  ["assistant", "asistan"], ["data", "veri"], ["software", "yazilim"], ["sales", "satis"],
+  ["marketing", "pazarlama"], ["digital", "dijital"]];
+// Scope words a title can drop: "Bölge Satış Temsilcisi" is satisfied by "Satış Temsilcisi"
+const SCOPE_WORDS = new Set(["bolge", "regional", "area", "field", "saha"]);
+
+/** Ways a resume can state the title: synonyms per word, and "Head of X" for "X Manager" */
+const titleVariants = (core: string[]) => {
+  const words = core.filter((w) => !SCOPE_WORDS.has(w));
+  // The ad's own word stays an option: only the last phrase word may be inflected, so
+  // "Engineering Manager" must still match itself, not just "engineer manager"
+  const options = (words.length ? words : core).map((w) =>
+    Array.from(
+      new Set([
+        w,
+        ...(TITLE_SYNONYMS.find((group) =>
+          group.some((s) => tokenMatches(w, s))
+        ) ?? []),
+      ])
+    )
+  );
+  let variants: string[][] = [[]];
+  for (const words of options) {
+    variants = variants.flatMap((v) => words.map((w) => [...v, w]));
+  }
+  return variants.flatMap((v) =>
+    MANAGER_WORDS.includes(v[v.length - 1])
+      ? [v, ["head", "of", ...v.slice(0, -1)]]
+      : [v]
+  );
+};
 
 /**
  * The job title, if the ad's first line looks like one: the part before " - ", "," or "|",
@@ -172,10 +214,22 @@ export const suggest = ({
   const missing = matches.filter((m) => !m.found).sort(byWeight);
   const hasRequired = (ms: KeywordMatch[]) =>
     ms.some((m) => m.importance === "required");
-  const bullets = [
+  const parsedBullets = [
     ...resume.workExperiences.flatMap((w) => w.descriptions),
     ...resume.projects.flatMap((p) => p.descriptions),
   ].filter((b) => b.trim());
+  // No experience section was recognized (no headings, "Career History"): the bullet
+  // lines are still in the text. ponytail: this also takes bulleted skills/education
+  // lines; scope it to the header block if that skews unquantified on real resumes.
+  const bullets =
+    parsedBullets.length || resume.workExperiences.length
+      ? parsedBullets
+      : resumeText.split("\n").flatMap((line) => {
+          const text = line.trim();
+          const glyph = BULLET_POINTS.find((b) => text.startsWith(b));
+          const rest = glyph ? text.slice(glyph.length).trim() : "";
+          return rest ? [rest] : [];
+        });
 
   // 1. Missing tools/technologies/certificates/languages -> Skills
   const toSkills = missing.filter(
@@ -265,13 +319,16 @@ export const suggest = ({
 
   // 6. Summary and target title
   const title = getAdTitle(jobAd);
+  const resumeTokens = toTokenizedText(resumeText);
   const titleInResume =
     title &&
-    hasPhrase(toTokenizedText(resumeText), {
-      tokens: title.core,
-      caseSensitive: false,
-      turkishSuffixes: true,
-    });
+    titleVariants(title.core).some((tokens) =>
+      hasPhrase(resumeTokens, {
+        tokens,
+        caseSensitive: false,
+        turkishSuffixes: true,
+      })
+    );
   if (!resume.profile.summary.trim()) {
     const top = matches
       .filter((m) => m.found && m.importance === "required")
@@ -302,7 +359,10 @@ export const suggest = ({
 
   // 7. Bullet quality
   const weak = bullets.filter(
-    (b) => WEAK_START_EN.test(b.trim()) || WEAK_END_TR.test(b.trim())
+    (b) =>
+      WEAK_START_EN.test(b.trim()) ||
+      WEAK_END_TR.test(b.trim()) ||
+      WEAK_ANY_TR.test(b)
   );
   if (weak.length) {
     suggestions.push({
@@ -313,7 +373,14 @@ export const suggest = ({
       examples: weak.slice(0, 3),
     });
   }
-  const unquantified = bullets.filter((b) => !/\d/.test(b));
+  // A digit glued to a letter is part of a name, not a quantity: B2B, GA4, 3PL, S4.
+  // A unit after the number still makes it one: 10k, 50M, 20ms, 3x, 99th.
+  const unquantified = bullets.filter(
+    (b) =>
+      !/(^|[^\p{L}\d])\d+([.,]\d+)?(k|m|bn|ms|s|h|x|th|st|nd|rd)?(?![\p{L}\d])/iu.test(
+        b
+      )
+  );
   if (bullets.length >= 3 && unquantified.length / bullets.length > 0.5) {
     suggestions.push({
       kind: "unquantified",

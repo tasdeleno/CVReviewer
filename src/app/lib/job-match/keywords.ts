@@ -33,7 +33,7 @@ type Block = "required" | "preferred" | "responsibilities" | "intro" | "skip";
 // "preferred qualifications" contains "qualification".
 // prettier-ignore
 const HEADING_PATTERNS: [Block, string[]][] = [
-  ["preferred", ["nice to have", "nice-to-have", "preferred", "bonus", "tercih", "arti olarak", "avantaj"]],
+  ["preferred", ["nice to have", "nice-to-have", "preferred", "bonus", "tercih", "arti olarak", "artilar", "avantaj"]],
   ["required", ["requirement", "qualification", "what you bring", "what you'll bring", "what you need", "you have",
     "must have", "looking for", "about you", "your profile", "skills", "nitelik", "gereksinim", "beklenti",
     "aradigimiz", "aranan", "yetkinlik", "sart"]],
@@ -45,7 +45,7 @@ const HEADING_PATTERNS: [Block, string[]][] = [
 
 // Inline markers that make a single line "preferred" or "required" regardless of its block
 // prettier-ignore
-const INLINE_PREFERRED = ["is a plus", "a plus", "nice to have", "preferred", "is an advantage", "bonus",
+const INLINE_PREFERRED = ["is a plus", "a plus", "big plus", "strong plus", "nice to have", "preferred", "is an advantage", "bonus",
   "tercih sebebi", "tercihen", "arti olarak", "avantaj"];
 // prettier-ignore
 const INLINE_REQUIRED = ["must have", "required", "is a must", "zorunlu", "mutlaka", "sart"];
@@ -164,12 +164,16 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
   };
 
   const adLang = detectLang(ad);
+  const lines = ad.split(/\r?\n/).filter((line) => line.trim());
+  const headings = lines.map(parseHeading);
+  // Without headings the requirements are prose in the intro block too
+  const hasHeadings = headings.some(Boolean);
   let block: Block = "intro";
   let isTitleLine = true;
-  for (const line of ad.split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    const heading = parseHeading(line);
+  for (const [i, line] of Array.from(lines.entries())) {
+    const heading = headings[i];
     let content = line;
+    const onTitleLine = isTitleLine;
     if (isTitleLine) {
       // A short first line is the title: "Data Analyst (Weekday AI, Bengaluru)", where
       // the parentheses hold company/location. A first line that is a whole sentence
@@ -199,6 +203,16 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
         .filter((s): s is string => Boolean(s));
       const span = spans[0];
       if (!span) return;
+      // The intro describes the employer ("a retail bank", "900 çalışanlı gıda üreticisi"):
+      // its industry words are not asked of the candidate. The title line still counts.
+      if (
+        block === "intro" &&
+        hasHeadings &&
+        !onTitleLine &&
+        skill.category === "domain"
+      ) {
+        return;
+      }
       // All matched forms, so "SAP FI" covers "FI" even though "SAP" matched first
       spans.forEach((s) => tokenize(s).forEach((token) => covered.add(token)));
       const forms = [...skill.en, ...skill.tr].map(foldText);
