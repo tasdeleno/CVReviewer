@@ -155,6 +155,8 @@ test(`eval ${split}`, async () => {
   let conditionFp = 0;
   let conditionFn = 0;
   const report: string[] = [`# Eval raporu (${split})`, ""];
+  // EVAL_DUMP=<path>: per-resume matches, to rescore other weights offline
+  const dump: unknown[] = [];
 
   for (const id of readdirSync(splitDir).sort()) {
     const dir = join(splitDir, id);
@@ -166,6 +168,17 @@ test(`eval ${split}`, async () => {
 
     for (const fit of FITS) {
       const result = analyze(ad, await readTextItems(join(dir, `${fit}.pdf`)));
+      dump.push({
+        id,
+        fit,
+        score: result.score,
+        matches: result.matches.map((m) => ({
+          label: m.label,
+          importance: m.importance,
+          found: m.found,
+          category: m.skill?.category ?? null,
+        })),
+      });
       scores[fit] = result.score;
       const links = result.matches.map((keyword) =>
         linkGolds(keyword, gold.keywords)
@@ -352,5 +365,8 @@ test(`eval ${split}`, async () => {
   ];
   report.splice(2, 0, ...summary, "");
   writeFileSync(join(__dirname, `report-${split}.md`), report.join("\n"));
+  if (process.env.EVAL_DUMP) {
+    writeFileSync(process.env.EVAL_DUMP, JSON.stringify(dump, null, 1));
+  }
   console.log(summary.join("\n"));
 }, 300000);

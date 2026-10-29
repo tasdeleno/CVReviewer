@@ -136,9 +136,26 @@ describe("job-match - matching", () => {
       extractKeywords("Requirements: Python, SQL\nNice to have: Docker"),
       [{ section: "skills", text: "Python, Docker" }]
     );
-    // (Python 2 + Docker 0.5) / (Python 2 + SQL 2 + Docker 0.5)
-    expect(computeScore(matches)).toBe(56);
+    // (Python 3 + Docker 0.25) / (Python 3 + SQL 3 + Docker 0.25)
+    expect(computeScore(matches)).toBe(52);
     expect(computeScore([])).toBe(0);
+  });
+
+  it("finding one more keyword never lowers the score", () => {
+    const matches = matchKeywords(
+      extractKeywords(
+        "Requirements: Python, SQL, communication skills\nNice to have: Docker, MQTT\nYou will build REST APIs"
+      ),
+      []
+    );
+    expect(matches.length).toBeGreaterThan(3);
+    for (let i = 0; i < matches.length; i++) {
+      for (let j = 0; j < matches.length; j++) {
+        const some = matches.map((m, k) => ({ ...m, found: k < i }));
+        const more = some.map((m, k) => (k === j ? { ...m, found: true } : m));
+        expect(computeScore(more)).toBeGreaterThanOrEqual(computeScore(some));
+      }
+    }
   });
 
   it("detects language", () => {
