@@ -9,7 +9,12 @@ import {
 } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/bullet-points";
 
 export const extractSkills = (sections: ResumeSectionToLines) => {
-  const lines = getSectionLinesByKeywords(sections, ["skill"]);
+  const lines = getSectionLinesByKeywords(sections, [
+    "skill",
+    "yetenek",
+    "beceri",
+    "yetkinlik",
+  ]);
   const descriptionsLineIdx = getDescriptionsLineIdx(lines) ?? 0;
   const descriptionsLines = lines.slice(descriptionsLineIdx);
   const descriptions = getBulletPointsFromLines(descriptionsLines);
