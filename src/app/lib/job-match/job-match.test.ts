@@ -1,4 +1,5 @@
-import { extractKeywords } from "lib/job-match/keywords";
+import { extractConditions, extractKeywords } from "lib/job-match/keywords";
+import { checkConditions } from "lib/job-match/conditions";
 import { computeScore, matchKeywords } from "lib/job-match";
 import { suggest } from "lib/job-match/suggest";
 import { initialResumeState } from "lib/redux/resumeSlice";
@@ -293,5 +294,128 @@ describe("job-match - title and quantity rules", () => {
     expect(kindsFor("Data Analyst", "Data analyst", names)).toContain(
       "unquantified"
     );
+  });
+});
+
+describe("job-match - ad conditions", () => {
+  const kindsOf = (ad: string) => extractConditions(ad).map((c) => c.kind);
+
+  it("finds conditions of every tier, in Turkish and English", () => {
+    expect(
+      kindsOf("- B sınıfı ehliyete sahip ve seyahat engeli bulunmayan")
+    ).toEqual(["license", "travel"]);
+    expect(
+      kindsOf("A full UK driving licence and the right to work in the UK")
+    ).toEqual(["license", "work-permit"]);
+    expect(kindsOf("- 25-35 yaş arası, bekar ve sigara kullanmayan")).toEqual([
+      "age",
+      "marital",
+      "smoking",
+    ]);
+    expect(kindsOf("Female applicants only, must be a non-smoker")).toEqual([
+      "gender",
+      "smoking",
+    ]);
+    expect(kindsOf("Adli sicil kaydı temiz, iyi görünümlü")).toEqual([
+      "criminal-record",
+      "appearance",
+    ]);
+  });
+
+  it("military service for male candidates is not also a gender condition", () => {
+    expect(
+      kindsOf("- Erkek adaylar için askerlik hizmetini tamamlamış")
+    ).toEqual(["military"]);
+    // k softens to ğ before a vowel: "askerliğini"
+    expect(
+      kindsOf("Erkek adaylar için askerliğini tamamlamış, 25-40 yaş arası")
+    ).toEqual(["military", "age"]);
+    expect(kindsOf("- Marmaris'te ikamet eden bayan adaylar")).toEqual([
+      "residence",
+      "gender",
+    ]);
+  });
+
+  it("gender and marital status are different tiers", () => {
+    expect(
+      extractConditions("Bekar bayan aday").map((c) => [c.kind, c.tier])
+    ).toEqual([
+      ["gender", "protected-exception"],
+      ["marital", "protected"],
+    ]);
+  });
+
+  it("condition text yields no keywords", () => {
+    expect(keywordsOf("Requirements: SRC belgesi, Excel")).toEqual({
+      Excel: "required",
+    });
+    expect(keywordsOf("25-35 yaş arası, Python bilen")).toEqual({
+      Python: "normal",
+    });
+  });
+
+  it("benefits and look-alike skills are not conditions", () => {
+    for (const ad of [
+      "Nice to have: LinkedIn Recruiter license experience",
+      "Özel sağlık sigortası, şirket aracı ve yakıt desteği",
+      "Experience with smoking cessation programmes",
+      "Seyahat acentesi deneyimi",
+      "Sponsorship for professional exams",
+      "Competitive salary and an attractive bonus",
+      "Able to lift up to 25 kg",
+      "Çocuk gelişimi bölümü mezunu",
+      // review findings: banking DBS, legal bars, job titles, equal-opportunity statements
+      "DBS, çek ve senet takibi",
+      "Yurt dışı çıkışına engeli bulunmayan",
+      "Erkek kuaför",
+      "We consider all applicants regardless of age, gender or marital status",
+      "Kadın adayların başvurularını teşvik ediyoruz",
+      "Bayan giyim mağazasında satış deneyimi",
+    ]) {
+      expect(kindsOf(ad)).toEqual([]);
+    }
+    expect(kindsOf("Yan Haklar\n- Şirket aracı ve ehliyet desteği")).toEqual(
+      []
+    );
+  });
+
+  it("only checkable conditions are looked up in the resume", () => {
+    const conditions = extractConditions(
+      "B sınıfı ehliyet sahibi, askerlik hizmetini tamamlamış"
+    );
+    expect(
+      checkConditions(conditions, "Full driving license (class B)").map((c) => [
+        c.kind,
+        c.found,
+      ])
+    ).toEqual([
+      ["license", true],
+      ["military", undefined],
+    ]);
+    expect(checkConditions(conditions, "Python, SQL")[0].found).toBe(false);
+    expect(
+      checkConditions(extractConditions("SRC 4 belgesi"), "SRC 4 Belgesi")[0]
+        .found
+    ).toBe(true);
+  });
+
+  it("emoji bullets, inflections and job-title forms", () => {
+    // "✔️" carries a variation selector that foldText drops
+    expect(kindsOf("✔️ B sınıfı ehliyet, Excel")).toEqual(["license"]);
+    expect(keywordsOf("✔️ B sınıfı ehliyet, Excel")).toEqual({
+      Excel: "normal",
+    });
+    expect(kindsOf("Kendi araca sahip")).toEqual(["own-vehicle"]);
+    expect(kindsOf("Bayan satış danışmanı aranıyor")).toEqual(["gender"]);
+    expect(kindsOf("Enhanced DBS check required")).toEqual(["criminal-record"]);
+    // an equal-opportunity sentence hides only itself, not the requirement next to it
+    expect(
+      kindsOf("Regardless of location, a valid UK driving licence is required")
+    ).toEqual(["license"]);
+    expect(
+      kindsOf(
+        "We are an equal opportunity employer. Candidates must hold a driving licence."
+      )
+    ).toEqual(["license"]);
   });
 });

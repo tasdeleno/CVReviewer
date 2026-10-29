@@ -39,7 +39,7 @@ Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) v
 | Tier | `kind` | CV'de aranır mı |
 |---|---|---|
 | 1 `credential` | `license`, `own-vehicle` | evet |
-| 2 `logistics` | `work-permit`, `residence`, `travel`, `shift` | evet |
+| 2 `logistics` | `work-permit`, `residence`, `travel`, `shift` | yalnız `work-permit` (ikamet, seyahat ve vardiya CV'de kalıpla bulunamaz) |
 | 3 `contextual` | `military`, `criminal-record`, `health-report` | hayır |
 | 4 `protected-exception` | `gender`, `age`, `disability` | hayır |
 | 5 `protected` | `marital`, `children`, `pregnancy`, `religion` | hayır |

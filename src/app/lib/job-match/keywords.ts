@@ -1,5 +1,11 @@
 import { foldText } from "lib/fold-text";
 import {
+  findConditionSpans,
+  toConditions,
+  withoutConditions,
+  type ConditionKind,
+} from "lib/job-match/conditions";
+import {
   SKILLS,
   getSkillLabel,
   type SkillEntry,
@@ -149,10 +155,12 @@ const IMPORTANCE_RANK: Record<Importance, number> = {
 
 /**
  * Extract weighted keywords from a job ad: bilingual dictionary skills plus tool-like
- * tokens (acronyms, CamelCase) that are not in the dictionary.
+ * tokens (acronyms, CamelCase) that are not in the dictionary. Conditions (driving
+ * licence, age, ...) come out separately and yield no keywords.
  */
-export const extractKeywords = (ad: string): AdKeyword[] => {
+export const extractJobAd = (ad: string) => {
   const byKey = new Map<string, AdKeyword>();
+  const conditions: { kind: ConditionKind; line: string }[] = [];
   const add = (key: string, keyword: AdKeyword) => {
     const existing = byKey.get(key);
     if (
@@ -189,6 +197,9 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
       content = heading.content; // "Requirements: Python, SQL"
     }
     if (block === "skip") continue;
+    const spans = findConditionSpans(content);
+    spans.forEach(({ kind }) => conditions.push({ kind, line }));
+    if (spans.length) content = withoutConditions(content, spans);
 
     const importance = getImportance(content, block);
     const weight = WEIGHTS[importance];
@@ -264,5 +275,12 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
       });
     }
   }
-  return Array.from(byKey.values());
+  return {
+    keywords: Array.from(byKey.values()),
+    conditions: toConditions(conditions),
+  };
 };
+
+export const extractKeywords = (ad: string): AdKeyword[] =>
+  extractJobAd(ad).keywords;
+export const extractConditions = (ad: string) => extractJobAd(ad).conditions;

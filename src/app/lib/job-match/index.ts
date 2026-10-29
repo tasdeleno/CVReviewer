@@ -2,7 +2,8 @@ import type { TextItems } from "lib/parse-resume-from-pdf/types";
 import { groupTextItemsIntoLines } from "lib/parse-resume-from-pdf/group-text-items-into-lines";
 import { groupLinesIntoSections } from "lib/parse-resume-from-pdf/group-lines-into-sections";
 import { extractResumeFromSections } from "lib/parse-resume-from-pdf/extract-resume-from-sections";
-import { extractKeywords, type AdKeyword } from "lib/job-match/keywords";
+import { checkConditions } from "lib/job-match/conditions";
+import { extractJobAd, type AdKeyword } from "lib/job-match/keywords";
 import { checkAts, suggest } from "lib/job-match/suggest";
 import {
   detectLang,
@@ -76,11 +77,14 @@ export const analyze = (jobAd: string, textItems: TextItems) => {
     ad: detectLang(jobAd),
     resume: detectLang(resumeText),
   };
-  const matches = matchKeywords(extractKeywords(jobAd), resumeLines);
+  const ad = extractJobAd(jobAd);
+  const matches = matchKeywords(ad.keywords, resumeLines);
   return {
     score: computeScore(matches),
     langs,
     matches,
+    // not in the score: shown apart from the keywords (eval/README.md, conditions)
+    conditions: checkConditions(ad.conditions, resumeText),
     suggestions: suggest({ jobAd, matches, resume, resumeText, langs }),
     ats: checkAts(textItems, resume),
     resume,

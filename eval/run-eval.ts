@@ -11,6 +11,7 @@ import { readPdfDocument } from "lib/parse-resume-from-pdf/read-pdf-document";
 import { analyze } from "lib/job-match";
 import { hasPhrase, toPhrase, toTokenizedText } from "lib/job-match/text";
 import type { AdKeyword } from "lib/job-match/keywords";
+import { CONDITION_KINDS, type ConditionKind } from "lib/job-match/conditions";
 import type { SuggestionKind } from "lib/job-match/suggest";
 
 // pdfjs legacy build only needs these for rendering, not for text extraction.
@@ -34,6 +35,7 @@ interface Gold {
   resumes: Record<Fit, { present: string[]; missing: string[] }>;
   expectedSections: Record<Fit, string[]>;
   expectedSuggestions: Record<Fit, SuggestionKind[]>;
+  conditions?: { kind: ConditionKind }[]; // missing: the ad has no conditions
 }
 
 // Suggestion kinds labeled in gold (see eval/README.md). Keyword-driven kinds are left
@@ -117,6 +119,18 @@ const checkGold = (gold: Gold) => {
       );
     }
   }
+  const known: string[] = CONDITION_KINDS.map(([kind]) => kind);
+  const conditions: unknown = gold.conditions ?? [];
+  if (!Array.isArray(conditions)) {
+    throw new Error(`${gold.id}: conditions geçersiz`);
+  }
+  const conditionKinds = conditions.map((c) => c?.kind);
+  if (
+    new Set(conditionKinds).size !== conditionKinds.length ||
+    conditionKinds.some((kind) => !known.includes(kind))
+  ) {
+    throw new Error(`${gold.id}: conditions geçersiz`);
+  }
 };
 
 const pct = (n: number, d: number) => (d === 0 ? 1 : n / d);
@@ -137,6 +151,9 @@ test(`eval ${split}`, async () => {
   let suggestTp = 0;
   let suggestFp = 0;
   let suggestFn = 0;
+  let conditionTp = 0;
+  let conditionFp = 0;
+  let conditionFn = 0;
   const report: string[] = [`# Eval raporu (${split})`, ""];
 
   for (const id of readdirSync(splitDir).sort()) {
@@ -197,6 +214,24 @@ test(`eval ${split}`, async () => {
             spurious.map((k) => k.label).join(", ") || "-"
           }`,
           `- Yanlış önem: ${wrongImportance.join(", ") || "-"}`
+        );
+
+        // Conditions, per ad; reported apart, not in EVAL_SCORE (eval/README.md)
+        const predictedConditions = result.conditions.map((c) => c.kind);
+        const goldConditions = (gold.conditions ?? []).map((c) => c.kind);
+        const extraConditions = predictedConditions.filter(
+          (kind) => !goldConditions.includes(kind)
+        );
+        const missedConditions = goldConditions.filter(
+          (kind) => !predictedConditions.includes(kind)
+        );
+        conditionTp += predictedConditions.length - extraConditions.length;
+        conditionFp += extraConditions.length;
+        conditionFn += missedConditions.length;
+        report.push(
+          `- Koşul: bulunamayan ${
+            missedConditions.join(", ") || "-"
+          }; fazladan ${extraConditions.join(", ") || "-"}`
         );
       }
 
@@ -306,6 +341,13 @@ test(`eval ${split}`, async () => {
     `Öneri: precision ${(100 * suggestPrecision).toFixed(1)}, recall ${(
       100 * suggestRecall
     ).toFixed(1)}, F1 ${(100 * suggestF1).toFixed(1)}`,
+    `Koşul (skora girmez): precision ${(
+      100 * pct(conditionTp, conditionTp + conditionFp)
+    ).toFixed(1)}, recall ${(
+      100 * pct(conditionTp, conditionTp + conditionFn)
+    ).toFixed(
+      1
+    )} (${conditionTp} doğru, ${conditionFp} fazladan, ${conditionFn} eksik)`,
     `EVAL_SCORE=${composite.toFixed(1)}`,
   ];
   report.splice(2, 0, ...summary, "");
