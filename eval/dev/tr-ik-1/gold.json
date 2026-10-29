@@ -215,5 +215,22 @@
       "unquantified",
       "weak-verbs"
     ]
-  }
+  },
+  "conditions": [
+    {
+      "kind": "age"
+    },
+    {
+      "kind": "marital"
+    },
+    {
+      "kind": "smoking"
+    },
+    {
+      "kind": "residence"
+    },
+    {
+      "kind": "gender"
+    }
+  ]
 }

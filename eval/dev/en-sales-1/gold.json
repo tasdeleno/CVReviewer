@@ -216,5 +216,13 @@
       "unquantified",
       "weak-verbs"
     ]
-  }
+  },
+  "conditions": [
+    {
+      "kind": "license"
+    },
+    {
+      "kind": "work-permit"
+    }
+  ]
 }

@@ -101,16 +101,6 @@
       "importance": "required"
     },
     {
-      "term": "B sınıfı ehliyet",
-      "aliases": [
-        "ehliyet",
-        "driving license",
-        "driver's license",
-        "driving licence"
-      ],
-      "importance": "required"
-    },
-    {
       "term": "SAP",
       "aliases": [],
       "importance": "preferred"
@@ -136,7 +126,6 @@
         "Excel",
         "CRM",
         "raporlama",
-        "B sınıfı ehliyet",
         "İngilizce"
       ],
       "missing": [
@@ -153,7 +142,6 @@
         "teklif hazırlama",
         "Excel",
         "CRM",
-        "B sınıfı ehliyet",
         "İngilizce"
       ],
       "missing": [
@@ -177,7 +165,6 @@
         "satış hedefi",
         "müzakere",
         "teklif hazırlama",
-        "B sınıfı ehliyet",
         "SAP"
       ]
     }
@@ -212,5 +199,16 @@
       "unquantified",
       "weak-verbs"
     ]
-  }
+  },
+  "conditions": [
+    {
+      "kind": "license"
+    },
+    {
+      "kind": "travel"
+    },
+    {
+      "kind": "military"
+    }
+  ]
 }
