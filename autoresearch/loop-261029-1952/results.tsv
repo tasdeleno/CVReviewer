@@ -1,0 +1,13 @@
+# metric_direction: higher_is_better
+iteration	timestamp	commit	metric	delta	guard	guard-metric	status	description
+0	2026-10-29T19:52:20+03:00	7700857	90.6	0.0	pass	25/25	baseline	initial state (commit yerine scratchpad snapshot; CLAUDE.md reviewer kuralı)
+1	2026-10-29T19:53:12+03:00	-	91.1	+0.5	pass	25/25	keep	özet bölümü: Profile/About/Profil başlıkları (header bölümü hariç tutularak)
+2	2026-10-29T19:59:37+03:00	-	92.4	+1.3	pass	25/25	keep	araç->uygulama çıkarımı (IMPLIED_BY: Jenkins->CI/CD, Jest->unit testing, Scrum->Agile...)
+3	2026-10-29T20:01:01+03:00	-	92.9	+0.5	pass	25/25	keep	İngilizce türetme: -ion fiil biçimleri, çok kelimeli ifadelerde -ing çoğul/fiil
+4	2026-10-29T20:01:58+03:00	-	93.1	+0.2	pass	25/25	keep	TR tamlama kökü: çok kelimeli TR biçimlerde son kelimenin iyelik eki atılır (pazarlaması->pazarlama)
+5	2026-10-29T20:02:25+03:00	-	93.3	+0.2	pass	25/25	keep	bilinmeyen kısaltma kara listesi: coğrafya/saat dilimi/şirket türü (UK, EU, EMEA, GMT...)
+6	2026-10-29T20:03:57+03:00	-	93.9	+0.6	pass	25/25	keep	ima bilgisi: bulut ürün aileleri, finansal tablolar->financial reporting, sunum->communication, boyutsal modelleme
+7	2026-10-29T20:04:29+03:00	-	94.0	+0.1	pass	25/25	keep	EN fail eki -or/-ors (audit->auditors)
+8	2026-10-29T20:04:49+03:00	-	94.2	+0.2	pass	25/25	keep	eşanlamlar: titiz/meticulous->attention to detail; product copy->copywriting
+9	2026-10-29T20:06:07+03:00	-	94.5	+0.3	pass	25/25	keep	bölüm başlıkları: Tools/Technologies/Araçlar->skills, Qualifications/Academic->education
+10	2026-10-29T20:06:36+03:00	-	95.5	+1.0	pass	25/25	keep	sözlük: MLOps/frontend araçları/TR e-dönüşüm ekosistemleri (dev-ilhamlı, holdout ile sınanacak)

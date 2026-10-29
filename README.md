@@ -13,7 +13,16 @@ veya üçüncü taraf istek yoktur.
   kullanıyorsan klasörü repo dışında seç; rapor ve PDF'ler yanlışlıkla commit'e girmesin.
 - Doğrulama: `npm run eval` — sentetik CV/ilan veri setiyle (`eval/`, bkz. `eval/README.md`) motoru ölçer,
   `EVAL_SCORE` basar. Holdout seti için `EVAL_SPLIT=holdout npm run eval` (yalnız tur sonunda).
+- Motor iyileştirme turları: autoresearch döngüsüyle (ölç → değiştir → tut/at). Protokol, güncel skorlar
+  ve sonraki tur adayları `eval/README.md`'de; tur kayıtları `autoresearch/loop-*/`.
 - Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
+
+### Durum (2026-10-29)
+- Tamam: statik export + gizlilik (analytics yok), Türkçe parser, eşleştirme motoru, öneri + ATS modülü,
+  sentetik eval (dev 95.3 / holdout 90.4), autoresearch turu 1, gerçek ilan denemesi. 35 birim testi.
+- Sırada: birkaç autoresearch turu daha (önce eval ölçüm düzeltmesi, bkz. `eval/README.md`), ardından
+  arayüz (Faz 4: Türkçe analiz sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
+- Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
 
 Aşağısı upstream'in orijinal README'sidir.
 
