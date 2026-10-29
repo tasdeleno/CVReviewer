@@ -32,8 +32,9 @@ export const matchKeywords = (
   // Fallback for phrases broken across lines ("machine" / "learning")
   const whole = toTokenizedText(resumeLines.map((line) => line.text).join(" "));
   return keywords.map((keyword) => {
+    const phrases = [...keyword.phrases, ...(keyword.skill?.impliedBy ?? [])];
     const has = (text: TokenizedText) =>
-      keyword.phrases.some((phrase) => hasPhrase(text, phrase));
+      phrases.some((phrase) => hasPhrase(text, phrase));
     const hit = lines.find((line) => has(line.text));
     return {
       ...keyword,

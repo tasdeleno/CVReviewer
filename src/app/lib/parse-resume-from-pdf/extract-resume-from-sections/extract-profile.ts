@@ -156,10 +156,14 @@ export const extractProfile = (sections: ResumeSectionToLines) => {
     true
   );
 
-  const summaryLines = getSectionLinesByKeywords(sections, [
+  // Exclude the header section, whose key "profile" would match the "profil" keyword
+  const { profile: _header, ...titledSections } = sections;
+  const summaryLines = getSectionLinesByKeywords(titledSections, [
     "summary",
     "ozet",
     "hakkimda",
+    "profil", // "Profile", "Professional Profile", "Profil"
+    "about", // "About Me"
   ]);
   const summarySection = summaryLines
     .flat()

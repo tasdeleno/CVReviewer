@@ -14,6 +14,11 @@ export const extractSkills = (sections: ResumeSectionToLines) => {
     "yetenek",
     "beceri",
     "yetkinlik",
+    "tool", // "Tools", "Tools & Technologies"
+    "technolog",
+    "competenc",
+    "teknoloji",
+    "araclar", // "Araçlar" ("arac" alone hits "personal characteristics")
   ]);
   const descriptionsLineIdx = getDescriptionsLineIdx(lines) ?? 0;
   const descriptionsLines = lines.slice(descriptionsLineIdx);

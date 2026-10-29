@@ -87,6 +87,37 @@ describe("job-match - matching", () => {
     expect(has("Built React apps", "=React")).toBe(true);
   });
 
+  it("derivations and implications without false positives", () => {
+    expect(has("Communicating insights to leadership", "communication")).toBe(
+      true
+    );
+    expect(has("Wrote unit tests", "unit testing")).toBe(true);
+    expect(keywordsOf("We value teamwork and our values")).toEqual({
+      teamwork: "normal",
+    });
+    const found = (ad: string, resumeText: string) =>
+      matchKeywords(extractKeywords(ad), [
+        { section: "experience", text: resumeText },
+      ])[0].found;
+    expect(found("CI/CD experience", "Set up Jenkins pipelines")).toBe(true);
+    // "web servisi" must not be stemmed down to "serv" and match "server"
+    expect(found("Web servisi geliştirme", "Configured the web server")).toBe(
+      false
+    );
+    expect(found("Web servisi geliştirme", "Web servislerini yazdım")).toBe(
+      true
+    );
+    expect(found("AWS experience", "Wrote lambda functions in Python")).toBe(
+      false
+    );
+    expect(found("Communication skills", "Presented with an award")).toBe(
+      false
+    );
+    expect(
+      found("Communication skills", "Presented findings to the board")
+    ).toBe(true);
+  });
+
   it("bilingual skills match across languages", () => {
     const [ml] = extractKeywords("Experience with machine learning");
     const [teamwork] = extractKeywords("Takım çalışmasına yatkın");

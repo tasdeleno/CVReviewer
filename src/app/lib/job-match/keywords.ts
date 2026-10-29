@@ -126,7 +126,10 @@ const candidateTokens = (line: string) =>
 // Acronyms that are not skills
 // prettier-ignore
 const NOT_SKILLS = new Set(["CV", "OR", "AND", "THE", "WE", "YOU", "US", "TR", "EN", "VE", "ILE", "IK", "HR", "CEO",
-  "CTO", "CFO", "VP", "LTD", "AS", "INC", "LLC", "TL", "USD", "EUR", "KM", "SGK", "BES"]);
+  "CTO", "CFO", "VP", "LTD", "AS", "INC", "LLC", "TL", "USD", "EUR", "KM", "SGK", "BES",
+  // places, time zones, company types, work arrangements
+  "UK", "EU", "USA", "UAE", "EMEA", "APAC", "LATAM", "NYC", "GMT", "UTC", "CET", "EST", "PST", "GMBH", "PLC", "SA", "AG",
+  "BV", "FTE", "PTO", "WFH", "ASAP", "FAQ", "PS", "NB", "ETC", "IE", "EG"]);
 
 const IMPORTANCE_RANK: Record<Importance, number> = {
   preferred: 0,

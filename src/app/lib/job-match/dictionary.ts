@@ -15,6 +15,7 @@ export interface SkillEntry {
   en: string[]; // English surface forms; en[0] is the display label
   tr: string[]; // Turkish surface forms; tr[0] is the display label (falls back to en[0])
   phrases: Phrase[]; // all forms, tokenized for matching
+  impliedBy: Phrase[]; // tools/practices whose presence shows this skill (see IMPLIED_BY)
 }
 
 /**
@@ -117,6 +118,16 @@ tech|React Native
 tech|cybersecurity, information security|siber güvenlik, bilgi güvenliği
 tech|networking, TCP/IP|ağ yönetimi
 tech|VBA, macros|makro
+tech|feature engineering|özellik mühendisliği
+tech|model deployment, MLOps, model serving|model dağıtımı
+tech|MLflow
+tech|responsive design, responsive|responsive tasarım, duyarlı tasarım
+tech|web performance, Core Web Vitals, Lighthouse, performance optimization|web performansı, performans optimizasyonu
+tech|Redux
+tech|Storybook
+tech|Webpack, Vite
+tech|Tailwind, Tailwind CSS
+tech|accessibility, WCAG, a11y|erişilebilirlik
 tool|=Excel, MS Excel, Microsoft Excel, spreadsheets|ileri düzey Excel
 tool|pivot tables, pivot table|pivot tablo
 tool|VLOOKUP, XLOOKUP
@@ -140,7 +151,8 @@ tool|Canva
 tool|SAP, SAP ERP, SAP FI, SAP CO, SAP HANA, S/4HANA
 tool|ERP, ERP systems|ERP sistemleri, kurumsal kaynak planlama
 tool|Oracle ERP, Oracle NetSuite, NetSuite
-tool|Logo Tiger, Netsis
+tool|Logo Tiger, Logo Go, Logo Yazılım, Netsis
+domain|e-invoice, e-ledger|e-Fatura, e-Defter, e-Arşiv, e-İrsaliye, e-dönüşüm
 tool|Salesforce
 tool|HubSpot
 tool|CRM, CRM systems, customer relationship management|müşteri ilişkileri yönetimi
@@ -276,7 +288,7 @@ soft|leadership|liderlik
 soft|problem solving, problem-solving|problem çözme
 soft|analytical thinking, analytical skills|analitik düşünme
 soft|critical thinking|eleştirel düşünme
-soft|attention to detail, detail-oriented|detaylara dikkat, detay odaklı
+soft|attention to detail, detail-oriented, meticulous|detaylara dikkat, detay odaklı, titiz, detaycı, özenli
 soft|time management|zaman yönetimi
 soft|presentation skills|sunum becerileri
 soft|customer focus, customer-oriented|müşteri odaklı
@@ -315,6 +327,62 @@ edu|mathematics|matematik
 edu|psychology|psikoloji
 `;
 
+/**
+ * "Skill label: forms that imply it". A resume that says "set up Jenkins pipelines" has
+ * CI/CD experience even without the word, the way a recruiter would read it. The implication
+ * only counts on the resume side; an ad asking for Jenkins still asks for Jenkins.
+ */
+// prettier-ignore
+const IMPLIED_BY: Record<string, string> = {
+  "CI/CD": "Jenkins, GitHub Actions, GitLab CI, CircleCI, Azure DevOps, Travis CI",
+  "unit testing": "Jest, Mocha tests, JUnit, pytest, NUnit, xUnit, Vitest, test coverage",
+  "Agile": "=Scrum, Kanban, sprint planning, sprint reviews|sprint planlama",
+  "data visualization": "Tableau, Power BI, Looker, matplotlib, seaborn, D3.js, Plotly, dashboard",
+  "machine learning": "scikit-learn, TensorFlow, PyTorch, XGBoost, deep learning, predictive model",
+  "cloud": "AWS, Azure, GCP, Google Cloud",
+  "data modeling": "star schema, snowflake schema, dimensional modeling, data model, data models|veri modeli, boyutsal modelleme",
+  "SQL": "PostgreSQL, MySQL, SQL Server, T-SQL, PL/SQL, BigQuery, Snowflake",
+  "code review": "pull request reviews, PR reviews, reviewed pull requests",
+  "CRM": "Salesforce, HubSpot, Zoho, Dynamics 365",
+  "ERP": "SAP, Oracle ERP, NetSuite, Logo Tiger, Netsis, Microsoft Dynamics",
+  "MS Office": "=Excel, MS Excel, PowerPoint, MS Word",
+  "email marketing": "Mailchimp, Klaviyo, newsletter, newsletters|e-bülten",
+  "content creation": "product copy, ad copy, campaign copy, marketing copy, taglines|reklam metni, reklam metinleri",
+  // Cloud product families
+  "AWS": "S3, EC2, AWS Lambda, Redshift, DynamoDB, CloudFormation, EKS, SageMaker",
+  "Azure": "Azure DevOps, Azure Functions, Azure Synapse, AKS, Cosmos DB",
+  "GCP": "BigQuery, Cloud Run, GKE, Dataflow, Pub/Sub, Vertex AI, Cloud Functions",
+  // Statements are what financial reporting produces
+  "financial reporting": "balance sheet, income statement, P&L, profit and loss, cash flow statement|bilanço, gelir tablosu, nakit akış tablosu",
+  // Presenting to an audience is evidence of communication skills
+  "communication": "presented to, presenting to, presented findings, presented results, presentations to|sunum yaptım, sunumlar yaptım",
+};
+
+/**
+ * Turkish compounds drop the possessive ending when they modify another noun:
+ * "e-posta pazarlaması" but "e-posta pazarlama araçları", "risk yönetimi" but
+ * "risk yönetim süreçleri". So multi-word Turkish forms are matched by the stem of their
+ * last word, which still matches the possessive form via the suffix rules.
+ */
+const toTurkishCompoundStems = (form: string): string[] => {
+  const words = form.split(" ");
+  if (words.length < 2) return [form];
+  const last = words[words.length - 1];
+  // Spelling alone can't tell "servis-i" from "pazarlama-sı" (both end in "si"), so both
+  // candidate stems are kept as variants. One ending is stripped, never two ("serv").
+  // No lookbehind: it is a parse error on Safari < 16.4 and would break the whole bundle.
+  const stems = [
+    last.replace(/(?:ları|leri|sı|si|su|sü)$/, ""),
+    last.replace(/([^aeıioöuü])[ıiuü]$/, "$1"),
+  ].filter((stem) => stem !== last && stem.length >= 4); // "büyük veri" keeps "veri"
+  return [
+    form,
+    ...Array.from(new Set(stems)).map((stem) =>
+      [...words.slice(0, -1), stem].join(" ")
+    ),
+  ];
+};
+
 const splitForms = (forms: string | undefined) =>
   (forms ?? "")
     .split(",")
@@ -332,9 +400,12 @@ export const SKILLS: SkillEntry[] = RAW.trim()
       category: category as SkillCategory,
       en: enForms.map(stripMarker),
       tr: trForms.map(stripMarker),
-      phrases: [...enForms, ...trForms]
+      phrases: [...enForms, ...trForms.flatMap(toTurkishCompoundStems)]
         .map(toPhrase)
         .filter((phrase) => phrase.tokens.length > 0),
+      impliedBy: splitForms(
+        (IMPLIED_BY[stripMarker(enForms[0] ?? "")] ?? "").replace("|", ",")
+      ).map(toPhrase),
     };
   });
 
