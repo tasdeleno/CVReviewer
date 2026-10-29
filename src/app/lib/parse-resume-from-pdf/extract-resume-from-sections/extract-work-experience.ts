@@ -19,9 +19,12 @@ import {
 } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/bullet-points";
 
 // prettier-ignore
-const WORK_EXPERIENCE_KEYWORDS_LOWERCASE = ['work', 'experience', 'employment', 'history', 'job'];
+const WORK_EXPERIENCE_KEYWORDS_LOWERCASE = ['work', 'experience', 'employment', 'history', 'job',
+  'deneyim', 'tecrube', 'is gecmisi', 'calisma gecmisi']; // Turkish (folded)
 // prettier-ignore
-const JOB_TITLES = ['Accountant', 'Administrator', 'Advisor', 'Agent', 'Analyst', 'Apprentice', 'Architect', 'Assistant', 'Associate', 'Auditor', 'Bartender', 'Biologist', 'Bookkeeper', 'Buyer', 'Carpenter', 'Cashier', 'CEO', 'Clerk', 'Co-op', 'Co-Founder', 'Consultant', 'Coordinator', 'CTO', 'Developer', 'Designer', 'Director', 'Driver', 'Editor', 'Electrician', 'Engineer', 'Extern', 'Founder', 'Freelancer', 'Head', 'Intern', 'Janitor', 'Journalist', 'Laborer', 'Lawyer', 'Lead', 'Manager', 'Mechanic', 'Member', 'Nurse', 'Officer', 'Operator', 'Operation', 'Photographer', 'President', 'Producer', 'Recruiter', 'Representative', 'Researcher', 'Sales', 'Server', 'Scientist', 'Specialist', 'Supervisor', 'Teacher', 'Technician', 'Trader', 'Trainee', 'Treasurer', 'Tutor', 'Vice', 'VP', 'Volunteer', 'Webmaster', 'Worker'];
+const JOB_TITLES = ['Accountant', 'Administrator', 'Advisor', 'Agent', 'Analyst', 'Apprentice', 'Architect', 'Assistant', 'Associate', 'Auditor', 'Bartender', 'Biologist', 'Bookkeeper', 'Buyer', 'Carpenter', 'Cashier', 'CEO', 'Clerk', 'Co-op', 'Co-Founder', 'Consultant', 'Coordinator', 'CTO', 'Developer', 'Designer', 'Director', 'Driver', 'Editor', 'Electrician', 'Engineer', 'Extern', 'Founder', 'Freelancer', 'Head', 'Intern', 'Janitor', 'Journalist', 'Laborer', 'Lawyer', 'Lead', 'Manager', 'Mechanic', 'Member', 'Nurse', 'Officer', 'Operator', 'Operation', 'Photographer', 'President', 'Producer', 'Recruiter', 'Representative', 'Researcher', 'Sales', 'Server', 'Scientist', 'Specialist', 'Supervisor', 'Teacher', 'Technician', 'Trader', 'Trainee', 'Treasurer', 'Tutor', 'Vice', 'VP', 'Volunteer', 'Webmaster', 'Worker',
+  // Turkish titles, with the possessive form used in compound titles ("Yazılım Mühendisi")
+  'Mühendis', 'Mühendisi', 'Uzman', 'Uzmanı', 'Yönetici', 'Yöneticisi', 'Müdür', 'Müdürü', 'Stajyer', 'Geliştirici', 'Geliştiricisi', 'Analist', 'Analisti', 'Danışman', 'Danışmanı', 'Asistan', 'Asistanı', 'Sorumlu', 'Sorumlusu', 'Temsilci', 'Temsilcisi', 'Tasarımcı', 'Tasarımcısı', 'Muhasebeci', 'Öğretmen', 'Öğretmeni', 'Lider', 'Lideri', 'Koordinatör', 'Koordinatörü', 'Direktör', 'Direktörü', 'Şef', 'Şefi', 'Kurucu', 'Teknisyen', 'Teknisyeni', 'Operatör', 'Operatörü', 'Mimar', 'Mimarı', 'Avukat', 'Hemşire', 'Araştırmacı', 'Editör', 'Editörü'];
 
 const hasJobTitle = (item: TextItem) =>
   JOB_TITLES.some((jobTitle) =>

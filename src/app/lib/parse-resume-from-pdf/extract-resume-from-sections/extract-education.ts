@@ -26,11 +26,12 @@ import {
  */
 
 // prettier-ignore
-const SCHOOLS = ['College', 'University', 'Institute', 'School', 'Academy', 'BASIS', 'Magnet']
+const SCHOOLS = ['College', 'University', 'Institute', 'School', 'Academy', 'BASIS', 'Magnet',
+  'Üniversite', 'Enstitü', 'Akademi', 'Fakülte', 'Yüksekokul', 'Lise', 'Kolej']
 const hasSchool = (item: TextItem) =>
   SCHOOLS.some((school) => item.text.includes(school));
 // prettier-ignore
-const DEGREES = ["Associate", "Bachelor", "Master", "PhD", "Ph."];
+const DEGREES = ["Associate", "Bachelor", "Master", "PhD", "Ph.", "Lisans", "Önlisans", "Doktora"];
 const hasDegree = (item: TextItem) =>
   DEGREES.some((degree) => item.text.includes(degree)) ||
   /[ABM][A-Z\.]/.test(item.text); // Match AA, B.S., MBA, etc.
@@ -65,7 +66,11 @@ const GPA_FEATURE_SETS: FeatureSet[] = [
 export const extractEducation = (sections: ResumeSectionToLines) => {
   const educations: ResumeEducation[] = [];
   const educationsScores = [];
-  const lines = getSectionLinesByKeywords(sections, ["education"]);
+  const lines = getSectionLinesByKeywords(sections, [
+    "education",
+    "egitim",
+    "ogrenim",
+  ]);
   const subsections = divideSectionIntoSubsections(lines);
   for (const subsectionLines of subsections) {
     const textItems = subsectionLines.flat();
@@ -103,7 +108,10 @@ export const extractEducation = (sections: ResumeSectionToLines) => {
   }
 
   if (educations.length !== 0) {
-    const coursesLines = getSectionLinesByKeywords(sections, ["course"]);
+    const coursesLines = getSectionLinesByKeywords(sections, [
+      "course",
+      "kurs",
+    ]);
     if (coursesLines.length !== 0) {
       educations[0].descriptions.push(
         "Courses: " +

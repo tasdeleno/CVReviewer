@@ -9,6 +9,7 @@ import {
   hasOnlyLettersSpacesAmpersands,
   isBold,
 } from "lib/parse-resume-from-pdf/extract-resume-from-sections/lib/common-features";
+import { foldText } from "lib/fold-text";
 
 export const PROFILE_SECTION: ResumeKey = "profile";
 
@@ -61,6 +62,22 @@ const SECTION_TITLE_KEYWORDS = [
   ...SECTION_TITLE_PRIMARY_KEYWORDS,
   ...SECTION_TITLE_SECONDARY_KEYWORDS,
 ];
+// Turkish keywords in folded form (see foldText). Matched at word start, since short
+// stems would otherwise hit English words ("odul" in "Modules").
+// prettier-ignore
+const TR_SECTION_TITLE_KEYWORDS = ["deneyim", "tecrube", "calisma", "egitim", "ogrenim", "proje", "yetenek", "beceri",
+  "yetkinlik", "ozet", "hakkimda", "hedef", "kurs", "sertifika", "odul"];
+const hasSectionTitleKeyword = (text: string) => {
+  const folded = foldText(text);
+  return (
+    SECTION_TITLE_KEYWORDS.some((keyword) => folded.includes(keyword)) ||
+    folded
+      .split(/\s+/)
+      .some((word) =>
+        TR_SECTION_TITLE_KEYWORDS.some((keyword) => word.startsWith(keyword))
+      )
+  );
+};
 
 const isSectionTitle = (line: Line, lineNumber: number) => {
   const isFirstTwoLines = lineNumber < 2;
@@ -83,15 +100,13 @@ const isSectionTitle = (line: Line, lineNumber: number) => {
   const text = textItem.text.trim();
   const textHasAtMost2Words =
     text.split(" ").filter((s) => s !== "&").length <= 2;
-  const startsWithCapitalLetter = /[A-Z]/.test(text.slice(0, 1));
+  const startsWithCapitalLetter = /\p{Lu}/u.test(text.slice(0, 1));
 
   if (
     textHasAtMost2Words &&
     hasOnlyLettersSpacesAmpersands(textItem) &&
     startsWithCapitalLetter &&
-    SECTION_TITLE_KEYWORDS.some((keyword) =>
-      text.toLowerCase().includes(keyword)
-    )
+    hasSectionTitleKeyword(text)
   ) {
     return true;
   }

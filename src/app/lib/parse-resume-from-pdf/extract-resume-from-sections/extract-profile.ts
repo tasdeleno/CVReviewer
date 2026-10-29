@@ -15,7 +15,7 @@ import { getTextWithHighestFeatureScore } from "lib/parse-resume-from-pdf/extrac
 
 // Name
 export const matchOnlyLetterSpaceOrPeriod = (item: TextItem) =>
-  item.text.match(/^[a-zA-Z\s\.]+$/);
+  item.text.match(/^[\p{L}\s\.]+$/u);
 
 // Email
 // Simple email regex: xxx@xxx.xxx (xxx = anything not space)
@@ -23,15 +23,18 @@ export const matchEmail = (item: TextItem) => item.text.match(/\S+@\S+\.\S+/);
 const hasAt = (item: TextItem) => item.text.includes("@");
 
 // Phone
-// Simple phone regex that matches (xxx)-xxx-xxxx where () and - are optional, - can also be space
+// Simple phone regex that matches (xxx)-xxx-xxxx where () and - are optional, - can also be space.
+// Also matches Turkish style "+90 (0532) 123 45 67" (optional country code, leading 0, 2-2 split)
 export const matchPhone = (item: TextItem) =>
-  item.text.match(/\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}/);
+  item.text.match(
+    /(?:\+\d{1,3}[\s-]?)?\(?0?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}/
+  );
 const hasParenthesis = (item: TextItem) => /\([0-9]+\)/.test(item.text);
 
 // Location
-// Simple location regex that matches "<City>, <ST>"
+// Simple location regex that matches "<City>, <ST>" or "<City>, Türkiye"
 export const matchCityAndState = (item: TextItem) =>
-  item.text.match(/[A-Z][a-zA-Z\s]+, [A-Z]{2}/);
+  item.text.match(/\p{Lu}[\p{L}\s]+, (?:[A-Z]{2}|Türkiye|Turkey)/u);
 
 // Url
 // Simple url regex that matches "xxx.xxx/xxx" (xxx = anything not space)
@@ -153,12 +156,19 @@ export const extractProfile = (sections: ResumeSectionToLines) => {
     true
   );
 
-  const summaryLines = getSectionLinesByKeywords(sections, ["summary"]);
+  const summaryLines = getSectionLinesByKeywords(sections, [
+    "summary",
+    "ozet",
+    "hakkimda",
+  ]);
   const summarySection = summaryLines
     .flat()
     .map((textItem) => textItem.text)
     .join(" ");
-  const objectiveLines = getSectionLinesByKeywords(sections, ["objective"]);
+  const objectiveLines = getSectionLinesByKeywords(sections, [
+    "objective",
+    "hedef",
+  ]);
   const objectiveSection = objectiveLines
     .flat()
     .map((textItem) => textItem.text)
