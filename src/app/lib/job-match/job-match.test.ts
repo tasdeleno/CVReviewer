@@ -419,3 +419,123 @@ describe("job-match - ad conditions", () => {
     ).toEqual(["license"]);
   });
 });
+
+describe("job-match - importance scope", () => {
+  it("a predicate marker reaches its sentence, a list included", () => {
+    expect(
+      keywordsOf(
+        "Python and SQL are required. Docker, Kubernetes or Terraform is a plus."
+      )
+    ).toEqual({
+      Python: "required",
+      SQL: "required",
+      Docker: "preferred",
+      Kubernetes: "preferred",
+      Terraform: "preferred",
+    });
+  });
+
+  it("abbreviations and parentheses don't end a sentence", () => {
+    expect(
+      keywordsOf(
+        "Excel bilgisi beklenir. Bir CRM aracında (ör. HubSpot) çalışmış olmak artı olarak değerlendirilir."
+      )
+    ).toMatchObject({
+      Excel: "normal",
+      CRM: "preferred",
+      HubSpot: "preferred",
+    });
+  });
+
+  it("an adverb inside a sentence reaches its own item only", () => {
+    expect(keywordsOf("Experience with an ERP, ideally SAP")).toEqual({
+      ERP: "normal",
+      SAP: "preferred",
+    });
+    // a second line: on a short first line (the title) parentheses are dropped
+    expect(
+      keywordsOf("Analyst\nSQL (tercihen PostgreSQL), Python")
+    ).toMatchObject({
+      SQL: "normal",
+      PostgreSQL: "preferred",
+      Python: "normal",
+    });
+    expect(keywordsOf("Python experience; Docker ideally")).toEqual({
+      Python: "normal",
+      Docker: "preferred",
+    });
+  });
+
+  it("an adverb opening a sentence reaches all of it", () => {
+    expect(keywordsOf("Tercihen Python, SQL bilgisi")).toEqual({
+      Python: "preferred",
+      SQL: "preferred",
+    });
+  });
+
+  it("the strongest mention wins", () => {
+    expect(
+      keywordsOf("Requirements\n- SAP experience\n- An ERP, ideally SAP")
+    ).toMatchObject({ SAP: "required" });
+  });
+
+  it("a condition's own marker stays with the condition", () => {
+    expect(keywordsOf("Python and SQL, travel required")).toEqual({
+      Python: "normal",
+      SQL: "normal",
+    });
+    expect(
+      keywordsOf("Python bilgisi avantajdır, B sınıfı ehliyet zorunludur")
+    ).toEqual({ Python: "preferred" });
+  });
+
+  it("review findings: adverb and must, abbreviations, unclosed parentheses", () => {
+    expect(keywordsOf("Ideally you know Python, but SQL is a must.")).toEqual({
+      Python: "preferred",
+      SQL: "required",
+    });
+    expect(
+      keywordsOf("Experience with Python, SQL, etc. Java is a plus.")
+    ).toEqual({ Python: "normal", SQL: "normal", Java: "preferred" });
+    expect(keywordsOf("Python is a plus (ör. Django. Java required.")).toEqual({
+      Python: "preferred",
+      Django: "preferred",
+      Java: "required",
+    });
+  });
+
+  it("only employer descriptions in the intro are skipped, and skill lists stay", () => {
+    expect(
+      keywordsOf(
+        "Business Analyst\nYou are a business analyst with banking experience."
+      )
+    ).toMatchObject({ banking: "normal" });
+    expect(
+      keywordsOf("Requirements\n- We are a bank looking for fintech experience")
+    ).toMatchObject({ fintech: "required" });
+    expect(
+      keywordsOf("Backend Developer\nPython | Django | PostgreSQL\nDocker")
+    ).toMatchObject({
+      Python: "normal",
+      Django: "normal",
+      PostgreSQL: "normal",
+    });
+    expect(keywordsOf("Data Analyst\nSQL - 3 years\nPython")).toMatchObject({
+      SQL: "normal",
+    });
+  });
+
+  it("company descriptions and the company line ask nothing of the candidate", () => {
+    // no headings: the description sentence is skipped, the requirement is not
+    expect(
+      keywordsOf(
+        "Account Executive\nStackwell is a Series B SaaS company. You will sell to operations teams, ideally selling SaaS."
+      )
+    ).toMatchObject({ SaaS: "preferred" });
+    expect(
+      keywordsOf(
+        "Account Executive\nLumen Software (B2B SaaS) - Berlin or Remote\nRequirements\n- SEO"
+      )
+    ).toEqual({ SEO: "required" });
+  });
+});

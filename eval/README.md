@@ -94,7 +94,8 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | B2 | eski holdout dev'e taşındı, holdout v2 eklendi | 91.9 | 79.3 (v2) |
 | Tur 2 sonu | motor (9 değişiklik) | 94.9 | 80.8 (v2) |
 | B3 | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
-| **B4** | ehliyet anahtar kelimeden koşula taşındı, iki dev ilanına koşul satırları eklendi | **94.9** | **80.8 (v2, yeniden ölçülmedi)** |
+| B4 | ehliyet anahtar kelimeden koşula taşındı, iki dev ilanına koşul satırları eklendi | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
+| **PRD 1 (koşullar + önem kapsamı)** | motor: koşul çıkarımı, cümle/öğe kapsamı, şirket tanıtımı ve şirket satırı | **95.1** | ölçülmedi (Faz D'den sonra tek bakış) |
 
 Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
 
@@ -115,6 +116,15 @@ Holdout yeniden ölçülmedi, çünkü ne motor ne de holdout gold'u değişti.
 - Sonuç beklendiği gibi: F1 88.3 → 88.5 (recall 94.1 → 94.7). Motor ehliyeti zaten çıkaramıyordu. Diğer bileşenler aynı kaldı.
 - Yeni satırlar fazladan anahtar kelime üretmedi. Bu yüzden koşul metninin süzülmesi dev'de ölçülemiyor, birim testiyle korunuyor.
 - Koşul precision/recall satırı motor koşul döndürmeye başladığında rapora eklenecek. Bu satır `EVAL_SCORE`'a girmeyecek.
+
+**PRD 1 (koşullar ve önem kapsamı, TDD):**
+- **Koşullar** (`conditions.ts`): Dev'de 10/10 doğru, `EVAL_SCORE` değişmedi.
+- **Önem kapsamı:**
+  - Yüklem işaretleri ("a plus", "tercih sebebidir") kendi cümlelerine uygulanıyor. Bölme parantez dışında yapılıyor ve kısaltmaları (ör., e.g.) atlıyor.
+  - Zarflar ("ideally", "tercihen") kendi öğelerine uygulanıyor; cümlenin başındaysa bütün cümleye.
+  - Şirket tanıtımı cümlesi ("X is a … company") ve başlığın altındaki "Şirket - Konum" satırı adaydan bir şey istemiyor.
+- **Önceden kayıtlı beklenti tuttu:** önem 158/160 → 160/160 (SaaS ve B2B düzeldi), diğer bileşenler aynı, `EVAL_SCORE` 94.9 → 95.1.
+- **Neden döngü değil TDD:** Kurallar tek başına dev'de kazanç göstermiyor ve döngü protokolü kazanç göstermeyen değişikliği geri alıyor. Bu yüzden kurallar birim testleriyle tutuldu. Kalan önem hatası olmadığı için kısa autoresearch döngüsü koşulmadı.
 
 ### Ayrıntılar
 
@@ -141,13 +151,7 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 - Bundan sonra grep'ler `eval/dev` ile sınırlandırılmalı.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Satır içi tercih kapsamı (PRD 1):** "tercihen", "ideally" ve "a plus" yalnızca ait oldukları öğeyi tercih yapmalı. Örnek: "Google Analytics (tercihen GA4), Search Console…" satırında yalnızca GA4 tercih olmalı.
-   - Şu an "ideally" `INLINE_PREFERRED` listesinde (`keywords.ts`) yok.
-   - Yalnızca bu işaretin eklenmesi SaaS'ı (en-sales-1) düzeltmez:
-     - "Series B SaaS company" ilk satırda `normal` çıkıyor ve birleştirmede en yüksek önem alındığı için sonuç `normal` kalıyor.
-     - Tanıtımdaki alan kelimelerini atlayan kural yalnızca başlıklı ilanlarda çalışıyor, en-sales-1'de ise hiç başlık yok.
-     - SaaS'ın düzelmesi için başlıksız ilanlarda da tanıtım cümlesinin atlanması gerekiyor. Bu yapılmazsa SaaS bilinen bir açık olarak kalır.
-   - Ağırlık `preferred` için 0.5 olduğundan sıralama metriği (36/36) o turda ayrıca izlenmeli.
+1. **Ağırlıklar (PRD 1, Faz D):** zorunlu 2 / normal 1 / tercih 0.5. Kullanıcının ikili tercihleriyle denetlenecek.
 2. **Sektör genelleşmesi:** Holdout v2 farkı (14.1) büyük ölçüde sözlükte olmayan sağlık, lojistik ve eğitim terimlerinden kaynaklanıyor. Holdout'a bakarak sözlük doldurmak ezber olur. Doğru yol, sözlüğü holdout'u görmeden genel kaynaklardan genişletmek ya da sözlük dışı terimleri (ilandaki kısaltmalar, isim öbekleri) daha iyi çıkarmak.
 3. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
@@ -167,4 +171,4 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 5. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
 6. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
 
-Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
+Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); ilan koşulları ve satır içi tercih kapsamı (PRD 1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.

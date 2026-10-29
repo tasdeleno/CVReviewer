@@ -91,6 +91,11 @@ const blank = (text: string, spans: { start: number; end: number }[]) => {
   return chars.join("");
 };
 
+// A marker right after a condition belongs to it: "B sınıfı ehliyet zorunludur" must not
+// make the rest of the sentence required
+// prettier-ignore
+const MARKER_AFTER = /^ (?:is required|required|is a must|is mandatory|mandatory|zorunlu\w*|sart\w*|gerekli\w*|aranir\w*|beklenir\w*)\b/;
+
 /** Condition kinds in a line with their spans, as offsets into prepare(line) */
 export const findConditionSpans = (line: string) => {
   const text = prepare(line);
@@ -103,11 +108,12 @@ export const findConditionSpans = (line: string) => {
   );
   const spans: { kind: ConditionKind; start: number; end: number }[] = [];
   for (const [kind, pattern] of PATTERNS) {
-    const found = Array.from(folded.matchAll(pattern), (match) => ({
-      kind,
-      start: match.index ?? 0,
-      end: (match.index ?? 0) + match[0].length,
-    }));
+    const found = Array.from(folded.matchAll(pattern), (match) => {
+      const start = match.index ?? 0;
+      const end = start + match[0].length;
+      const marker = folded.slice(end).match(MARKER_AFTER)?.[0] ?? "";
+      return { kind, start, end: end + marker.length };
+    });
     if (!found.length) continue;
     spans.push(...found);
     folded = blank(folded, found); // later patterns don't see this one's spans
