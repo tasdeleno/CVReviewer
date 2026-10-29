@@ -3,6 +3,7 @@ import { groupTextItemsIntoLines } from "lib/parse-resume-from-pdf/group-text-it
 import { groupLinesIntoSections } from "lib/parse-resume-from-pdf/group-lines-into-sections";
 import { extractResumeFromSections } from "lib/parse-resume-from-pdf/extract-resume-from-sections";
 import { extractKeywords, type AdKeyword } from "lib/job-match/keywords";
+import { checkAts, suggest } from "lib/job-match/suggest";
 import {
   detectLang,
   hasPhrase,
@@ -13,7 +14,8 @@ import {
 
 export interface KeywordMatch extends AdKeyword {
   found: boolean;
-  section?: string; // resume section title where it was found ("profile" for the header)
+  // resume section titles where it was found ("profile" for the header), in resume order
+  sections: string[];
 }
 
 export interface ResumeLine {
@@ -35,11 +37,15 @@ export const matchKeywords = (
     const phrases = [...keyword.phrases, ...(keyword.skill?.impliedBy ?? [])];
     const has = (text: TokenizedText) =>
       phrases.some((phrase) => hasPhrase(text, phrase));
-    const hit = lines.find((line) => has(line.text));
+    const sections = Array.from(
+      new Set(
+        lines.filter((line) => has(line.text)).map((line) => line.section)
+      )
+    );
     return {
       ...keyword,
-      found: Boolean(hit) || has(whole),
-      section: hit?.section,
+      found: sections.length > 0 || has(whole),
+      sections,
     };
   });
 };
@@ -65,15 +71,18 @@ export const analyze = (jobAd: string, textItems: TextItems) => {
         text: line.map((item) => item.text).join(" "),
       }))
   );
+  const resumeText = resumeLines.map((line) => line.text).join("\n");
   const langs: { ad: Lang; resume: Lang } = {
     ad: detectLang(jobAd),
-    resume: detectLang(resumeLines.map((line) => line.text).join("\n")),
+    resume: detectLang(resumeText),
   };
   const matches = matchKeywords(extractKeywords(jobAd), resumeLines);
   return {
     score: computeScore(matches),
     langs,
     matches,
+    suggestions: suggest({ jobAd, matches, resume, resumeText, langs }),
+    ats: checkAts(textItems, resume),
     resume,
     sections,
   };

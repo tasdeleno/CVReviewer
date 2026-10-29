@@ -23,12 +23,28 @@ export const matchEmail = (item: TextItem) => item.text.match(/\S+@\S+\.\S+/);
 const hasAt = (item: TextItem) => item.text.includes("@");
 
 // Phone
-// Simple phone regex that matches (xxx)-xxx-xxxx where () and - are optional, - can also be space.
-// Also matches Turkish style "+90 (0532) 123 45 67" (optional country code, leading 0, 2-2 split)
-export const matchPhone = (item: TextItem) =>
-  item.text.match(
-    /(?:\+\d{1,3}[\s-]?)?\(?0?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}/
-  );
+// Optional country code, then digit groups of 2-6 split by space, dash or dot, with 10-15
+// digits in total: "(123)456-7890", "+90 (532) 123 45 67", "+44 7700 900123".
+// The digit count keeps year ranges ("2019 - 2021") and postcode + year ("34710 2019") out;
+// the boundary check keeps slices of longer numbers ("1.200.000.000") out.
+export const matchPhone = (item: TextItem): RegExpMatchArray | null => {
+  // Every candidate, not just the first: "Ankara 06100 | +90 532 123 45 67"
+  // Array.from: tsconfig targets es5, which can't for-of an iterator
+  for (const match of Array.from(
+    item.text.matchAll(
+      /(?:\+\d{1,3}[\s-]?)?\(?\d{2,5}\)?(?:[\s.-]?\d{2,6}){1,4}/g
+    )
+  )) {
+    const index = match.index ?? 0;
+    const before = item.text[index - 1] ?? "";
+    const after = item.text[index + match[0].length] ?? "";
+    const digits = match[0].replace(/\D/g, "").length;
+    if (digits >= 10 && digits <= 15 && !/[\d.]/.test(before + after)) {
+      return match;
+    }
+  }
+  return null;
+};
 const hasParenthesis = (item: TextItem) => /\([0-9]+\)/.test(item.text);
 
 // Location

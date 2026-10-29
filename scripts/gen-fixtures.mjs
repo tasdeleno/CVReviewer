@@ -1,6 +1,7 @@
 // Render the synthetic eval resumes (eval/<split>/<id>/<fit>.json) into PDFs next to them,
 // so the eval runs the real PDF -> text items -> parser path.
-// Usage: node scripts/gen-fixtures.mjs
+// Usage: node scripts/gen-fixtures.mjs            (eval/dev + eval/holdout)
+//        node scripts/gen-fixtures.mjs <dir>      (every *.json resume in <dir>)
 import { createRequire } from "node:module";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -82,7 +83,15 @@ const resumeDocument = (cv) => {
 };
 
 let count = 0;
-for (const split of ["dev", "holdout"]) {
+const customDir = process.argv[2];
+if (customDir) {
+  for (const file of readdirSync(customDir).filter((f) => f.endsWith(".json"))) {
+    const cv = JSON.parse(readFileSync(join(customDir, file), "utf8"));
+    await renderToFile(resumeDocument(cv), join(customDir, file.replace(/\.json$/, ".pdf")));
+    count++;
+  }
+}
+for (const split of customDir ? [] : ["dev", "holdout"]) {
   const splitDir = join(root, "eval", split);
   if (!existsSync(splitDir)) continue;
   for (const id of readdirSync(splitDir)) {

@@ -145,3 +145,65 @@ describe("job-match - matching", () => {
     ).toBe("tr");
   });
 });
+
+describe("job-match - findings from real ads", () => {
+  it("labels keywords with the ad's own wording", () => {
+    // first line is the title, whose parentheses are dropped
+    expect(
+      keywordsOf("Mali İşler Uzmanı\nLOGO (Tiger-Bordro) kullanabilen")
+    ).toEqual({
+      "LOGO Tiger": "normal",
+      Bordro: "normal",
+    });
+  });
+
+  it("degrees listed together are alternatives", () => {
+    const [degree] = extractKeywords(
+      "İktisat veya İşletme bölümlerinden mezun"
+    );
+    expect(degree.label).toBe("İktisat / İşletme");
+    expect(
+      matchKeywords(
+        [degree],
+        [{ section: "EĞİTİM", text: "İktisat Lisans" }]
+      )[0].found
+    ).toBe(true);
+  });
+
+  it("no keywords from parts of matched skills or the title's company name", () => {
+    expect(keywordsOf("MS Office programlarını kullanabilen")).toEqual({
+      "MS Office": "normal",
+    });
+    expect(
+      keywordsOf("Data Analyst (Weekday AI, Bengaluru)\nSQL required")
+    ).toEqual({ SQL: "required" });
+  });
+
+  it("records every resume section a keyword appears in", () => {
+    const [sap] = matchKeywords(extractKeywords("SAP"), [
+      { section: "BECERİLER", text: "SAP FI, Excel" },
+      { section: "DENEYİM", text: "SAP FI modülünde fatura girişi" },
+    ]);
+    expect(sap.sections).toEqual(["BECERİLER", "DENEYİM"]);
+  });
+});
+
+describe("job-match - review findings on suggestions", () => {
+  it("a sentence-like first line keeps its parentheses", () => {
+    expect(
+      keywordsOf(
+        "We are looking for a data analyst (SQL, Python, Tableau) to join our team."
+      )
+    ).toEqual({ SQL: "normal", Python: "normal", Tableau: "normal" });
+  });
+
+  it("a degree level and its fields are separate requirements", () => {
+    const keywords = extractKeywords(
+      "Data Analyst\nRequirements:\nBachelor's degree in Economics or Mathematics"
+    );
+    expect(keywords.map((k) => k.label).sort()).toEqual([
+      "Economics / Mathematics",
+      "bachelor's degree",
+    ]);
+  });
+});

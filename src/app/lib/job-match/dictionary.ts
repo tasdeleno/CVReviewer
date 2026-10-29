@@ -8,7 +8,8 @@ export type SkillCategory =
   | "soft" // soft skills
   | "cert" // certificates, licenses
   | "lang" // spoken languages
-  | "edu"; // degrees
+  | "edu" // fields of study
+  | "degree"; // degree levels
 
 export interface SkillEntry {
   category: SkillCategory;
@@ -161,7 +162,8 @@ tool|Google Analytics, GA4
 tool|Google Ads, AdWords
 tool|Meta Ads, Facebook Ads, Instagram Ads
 tool|LinkedIn Ads
-tool|Google Tag Manager, GTM
+tool|Google Tag Manager, Tag Manager, GTM
+tool|Google Search Console, Search Console
 tool|SEMrush, Ahrefs
 tool|Mailchimp, Klaviyo
 tool|WordPress
@@ -195,7 +197,7 @@ method|process improvement, process optimization|süreç iyileştirme, süreç g
 method|=Lean, Six Sigma, Lean Six Sigma|yalın üretim, altı sigma
 method|KPI, KPIs, key performance indicators|performans göstergeleri, anahtar performans göstergeleri
 method|OKR, OKRs
-method|reporting|raporlama
+method|reporting|raporlama, raporlar, rapor hazırlama
 method|dashboard, dashboards|gösterge paneli
 method|budgeting, budget|bütçe, bütçeleme
 method|financial forecasting|finansal tahmin
@@ -315,9 +317,9 @@ lang|Spanish|İspanyolca
 lang|Arabic|Arapça
 lang|Russian|Rusça
 lang|Turkish|Türkçe
-edu|bachelor's degree, bachelor, BSc, BA|lisans derecesi
-edu|master's degree, MSc, MBA|yüksek lisans
-edu|PhD, doctorate|doktora
+degree|bachelor's degree, bachelor, BSc, BA|lisans derecesi, lisans mezunu, =Lisans
+degree|master's degree, MSc, MBA|yüksek lisans
+degree|PhD, doctorate|doktora
 edu|computer science, computer engineering|bilgisayar mühendisliği, bilgisayar bilimleri
 edu|software engineering|yazılım mühendisliği
 edu|industrial engineering|endüstri mühendisliği
@@ -338,6 +340,7 @@ const IMPLIED_BY: Record<string, string> = {
   "unit testing": "Jest, Mocha tests, JUnit, pytest, NUnit, xUnit, Vitest, test coverage",
   "Agile": "=Scrum, Kanban, sprint planning, sprint reviews|sprint planlama",
   "data visualization": "Tableau, Power BI, Looker, matplotlib, seaborn, D3.js, Plotly, dashboard",
+  "data analysis": "data analyst, analysed data, analyzed data|veri analisti",
   "machine learning": "scikit-learn, TensorFlow, PyTorch, XGBoost, deep learning, predictive model",
   "cloud": "AWS, Azure, GCP, Google Cloud",
   "data modeling": "star schema, snowflake schema, dimensional modeling, data model, data models|veri modeli, boyutsal modelleme",

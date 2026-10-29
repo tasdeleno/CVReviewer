@@ -59,11 +59,18 @@ export const toPhrase = (form: string): Phrase =>
         turkishSuffixes: /^\p{Ll}/u.test(form.trim()),
       };
 
+/** The text's own wording of the phrase ("Bordro", "Google Analytics"), or undefined */
+export const findPhraseSpan = (text: TokenizedText, phrase: Phrase) => {
+  const index = phrase.caseSensitive
+    ? findPhrase(text.raw, phrase.tokens, true)
+    : findPhrase(text.folded, phrase.tokens, false, phrase.turkishSuffixes);
+  return index === -1
+    ? undefined
+    : text.raw.slice(index, index + phrase.tokens.length).join(" ");
+};
+
 export const hasPhrase = (text: TokenizedText, phrase: Phrase) =>
-  phrase.caseSensitive
-    ? findPhrase(text.raw, phrase.tokens, true) !== -1
-    : findPhrase(text.folded, phrase.tokens, false, phrase.turkishSuffixes) !==
-      -1;
+  findPhraseSpan(text, phrase) !== undefined;
 
 // Function words only, used for language detection
 // prettier-ignore
