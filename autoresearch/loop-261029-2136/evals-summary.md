@@ -22,3 +22,11 @@
 - Holdout v2 gold'unda ise "ALS ideally" → **tercih**.
 
 Öğe düzeyinde "ideally" kuralı bu yüzden dev'de ceza alıyor. Bu durum PRD 1'in (satır içi tercih kapsamı) önünü tıkıyor. Önce dev gold'u kılavuza göre düzeltilmeli (ayrı commit, yeni baseline), sonra kural denenmeli.
+
+## Review sonrası (commit 376cc41)
+typescript-reviewer'ın bulgularına göre yapılan düzeltmeler skorları değiştirmedi: dev 94.9, holdout v2 80.8 (3. bakış, yalnızca toplam skor).
+- **HIGH:** titleVariants ilanın kendi kelimesini düşürüyordu; "Engineering Manager" kendisiyle eşleşmiyordu.
+- **MEDIUM:** Sayı regex'i "10k" ifadesinde geri izliyordu. Birim listesiyle çözüldü.
+- **MEDIUM:** Madde yedeği yalnızca hiç iş deneyimi ayrıştırılamadığında çalışacak şekilde daraltıldı.
+
+Sonrasında yapılan regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
