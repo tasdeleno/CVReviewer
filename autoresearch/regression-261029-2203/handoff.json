@@ -1,0 +1,18 @@
+{
+  "version": "2.1.0",
+  "source": "regression",
+  "timestamp": "2026-10-29T22:05:00",
+  "status": "COMPLETE",
+  "verdict": "STABLE",
+  "regression_state": "none",
+  "results_tsv": "autoresearch/regression-261029-2203/regression-results.tsv",
+  "findings": [],
+  "config": {
+    "base": "94fb0f2",
+    "candidate": "376cc41",
+    "select": "full",
+    "dims": {"ran": ["functional", "flakiness", "resource"], "unavailable": ["api-contract", "data-migration", "integration-e2e", "performance", "visual-ui"]},
+    "axes": ["diff", "repeat3"],
+    "verdict_math": {"flakiness": [100, 0.6], "resource": [100, 0.4], "stability_score": 100, "threshold": 95}
+  }
+}
