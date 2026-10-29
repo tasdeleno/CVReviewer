@@ -1,0 +1,56 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Deniz Karaca",
+    "email": "deniz.karaca@example.com",
+    "phone": "+1 555 010 1238",
+    "url": "",
+    "summary": "Field sales representative with 4 years in building materials.",
+    "location": "Izmir, Turkey"
+  },
+  "workExperiences": [
+    {
+      "company": "Ege Insulation Systems",
+      "jobTitle": "Field Sales Representative",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Responsible for B2B sales to contractors and builders in the Aegean region",
+        "Visit about 15 customers a week as part of a field sales route plan",
+        "Managed a portfolio of 60 accounts",
+        "Prepared price proposals and negotiated payment terms",
+        "Hit 98% of the annual sales target",
+        "Entered visits into the CRM system",
+        "Prepared monthly Excel sales files"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Dokuz Eylul University",
+      "degree": "BA Business Administration",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Office, CRM",
+      "Languages: Turkish (native), English (fluent); full driving license (class B)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

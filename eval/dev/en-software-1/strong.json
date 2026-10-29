@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Daniel Reyes",
+    "email": "daniel.reyes@example.com",
+    "phone": "+1 555 010 1000",
+    "url": "linkedin.com/in/danielreyes-example",
+    "summary": "Backend engineer with 7 years of experience building high-traffic APIs. Enjoy mentoring and pragmatic architecture.",
+    "location": "Lisbon, Portugal"
+  },
+  "workExperiences": [
+    {
+      "company": "Brightpath Systems",
+      "jobTitle": "Senior Backend Engineer",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Designed and shipped 12 microservices in Node.js and TypeScript handling 3M requests/day",
+        "Built RESTful APIs on top of Postgres; reduced p95 latency by 40% through query tuning",
+        "Containerized services with Docker and deployed to AWS (ECS, Lambda)",
+        "Maintained GitHub Actions pipelines for continuous integration and delivery",
+        "Led pull request reviews for a team of 6 and ran Scrum ceremonies"
+      ]
+    },
+    {
+      "company": "Kitelabs",
+      "jobTitle": "Software Engineer",
+      "date": "2017 - 2020",
+      "descriptions": [
+        "Wrote Jest unit tests, raising coverage from 45% to 85%",
+        "Introduced Redis caching for session data",
+        "Helped migrate legacy PHP endpoints to Node"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Porto",
+      "degree": "BSc Computer Science",
+      "date": "2013 - 2017",
+      "gpa": "3.5/4.0",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "TypeScript, Node.js, PostgreSQL, Redis, Docker, Kubernetes, AWS, Terraform, Git"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "SUMMARY",
+    "workExperiences": "Professional Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "Technical Skills",
+    "custom": ""
+  }
+}

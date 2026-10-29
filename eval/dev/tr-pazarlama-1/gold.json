@@ -1,0 +1,198 @@
+{
+  "id": "tr-pazarlama-1",
+  "lang": "tr",
+  "sector": "pazarlama",
+  "title": "Dijital Pazarlama Uzmanı (E-ticaret)",
+  "keywords": [
+    {
+      "term": "SEO",
+      "aliases": [
+        "arama motoru optimizasyonu",
+        "organik büyüme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Ads",
+      "aliases": [
+        "AdWords",
+        "PPC",
+        "Google reklamları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Meta Ads",
+      "aliases": [
+        "Facebook Ads",
+        "Instagram reklamları",
+        "Facebook reklamları",
+        "Facebook ve Instagram reklamları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Analytics",
+      "aliases": [
+        "GA4"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "e-posta pazarlama",
+      "aliases": [
+        "email marketing",
+        "e-bülten",
+        "e-mail pazarlama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sosyal medya yönetimi",
+      "aliases": [
+        "social media management",
+        "sosyal medya hesapları",
+        "social media"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "KPI takibi",
+        "performans göstergeleri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "içerik pazarlaması",
+      "aliases": [
+        "content marketing",
+        "içerik stratejisi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "e-ticaret",
+      "aliases": [
+        "e-commerce",
+        "online mağaza"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "teamwork",
+        "ekip çalışması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "A/B test",
+      "aliases": [
+        "A/B testing",
+        "A/B testi"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Looker Studio",
+      "aliases": [
+        "Data Studio",
+        "Google Data Studio"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "HubSpot",
+        "Salesforce"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "SEO",
+        "Google Ads",
+        "Meta Ads",
+        "Google Analytics",
+        "e-posta pazarlama",
+        "sosyal medya yönetimi",
+        "KPI",
+        "içerik pazarlaması",
+        "Excel",
+        "e-ticaret",
+        "takım çalışması",
+        "A/B test",
+        "Looker Studio"
+      ],
+      "missing": [
+        "CRM"
+      ]
+    },
+    "medium": {
+      "present": [
+        "SEO",
+        "Google Ads",
+        "Google Analytics",
+        "sosyal medya yönetimi",
+        "KPI",
+        "Excel",
+        "e-ticaret",
+        "takım çalışması"
+      ],
+      "missing": [
+        "Meta Ads",
+        "e-posta pazarlama",
+        "içerik pazarlaması",
+        "A/B test",
+        "Looker Studio",
+        "CRM"
+      ]
+    },
+    "weak": {
+      "present": [
+        "sosyal medya yönetimi",
+        "Excel",
+        "takım çalışması"
+      ],
+      "missing": [
+        "SEO",
+        "Google Ads",
+        "Meta Ads",
+        "Google Analytics",
+        "e-posta pazarlama",
+        "KPI",
+        "içerik pazarlaması",
+        "e-ticaret",
+        "A/B test",
+        "Looker Studio",
+        "CRM"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

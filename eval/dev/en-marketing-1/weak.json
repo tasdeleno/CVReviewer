@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Ceren Öz",
+    "email": "ceren.oz@example.com",
+    "phone": "0555 010 1098",
+    "url": "",
+    "summary": "Sosyal medya ve görsel içerik alanında 2 yıllık deneyim.",
+    "location": "Bursa"
+  },
+  "workExperiences": [
+    {
+      "company": "Moda Atölye",
+      "jobTitle": "Sosyal Medya Asistanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Marka hesaplarının günlük paylaşımlarından sorumluydum",
+        "Ürün açıklamaları ve kampanya duyuruları için metin yazarlığı yaptım",
+        "Fotoğraf çekimi ve temel grafik tasarım işlerinde yardımcı oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Uludağ Üniversitesi",
+      "degree": "Halkla İlişkiler ve Tanıtım",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Canva, Photoshop (temel), Instagram, TikTok"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

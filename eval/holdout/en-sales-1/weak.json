@@ -1,0 +1,52 @@
+{
+  "lang": "tr",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Cem Aydın",
+    "email": "cem.aydin@example.com",
+    "phone": "0555 010 1224",
+    "url": "",
+    "summary": "",
+    "location": "İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "TeknoMağaza",
+      "jobTitle": "Satış Danışmanı",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Mağazada müşterilere elektronik ürünler hakkında bilgi verdim",
+        "Aylık satış hedefini ortalama %105 oranında gerçekleştirdim",
+        "Müşterilerle iletişim becerisi güçlü, sabırlı biriyim",
+        "Kasa ve stok sayımı işlerinden sorumluydum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "İstanbul Ticaret Üniversitesi",
+      "degree": "Ticaret (Ön Lisans)",
+      "date": "2018 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Perakende satış, müşteri ilişkileri, MS Office"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

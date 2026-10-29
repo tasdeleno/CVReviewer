@@ -1,0 +1,72 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Olivia Grant",
+    "email": "olivia.grant@example.com",
+    "phone": "+1 555 010 1126",
+    "url": "",
+    "summary": "ACCA-qualified finance professional with 7 years in manufacturing FP&A. Known for clear commentary and tidy models.",
+    "location": "Birmingham, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Stanton Engineering",
+      "jobTitle": "Senior FP&A Analyst",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Produced monthly management accounts and group reporting packs under IFRS for 5 entities",
+        "Owned budgeting and rolling forecast for the Europe division (revenue 120m GBP)",
+        "Delivered variance analysis versus budget and prior year; presented drivers to plant managers",
+        "Built three-statement and capex financial models in Excel, with scenario toggles",
+        "Led month-end close tasks in SAP FI/CO: accruals, intercompany reconciliations, bank rec",
+        "Prepared audit schedules for the external auditors; zero material findings in 3 years",
+        "Developed Power BI dashboards for cost centre owners",
+        "Mentored two junior analysts and ran monthly finance reviews with the CFO"
+      ]
+    },
+    {
+      "company": "Ashworth & Co",
+      "jobTitle": "Management Accountant",
+      "date": "2015 - 2019",
+      "descriptions": [
+        "Maintained fixed asset register and ledger reconciliations",
+        "Supported VAT returns and statutory accounts"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Warwick",
+      "degree": "BSc Accounting & Finance",
+      "date": "2011 - 2014",
+      "gpa": "2:1",
+      "descriptions": []
+    },
+    {
+      "school": "ACCA",
+      "degree": "Fully qualified member (ACCA)",
+      "date": "2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "IFRS, SAP FI/CO, Advanced Excel, Power BI, Hyperion, Financial modelling"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFESSIONAL PROFILE",
+    "workExperiences": "EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "KEY SKILLS",
+    "custom": ""
+  }
+}

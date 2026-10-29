@@ -1,0 +1,53 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Selin Aksoy",
+    "email": "selin.aksoy@example.com",
+    "phone": "0555 010 1035",
+    "url": "",
+    "summary": "",
+    "location": "İzmir"
+  },
+  "workExperiences": [
+    {
+      "company": "Studio Ege",
+      "jobTitle": "Grafik Tasarımcı / Web Tasarımcı",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "WordPress temalarını mobil uyumlu hale getirdim",
+        "Temel HTML ve CSS düzenlemeleri yaptım",
+        "Basit JavaScript ile slider ve menü ekledim",
+        "Müşteri toplantılarında ekip çalışmasına yatkınım ve uyum içinde çalışırım",
+        "Yabancı müşterilerle İngilizce (orta seviye) yazıştım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Dokuz Eylül Üniversitesi",
+      "degree": "Grafik Tasarımı (Lisans)",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Photoshop, Illustrator, Figma, WordPress, HTML/CSS"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

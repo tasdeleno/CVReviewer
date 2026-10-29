@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Priya Nair",
+    "email": "priya.nair@example.com",
+    "phone": "+1 555 010 1007",
+    "url": "",
+    "summary": "",
+    "location": "Bangalore, India"
+  },
+  "workExperiences": [
+    {
+      "company": "Zestify",
+      "jobTitle": "Full-Stack Developer",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Developed Express services and React screens for an e-commerce admin panel",
+        "Responsible for deploying apps on AWS EC2 and writing Docker files",
+        "Built a GraphQL endpoint for the sales dashboard",
+        "Wrote Mocha tests for the order module",
+        "Set up a Jenkins job to run builds on every merge",
+        "Worked in Agile 2-week sprints with the product team"
+      ]
+    },
+    {
+      "company": "Webnest Solutions",
+      "jobTitle": "Junior Developer",
+      "date": "2019 - 2021",
+      "descriptions": [
+        "Helped with bug fixing in a Node application using MongoDB",
+        "Used Git daily for branching and merges"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "VTU Belgaum",
+      "degree": "B.E. Information Science",
+      "date": "2015 - 2019",
+      "gpa": "8.1/10",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "JavaScript, Node.js, Express, React, MongoDB, REST, Docker, Git"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

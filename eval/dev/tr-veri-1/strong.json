@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Kerem Arslan",
+    "email": "kerem.arslan@example.com",
+    "phone": "+1 555 010 1063",
+    "url": "",
+    "summary": "Data engineer with 6 years of experience building batch and streaming data platforms. Strong problem-solving mindset.",
+    "location": "Istanbul, Turkey"
+  },
+  "workExperiences": [
+    {
+      "company": "Delta Fintech",
+      "jobTitle": "Senior Data Engineer",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Built 80+ ETL pipelines orchestrated with Airflow, processing 2 TB/day",
+        "Migrated an on-prem data warehouse to Snowflake on AWS, cutting report latency from hours to minutes",
+        "Wrote PySpark jobs for large-scale transformations",
+        "Designed star schema data models for finance and risk marts",
+        "Introduced dbt for versioned transformations and tests",
+        "Dockerized all jobs and managed code in Git with CI checks"
+      ]
+    },
+    {
+      "company": "Sakarya Data Works",
+      "jobTitle": "Data Engineer",
+      "date": "2017 - 2020",
+      "descriptions": [
+        "Developed Python and SQL scripts for ingestion from APIs and databases",
+        "Helped implement basic data quality checks"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Middle East Technical University",
+      "degree": "BSc Computer Engineering",
+      "date": "2012 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SQL, Python, Spark, Airflow, dbt, Snowflake, AWS, Docker, Git"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "SUMMARY",
+    "workExperiences": "PROFESSIONAL EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

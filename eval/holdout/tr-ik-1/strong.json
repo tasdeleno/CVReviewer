@@ -1,0 +1,67 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Pınar Erdem",
+    "email": "pinar.erdem@example.com",
+    "phone": "0555 010 1189",
+    "url": "",
+    "summary": "Turizm sektöründe 6 yıllık İK deneyimi. Sezonluk toplu işe alım ve özlük yönetiminde uzmanlaştım.",
+    "location": "Antalya"
+  },
+  "workExperiences": [
+    {
+      "company": "Akdeniz Resort & Spa",
+      "jobTitle": "İK Uzmanı",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Her sezon 250+ personel için işe alım süreçlerini yönettim, mülakatları yürüttüm",
+        "Özlük dosyalarının dijitale taşınmasını yaptım (hatalı evrak oranı %12'den %2'ye)",
+        "Puantaj ve bordro girdilerini kontrol edip muhasebeye ilettim",
+        "İş Kanunu ve SGK mevzuatı değişikliklerini takip ederek süreçleri güncelledim",
+        "Yıllık performans yönetimi döngüsünü koordine ettim",
+        "Departman yöneticileriyle eğitim ve gelişim planları oluşturdum (yıllık 40 eğitim günü)",
+        "Kariyer fuarlarında ve sosyal medyada işveren markası çalışmalarına liderlik ettim",
+        "İK bilgi sistemi (HRIS) üzerinde tüm çalışan verilerini yönettim",
+        "Excel ile işgücü devir hızı raporları hazırladım"
+      ]
+    },
+    {
+      "company": "Lara Turizm",
+      "jobTitle": "İK Asistanı",
+      "date": "2017 - 2019",
+      "descriptions": [
+        "İşe giriş-çıkış bildirgeleri ve özlük dosyası işlemleri",
+        "İngilizce ve Rusça yabancı personel yazışmaları"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Akdeniz Üniversitesi",
+      "degree": "Psikoloji (Lisans)",
+      "date": "2012 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, MS Office, Kolay İK, LinkedIn, Kariyer.net, İngilizce (B2)",
+      "İletişim becerisi, empati, çok kültürlü ekip yönetimi"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

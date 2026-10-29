@@ -1,0 +1,214 @@
+{
+  "id": "en-marketing-1",
+  "lang": "en",
+  "sector": "marketing",
+  "title": "Digital Marketing Manager",
+  "keywords": [
+    {
+      "term": "SEO",
+      "aliases": [
+        "search engine optimization"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Ads",
+      "aliases": [
+        "PPC",
+        "paid search",
+        "AdWords",
+        "SEM"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "content marketing",
+      "aliases": [
+        "content strategy",
+        "content calendar"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "email marketing",
+      "aliases": [
+        "newsletters",
+        "newsletter",
+        "email campaigns",
+        "nurture flows",
+        "e-posta pazarlama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Analytics",
+      "aliases": [
+        "GA4",
+        "web analytics"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "social media",
+      "aliases": [
+        "social media marketing",
+        "sosyal medya",
+        "Instagram",
+        "LinkedIn"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "KPIs",
+        "key performance indicators"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "marketing automation",
+      "aliases": [
+        "HubSpot",
+        "Marketo",
+        "Pardot"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "budget management",
+      "aliases": [
+        "budgeting",
+        "media spend",
+        "marketing budget"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "A/B testing",
+      "aliases": [
+        "A/B tests",
+        "split testing"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "team leadership",
+      "aliases": [
+        "managed a team",
+        "people management",
+        "mentoring",
+        "leading a team",
+        "lead a team",
+        "coaching"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "Salesforce",
+        "HubSpot CRM"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "B2B",
+      "aliases": [
+        "B2B marketing",
+        "business-to-business"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "copywriting",
+      "aliases": [
+        "copywriter",
+        "metin yazarlığı",
+        "product copy"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "SEO",
+        "Google Ads",
+        "content marketing",
+        "email marketing",
+        "Google Analytics",
+        "social media",
+        "KPI",
+        "marketing automation",
+        "budget management",
+        "A/B testing",
+        "team leadership",
+        "CRM",
+        "B2B"
+      ],
+      "missing": [
+        "copywriting"
+      ]
+    },
+    "medium": {
+      "present": [
+        "SEO",
+        "content marketing",
+        "email marketing",
+        "Google Analytics",
+        "social media",
+        "KPI",
+        "copywriting"
+      ],
+      "missing": [
+        "Google Ads",
+        "marketing automation",
+        "budget management",
+        "A/B testing",
+        "team leadership",
+        "CRM",
+        "B2B"
+      ]
+    },
+    "weak": {
+      "present": [
+        "social media",
+        "copywriting"
+      ],
+      "missing": [
+        "SEO",
+        "Google Ads",
+        "content marketing",
+        "email marketing",
+        "Google Analytics",
+        "KPI",
+        "marketing automation",
+        "budget management",
+        "A/B testing",
+        "team leadership",
+        "CRM",
+        "B2B"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

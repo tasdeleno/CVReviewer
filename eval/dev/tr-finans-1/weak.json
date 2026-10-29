@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Aylin Gür",
+    "email": "aylin.gur@example.com",
+    "phone": "0555 010 1161",
+    "url": "",
+    "summary": "",
+    "location": "Adana"
+  },
+  "workExperiences": [
+    {
+      "company": "Çukurova Yapı Market",
+      "jobTitle": "Kasiyer / Ofis Elemanı",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Günlük kasa sayımı ve fatura girişi işlerinden sorumluydum",
+        "Excel'de stok listesi tuttum",
+        "Titiz ve düzenli çalışırım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Adana Meslek Yüksekokulu",
+      "degree": "Büro Yönetimi (Ön Lisans)",
+      "date": "2018 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel (temel), Word, Mikro muhasebe programı"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

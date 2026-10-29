@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Ethan Brooks",
+    "email": "ethan.brooks@example.com",
+    "phone": "+1 555 010 1210",
+    "url": "",
+    "summary": "Mid-market SaaS Account Executive with 6 years of full-cycle selling. Consistent top-quartile performer.",
+    "location": "London, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Parcel Cloud",
+      "jobTitle": "Senior Account Executive",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Achieved 118% of quota in 2023 and 109% in 2022 (new ARR 1.1m GBP)",
+        "Run full-cycle B2B sales to operations and finance leaders at mid-market firms",
+        "Generate 40% of own pipeline through outbound prospecting and cold calls",
+        "Lead discovery calls and tailored product demos; average cycle 62 days",
+        "Negotiate multi-year contracts with procurement and legal",
+        "Qualify deals with MEDDPICC and keep Salesforce CRM forecast accurate to within 8%",
+        "Manage 25 key accounts after close and drive upsell with Customer Success"
+      ]
+    },
+    {
+      "company": "Ledgerly",
+      "jobTitle": "Sales Development Rep to Account Executive",
+      "date": "2017 - 2020",
+      "descriptions": [
+        "Promoted after 18 months; booked 15 qualified meetings a month",
+        "Strong written and spoken communication skills, regular presenter at sales kickoffs"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Exeter",
+      "degree": "BSc Business Management",
+      "date": "2013 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Salesforce, HubSpot, Outreach, Gong, MEDDPICC, Challenger Sale"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "TOOLS & METHODS",
+    "custom": ""
+  }
+}

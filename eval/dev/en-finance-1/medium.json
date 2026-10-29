@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Marcus Hill",
+    "email": "marcus.hill@example.com",
+    "phone": "+1 555 010 1133",
+    "url": "",
+    "summary": "",
+    "location": "Nottingham, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Hartley Retail",
+      "jobTitle": "Assistant Management Accountant",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Responsible for monthly P&L reporting and balance sheet reviews (UK GAAP)",
+        "Help with the annual budget and quarterly reforecast",
+        "Prepare budget vs actual variance reports with commentary for store regions",
+        "Perform bank and supplier statement reconciliations",
+        "Support the month-end close checklist and accruals",
+        "Provided schedules to the external auditors during year-end",
+        "Advanced Excel: pivot tables, VLOOKUP, SUMIFS"
+      ]
+    },
+    {
+      "company": "Cooper & Dale LLP",
+      "jobTitle": "Accounts Assistant",
+      "date": "2018 - 2020",
+      "descriptions": [
+        "Processed purchase ledger and expenses",
+        "Assisted with VAT workings"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Nottingham Trent University",
+      "degree": "BA Business & Economics",
+      "date": "2014 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel (advanced), Sage 200, Xero, Word"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "WORK EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

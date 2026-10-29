@@ -1,0 +1,65 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Gamze Korkmaz",
+    "email": "gamze.korkmaz@example.com",
+    "phone": "0555 010 1147",
+    "url": "",
+    "summary": "8 yıllık mali işler deneyimine sahip, titiz ve detay odaklı SMMM ruhsatlı uzman; üretim sektöründe TFRS raporlaması ve bütçe süreçlerinde uzmanım.",
+    "location": "Gaziantep"
+  },
+  "workExperiences": [
+    {
+      "company": "Antep Tekstil A.Ş.",
+      "jobTitle": "Mali İşler Uzmanı",
+      "date": "2018 - Halen",
+      "descriptions": [
+        "TFRS'ye uygun aylık mali tabloları (bilanço, gelir tablosu) hazırladım",
+        "KDV, muhtasar ve geçici vergi beyannamelerini zamanında verdim",
+        "Cari hesap mutabakatlarını SAP üzerinden yürüttüm, açık kalemleri %40 azalttım",
+        "Nakit akışı tablosu ve yıllık bütçe çalışmalarını yönettim",
+        "e-Fatura ve e-Defter entegrasyon sürecini takip ettim",
+        "Excel'de makrolu raporlar geliştirdim",
+        "Bağımsız denetim sürecinde ekibe destek verdim"
+      ]
+    },
+    {
+      "company": "Yılmaz Mali Müşavirlik",
+      "jobTitle": "Muhasebe Elemanı",
+      "date": "2014 - 2018",
+      "descriptions": [
+        "Logo Tiger ile 25 firmanın muhasebe kayıtlarını tuttum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gaziantep Üniversitesi",
+      "degree": "İşletme (Lisans)",
+      "date": "2010 - 2014",
+      "gpa": "3.3/4",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "TFRS, SAP FI, Logo Tiger, Excel (ileri), Vergi mevzuatı, İngilizce (B2)"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "SMMM ruhsatı (2019)"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Çalışma Geçmişi",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": "Belgeler"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Emre Kaya",
+    "email": "emre.kaya@example.com",
+    "phone": "0555 010 1014",
+    "url": "",
+    "summary": "Sistem ve ağ yönetimi alanında 5 yıllık deneyime sahip BT uzmanı.",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Anadolu Bilişim",
+      "jobTitle": "Sistem Yöneticisi",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Windows Server ve Active Directory yönetiminden sorumluydum",
+        "Test ortamı için Docker ile birkaç konteyner ayağa kaldırdım",
+        "Betikleri Git ile versiyonlayarak ekipte paylaştım",
+        "Yedekleme ve izleme işlerine yardımcı oldum"
+      ]
+    },
+    {
+      "company": "Mavi Teknoloji",
+      "jobTitle": "Teknik Destek Uzmanı",
+      "date": "2017 - 2019",
+      "descriptions": [
+        "Kullanıcı taleplerini karşılama ve donanım kurulumu işlerinden sorumluydum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gazi Üniversitesi",
+      "degree": "Bilgisayar Teknolojileri (Ön Lisans)",
+      "date": "2015 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Windows Server, Active Directory, Cisco, Bash, Docker (temel), Git (temel)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Teknik Beceriler",
+    "custom": ""
+  }
+}

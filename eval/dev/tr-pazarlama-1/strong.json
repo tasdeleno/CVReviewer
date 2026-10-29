@@ -1,0 +1,66 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Burcu Tunç",
+    "email": "burcu.tunc@example.com",
+    "phone": "0555 010 1105",
+    "url": "",
+    "summary": "E-ticaret odaklı performans pazarlama uzmanı. 5 yıldır reklam bütçelerini ve organik büyümeyi birlikte yönetiyorum.",
+    "location": "İzmir"
+  },
+  "workExperiences": [
+    {
+      "company": "Ege Home Online",
+      "jobTitle": "Dijital Pazarlama Uzmanı",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Google Ads (Shopping, Search) kampanyalarıyla ROAS'ı 3.2'den 4.8'e çıkardım",
+        "Meta Ads'te dinamik remarketing kurguladım, aylık 250 bin TL bütçe yönettim",
+        "SEO çalışmalarıyla organik trafiği %70 artırdım",
+        "GA4 ve Looker Studio ile haftalık KPI panoları oluşturdum",
+        "E-bülten ve terk edilmiş sepet e-posta pazarlama akışlarını yönettim",
+        "Instagram ve TikTok hesaplarının sosyal medya yönetimini yürüttüm",
+        "Blog ve ürün kategorileri için içerik pazarlaması takvimi hazırladım",
+        "Excel'de aylık raporlama ve bütçe takibi yaptım",
+        "A/B test ile ürün sayfası düzenlerinde dönüşümü %9 artırdık",
+        "Tasarım ve içerik ekibiyle takım çalışması içinde kampanyaları yürüttüm"
+      ]
+    },
+    {
+      "company": "Marka Ajans",
+      "jobTitle": "Dijital Pazarlama Asistanı",
+      "date": "2018 - 2020",
+      "descriptions": [
+        "Müşteri e-ticaret siteleri için reklam kurulumu ve raporlama"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ege Üniversitesi",
+      "degree": "İşletme (Lisans)",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Google Ads sertifikalı, GA4, Meta Business Suite, Excel (ileri), Looker Studio, Shopify, SEMrush"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

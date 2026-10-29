@@ -1,0 +1,207 @@
+{
+  "id": "en-sales-1",
+  "lang": "en",
+  "sector": "sales",
+  "title": "Account Executive, Mid-Market (B2B SaaS)",
+  "keywords": [
+    {
+      "term": "B2B sales",
+      "aliases": [
+        "business-to-business sales",
+        "enterprise sales",
+        "mid-market sales",
+        "B2B"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SaaS",
+      "aliases": [
+        "software as a service",
+        "subscription software"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "HubSpot",
+        "Salesforce",
+        "Zoho",
+        "customer relationship management"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "pipeline management",
+      "aliases": [
+        "sales pipeline",
+        "pipeline",
+        "forecasting",
+        "forecast accurately"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "prospecting",
+      "aliases": [
+        "outbound",
+        "lead generation",
+        "cold calling",
+        "cold outreach",
+        "prospect"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "negotiation",
+      "aliases": [
+        "negotiating",
+        "negotiate",
+        "contract negotiation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "quota attainment",
+      "aliases": [
+        "quota",
+        "exceeded targets",
+        "exceeded annual targets",
+        "hit target",
+        "sales targets",
+        "satış hedefi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "discovery calls",
+      "aliases": [
+        "discovery call",
+        "needs analysis",
+        "consultative selling",
+        "discovery"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "product demos",
+      "aliases": [
+        "demos",
+        "product demonstrations",
+        "demo",
+        "demonstrations"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "account management",
+      "aliases": [
+        "key accounts",
+        "account expansion",
+        "upselling",
+        "upsell",
+        "farm"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "communication",
+        "iletişim becerisi",
+        "presentation skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "MEDDIC",
+      "aliases": [
+        "MEDDPICC",
+        "Challenger",
+        "SPIN selling"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Sales Navigator",
+      "aliases": [
+        "LinkedIn Sales Navigator"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "B2B sales",
+        "SaaS",
+        "CRM",
+        "pipeline management",
+        "prospecting",
+        "negotiation",
+        "quota attainment",
+        "discovery calls",
+        "product demos",
+        "account management",
+        "communication skills",
+        "MEDDIC"
+      ],
+      "missing": [
+        "Sales Navigator"
+      ]
+    },
+    "medium": {
+      "present": [
+        "B2B sales",
+        "CRM",
+        "prospecting",
+        "negotiation",
+        "quota attainment",
+        "product demos",
+        "communication skills"
+      ],
+      "missing": [
+        "SaaS",
+        "pipeline management",
+        "discovery calls",
+        "account management",
+        "MEDDIC",
+        "Sales Navigator"
+      ]
+    },
+    "weak": {
+      "present": [
+        "quota attainment",
+        "communication skills"
+      ],
+      "missing": [
+        "B2B sales",
+        "SaaS",
+        "CRM",
+        "pipeline management",
+        "prospecting",
+        "negotiation",
+        "discovery calls",
+        "product demos",
+        "account management",
+        "MEDDIC",
+        "Sales Navigator"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Katie Moore",
+    "email": "katie.moore@example.com",
+    "phone": "+1 555 010 1203",
+    "url": "",
+    "summary": "Customer service supervisor with a people-first approach.",
+    "location": "Bristol, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Westgate Telecom",
+      "jobTitle": "Customer Service Supervisor",
+      "date": "2018 - Present",
+      "descriptions": [
+        "Responsible for a team of 8 call-centre agents",
+        "Carried out monthly performance reviews and coaching sessions",
+        "Built rota and absence reports in Excel",
+        "Strong communication skills with customers and colleagues"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Bristol",
+      "degree": "BA Sociology",
+      "date": "2014 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Zendesk, communication, conflict resolution"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "WORK EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

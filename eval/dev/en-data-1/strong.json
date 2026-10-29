@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Maya Lindqvist",
+    "email": "maya.lindqvist@example.com",
+    "phone": "+1 555 010 1042",
+    "url": "github.com/maya-lindqvist-example",
+    "summary": "Data scientist with 5 years of experience in retail and e-commerce. I like turning messy data into models that people actually use.",
+    "location": "London, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Fjord Commerce",
+      "jobTitle": "Senior Data Scientist",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Built churn and CLV models (XGBoost, scikit-learn) that lifted retention campaign ROI by 18%",
+        "Designed feature engineering pipelines on 200M-row purchase tables with PySpark and BigQuery",
+        "Ran 30+ A/B tests; reported statistical significance and uplift to marketing leads",
+        "Productionized models behind an internal API with monitoring and drift alerts (MLOps)",
+        "Built Tableau dashboards used weekly by 50+ category managers",
+        "Fine-tuned a PyTorch text classifier for NLP on customer reviews"
+      ]
+    },
+    {
+      "company": "Nordlight Analytics",
+      "jobTitle": "Data Analyst",
+      "date": "2018 - 2021",
+      "descriptions": [
+        "Wrote complex SQL and pandas workflows for weekly reporting",
+        "Presented findings to senior stakeholders in plain language"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "KTH Royal Institute of Technology",
+      "degree": "MSc Applied Mathematics & Statistics",
+      "date": "2016 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Python (pandas, NumPy, scikit-learn, PyTorch), SQL, Spark, BigQuery, Tableau, Git, Docker"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "Professional Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "Technical Skills",
+    "custom": ""
+  }
+}

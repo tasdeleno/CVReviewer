@@ -1,0 +1,55 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Burak Şahin",
+    "email": "burak.sahin@example.com",
+    "phone": "0555 010 1049",
+    "url": "",
+    "summary": "Veri analizi alanında 4 yıllık deneyime sahibim; makine öğrenmesi projelerine geçiş yapmak istiyorum.",
+    "location": "İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Anka Perakende",
+      "jobTitle": "Kıdemli Veri Analisti",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Python ve SQL ile haftalık satış analizlerini otomatikleştirdim",
+        "pandas kullanarak kampanya verilerini temizledim ve birleştirdim",
+        "Tableau ile yönetim dashboard'ları hazırladım",
+        "Pazarlama ekibiyle A/B testi sonuçlarını yorumladım",
+        "İstatistiksel analiz (t-testi, ki-kare) ile kampanya etkisini ölçtüm",
+        "scikit-learn ile basit bir müşteri segmentasyonu (kümeleme) modeli denedim",
+        "Sonuçları paydaşlara sunum yaparak aktardım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Boğaziçi Üniversitesi",
+      "degree": "İstatistik (Lisans)",
+      "date": "2012 - 2016",
+      "gpa": "3.0/4",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Python, SQL, pandas, scikit-learn (temel), Tableau, Excel"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Dilara Özkan",
+    "email": "dilara.ozkan@example.com",
+    "phone": "0555 010 1175",
+    "url": "",
+    "summary": "İnsan kaynaklarında 5 yıllık deneyime sahip, işe alım ve bordro süreçlerine hakim İK uzmanıyım.",
+    "location": "İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Marmara Savunma Teknolojileri",
+      "jobTitle": "İK Uzmanı",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Teknik pozisyonlar için uçtan uca işe alım süreçlerini yürüttüm (yılda 40 işe alım)",
+        "Başvuru takip sistemi (ATS) üzerinden adayları yönettim",
+        "Yapılandırılmış mülakatlar yaptım ve yöneticilere mülakat desteği verdim",
+        "Yeni çalışanlar için işe alıştırma (oryantasyon) programını hazırladım",
+        "SAP SuccessFactors üzerinde çalışan verilerini güncel tuttum",
+        "İş Kanunu kapsamında iş sözleşmeleri ve fesih süreçlerini yönettim",
+        "Yıllık performans değerlendirme sürecinin koordinasyonundan sorumluydum",
+        "Bordro ve yan haklar hazırlığında muhasebe ile çalıştım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Yıldız Teknik Üniversitesi",
+      "degree": "İşletme",
+      "date": "2013 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SuccessFactors, Kariyer.net, LinkedIn, Excel, MS Office"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

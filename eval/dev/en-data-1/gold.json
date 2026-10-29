@@ -1,0 +1,217 @@
+{
+  "id": "en-data-1",
+  "lang": "en",
+  "sector": "data",
+  "title": "Data Scientist",
+  "keywords": [
+    {
+      "term": "Python",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "machine learning",
+      "aliases": [
+        "ML",
+        "makine öğrenmesi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "scikit-learn",
+      "aliases": [
+        "sklearn"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "pandas",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "statistics",
+      "aliases": [
+        "statistical analysis",
+        "hypothesis testing",
+        "istatistik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "A/B testing",
+      "aliases": [
+        "A/B tests",
+        "experimentation",
+        "A/B test",
+        "A/B testi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "data visualization",
+      "aliases": [
+        "dashboards",
+        "Tableau",
+        "Power BI",
+        "visualisation",
+        "veri görselleştirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "feature engineering",
+      "aliases": [
+        "özellik mühendisliği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "stakeholder communication",
+        "presenting to stakeholders",
+        "presented findings",
+        "presented results",
+        "iletişim",
+        "sunum"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "model deployment",
+      "aliases": [
+        "MLOps",
+        "productionizing models",
+        "model monitoring",
+        "serving models"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "PyTorch",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "Spark",
+      "aliases": [
+        "PySpark",
+        "Apache Spark"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "NLP",
+      "aliases": [
+        "natural language processing"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Airflow",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "GCP",
+      "aliases": [
+        "Google Cloud",
+        "BigQuery"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "Python",
+        "SQL",
+        "machine learning",
+        "scikit-learn",
+        "pandas",
+        "statistics",
+        "A/B testing",
+        "data visualization",
+        "feature engineering",
+        "communication skills",
+        "model deployment",
+        "PyTorch",
+        "Spark",
+        "NLP",
+        "GCP"
+      ],
+      "missing": [
+        "Airflow"
+      ]
+    },
+    "medium": {
+      "present": [
+        "Python",
+        "SQL",
+        "machine learning",
+        "scikit-learn",
+        "pandas",
+        "statistics",
+        "A/B testing",
+        "data visualization",
+        "communication skills"
+      ],
+      "missing": [
+        "feature engineering",
+        "model deployment",
+        "PyTorch",
+        "Spark",
+        "NLP",
+        "Airflow",
+        "GCP"
+      ]
+    },
+    "weak": {
+      "present": [
+        "SQL",
+        "statistics",
+        "data visualization",
+        "communication skills"
+      ],
+      "missing": [
+        "Python",
+        "machine learning",
+        "scikit-learn",
+        "pandas",
+        "A/B testing",
+        "feature engineering",
+        "model deployment",
+        "PyTorch",
+        "Spark",
+        "NLP",
+        "Airflow",
+        "GCP"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

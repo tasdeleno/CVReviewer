@@ -1,0 +1,32 @@
+Kıdemli Frontend Geliştirici (React)
+Pusula Dijital - İstanbul (Hibrit)
+
+Biz Kimiz?
+Pusula Dijital, perakende ve bankacılık sektörlerine web ve mobil ürünler geliştiren 120 kişilik bir yazılım şirketidir. Ürün ekibimize kıdemli bir frontend geliştirici arıyoruz.
+
+Sorumluluklar
+- Kurumsal müşteriler için React tabanlı web uygulamaları geliştirmek
+- Tasarım ekibiyle birlikte çalışarak arayüzleri pixel-perfect hayata geçirmek
+- Backend ekibinin sunduğu REST API'lerini entegre etmek
+- Kod kalitesini artırmak, ekip içi kod incelemelerine katılmak
+- Çevik (Agile/Scrum) süreçlerde sprint planlamalarına katkı vermek
+
+Beklentilerimiz
+- En az 4 yıl React ve TypeScript'te profesyonel deneyim
+- JavaScript (ES6+), HTML5 ve CSS3'e hakim
+- Responsive tasarım ve tarayıcı uyumluluğu konusunda tecrübe
+- Git ile versiyon kontrolü deneyimi
+- Jest ile birim test yazmış olmak
+- Güçlü iletişim ve takım çalışması becerisi
+- Agile/Scrum metodolojisinde çalışmış olmak
+
+Tercih Sebebi
+- Next.js deneyimi
+- Redux veya benzeri bir durum yönetimi kütüphanesi bilgisi
+- Storybook ile bileşen kütüphanesi geliştirmiş olmak
+- Web performans optimizasyonu (Lighthouse, Core Web Vitals) deneyimi
+- CI/CD süreçlerine aşinalık
+- İyi derecede İngilizce
+
+Yan Haklar
+Özel sağlık sigortası, yemek kartı, haftada 2 gün uzaktan çalışma, eğitim desteği.

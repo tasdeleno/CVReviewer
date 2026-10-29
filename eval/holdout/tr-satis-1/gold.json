@@ -1,0 +1,204 @@
+{
+  "id": "tr-satis-1",
+  "lang": "tr",
+  "sector": "satış",
+  "title": "Bölge Satış Temsilcisi (Saha / B2B)",
+  "keywords": [
+    {
+      "term": "B2B satış",
+      "aliases": [
+        "B2B sales",
+        "kurumsal satış",
+        "business-to-business sales"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "saha satışı",
+      "aliases": [
+        "field sales",
+        "saha satış",
+        "müşteri ziyaretleri",
+        "field visits"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bayi yönetimi",
+      "aliases": [
+        "dealer management",
+        "distribütör yönetimi",
+        "dealer network",
+        "distributor management",
+        "bayi ağı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müşteri portföyü yönetimi",
+      "aliases": [
+        "müşteri portföyü",
+        "account management",
+        "portfolio management",
+        "customer portfolio",
+        "managed a portfolio"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "satış hedefi",
+      "aliases": [
+        "sales targets",
+        "sales target",
+        "quota",
+        "hedef gerçekleştirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müzakere",
+      "aliases": [
+        "negotiation",
+        "negotiating",
+        "negotiated",
+        "pazarlık"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teklif hazırlama",
+      "aliases": [
+        "proposal",
+        "quotation",
+        "proposals",
+        "quotes",
+        "teklif"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Office",
+        "Office programları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "müşteri ilişkileri yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "raporlama",
+      "aliases": [
+        "reporting",
+        "weekly reports",
+        "haftalık rapor"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "B sınıfı ehliyet",
+      "aliases": [
+        "ehliyet",
+        "driving license",
+        "driver's license",
+        "driving licence"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SAP",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "B2B satış",
+        "saha satışı",
+        "bayi yönetimi",
+        "müşteri portföyü yönetimi",
+        "satış hedefi",
+        "müzakere",
+        "teklif hazırlama",
+        "Excel",
+        "CRM",
+        "raporlama",
+        "B sınıfı ehliyet",
+        "İngilizce"
+      ],
+      "missing": [
+        "SAP"
+      ]
+    },
+    "medium": {
+      "present": [
+        "B2B satış",
+        "saha satışı",
+        "müşteri portföyü yönetimi",
+        "satış hedefi",
+        "müzakere",
+        "teklif hazırlama",
+        "Excel",
+        "CRM",
+        "B sınıfı ehliyet",
+        "İngilizce"
+      ],
+      "missing": [
+        "bayi yönetimi",
+        "raporlama",
+        "SAP"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Excel",
+        "CRM",
+        "raporlama",
+        "İngilizce"
+      ],
+      "missing": [
+        "B2B satış",
+        "saha satışı",
+        "bayi yönetimi",
+        "müşteri portföyü yönetimi",
+        "satış hedefi",
+        "müzakere",
+        "teklif hazırlama",
+        "B sınıfı ehliyet",
+        "SAP"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

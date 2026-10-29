@@ -1,0 +1,66 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Rachel Monroe",
+    "email": "rachel.monroe@example.com",
+    "phone": "+1 555 010 1168",
+    "url": "linkedin.com/in/rachelmonroe-example",
+    "summary": "Talent acquisition professional with 7 years in tech scale-ups. Passionate about candidate experience and inclusive hiring.",
+    "location": "Dublin, Ireland"
+  },
+  "workExperiences": [
+    {
+      "company": "Kestrel Software",
+      "jobTitle": "Senior Talent Partner",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Run full-cycle recruitment for 60+ engineering hires per year, cutting time-to-hire from 52 to 34 days",
+        "Source passive candidates daily via LinkedIn Recruiter; 35% response rate",
+        "Own the Greenhouse ATS configuration, scorecards and reporting",
+        "Train managers in structured, competency-based interviewing",
+        "Led employer branding refresh: careers site, Glassdoor presence and campus events",
+        "Designed a 30-60-90 day onboarding programme with a 95% new-hire satisfaction score",
+        "Built Workday dashboards for headcount and funnel analytics; HR analytics review monthly with the COO",
+        "Launched DEI sourcing initiative that raised female engineering shortlists from 18% to 31%",
+        "Advised on compensation and benefits bands and offer approvals"
+      ]
+    },
+    {
+      "company": "TalentBridge Agency",
+      "jobTitle": "Recruitment Consultant",
+      "date": "2016 - 2020",
+      "descriptions": [
+        "Placed 120+ candidates in IT roles",
+        "Supported clients on employment law basics for contractor engagement"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Trinity College Dublin",
+      "degree": "BA Psychology",
+      "date": "2012 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Greenhouse, Workday, LinkedIn Recruiter, Power BI, Boolean search"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "Professional Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "TOOLS",
+    "custom": ""
+  }
+}

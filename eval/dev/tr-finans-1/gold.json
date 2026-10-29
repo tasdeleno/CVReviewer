@@ -1,0 +1,207 @@
+{
+  "id": "tr-finans-1",
+  "lang": "tr",
+  "sector": "finans",
+  "title": "Mali İşler Uzmanı",
+  "keywords": [
+    {
+      "term": "TFRS",
+      "aliases": [
+        "UFRS",
+        "IFRS",
+        "VUK"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mali tablolar",
+      "aliases": [
+        "finansal tablolar",
+        "bilanço",
+        "gelir tablosu",
+        "financial statements"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KDV beyannamesi",
+      "aliases": [
+        "KDV",
+        "vergi beyannamesi",
+        "muhtasar",
+        "vergi mevzuatı",
+        "VAT"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Excel"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SAP",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "Logo",
+      "aliases": [
+        "Logo Tiger",
+        "Logo Go"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "cari hesap mutabakatı",
+      "aliases": [
+        "mutabakat",
+        "hesap mutabakatı",
+        "reconciliation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "e-Fatura/e-Defter",
+      "aliases": [
+        "e-Fatura",
+        "e-Defter",
+        "e-invoice",
+        "e-ledger"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "nakit akışı",
+      "aliases": [
+        "nakit akış tablosu",
+        "cash flow"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bütçe",
+      "aliases": [
+        "bütçe hazırlama",
+        "bütçe takibi",
+        "budgeting",
+        "bütçe sapmaları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "detaylara dikkat",
+      "aliases": [
+        "titiz",
+        "detay odaklı",
+        "dikkatli",
+        "attention to detail"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SMMM",
+      "aliases": [
+        "YMM",
+        "SMMM ruhsat",
+        "CPA"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Power BI",
+      "aliases": [],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "TFRS",
+        "mali tablolar",
+        "KDV beyannamesi",
+        "Excel",
+        "SAP",
+        "Logo",
+        "cari hesap mutabakatı",
+        "e-Fatura/e-Defter",
+        "nakit akışı",
+        "bütçe",
+        "İngilizce",
+        "detaylara dikkat",
+        "SMMM"
+      ],
+      "missing": [
+        "Power BI"
+      ]
+    },
+    "medium": {
+      "present": [
+        "mali tablolar",
+        "KDV beyannamesi",
+        "Excel",
+        "Logo",
+        "cari hesap mutabakatı",
+        "e-Fatura/e-Defter",
+        "İngilizce",
+        "detaylara dikkat"
+      ],
+      "missing": [
+        "TFRS",
+        "SAP",
+        "nakit akışı",
+        "bütçe",
+        "SMMM",
+        "Power BI"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Excel",
+        "detaylara dikkat"
+      ],
+      "missing": [
+        "TFRS",
+        "mali tablolar",
+        "KDV beyannamesi",
+        "SAP",
+        "Logo",
+        "cari hesap mutabakatı",
+        "e-Fatura/e-Defter",
+        "nakit akışı",
+        "bütçe",
+        "İngilizce",
+        "SMMM",
+        "Power BI"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}
