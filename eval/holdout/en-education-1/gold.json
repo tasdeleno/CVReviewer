@@ -1,0 +1,252 @@
+{
+  "id": "en-education-1",
+  "lang": "en",
+  "sector": "education",
+  "title": "Primary School Teacher",
+  "keywords": [
+    {
+      "term": "lesson planning",
+      "aliases": [
+        "plan and teach",
+        "lesson plans",
+        "planned and taught",
+        "ders planı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "National Curriculum",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "assessment for learning",
+      "aliases": [
+        "formative assessment",
+        "ölçme ve değerlendirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "pupil progress",
+      "aliases": [
+        "student progress",
+        "progress reports",
+        "öğrenci gelişimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "differentiated instruction",
+      "aliases": [
+        "differentiation",
+        "differentiated",
+        "farklılaştırılmış öğretim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SEN",
+      "aliases": [
+        "special educational needs",
+        "SEND",
+        "EHCP",
+        "learning difficulties",
+        "özel eğitim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "behaviour management",
+      "aliases": [
+        "behavior management",
+        "classroom management",
+        "sınıf yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "parent communication",
+      "aliases": [
+        "parents and carers",
+        "relationships with parents",
+        "parent meetings",
+        "veli iletişimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "QTS/PGCE",
+      "aliases": [
+        "QTS",
+        "PGCE",
+        "Qualified Teacher Status"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Key Stage 2",
+      "aliases": [
+        "KS2"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "safeguarding",
+      "aliases": [
+        "child protection"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ICT skills",
+      "aliases": [
+        "ICT"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Classroom",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "communication",
+      "aliases": [
+        "communication skills",
+        "communicator"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teamwork",
+      "aliases": [
+        "team player",
+        "team work",
+        "ekip çalışması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "subject leadership",
+      "aliases": [
+        "subject leader",
+        "subject lead",
+        "leading a curriculum subject"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "phonics",
+      "aliases": [
+        "phonics training",
+        "Read Write Inc"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "lesson planning",
+        "National Curriculum",
+        "assessment for learning",
+        "pupil progress",
+        "differentiated instruction",
+        "SEN",
+        "behaviour management",
+        "parent communication",
+        "QTS/PGCE",
+        "Key Stage 2",
+        "safeguarding",
+        "ICT skills",
+        "Google Classroom",
+        "communication",
+        "teamwork",
+        "subject leadership",
+        "phonics"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "lesson planning",
+        "pupil progress",
+        "SEN",
+        "parent communication",
+        "ICT skills"
+      ],
+      "missing": [
+        "National Curriculum",
+        "assessment for learning",
+        "differentiated instruction",
+        "behaviour management",
+        "QTS/PGCE",
+        "Key Stage 2",
+        "safeguarding",
+        "Google Classroom",
+        "communication",
+        "teamwork",
+        "subject leadership",
+        "phonics"
+      ]
+    },
+    "weak": {
+      "present": [
+        "SEN",
+        "Key Stage 2",
+        "safeguarding",
+        "phonics"
+      ],
+      "missing": [
+        "lesson planning",
+        "National Curriculum",
+        "assessment for learning",
+        "pupil progress",
+        "differentiated instruction",
+        "behaviour management",
+        "parent communication",
+        "QTS/PGCE",
+        "ICT skills",
+        "Google Classroom",
+        "communication",
+        "teamwork",
+        "subject leadership"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "lang": "tr",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Hatice Yıldız",
+    "email": "hatice.yildiz@example.com",
+    "phone": "0555 010 2203",
+    "url": "",
+    "summary": "",
+    "location": "Manisa"
+  },
+  "workExperiences": [
+    {
+      "company": "Güneşli Bakımevi",
+      "jobTitle": "Hasta Bakım Personeli",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Bakımevindeki hastaların günlük bakımı ve kişisel hijyen işlerinden sorumluydum",
+        "Vital bulguları (tansiyon, ateş, nabız) her sabah ölçüp deftere yazdım",
+        "12 yataklı katta ilaçların saatinde verilmesine yardımcı oldum",
+        "Ekip arkadaşlarımla ekip çalışması içinde vardiya devirlerini yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Manisa Sağlık Meslek Lisesi",
+      "degree": "Hemşire Yardımcılığı",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, ilk yardım belgesi"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

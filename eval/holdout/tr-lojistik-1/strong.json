@@ -1,0 +1,64 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Emre Koç",
+    "email": "emre.koc@example.com",
+    "phone": "0555 010 2401",
+    "url": "",
+    "summary": "6 yıllık deneyime sahip, analitik düşünen ve problem çözme odaklı lojistik uzmanıyım; depo ve dış ticaret operasyonlarını birlikte yönetiyorum.",
+    "location": "Kocaeli"
+  },
+  "workExperiences": [
+    {
+      "company": "Anadolu Lojistik",
+      "jobTitle": "Lojistik Uzmanı",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Depo giriş-çıkış operasyonlarını Manhattan WMS’te yönettim, sevkiyat hatalarını %35 azalttım",
+        "Yılda 1.200+ ithalat ve ihracat sevkiyatını planladım, gümrük müşavirleriyle koordineli çalıştım",
+        "Navlun pazarlığıyla yıllık taşıma maliyetlerini %12 düşürdüm",
+        "6 taşıma firmasının tedarikçi performansını aylık KPI karnesiyle takip ettim",
+        "SAP’ta (MM ve EWM) stok hareketlerini ve envanter kontrolünü yürüttüm, sayım farkını %0,4’e indirdim",
+        "Incoterms 2020 kurallarına göre teklif ve sözleşmeleri kontrol ettim, dış ticaret mevzuatı değişikliklerini ekibe duyurdum",
+        "Excel’de makrolu haftalık KPI raporları hazırladım",
+        "Yurt dışı acentelerle İngilizce yazışmaları ve haftalık toplantıları yürüttüm"
+      ]
+    },
+    {
+      "company": "Körfez Depoculuk",
+      "jobTitle": "Depo Sorumlusu",
+      "date": "2018 - 2020",
+      "descriptions": [
+        "8.000 m² depoda 3 vardiyalı stok sayımı planını kurdum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kocaeli Üniversitesi",
+      "degree": "Uluslararası Ticaret ve Lojistik (Lisans)",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "WMS, SAP MM/EWM, Excel (ileri), Incoterms, İngilizce (C1), B sınıfı ehliyet"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

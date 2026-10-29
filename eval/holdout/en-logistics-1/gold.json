@@ -1,0 +1,252 @@
+{
+  "id": "en-logistics-1",
+  "lang": "en",
+  "sector": "logistics",
+  "title": "Supply Chain Analyst",
+  "keywords": [
+    {
+      "term": "demand forecasting",
+      "aliases": [
+        "demand forecasts",
+        "forecasting",
+        "talep tahmini"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "S&OP",
+      "aliases": [
+        "sales and operations planning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "inventory management",
+      "aliases": [
+        "inventory levels",
+        "inventory analysis",
+        "inventory control",
+        "stock levels",
+        "stok yönetimi",
+        "envanter yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "safety stock",
+      "aliases": [
+        "reorder points",
+        "emniyet stoğu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "supplier performance",
+      "aliases": [
+        "supplier management",
+        "vendor performance",
+        "tedarikçi performansı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "3PL",
+      "aliases": [
+        "third-party logistics"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "KPIs",
+        "service-level KPIs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "dashboards",
+      "aliases": [
+        "dashboard"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "Advanced Excel",
+        "Power Query",
+        "pivot tables",
+        "MS Excel"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "ERP (SAP/Oracle)",
+      "aliases": [
+        "ERP",
+        "SAP",
+        "Oracle",
+        "Logo"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analytical skills",
+      "aliases": [
+        "analytical",
+        "analitik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem solving",
+      "aliases": [
+        "problem-solving",
+        "problem çözme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "stakeholder communication",
+      "aliases": [
+        "communication",
+        "communication skills",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Power BI/Tableau",
+      "aliases": [
+        "Power BI",
+        "Tableau"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Python",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "APICS",
+      "aliases": [
+        "CPIM",
+        "CSCP",
+        "APICS CPIM",
+        "APICS CSCP"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "demand forecasting",
+        "S&OP",
+        "inventory management",
+        "safety stock",
+        "supplier performance",
+        "3PL",
+        "KPI",
+        "dashboards",
+        "Excel",
+        "SQL",
+        "ERP (SAP/Oracle)",
+        "analytical skills",
+        "problem solving",
+        "stakeholder communication",
+        "Power BI/Tableau",
+        "Python"
+      ],
+      "missing": [
+        "APICS"
+      ]
+    },
+    "medium": {
+      "present": [
+        "inventory management",
+        "3PL",
+        "KPI",
+        "Excel",
+        "ERP (SAP/Oracle)"
+      ],
+      "missing": [
+        "demand forecasting",
+        "S&OP",
+        "safety stock",
+        "supplier performance",
+        "dashboards",
+        "SQL",
+        "analytical skills",
+        "problem solving",
+        "stakeholder communication",
+        "Power BI/Tableau",
+        "Python",
+        "APICS"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Excel",
+        "ERP (SAP/Oracle)"
+      ],
+      "missing": [
+        "demand forecasting",
+        "S&OP",
+        "inventory management",
+        "safety stock",
+        "supplier performance",
+        "3PL",
+        "KPI",
+        "dashboards",
+        "SQL",
+        "analytical skills",
+        "problem solving",
+        "stakeholder communication",
+        "Power BI/Tableau",
+        "Python",
+        "APICS"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "long-bullets"
+    ],
+    "medium": [
+      "title",
+      "weak-verbs",
+      "unquantified"
+    ],
+    "weak": [
+      "no-summary",
+      "unquantified"
+    ]
+  }
+}

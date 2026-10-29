@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Can Aydın",
+    "email": "can.aydin@example.com",
+    "phone": "+90 555 010 2402",
+    "url": "",
+    "summary": "Logistics specialist with 4 years in warehouse operations for a contract logistics provider.",
+    "location": "Istanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Bosphorus Contract Logistics",
+      "jobTitle": "Logistics Specialist",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Managed inbound and outbound warehouse operations for retail clients",
+        "Responsible for stock counts and inventory control",
+        "Prepared export documents and worked with customs brokers",
+        "Tracked carrier performance against KPIs",
+        "Used SAP MM for purchase orders and goods receipts",
+        "Prepared weekly reports in Excel"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Yeditepe University",
+      "degree": "BA International Trade",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SAP MM, Excel, English (fluent)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": "2.1.0",
+  "source": "scenario",
+  "timestamp": "2026-10-29T21:30:00",
+  "status": "SATURATED",
+  "results_tsv": "autoresearch/scenario-261029-2122/scenario-results.tsv",
+  "findings": {"high": 10, "medium": 9, "low": 3},
+  "config": {
+    "scenario": "EN/TR ilan ve PDF CV analizi; holdout v2 için veriyle ifade edilebilir kenar durumları",
+    "domain": "data pipeline",
+    "scope": ["src/app/lib/job-match/**", "src/app/lib/parse-resume-from-pdf/**"],
+    "dimensions": ["Data", "Validation", "Happy path", "UX"]
+  }
+}

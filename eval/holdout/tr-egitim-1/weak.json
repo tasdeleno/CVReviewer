@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Gizem Tunç",
+    "email": "gizem.tunc@example.com",
+    "phone": "0555 010 2603",
+    "url": "",
+    "summary": "",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Global Dil Kursu",
+      "jobTitle": "Kurs Danışmanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Öğrenci kayıt ve veli görüşmelerinden sorumluydum",
+        "Kurs etkinliklerinin organizasyonunda görev aldım",
+        "Excel'de öğrenci listeleri tuttum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ankara Üniversitesi",
+      "degree": "Sosyoloji (Lisans)",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, İngilizce (B1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

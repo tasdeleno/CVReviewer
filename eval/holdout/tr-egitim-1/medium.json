@@ -1,0 +1,54 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Kerem Yalçın",
+    "email": "kerem.yalcin@example.com",
+    "phone": "0555 010 2602",
+    "url": "",
+    "summary": "Mütercim-tercümanlık mezunuyum; İngilizce öğretmenliğine geçmek istiyorum.",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Atlas Çeviri Bürosu",
+      "jobTitle": "Çevirmen",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Teknik metinlerin İngilizce-Türkçe çevirisini yaptım",
+        "Özel ders olarak 10 öğrenciye İngilizce dersi verdim",
+        "Öğrencilerim için ders planı hazırladım ve ilerlemelerini takip ettim",
+        "Dil kursunda seviye sınavlarının hazırlanmasına yardımcı oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hacettepe Üniversitesi",
+      "degree": "Mütercim-Tercümanlık (Lisans)",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": [
+        "Pedagojik formasyon sertifikası (2022)"
+      ]
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SDL Trados, MS Office, İngilizce (C1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "id": "tr-lojistik-1",
+  "lang": "tr",
+  "sector": "lojistik",
+  "title": "Lojistik Uzmanı",
+  "keywords": [
+    {
+      "term": "WMS",
+      "aliases": [
+        "depo yönetim sistemi",
+        "warehouse management system"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "depo operasyonları",
+      "aliases": [
+        "depo giriş-çıkış",
+        "warehouse operations",
+        "depo yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ithalat/ihracat",
+      "aliases": [
+        "ithalat",
+        "ihracat",
+        "import",
+        "export"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "gümrük",
+      "aliases": [
+        "gümrük müşaviri",
+        "gümrük işlemleri",
+        "customs",
+        "customs brokers",
+        "customs clearance"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "navlun",
+      "aliases": [
+        "navlun pazarlığı",
+        "freight",
+        "freight negotiation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "tedarikçi performansı",
+      "aliases": [
+        "tedarikçi performans takibi",
+        "supplier performance",
+        "carrier performance",
+        "vendor management"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "envanter kontrolü",
+      "aliases": [
+        "stok sayımı",
+        "stok kontrolü",
+        "inventory control",
+        "stock count",
+        "envanter yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "KPI raporları",
+        "KPIs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SAP",
+      "aliases": [
+        "SAP MM",
+        "SAP ERP"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SAP EWM",
+      "aliases": [
+        "EWM"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Incoterms",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "dış ticaret mevzuatı",
+      "aliases": [
+        "dış ticaret",
+        "foreign trade regulations"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Excel",
+        "Microsoft Excel"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "B sınıfı ehliyet",
+      "aliases": [
+        "B sınıfı sürücü belgesi",
+        "sürücü belgesi",
+        "ehliyet",
+        "driving licence"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analitik düşünme",
+      "aliases": [
+        "analitik",
+        "analytical thinking"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem çözme",
+      "aliases": [
+        "problem solving"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "WMS",
+        "depo operasyonları",
+        "ithalat/ihracat",
+        "gümrük",
+        "navlun",
+        "tedarikçi performansı",
+        "envanter kontrolü",
+        "KPI",
+        "SAP",
+        "SAP EWM",
+        "Incoterms",
+        "dış ticaret mevzuatı",
+        "Excel",
+        "İngilizce",
+        "B sınıfı ehliyet",
+        "analitik düşünme",
+        "problem çözme"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "depo operasyonları",
+        "ithalat/ihracat",
+        "gümrük",
+        "tedarikçi performansı",
+        "envanter kontrolü",
+        "KPI",
+        "SAP",
+        "Excel",
+        "İngilizce"
+      ],
+      "missing": [
+        "WMS",
+        "navlun",
+        "SAP EWM",
+        "Incoterms",
+        "dış ticaret mevzuatı",
+        "B sınıfı ehliyet",
+        "analitik düşünme",
+        "problem çözme"
+      ]
+    },
+    "weak": {
+      "present": [
+        "depo operasyonları",
+        "envanter kontrolü",
+        "Excel",
+        "B sınıfı ehliyet"
+      ],
+      "missing": [
+        "WMS",
+        "ithalat/ihracat",
+        "gümrük",
+        "navlun",
+        "tedarikçi performansı",
+        "KPI",
+        "SAP",
+        "SAP EWM",
+        "Incoterms",
+        "dış ticaret mevzuatı",
+        "İngilizce",
+        "analitik düşünme",
+        "problem çözme"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  }
+}

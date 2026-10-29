@@ -1,0 +1,55 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Hannah Clarke",
+    "email": "hannah.clarke@example.com",
+    "phone": "07700 900 301",
+    "url": "",
+    "summary": "NMC registered adult staff nurse with 5 years on acute surgical wards. Calm under pressure, with strong communication skills.",
+    "location": "Leeds"
+  },
+  "workExperiences": [
+    {
+      "company": "St Anne's Hospital",
+      "jobTitle": "Staff Nurse, General Surgery",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Delivered person-centred care for 6-8 post-operative patients per shift on a 28-bed surgical ward",
+        "Administered oral and IV medications, including IV therapy via central lines, with zero medication errors in the 2023 audit",
+        "Performed wound care and post-operative observations using NEWS2, escalating deteriorating patients within 15 minutes",
+        "Coordinated discharge planning for complex surgical patients by working with physiotherapists, occupational therapists, social workers and families in daily multidisciplinary team huddles, which reduced delayed discharges on the ward by roughly 20% over one year and noticeably improved the patient feedback we received",
+        "Kept accurate records in the electronic patient record (EPR) system on every shift",
+        "Mentored 10 student nurses through their surgical placements",
+        "Led ward infection prevention and control audits, keeping hand hygiene compliance above 95%"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Leeds",
+      "degree": "BSc Nursing (Adult)",
+      "date": "2015 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "BLS, ALS, IV cannulation, NEWS2, Lorenzo EPR"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "skills": "Skills"
+  }
+}

@@ -1,0 +1,24 @@
+Supply Chain Analyst
+Brightwell Foods – Manchester (hybrid)
+
+About the role
+Brightwell Foods supplies 1,200 UK grocery stores from two distribution centres. You will turn supply chain data into decisions on stock, service levels and cost.
+
+Responsibilities
+- Build and maintain demand forecasts and support the monthly S&OP process
+- Analyse inventory levels and recommend safety stock and reorder points
+- Track supplier and 3PL performance against service-level KPIs
+- Prepare weekly dashboards for the operations leadership team
+
+Requirements
+- 5+ years of experience in supply chain or logistics analysis
+- Advanced Excel (pivot tables, lookups, Power Query)
+- Working knowledge of SQL
+- Experience with an ERP such as SAP or Oracle
+- Strong analytical and problem-solving skills
+- Clear communication with stakeholders at all levels
+
+Nice to have
+- Power BI or Tableau
+- Python for data analysis
+- APICS CPIM or CSCP certification

@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Mustafa Demir",
+    "email": "mustafa.demir@example.com",
+    "phone": "0555 010 2403",
+    "url": "",
+    "summary": "Perakende deposunda iki yıllık deneyimim var.",
+    "location": "Gebze"
+  },
+  "workExperiences": [
+    {
+      "company": "Kardeşler Market Zinciri",
+      "jobTitle": "Depo Sorumlusu",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Mal kabul ve sevkiyat işlerinden sorumluydum ve günlük kontrol listesini doldurdum",
+        "Ay sonu stok sayımlarına destek verdim",
+        "Forklift ile palet taşıma ve raf düzenleme yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gebze Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel (temel), forklift operatör belgesi, B sınıfı ehliyet"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "projects": "",
+    "custom": "",
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "skills": "Yetenekler"
+  }
+}

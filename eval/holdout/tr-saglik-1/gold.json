@@ -1,0 +1,245 @@
+{
+  "id": "tr-saglik-1",
+  "lang": "tr",
+  "sector": "sağlık",
+  "title": "Yoğun Bakım Hemşiresi",
+  "keywords": [
+    {
+      "term": "yoğun bakım",
+      "aliases": [
+        "intensive care",
+        "ICU",
+        "yoğun bakım ünitesi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mekanik ventilasyon",
+      "aliases": [
+        "mekanik ventilatör",
+        "ventilatör takibi",
+        "mechanical ventilation",
+        "ventilator"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hasta bakımı",
+      "aliases": [
+        "patient care",
+        "nursing care",
+        "hemşirelik bakımı",
+        "bakım planı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hasta güvenliği",
+      "aliases": [
+        "patient safety"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "enfeksiyon kontrolü",
+      "aliases": [
+        "infection control",
+        "infection prevention",
+        "enfeksiyon kontrol"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ilaç uygulama",
+      "aliases": [
+        "ilaç uygulamaları",
+        "medication administration",
+        "administered medications"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sıvı-elektrolit takibi",
+      "aliases": [
+        "sıvı elektrolit",
+        "fluid balance",
+        "fluid and electrolyte"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HBYS",
+      "aliases": [
+        "hastane bilgi yönetim sistemi",
+        "hospital information system",
+        "EMR",
+        "EHR",
+        "electronic health record"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "BLS",
+      "aliases": [
+        "temel yaşam desteği",
+        "Basic Life Support"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ALS",
+      "aliases": [
+        "ileri yaşam desteği",
+        "Advanced Life Support",
+        "ACLS"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "ekip çalışması",
+      "aliases": [
+        "takım çalışması",
+        "teamwork",
+        "team working"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerileri",
+      "aliases": [
+        "iletişim becerisi",
+        "communication skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "vital bulgu takibi",
+      "aliases": [
+        "vital bulgular",
+        "vital signs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hasta eğitimi",
+      "aliases": [
+        "hasta ve yakınlarının eğitimi",
+        "patient education",
+        "family education"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "yoğun bakım hemşireliği sertifikası",
+      "aliases": [
+        "critical care nursing certificate",
+        "yoğun bakım sertifikası"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "yoğun bakım",
+        "mekanik ventilasyon",
+        "hasta bakımı",
+        "hasta güvenliği",
+        "enfeksiyon kontrolü",
+        "ilaç uygulama",
+        "sıvı-elektrolit takibi",
+        "HBYS",
+        "BLS",
+        "ALS",
+        "ekip çalışması",
+        "iletişim becerileri",
+        "vital bulgu takibi",
+        "hasta eğitimi",
+        "yoğun bakım hemşireliği sertifikası",
+        "İngilizce"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "yoğun bakım",
+        "mekanik ventilasyon",
+        "hasta bakımı",
+        "ilaç uygulama",
+        "HBYS",
+        "BLS",
+        "ekip çalışması",
+        "vital bulgu takibi",
+        "hasta eğitimi",
+        "İngilizce"
+      ],
+      "missing": [
+        "hasta güvenliği",
+        "enfeksiyon kontrolü",
+        "sıvı-elektrolit takibi",
+        "ALS",
+        "iletişim becerileri",
+        "yoğun bakım hemşireliği sertifikası"
+      ]
+    },
+    "weak": {
+      "present": [
+        "hasta bakımı",
+        "ilaç uygulama",
+        "ekip çalışması",
+        "vital bulgu takibi"
+      ],
+      "missing": [
+        "yoğun bakım",
+        "mekanik ventilasyon",
+        "hasta güvenliği",
+        "enfeksiyon kontrolü",
+        "sıvı-elektrolit takibi",
+        "HBYS",
+        "BLS",
+        "ALS",
+        "iletişim becerileri",
+        "hasta eğitimi",
+        "yoğun bakım hemşireliği sertifikası",
+        "İngilizce"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified"
+    ]
+  }
+}
