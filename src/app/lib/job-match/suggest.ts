@@ -17,7 +17,21 @@ export type SuggestionSection =
   | "education"
   | "general";
 
+// Which rule produced a suggestion; stable ids for the eval and the UI
+export type SuggestionKind =
+  | "missing-skills"
+  | "missing-in-experience"
+  | "soft-skills"
+  | "education"
+  | "only-in-skills"
+  | "no-summary"
+  | "title"
+  | "weak-verbs"
+  | "unquantified"
+  | "long-bullets";
+
 export interface Suggestion {
+  kind: SuggestionKind;
   section: SuggestionSection;
   priority: "high" | "medium" | "low";
   message: string; // Turkish UI text
@@ -170,6 +184,7 @@ export const suggest = ({
   );
   if (toSkills.length) {
     suggestions.push({
+      kind: "missing-skills",
       section: "skills",
       priority: hasRequired(toSkills) ? "high" : "medium",
       message: `İlanda geçen ama CV'nde bulunmayan araç/teknolojiler: ${list(
@@ -188,6 +203,7 @@ export const suggest = ({
       IMPORTANCE_TR[m.importance]
     } (${quote(m.context)}).`;
     suggestions.push({
+      kind: "missing-in-experience",
       section: "experience",
       priority: m.importance === "required" ? "high" : "medium",
       message: closest
@@ -201,6 +217,7 @@ export const suggest = ({
   const soft = missing.filter((m) => m.skill?.category === "soft");
   if (soft.length) {
     suggestions.push({
+      kind: "soft-skills",
       section: "summary",
       priority: "low",
       message: `İlandaki kişisel yetkinlikler CV'nde geçmiyor: ${list(
@@ -216,6 +233,7 @@ export const suggest = ({
   );
   if (edu.length) {
     suggestions.push({
+      kind: "education",
       section: "education",
       priority: hasRequired(edu) ? "medium" : "low",
       message: `İlandaki eğitim şartları CV'nde görünmüyor: ${list(
@@ -234,6 +252,7 @@ export const suggest = ({
   );
   if (onlyInSkills.length) {
     suggestions.push({
+      kind: "only-in-skills",
       section: "experience",
       priority: "medium",
       message: `Zorunlu becerilerden ${onlyInSkills
@@ -263,6 +282,7 @@ export const suggest = ({
       top.length && `en güçlü eşleşen becerilerini (${top.join(", ")})`,
     ].filter(Boolean);
     suggestions.push({
+      kind: "no-summary",
       section: "summary",
       priority: "high",
       message: highlights.length
@@ -273,6 +293,7 @@ export const suggest = ({
     });
   } else if (title && !titleInResume) {
     suggestions.push({
+      kind: "title",
       section: "summary",
       priority: "medium",
       message: `İlandaki unvan («${title.title}») CV'nde geçmiyor. Gerçekten bu role uygunsan özetinde hedef unvan olarak kullan.`,
@@ -285,6 +306,7 @@ export const suggest = ({
   );
   if (weak.length) {
     suggestions.push({
+      kind: "weak-verbs",
       section: "experience",
       priority: "medium",
       message: `${weak.length} madde görev tanımı gibi yazılmış (zayıf fiil). Ne yaptığını ve sonucunu öne çıkaran güçlü fiillerle yeniden yaz (${STRONG_VERBS[lang]}):`,
@@ -294,6 +316,7 @@ export const suggest = ({
   const unquantified = bullets.filter((b) => !/\d/.test(b));
   if (bullets.length >= 3 && unquantified.length / bullets.length > 0.5) {
     suggestions.push({
+      kind: "unquantified",
       section: "experience",
       priority: "medium",
       message: `Maddelerinin ${unquantified.length}/${bullets.length} tanesinde ölçülebilir sonuç yok. Sayı ekle (%, süre, tutar, kişi sayısı); örneğin şu maddeler:`,
@@ -303,6 +326,7 @@ export const suggest = ({
   const long = bullets.filter((b) => b.split(/\s+/).length > 40);
   if (long.length) {
     suggestions.push({
+      kind: "long-bullets",
       section: "experience",
       priority: "low",
       message: `${long.length} madde 40 kelimeden uzun; ATS ve okuyucu için 1-2 satıra indir.`,

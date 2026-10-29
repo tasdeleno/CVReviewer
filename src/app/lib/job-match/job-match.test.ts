@@ -1,5 +1,7 @@
 import { extractKeywords } from "lib/job-match/keywords";
 import { computeScore, matchKeywords } from "lib/job-match";
+import { suggest } from "lib/job-match/suggest";
+import { initialResumeState } from "lib/redux/resumeSlice";
 import {
   detectLang,
   hasPhrase,
@@ -205,5 +207,44 @@ describe("job-match - review findings on suggestions", () => {
       "Economics / Mathematics",
       "bachelor's degree",
     ]);
+  });
+});
+
+describe("job-match - suggestion kinds", () => {
+  it("a resume with weak, unquantified bullets and no summary yields these kinds", () => {
+    const resume = {
+      ...initialResumeState,
+      profile: { ...initialResumeState.profile, summary: "" },
+      workExperiences: [
+        {
+          ...initialResumeState.workExperiences[0],
+          descriptions: [
+            "Responsible for weekly reports",
+            "Helped the sales team",
+            "Worked on data cleaning",
+          ],
+        },
+      ],
+    };
+    const ad = "Data Analyst\nRequirements:\n- SQL\n- Python";
+    const matches = matchKeywords(extractKeywords(ad), [
+      { section: "SKILLS", text: "SQL" },
+    ]);
+    const kinds = suggest({
+      jobAd: ad,
+      matches,
+      resume,
+      resumeText: "SQL",
+      langs: { ad: "en", resume: "en" },
+    }).map((s) => s.kind);
+    expect(kinds.sort()).toEqual(
+      [
+        "missing-skills",
+        "no-summary",
+        "only-in-skills",
+        "unquantified",
+        "weak-verbs",
+      ].sort()
+    );
   });
 });

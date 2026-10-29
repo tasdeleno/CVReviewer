@@ -203,5 +203,18 @@
       "skills"
     ],
     "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "no-summary",
+      "unquantified",
+      "weak-verbs"
+    ],
+    "weak": [
+      "no-summary",
+      "unquantified",
+      "weak-verbs"
+    ]
   }
 }

@@ -210,5 +210,20 @@
       "educations",
       "skills"
     ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "weak-verbs"
+    ],
+    "medium": [
+      "no-summary",
+      "unquantified",
+      "weak-verbs"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ]
   }
 }
