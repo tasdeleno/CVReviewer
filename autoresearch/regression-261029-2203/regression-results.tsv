@@ -1,0 +1,6 @@
+# metric_direction: higher_is_better
+iteration	timestamp	dimension	axis	tier	classification	baseline	candidate	delta	regressed	subscore	severity	status	file_line	description
+1	2026-10-29T22:03:26+03:00	functional	diff+repeat3	HARD	regression-eligible	36/36 pass	36/36 pass	0	false	100	-	STABLE	-	npx jest --ci --json, her taraf 3 koşu; 0 yeşil→kırmızı
+2	2026-10-29T22:03:26+03:00	functional	diff	HARD	new-coverage	absent	2/2 pass	+2	false	-	-	ungated	src/app/lib/job-match/job-match.test.ts	unvan ve sayı kuralı testleri
+3	2026-10-29T22:03:26+03:00	flakiness	repeat3	SCORE	-	0 flaky	0 flaky	0	false	100	-	STABLE	-	38 test × 3 koşu, durum değişimi yok
+4	2026-10-29T22:03:26+03:00	resource	diff	SCORE	-	61185337 B out/, 3542305 B js	61185517 B out/, 3542421 B js	+0.0003%	false	100	-	STABLE	-	npm run build; bütçe +%5; First Load JS sayfa bazında aynı
