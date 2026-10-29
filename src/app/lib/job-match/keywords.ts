@@ -1,9 +1,16 @@
 import { foldText } from "lib/fold-text";
-import { SKILLS, type SkillEntry } from "lib/job-match/dictionary";
 import {
+  SKILLS,
+  getSkillLabel,
+  type SkillEntry,
+} from "lib/job-match/dictionary";
+import {
+  detectLang,
+  findPhraseSpan,
   hasPhrase,
   rawTokenize,
   toPhrase,
+  tokenize,
   toTokenizedText,
   type Phrase,
 } from "lib/job-match/text";
@@ -17,6 +24,7 @@ export interface AdKeyword {
   importance: Importance;
   weight: number;
   context: string; // the ad line it came from, used for suggestions
+  alternatives?: boolean; // several fields of study, any of which satisfies it
 }
 
 type Block = "required" | "preferred" | "responsibilities" | "intro" | "skip";
@@ -49,6 +57,8 @@ const WEIGHTS: Record<Importance, number> = {
 };
 // Keywords found outside the dictionary are less certain to be real skills
 const UNKNOWN_WEIGHT_FACTOR = 0.7;
+// ATS screening is driven by hard skills; soft skills count, but half as much
+const SOFT_WEIGHT_FACTOR = 0.5;
 
 // Folded words separated by single spaces, padded so " pattern" means "at a word start"
 const toWords = (text: string) =>
@@ -153,11 +163,22 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
     }
   };
 
+  const adLang = detectLang(ad);
   let block: Block = "intro";
+  let isTitleLine = true;
   for (const line of ad.split(/\r?\n/)) {
     if (!line.trim()) continue;
     const heading = parseHeading(line);
     let content = line;
+    if (isTitleLine) {
+      // A short first line is the title: "Data Analyst (Weekday AI, Bengaluru)", where
+      // the parentheses hold company/location. A first line that is a whole sentence
+      // keeps them: "...a data analyst (SQL, Python) to join...".
+      if (content.trim().split(/\s+/).length <= 8) {
+        content = content.replace(/\([^()]*\)/g, " ");
+      }
+      isTitleLine = false;
+    }
     if (heading) {
       block = heading.block;
       if (!heading.content.trim()) continue;
@@ -169,24 +190,53 @@ export const extractKeywords = (ad: string): AdKeyword[] => {
     const weight = WEIGHTS[importance];
     const context = line.trim();
     const text = toTokenizedText(content);
+    const covered = new Set<string>(); // tokens already part of a dictionary match
+    const fields: AdKeyword[] = [];
 
     SKILLS.forEach((skill, index) => {
-      if (skill.phrases.some((phrase) => hasPhrase(text, phrase))) {
-        add(`skill:${index}`, {
-          label: skill.en[0],
-          skill,
-          phrases: skill.phrases,
-          importance,
-          weight,
-          context,
-        });
-      }
+      const spans = skill.phrases
+        .map((phrase) => findPhraseSpan(text, phrase))
+        .filter((s): s is string => Boolean(s));
+      const span = spans[0];
+      if (!span) return;
+      // All matched forms, so "SAP FI" covers "FI" even though "SAP" matched first
+      spans.forEach((s) => tokenize(s).forEach((token) => covered.add(token)));
+      const forms = [...skill.en, ...skill.tr].map(foldText);
+      const keyword: AdKeyword = {
+        // The ad's own wording ("Bordro") when uninflected, else the dictionary label
+        label: forms.includes(foldText(span))
+          ? span
+          : getSkillLabel(skill, adLang),
+        skill,
+        phrases: skill.phrases,
+        importance,
+        weight: weight * (skill.category === "soft" ? SOFT_WEIGHT_FACTOR : 1),
+        context,
+      };
+      if (skill.category === "edu") fields.push(keyword);
+      else add(`skill:${index}`, keyword);
     });
+
+    // Fields of study listed together are alternatives ("İktisat veya İşletme",
+    // "Computer Science, Statistics or related"): one keyword any of them satisfies.
+    // Degree levels stay separate, since "Bachelor's in CS" needs both.
+    if (fields.length > 1) {
+      const label = fields.map((f) => f.label).join(" / ");
+      add(`edu:${foldText(label)}`, {
+        ...fields[0],
+        label,
+        phrases: fields.flatMap((f) => f.phrases),
+        alternatives: true,
+      });
+    } else {
+      fields.forEach((f) => add(`edu:${foldText(f.label)}`, f));
+    }
 
     for (const token of candidateTokens(content)) {
       if (
         !looksLikeTechToken(token) ||
         NOT_SKILLS.has(foldText(token).toUpperCase()) ||
+        covered.has(foldText(token)) || // "MS" of a matched "MS Office"
         containsSkill(token)
       ) {
         continue;

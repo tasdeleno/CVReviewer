@@ -80,3 +80,30 @@ describe("Turkish resume support - ", () => {
     ]);
   });
 });
+
+describe("Phone formats - ", () => {
+  it("UK and other 9-15 digit numbers", () => {
+    expect(matchPhone(makeTextItem("+44 7700 900123"))![0]).toBe(
+      "+44 7700 900123"
+    );
+    expect(matchPhone(makeTextItem("10001"))).toBeFalsy();
+  });
+});
+
+describe("Phone false positives - ", () => {
+  it("postcode + year and slices of long numbers are not phones", () => {
+    expect(matchPhone(makeTextItem("Kadıköy 34710 2019"))).toBeFalsy();
+    expect(matchPhone(makeTextItem("1.200.000.000 TL"))).toBeFalsy();
+  });
+});
+
+describe("Phone after a non-phone number - ", () => {
+  it("skips postcodes/emails with digits and finds the phone", () => {
+    expect(
+      matchPhone(makeTextItem("Ankara 06100 | +90 532 123 45 67"))![0]
+    ).toBe("+90 532 123 45 67");
+    expect(
+      matchPhone(makeTextItem("ali1990@example.com 0532 123 45 67"))![0]
+    ).toBe("0532 123 45 67");
+  });
+});

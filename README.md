@@ -5,7 +5,12 @@ skorlar, ilandaki anahtar kelimelerden CV'de olanları/eksikleri gösterir ve b�
 İlan ve CV İngilizce veya Türkçe olabilir (karışık da). Her şey tarayıcıda çalışır; sunucu, yapay zekâ
 veya üçüncü taraf istek yoktur.
 
-- Motor: `src/app/lib/job-match/` (anahtar kelime çıkarma, eşleştirme, skor), parser'a Türkçe desteği eklendi.
+- Motor: `src/app/lib/job-match/` (anahtar kelime çıkarma, eşleştirme, skor; `suggest.ts` bölüm bölüm
+  öneriler ve ATS kontrolleri), parser'a Türkçe desteği eklendi.
+- Deneme: `node scripts/gen-fixtures.mjs <klasör>/cvs` ile CV JSON'larını PDF'e çevir, sonra
+  `TRY_DIR=<klasör> npm run try` → `<klasör>/ads/*.txt` × `<klasör>/cvs/*.pdf` için skor matrisi ve
+  ayrıntılı rapor (`<klasör>/report.md`). Skorlanmaz, gerçek ilan/CV denemek içindir. Gerçek CV
+  kullanıyorsan klasörü repo dışında seç; rapor ve PDF'ler yanlışlıkla commit'e girmesin.
 - Doğrulama: `npm run eval` — sentetik CV/ilan veri setiyle (`eval/`, bkz. `eval/README.md`) motoru ölçer,
   `EVAL_SCORE` basar. Holdout seti için `EVAL_SPLIT=holdout npm run eval` (yalnız tur sonunda).
 - Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
