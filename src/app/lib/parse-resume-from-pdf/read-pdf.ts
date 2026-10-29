@@ -22,7 +22,11 @@ import type { TextItem, TextItems } from "lib/parse-resume-from-pdf/types";
  * }
  */
 export const readPdf = async (fileUrl: string): Promise<TextItems> => {
-  const pdfFile = await pdfjs.getDocument(fileUrl).promise;
+  // isEvalSupported: false mitigates CVE-2024-4367 (arbitrary JS via crafted font) on pdfjs-dist < 4.2.67
+  const pdfFile = await pdfjs.getDocument({
+    url: fileUrl,
+    isEvalSupported: false,
+  }).promise;
   let textItems: TextItems = [];
 
   for (let i = 1; i <= pdfFile.numPages; i++) {
