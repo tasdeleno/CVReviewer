@@ -66,11 +66,16 @@ const GPA_FEATURE_SETS: FeatureSet[] = [
 export const extractEducation = (sections: ResumeSectionToLines) => {
   const educations: ResumeEducation[] = [];
   const educationsScores = [];
-  const lines = getSectionLinesByKeywords(sections, [
+  // Broader titles only as a fallback: "Summary of Qualifications" or "Academic Projects"
+  // often come before the real education section
+  const educationLines = getSectionLinesByKeywords(sections, [
     "education",
     "egitim",
     "ogrenim",
   ]);
+  const lines = educationLines.length
+    ? educationLines
+    : getSectionLinesByKeywords(sections, ["qualification", "academic"]);
   const subsections = divideSectionIntoSubsections(lines);
   for (const subsectionLines of subsections) {
     const textItems = subsectionLines.flat();

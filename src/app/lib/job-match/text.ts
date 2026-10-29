@@ -86,7 +86,7 @@ export const detectLang = (text: string): Lang => {
 // ponytail: suffix allow-list instead of a real stemmer; upgrade to a Snowball Turkish
 // stemmer if eval shows too many misses on inflected forms.
 // prettier-ignore
-const EN_SUFFIXES = ["s", "es", "ed", "d", "ing", "er", "ers", "ment", "ments"];
+const EN_SUFFIXES = ["s", "es", "ed", "d", "ing", "er", "ers", "or", "ors", "ment", "ments"];
 // Folded Turkish suffixes (vowel harmony collapses after folding: ı->i, ü->u)
 // prettier-ignore
 const TR_SUFFIXES = ["lar", "ler", "da", "de", "ta", "te", "dan", "den", "tan", "ten", "nda", "nde", "ndan", "nden",
@@ -128,6 +128,41 @@ export const tokenMatches = (
     : TR_SUFFIXES.includes(rest);
 };
 
+const VERB_ENDINGS = ["e", "es", "ed", "ing"];
+/**
+ * English derivations a suffix list can't express:
+ * - "-ion" nouns match their verb forms: communication ~ communicating, optimization ~
+ *   optimized, presentation ~ presented.
+ * - "-ing" nouns at the end of a multi-word phrase match plurals/verbs: "unit testing" ~
+ *   "unit tests", "data modeling" ~ "data models". Not for single words, or "accounting"
+ *   would match "accounts".
+ */
+const englishDerivationMatches = (
+  token: string,
+  keywordToken: string,
+  multiWord: boolean
+) => {
+  const endsWith = (stem: string, endings: string[]) =>
+    token.startsWith(stem) && endings.includes(token.slice(stem.length));
+  if (keywordToken.length >= 7 && keywordToken.endsWith("ion")) {
+    if (endsWith(keywordToken.slice(0, -3), VERB_ENDINGS)) return true;
+    if (
+      keywordToken.endsWith("ation") &&
+      // stem of 6+ chars: optimiz-, visualiz-, present- but not valu- ("valuation" vs "value")
+      keywordToken.length - 5 >= 6 &&
+      endsWith(keywordToken.slice(0, -5), VERB_ENDINGS)
+    ) {
+      return true;
+    }
+  }
+  return (
+    multiWord &&
+    keywordToken.length >= 6 &&
+    keywordToken.endsWith("ing") &&
+    endsWith(keywordToken.slice(0, -3), ["", "s", "e", "es", "ed"])
+  );
+};
+
 /** Index of the first occurrence of the phrase (token sequence) in tokens, or -1 */
 export const findPhrase = (
   tokens: string[],
@@ -140,7 +175,8 @@ export const findPhrase = (
     const ok = phrase.every((word, j) =>
       // Only the last word of a phrase is inflected ("makine öğrenmesinde")
       j === phrase.length - 1 && !exact
-        ? tokenMatches(tokens[i + j], word, turkishSuffixes)
+        ? tokenMatches(tokens[i + j], word, turkishSuffixes) ||
+          englishDerivationMatches(tokens[i + j], word, phrase.length > 1)
         : tokens[i + j] === word
     );
     if (ok) return i;

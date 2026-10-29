@@ -66,7 +66,7 @@ const SECTION_TITLE_KEYWORDS = [
 // stems would otherwise hit English words ("odul" in "Modules").
 // prettier-ignore
 const TR_SECTION_TITLE_KEYWORDS = ["deneyim", "tecrube", "calisma", "egitim", "ogrenim", "proje", "yetenek", "beceri",
-  "yetkinlik", "ozet", "hakkimda", "hedef", "kurs", "sertifika", "odul"];
+  "yetkinlik", "ozet", "hakkimda", "profil", "hedef", "kurs", "sertifika", "odul"];
 const hasSectionTitleKeyword = (text: string) => {
   const folded = foldText(text);
   return (
