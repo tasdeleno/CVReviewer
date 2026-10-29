@@ -84,6 +84,21 @@ const PRIORITY = { high: "🔴", medium: "🟡", low: "⚪" };
               .join(", ") || "-"
           }`,
           "",
+          `**İlan koşulları (skora girmez):** ${
+            result.conditions
+              .map(
+                (c) =>
+                  `${c.kind} (${c.tier}${
+                    c.found === undefined
+                      ? ""
+                      : c.found
+                      ? ", CV'de var"
+                      : ", CV'de yok"
+                  })`
+              )
+              .join(", ") || "-"
+          }`,
+          "",
           "**Öneriler:**",
           ...result.suggestions.flatMap((s) => [
             `- ${PRIORITY[s.priority]} [${s.section}] ${s.message}`,

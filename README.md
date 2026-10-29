@@ -6,7 +6,8 @@ skorlar, ilandaki anahtar kelimelerden CV'de olanları/eksikleri gösterir ve b�
 veya üçüncü taraf istek yoktur.
 
 - Motor: `src/app/lib/job-match/` (anahtar kelime çıkarma, eşleştirme, skor; `suggest.ts` bölüm bölüm
-  öneriler ve ATS kontrolleri), parser'a Türkçe desteği eklendi.
+  öneriler ve ATS kontrolleri; `conditions.ts` ilan koşulları: ehliyet, yaş, askerlik vb., önem
+  sırasına göre ayrı listelenir ve skora girmez), parser'a Türkçe desteği eklendi.
 - Deneme: `node scripts/gen-fixtures.mjs <klasör>/cvs` ile CV JSON'larını PDF'e çevir, sonra
   `TRY_DIR=<klasör> npm run try` → `<klasör>/ads/*.txt` × `<klasör>/cvs/*.pdf` için skor matrisi ve
   ayrıntılı rapor (`<klasör>/report.md`). Skorlanmaz, gerçek ilan/CV denemek içindir. Gerçek CV
