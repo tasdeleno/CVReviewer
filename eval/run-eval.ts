@@ -11,6 +11,7 @@ import { readPdfDocument } from "lib/parse-resume-from-pdf/read-pdf-document";
 import { analyze } from "lib/job-match";
 import { hasPhrase, toPhrase, toTokenizedText } from "lib/job-match/text";
 import type { AdKeyword } from "lib/job-match/keywords";
+import type { SuggestionKind } from "lib/job-match/suggest";
 
 // pdfjs legacy build only needs these for rendering, not for text extraction.
 // required (not imported) so the globals exist before pdfjs loads
@@ -32,7 +33,25 @@ interface Gold {
   keywords: GoldKeyword[];
   resumes: Record<Fit, { present: string[]; missing: string[] }>;
   expectedSections: Record<Fit, string[]>;
+  expectedSuggestions: Record<Fit, SuggestionKind[]>;
 }
+
+// Suggestion kinds labeled in gold (see eval/README.md). Keyword-driven kinds are left
+// out: present/missing accuracy already measures them.
+const MEASURED_KINDS: SuggestionKind[] = [
+  "no-summary",
+  "title",
+  "weak-verbs",
+  "unquantified",
+  "long-bullets",
+  "only-in-skills",
+];
+// Same order as keywords.ts; typed so a new importance level fails to compile here
+const IMPORTANCE_RANK: Record<AdKeyword["importance"], number> = {
+  preferred: 0,
+  normal: 1,
+  required: 2,
+};
 
 const split = process.env.EVAL_SPLIT === "holdout" ? "holdout" : "dev";
 const splitDir = join(__dirname, split);
@@ -86,6 +105,17 @@ const checkGold = (gold: Gold) => {
         `${gold.id}/${fit}: present+missing gold terimlerini tam bölmüyor`
       );
     }
+    // Hand-written JSON: guard the shape the type promises; a duplicate would count twice
+    const kinds = gold.expectedSuggestions?.[fit];
+    if (
+      !Array.isArray(kinds) ||
+      new Set(kinds).size !== kinds.length ||
+      kinds.some((kind) => !MEASURED_KINDS.includes(kind))
+    ) {
+      throw new Error(
+        `${gold.id}/${fit}: expectedSuggestions eksik ya da geçersiz`
+      );
+    }
   }
 };
 
@@ -102,6 +132,11 @@ test(`eval ${split}`, async () => {
   let rankCorrect = 0;
   let sectionsExpected = 0;
   let sectionsFound = 0;
+  let importanceTotal = 0;
+  let importanceCorrect = 0;
+  let suggestTp = 0;
+  let suggestFp = 0;
+  let suggestFn = 0;
   const report: string[] = [`# Eval raporu (${split})`, ""];
 
   for (const id of readdirSync(splitDir).sort()) {
@@ -129,15 +164,56 @@ test(`eval ${split}`, async () => {
         extractedCorrect += result.matches.length - spurious.length;
         goldTotal += gold.keywords.length;
         goldExtracted += gold.keywords.length - missed.length;
+
+        // Importance: gold only says required or preferred, so the engine's "normal"
+        // (responsibilities, intro) counts as not preferred. Several linked keywords:
+        // the strongest wins, as when the engine merges duplicates.
+        const wrongImportance: string[] = [];
+        for (const gk of gold.keywords) {
+          const linked = result.matches.filter((_, i) => links[i].includes(gk));
+          if (!linked.length) continue;
+          const importance = linked
+            .map((k) => k.importance)
+            .reduce((a, b) =>
+              IMPORTANCE_RANK[a] >= IMPORTANCE_RANK[b] ? a : b
+            );
+          importanceTotal++;
+          if (
+            (importance === "preferred") ===
+            (gk.importance === "preferred")
+          ) {
+            importanceCorrect++;
+          } else {
+            wrongImportance.push(
+              `${gk.term} (gold ${gk.importance}, motor ${importance})`
+            );
+          }
+        }
         report.push(
           `- Çıkarılamayan gold: ${
             missed.map((gk) => gk.term).join(", ") || "-"
           }`,
           `- Fazladan çıkarılan: ${
             spurious.map((k) => k.label).join(", ") || "-"
-          }`
+          }`,
+          `- Yanlış önem: ${wrongImportance.join(", ") || "-"}`
         );
       }
+
+      // Suggestion kinds against the labeled ones
+      const predicted = new Set(
+        result.suggestions
+          .map((s) => s.kind)
+          .filter((kind) => MEASURED_KINDS.includes(kind))
+      );
+      const expectedKinds = gold.expectedSuggestions[fit];
+      const unexpected = Array.from(predicted).filter(
+        (kind) => !expectedKinds.includes(kind)
+      );
+      const notGiven = expectedKinds.filter((kind) => !predicted.has(kind));
+      suggestTp += predicted.size - unexpected.length;
+      suggestFp += unexpected.length;
+      suggestFn += notGiven.length;
 
       // Present/missing decisions, only for gold keywords the engine extracted. One gold
       // term can map to several engine keywords ("CPA/ACCA"): present if any was found.
@@ -171,7 +247,9 @@ test(`eval ${split}`, async () => {
           result.langs.resume
         }; yanlış karar: ${wrong.join(", ") || "-"}; parse edilemeyen bölüm: ${
           missingSections.join(", ") || "-"
-        }`
+        }; beklenen ama çıkmayan öneri: ${
+          notGiven.join(", ") || "-"
+        }; fazladan öneri: ${unexpected.join(", ") || "-"}`
       );
     }
 
@@ -193,12 +271,21 @@ test(`eval ${split}`, async () => {
   const decisionAccuracy = pct(decisionsCorrect, decisions);
   const rankAccuracy = pct(rankCorrect, rankPairs);
   const sectionRecall = pct(sectionsFound, sectionsExpected);
+  const importanceAccuracy = pct(importanceCorrect, importanceTotal);
+  const suggestPrecision = pct(suggestTp, suggestTp + suggestFp);
+  const suggestRecall = pct(suggestTp, suggestTp + suggestFn);
+  const suggestF1 =
+    (2 * suggestPrecision * suggestRecall) /
+    (suggestPrecision + suggestRecall || 1);
+  // Ranking and section parsing sit near 100%, so they weigh less than the new parts
   const composite =
     100 *
-    (0.35 * f1 +
-      0.35 * decisionAccuracy +
-      0.2 * rankAccuracy +
-      0.1 * sectionRecall);
+    (0.3 * f1 +
+      0.3 * decisionAccuracy +
+      0.1 * rankAccuracy +
+      0.05 * sectionRecall +
+      0.1 * importanceAccuracy +
+      0.15 * suggestF1);
 
   const summary = [
     `Çıkarma: precision ${(100 * precision).toFixed(1)}, recall ${(
@@ -213,6 +300,12 @@ test(`eval ${split}`, async () => {
     `Bölüm parse oranı: ${(100 * sectionRecall).toFixed(
       1
     )} (${sectionsFound}/${sectionsExpected})`,
+    `Önem doğruluğu: ${(100 * importanceAccuracy).toFixed(
+      1
+    )} (${importanceCorrect}/${importanceTotal})`,
+    `Öneri: precision ${(100 * suggestPrecision).toFixed(1)}, recall ${(
+      100 * suggestRecall
+    ).toFixed(1)}, F1 ${(100 * suggestF1).toFixed(1)}`,
     `EVAL_SCORE=${composite.toFixed(1)}`,
   ];
   report.splice(2, 0, ...summary, "");
