@@ -11,7 +11,7 @@ CV ile iş ilanı anahtar kelime eşleştirme aracı için **tamamen kurgusal** 
 ## Dosyalar (`<split>/<id>/`)
 - `ad.txt`: ilan düz metni.
 - `strong.json`, `medium.json`, `weak.json`: open-resume şeması + `lang`, `layout` (`standard` | `two-column` | `no-headings`), `sectionTitles`.
-- `gold.json`: `keywords[]` (term, aliases, importance: required|preferred), her CV için `present`/`missing` (terimleri tam olarak böler), `expectedSections` (başlığıyla var olan bölümler; no-headings için `[]`), `expectedSuggestions` (her CV için beklenen öneri türleri, aşağıdaki kılavuza göre).
+- `gold.json`: `keywords[]` (term, aliases, importance: required|preferred), her CV için `present`/`missing` (terimleri tam olarak böler), `expectedSections` (başlığıyla var olan bölümler; no-headings için `[]`), `expectedSuggestions` (her CV için beklenen öneri türleri, aşağıdaki kılavuza göre), isteğe bağlı `conditions` (ilan koşulları `[{kind}]`; alan yoksa ilanda koşul yok sayılır).
 
 ## Öneri etiketleme kılavuzu (`expectedSuggestions`)
 Etiket CV JSON'u ve ilan metninden, iyi bir CV danışmanının vereceği öneriye göre konur; **motor çıktısına bakılmaz**. Ölçülen türler:
@@ -32,6 +32,25 @@ Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) v
 - Gerçek ilan denemesinden sonra gözden geçirilecek. Tartışmalı etiketler:
   - SAP (en-finance-1): "month-end close in SAP" ve "ERP, ideally SAP". İkinci ifade "ERP zorunlu, SAP tercih" diye de okunabilir.
   - LinkedIn Recruiter (en-hr-1): sorumluluklarda ve "Nice to have" satırında geçiyor.
+
+## Koşul etiketleme kılavuzu (`conditions`)
+İlandaki koşullar beceri değildir. Anahtar kelime sayılmaz ve skora girmez. Her koşul bir `kind` ile etiketlenir. Aynı `kind` bir ilanda bir kez yazılır. Türler önem sırasına göre (tier) gruplanır:
+
+| Tier | `kind` | CV'de aranır mı |
+|---|---|---|
+| 1 `credential` | `license`, `own-vehicle` | evet |
+| 2 `logistics` | `work-permit`, `residence`, `travel`, `shift` | evet |
+| 3 `contextual` | `military`, `criminal-record`, `health-report` | hayır |
+| 4 `protected-exception` | `gender`, `age`, `disability` | hayır |
+| 5 `protected` | `marital`, `children`, `pregnancy`, `religion` | hayır |
+| 6 `lifestyle` | `smoking`, `appearance` | hayır |
+
+- **Hukuki dayanak:** 6701 sayılı Kanun md. 3, 6 ve 7, 4857 sayılı İş Kanunu md. 5, KVKK md. 6. UK tarafında Equality Act 2010 md. 4.
+- **4 ile 5 arasındaki ayrım bir ürün yargısıdır, hukuki bir ayrım değildir.** Tier 4'teki türler için 6701 md. 7'de açık bir istisna var (zorunlu cinsiyet, orantılı yaş sınırı); tier 5'tekiler için istisna zayıf.
+- **Askerlik neden `contextual`:** İşin niteliğine göre sorulabilir. CV'de aranmaz, çünkü kadın adaya "eksik" demek yanlış olur.
+- **Birleşik kalıp:** "Erkek adaylar için askerliğini tamamlamış" yalnızca `military` sayılır, ayrıca `gender` değildir.
+- **Kapsam dışı:** Yan haklar ("özel sağlık sigortası", "şirket aracı") koşul değildir.
+- **Mesaj dili:** Adaya gösterilecek mesajlar arayüz fazında yazılacak. "Ayrımcı olabilir" diliyle yazılacak ve hukuki tavsiye olmadığı belirtilecek.
 
 ## Kural
 **Holdout motor geliştirme sırasında açılmaz.** Ayarlama/hata ayıklama yalnızca `dev/` üzerinde yapılır; holdout sadece nihai ölçüm içindir.
@@ -64,7 +83,7 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 - Tur sonu reviewer düzeltmeleri motoru değiştirirse dev ve holdout yeniden ölçülür ve sonuç commit mesajına yazılır.
 
 ## Durum (2026-10-30)
-Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0, B1, B2, B3) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
+Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0–B4) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
 
 | Aşama | Ne değişti | Dev | Holdout |
 |---|---|---|---|
@@ -74,7 +93,8 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | B1 | metriğe öneri F1 ve önem doğruluğu eklendi | 94.0 | 86.7 (eski) |
 | B2 | eski holdout dev'e taşındı, holdout v2 eklendi | 91.9 | 79.3 (v2) |
 | Tur 2 sonu | motor (9 değişiklik) | 94.9 | 80.8 (v2) |
-| **B3** | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | **94.9** | **80.8 (v2, yeniden ölçülmedi)** |
+| B3 | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
+| **B4** | ehliyet anahtar kelimeden koşula taşındı, iki dev ilanına koşul satırları eklendi | **94.9** | **80.8 (v2, yeniden ölçülmedi)** |
 
 Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
 
@@ -87,6 +107,14 @@ Bileşenler değişmedi: önem 158/160, EVAL_SCORE 94.9. LinkedIn Recruiter doğ
 Holdout yeniden ölçülmedi, çünkü ne motor ne de holdout gold'u değişti.
 
 Önceki aday 0 notundaki "SAP yanlış etiketlenmiş" tespiti hatalıydı. SAP sorumluluklarda da nitelemesiz geçiyor ("month-end close in SAP"), bu yüzden kurala göre zorunlu kalıyor.
+
+**B4 (PRD 1 hazırlığı):** "Koşul etiketleme kılavuzu" yazıldı.
+- tr-satis-1: "B sınıfı ehliyet" gold anahtar kelimelerinden çıkarıldı ve `conditions`'a taşındı.
+- tr-ik-1: yaş, medeni hal, sigara, ikamet ve cinsiyet satırları eklendi.
+- en-sales-1: ehliyet ve çalışma izni cümlesi eklendi. Uzun bir cümle olarak yazıldı ki başlık gibi okunmasın.
+- Sonuç beklendiği gibi: F1 88.3 → 88.5 (recall 94.1 → 94.7). Motor ehliyeti zaten çıkaramıyordu. Diğer bileşenler aynı kaldı.
+- Yeni satırlar fazladan anahtar kelime üretmedi. Bu yüzden koşul metninin süzülmesi dev'de ölçülemiyor, birim testiyle korunuyor.
+- Koşul precision/recall satırı motor koşul döndürmeye başladığında rapora eklenecek. Bu satır `EVAL_SCORE`'a girmeyecek.
 
 ### Ayrıntılar
 
