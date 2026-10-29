@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Laura Evans",
+    "email": "laura.evans@example.com",
+    "phone": "+1 555 010 1119",
+    "url": "",
+    "summary": "Events and PR coordinator looking to move into digital roles.",
+    "location": "Cardiff, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Harbour Arts Festival",
+      "jobTitle": "PR & Events Coordinator",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Responsible for press releases and media lists",
+        "Managed the festival's social media accounts during the event season",
+        "Helped with ticket sales reports in Excel",
+        "Worked closely with volunteers and sponsors; great teamwork"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Cardiff University",
+      "degree": "BA English Literature",
+      "date": "2015 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Word, Canva, press relations"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "ABOUT ME",
+    "workExperiences": "EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

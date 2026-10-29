@@ -1,0 +1,62 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Jordan Blake",
+    "email": "jordan.blake@example.com",
+    "phone": "+1 555 010 1091",
+    "url": "",
+    "summary": "",
+    "location": "Austin, TX"
+  },
+  "workExperiences": [
+    {
+      "company": "Oakline Home",
+      "jobTitle": "Content & Social Media Manager",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Responsible for the editorial calendar and weekly blog posts, which grew organic search traffic by 60%",
+        "Write product copy and campaign taglines",
+        "Ran Instagram and Pinterest accounts; grew followers to 45k",
+        "Send a monthly newsletter to 20k subscribers",
+        "Track KPIs and traffic in Google Analytics and report to the VP"
+      ]
+    },
+    {
+      "company": "Peak Media",
+      "jobTitle": "Junior Marketing Coordinator",
+      "date": "2018 - 2020",
+      "descriptions": [
+        "Helped with SEO keyword research and on-page updates",
+        "Helped schedule social posts"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Texas at Austin",
+      "degree": "BA Journalism",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Content marketing, SEO basics, Google Analytics, Canva, WordPress, Mailchimp"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "WORK HISTORY",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "TOOLS",
+    "custom": ""
+  }
+}

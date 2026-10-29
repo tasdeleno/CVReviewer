@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Nina Patel",
+    "email": "nina.patel@example.com",
+    "phone": "+1 555 010 1140",
+    "url": "",
+    "summary": "",
+    "location": "Leicester, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Greenway Dental",
+      "jobTitle": "Practice Bookkeeper / Admin",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Responsible for entering invoices and payments in accounting software",
+        "Helped with weekly bank reconciliations",
+        "Use Excel for simple spreadsheets and rota planning",
+        "Liaise with the accountant at year-end"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Leicester College",
+      "degree": "AAT Level 3 Diploma",
+      "date": "2019 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, QuickBooks, payroll basics"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "EMPLOYMENT",
+    "educations": "QUALIFICATIONS",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

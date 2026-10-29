@@ -1,0 +1,53 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Tolga Bulut",
+    "email": "tolga.bulut@example.com",
+    "phone": "0555 010 1196",
+    "url": "",
+    "summary": "",
+    "location": "Muğla"
+  },
+  "workExperiences": [
+    {
+      "company": "Bodrum Yapı İnşaat",
+      "jobTitle": "İK Sorumlusu",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Şantiye personeli için işe alım ve görüşme süreçlerinden sorumluydum",
+        "Özlük işleri: sözleşme, işe giriş bildirgesi, izin takibi",
+        "Bordro için puantaj kayıtlarını topladım",
+        "Excel ile personel listeleri ve izin tabloları hazırladım",
+        "Şantiye şeflerine karşı iletişim becerisi güçlü, çözüm odaklı olmaya çalıştım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Muğla Sıtkı Koçman Üniversitesi",
+      "degree": "İşletme",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Word, SGK e-Bildirge"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "İş Tecrübesi",
+    "educations": "Eğitim Bilgileri",
+    "projects": "",
+    "skills": "Programlar",
+    "custom": ""
+  }
+}

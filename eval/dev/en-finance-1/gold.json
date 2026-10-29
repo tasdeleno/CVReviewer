@@ -1,0 +1,222 @@
+{
+  "id": "en-finance-1",
+  "lang": "en",
+  "sector": "finance",
+  "title": "Senior Financial Analyst",
+  "keywords": [
+    {
+      "term": "IFRS",
+      "aliases": [
+        "International Financial Reporting Standards"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "financial reporting",
+      "aliases": [
+        "management accounts",
+        "group reporting",
+        "management reporting",
+        "reporting packs",
+        "P&L reporting"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "budgeting and forecasting",
+      "aliases": [
+        "budgeting",
+        "forecasting",
+        "budget",
+        "forecast",
+        "FP&A",
+        "rolling forecast"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "variance analysis",
+      "aliases": [
+        "budget vs actual",
+        "variance reports",
+        "variance reporting"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "financial modeling",
+      "aliases": [
+        "financial models",
+        "financial modelling",
+        "scenario models"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "spreadsheets",
+        "pivot tables",
+        "VLOOKUP"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SAP",
+      "aliases": [
+        "SAP FI/CO",
+        "SAP FICO",
+        "S/4HANA"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "month-end close",
+      "aliases": [
+        "month-end closing",
+        "period-end close",
+        "month end close",
+        "month-end"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "reconciliations",
+      "aliases": [
+        "account reconciliations",
+        "bank reconciliations",
+        "intercompany reconciliations",
+        "reconciliation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "audit support",
+      "aliases": [
+        "external audit",
+        "internal audit",
+        "auditors",
+        "audit"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "stakeholder communication",
+      "aliases": [
+        "business partnering",
+        "presenting to management",
+        "communicating with stakeholders",
+        "presented drivers",
+        "communication skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CPA/ACCA",
+      "aliases": [
+        "ACCA",
+        "CIMA",
+        "CPA",
+        "chartered accountant",
+        "ACA"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Power BI",
+      "aliases": [
+        "Tableau",
+        "BI tool"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "VBA",
+      "aliases": [
+        "macros",
+        "Excel macros"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "IFRS",
+        "financial reporting",
+        "budgeting and forecasting",
+        "variance analysis",
+        "financial modeling",
+        "Excel",
+        "SAP",
+        "month-end close",
+        "reconciliations",
+        "audit support",
+        "stakeholder communication",
+        "CPA/ACCA",
+        "Power BI"
+      ],
+      "missing": [
+        "VBA"
+      ]
+    },
+    "medium": {
+      "present": [
+        "financial reporting",
+        "budgeting and forecasting",
+        "variance analysis",
+        "Excel",
+        "month-end close",
+        "reconciliations",
+        "audit support"
+      ],
+      "missing": [
+        "IFRS",
+        "financial modeling",
+        "SAP",
+        "stakeholder communication",
+        "CPA/ACCA",
+        "Power BI",
+        "VBA"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Excel",
+        "reconciliations"
+      ],
+      "missing": [
+        "IFRS",
+        "financial reporting",
+        "budgeting and forecasting",
+        "variance analysis",
+        "financial modeling",
+        "SAP",
+        "month-end close",
+        "audit support",
+        "stakeholder communication",
+        "CPA/ACCA",
+        "Power BI",
+        "VBA"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

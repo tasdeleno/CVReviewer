@@ -1,0 +1,52 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Mert Yıldız",
+    "email": "mert.yildiz@example.com",
+    "phone": "0555 010 1077",
+    "url": "",
+    "summary": "",
+    "location": "Bursa"
+  },
+  "workExperiences": [
+    {
+      "company": "Uludağ Yazılım",
+      "jobTitle": "PHP Geliştirici",
+      "date": "2018 - Halen",
+      "descriptions": [
+        "Laravel ile kurumsal web uygulamaları geliştirdim",
+        "Raporlar için SQL sorguları yazdım",
+        "Kod depolarını Git ile yönettim",
+        "Müşteriden gelen hataların çözümünden sorumluydum, problem çözme becerim güçlüdür"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Bursa Teknik Üniversitesi",
+      "degree": "Yazılım Mühendisliği",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "PHP, Laravel, MySQL, JavaScript, Git"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "İş Deneyimi",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

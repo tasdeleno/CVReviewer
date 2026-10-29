@@ -1,0 +1,53 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Tom Becker",
+    "email": "tom.becker@example.com",
+    "phone": "+1 555 010 1056",
+    "url": "",
+    "summary": "",
+    "location": "Leeds, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Calder & Finch",
+      "jobTitle": "Reporting Analyst",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Responsible for monthly management reports in Excel",
+        "Built Power BI dashboards for the sales team",
+        "Helped with SQL queries to extract figures from the finance database",
+        "Calculated descriptive statistics (averages, variances) for budget reviews",
+        "Presented results to the leadership team each quarter"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Sheffield",
+      "degree": "BA Business Management",
+      "date": "2015 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, SQL (basic), Power BI, PowerPoint"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "WORK EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

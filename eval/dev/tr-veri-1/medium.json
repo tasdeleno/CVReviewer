@@ -1,0 +1,54 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Zeynep Çelik",
+    "email": "zeynep.celik@example.com",
+    "phone": "0555 010 1070",
+    "url": "",
+    "summary": "BI geliştiricisiyim; veri mühendisliği tarafına doğru ilerliyorum.",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Başkent Sigorta",
+      "jobTitle": "BI Geliştirici",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "SSIS ile günlük ETL paketleri geliştirdim ve izledim",
+        "SQL'de saklı yordam ve görünümler yazdım, yavaş sorguları optimize ettim",
+        "Veri ambarı için boyutsal modelleme çalışmalarına katıldım",
+        "Basit Python betikleriyle dosya aktarımlarını otomatikleştirdim",
+        "Kaynak kod yönetimi için Git kullandım",
+        "Veri tutarsızlıklarını inceleyip kök neden analizleri hazırladım; problem çözme odaklı çalışırım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hacettepe Üniversitesi",
+      "degree": "Endüstri Mühendisliği",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SQL Server, SSIS, Power BI, Python (temel), Git"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Teknik Beceriler",
+    "custom": ""
+  }
+}

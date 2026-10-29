@@ -1,0 +1,28 @@
+Veri Mühendisi
+Kuzey Lojistik A.Ş. - Ankara / Hibrit
+
+Şirket Hakkında
+Kuzey Lojistik, Türkiye genelinde 2.000'i aşkın araçla hizmet veren bir lojistik firmasıdır. Veri Platformu ekibimizi büyütüyoruz.
+
+Yapacağın İşler
+- Farklı kaynak sistemlerden gelen verileri toplayan, dönüştüren ve yükleyen ETL/ELT süreçlerini geliştirmek
+- Merkezi veri ambarını (data warehouse) tasarlamak ve performansını izlemek
+- Raporlama ekiplerine temiz ve güvenilir veri setleri sunmak
+- Veri kalitesi kontrolleri kurmak ve sorunları kök nedenine kadar incelemek
+
+Genel Nitelikler
+- Bilgisayar, yazılım veya ilgili mühendislik bölümlerinden mezun
+- SQL'de ileri düzey; karmaşık sorgular ve performans ayarı yapabilen
+- Python ile veri işleme betikleri yazabilen
+- Apache Spark ile büyük veri işleme tecrübesi
+- Airflow ile iş akışı yönetimi bilgisi
+- Veri modelleme (yıldız şema, boyutsal modelleme) konusunda deneyimli
+- Git kullanımına ve Docker'a aşina
+- Analitik düşünme ve problem çözme becerisi yüksek
+
+Tercihen
+- Kafka gibi gerçek zamanlı akış araçlarında deneyim
+- dbt kullanımı
+- AWS, Azure veya GCP gibi bulut platformlarında çalışmış olmak
+
+Sunduklarımız: Özel sağlık sigortası, yemek, yıllık performans primi.

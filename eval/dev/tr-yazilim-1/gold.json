@@ -1,0 +1,234 @@
+{
+  "id": "tr-yazilim-1",
+  "lang": "tr",
+  "sector": "yazılım",
+  "title": "Kıdemli Frontend Geliştirici (React)",
+  "keywords": [
+    {
+      "term": "React",
+      "aliases": [
+        "React.js",
+        "ReactJS"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "TypeScript",
+      "aliases": [
+        "TS"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "JavaScript",
+      "aliases": [
+        "JS",
+        "ES6",
+        "ES6+"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HTML/CSS",
+      "aliases": [
+        "HTML5",
+        "CSS3",
+        "HTML",
+        "CSS"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "REST API",
+      "aliases": [
+        "RESTful",
+        "API entegrasyonu",
+        "REST"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Git",
+      "aliases": [
+        "GitHub",
+        "GitLab"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "responsive tasarım",
+      "aliases": [
+        "responsive design",
+        "duyarlı tasarım",
+        "mobile-first",
+        "mobil uyumlu",
+        "responsive"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "birim test",
+      "aliases": [
+        "unit test",
+        "unit testing",
+        "Jest",
+        "React Testing Library"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "teamwork",
+        "ekip çalışması",
+        "collaboration",
+        "işbirliği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Agile/Scrum",
+      "aliases": [
+        "Agile",
+        "Scrum",
+        "çevik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Next.js",
+      "aliases": [
+        "NextJS"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Redux",
+      "aliases": [
+        "durum yönetimi",
+        "state management",
+        "Zustand",
+        "MobX"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Storybook",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "web performans optimizasyonu",
+      "aliases": [
+        "web performance",
+        "Lighthouse",
+        "Core Web Vitals",
+        "performans optimizasyonu"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "CI/CD",
+      "aliases": [
+        "continuous integration",
+        "GitHub Actions",
+        "Jenkins"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "HTML/CSS",
+        "REST API",
+        "Git",
+        "responsive tasarım",
+        "birim test",
+        "takım çalışması",
+        "Agile/Scrum",
+        "Next.js",
+        "Redux",
+        "Storybook",
+        "web performans optimizasyonu",
+        "İngilizce"
+      ],
+      "missing": [
+        "CI/CD"
+      ]
+    },
+    "medium": {
+      "present": [
+        "React",
+        "JavaScript",
+        "HTML/CSS",
+        "REST API",
+        "Git",
+        "responsive tasarım",
+        "takım çalışması",
+        "Agile/Scrum",
+        "Redux",
+        "İngilizce"
+      ],
+      "missing": [
+        "TypeScript",
+        "birim test",
+        "Next.js",
+        "Storybook",
+        "web performans optimizasyonu",
+        "CI/CD"
+      ]
+    },
+    "weak": {
+      "present": [
+        "JavaScript",
+        "HTML/CSS",
+        "responsive tasarım",
+        "takım çalışması",
+        "İngilizce"
+      ],
+      "missing": [
+        "React",
+        "TypeScript",
+        "REST API",
+        "Git",
+        "birim test",
+        "Agile/Scrum",
+        "Next.js",
+        "Redux",
+        "Storybook",
+        "web performans optimizasyonu",
+        "CI/CD"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

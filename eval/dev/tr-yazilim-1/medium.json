@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Chris Walker",
+    "email": "chris.walker@example.com",
+    "phone": "+1 555 010 1028",
+    "url": "",
+    "summary": "Frontend developer with 4 years of experience building customer-facing web apps.",
+    "location": "Manchester, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Greenfield Media",
+      "jobTitle": "Frontend Developer",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Built responsive landing pages and dashboards in React and JavaScript",
+        "Consumed REST APIs from the backend team and handled error states",
+        "Used Redux to manage cart state in the shop module",
+        "Daily Git workflow with feature branches",
+        "Part of an Agile team; strong teamwork with designers and QA"
+      ]
+    },
+    {
+      "company": "Pixelcraft",
+      "jobTitle": "Web Developer",
+      "date": "2018 - 2020",
+      "descriptions": [
+        "Wrote HTML and CSS for marketing sites",
+        "Responsible for cross-browser fixes"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Leeds",
+      "degree": "BSc Computing",
+      "date": "2015 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "React, JavaScript, HTML, CSS, Redux, Git",
+      "Languages: English (native), Spanish (basic)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "SUMMARY",
+    "workExperiences": "WORK EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "Skills & Languages",
+    "custom": ""
+  }
+}

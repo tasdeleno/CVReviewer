@@ -22,8 +22,9 @@
     "baseUrl": "./src/app",
     // Path Mapping Doc: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
     "paths": {
-      "public/*": ["../../public/*"],
-      "*": ["*"]
+      // No catch-all "*" mapping: baseUrl already resolves "lib/...", and with "*" next/jest's
+      // SWC rewrote package imports (e.g. "@reduxjs/toolkit") to src/app/<package>
+      "public/*": ["../../public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

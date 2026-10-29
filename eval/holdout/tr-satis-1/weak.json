@@ -1,0 +1,59 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Ebru Tan",
+    "email": "ebru.tan@example.com",
+    "phone": "0555 010 1245",
+    "url": "",
+    "summary": "",
+    "location": "Kocaeli"
+  },
+  "workExperiences": [
+    {
+      "company": "Net Çağrı Merkezi",
+      "jobTitle": "Müşteri Temsilcisi",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Gelen çağrılara yanıt verdim ve müşteri bilgilerini CRM'e kaydettim",
+        "Excel'de günlük çağrı raporlarını hazırladım",
+        "Aylık raporlama sunumlarına destek verdim"
+      ]
+    },
+    {
+      "company": "Plaza Ofis",
+      "jobTitle": "Ofis Asistanı",
+      "date": "2019 - 2021",
+      "descriptions": [
+        "Evrak ve dosyalama işlerinden sorumluydum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kocaeli Üniversitesi",
+      "degree": "Sosyoloji",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, Excel, CRM, Türkçe, İngilizce (orta)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

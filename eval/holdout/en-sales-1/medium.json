@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Isabelle Fournier",
+    "email": "isabelle.fournier@example.com",
+    "phone": "+1 555 010 1217",
+    "url": "",
+    "summary": "",
+    "location": "Manchester, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Kestrel Industrial Supplies",
+      "jobTitle": "Business Development Manager",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Responsible for B2B sales of packaging machinery to manufacturers across the North West",
+        "Consistently exceeded annual targets (average 104%)",
+        "Cold calling and networking at trade shows to find new customers",
+        "Negotiated pricing and delivery terms with purchasing managers",
+        "Give on-site product demonstrations to engineering teams",
+        "Keep all customer records in HubSpot",
+        "Clear, confident communication with clients at all levels"
+      ]
+    },
+    {
+      "company": "Direct Office Solutions",
+      "jobTitle": "Telesales Executive",
+      "date": "2016 - 2019",
+      "descriptions": [
+        "Outbound calls to small businesses",
+        "Helped colleagues with weekly sales reports"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Salford",
+      "degree": "BA Business & Marketing",
+      "date": "2012 - 2015",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "HubSpot, Excel, PowerPoint, trade show management"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Career History",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Key Skills",
+    "custom": ""
+  }
+}

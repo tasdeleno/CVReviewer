@@ -1,0 +1,65 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Elif Demirtaş",
+    "email": "elif.demirtas@example.com",
+    "phone": "0555 010 1021",
+    "url": "",
+    "summary": "8 yıllık deneyimli frontend geliştirici. Ölçeklenebilir React uygulamaları ve tasarım sistemleri geliştiriyorum.",
+    "location": "İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Lale Yazılım",
+      "jobTitle": "Kıdemli Frontend Geliştirici",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "React ve TypeScript ile 3 ürünün arayüzünü sıfırdan geliştirdim",
+        "Next.js ile SSR geçişi yaparak sayfa yüklenme süresini %35 azalttım",
+        "Redux Toolkit ile merkezi durum yönetimi kurguladım",
+        "Storybook üzerinde 40+ bileşenden oluşan ortak kütüphane oluşturdum",
+        "Jest ve React Testing Library ile birim test kapsamını %80 üzerine çıkardım",
+        "Lighthouse skorlarını 95+ seviyesine taşıdım",
+        "Scrum ekibinde tasarım ve backend ile yakın takım çalışması yürüttüm"
+      ]
+    },
+    {
+      "company": "Mercan Bilişim",
+      "jobTitle": "Frontend Geliştirici",
+      "date": "2016 - 2019",
+      "descriptions": [
+        "REST API entegrasyonları ve responsive arayüzler geliştirdim",
+        "JavaScript (ES6) ile eski jQuery kodunu modernize ettim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "İstanbul Teknik Üniversitesi",
+      "degree": "Bilgisayar Mühendisliği (Lisans)",
+      "date": "2012 - 2016",
+      "gpa": "3.2/4",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "React, TypeScript, JavaScript, HTML5, CSS3/Sass, Git, Jest, Next.js, Redux, Storybook",
+      "Diller: Türkçe (anadil), İngilizce (C1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "İŞ DENEYİMİ",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

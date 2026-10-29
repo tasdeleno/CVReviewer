@@ -1,0 +1,223 @@
+{
+  "id": "en-hr-1",
+  "lang": "en",
+  "sector": "hr",
+  "title": "Talent Acquisition Partner",
+  "keywords": [
+    {
+      "term": "talent acquisition",
+      "aliases": [
+        "recruitment",
+        "recruiting",
+        "full-cycle recruitment",
+        "işe alım",
+        "sourcing",
+        "hiring"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ATS",
+      "aliases": [
+        "applicant tracking system",
+        "Greenhouse",
+        "Lever",
+        "başvuru takip sistemi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "interviewing",
+      "aliases": [
+        "structured interviews",
+        "competency-based interviews",
+        "behavioral interviews",
+        "mülakat"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "employer branding",
+      "aliases": [
+        "işveren markası",
+        "careers page",
+        "employer brand"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "onboarding",
+      "aliases": [
+        "orientation",
+        "işe alıştırma",
+        "oryantasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HRIS",
+      "aliases": [
+        "Workday",
+        "BambooHR",
+        "SuccessFactors",
+        "HR information system",
+        "İK bilgi sistemi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "employee relations",
+      "aliases": [
+        "çalışan ilişkileri",
+        "case handling",
+        "grievance"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "employment law",
+      "aliases": [
+        "labour law",
+        "labor law",
+        "İş Kanunu",
+        "iş hukuku"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "performance management",
+      "aliases": [
+        "performance reviews",
+        "performans yönetimi",
+        "performans değerlendirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "compensation and benefits",
+      "aliases": [
+        "C&B",
+        "payroll",
+        "bordro",
+        "compensation",
+        "offers"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HR analytics",
+      "aliases": [
+        "people analytics",
+        "time-to-hire",
+        "İK analitiği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CIPD/SHRM",
+      "aliases": [
+        "CIPD",
+        "SHRM",
+        "SPHR",
+        "PHR"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "DEI",
+      "aliases": [
+        "diversity",
+        "inclusion",
+        "diversity, equity and inclusion",
+        "D&I"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "LinkedIn Recruiter",
+      "aliases": [],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "talent acquisition",
+        "ATS",
+        "interviewing",
+        "employer branding",
+        "onboarding",
+        "HRIS",
+        "employment law",
+        "compensation and benefits",
+        "HR analytics",
+        "DEI",
+        "LinkedIn Recruiter"
+      ],
+      "missing": [
+        "employee relations",
+        "performance management",
+        "CIPD/SHRM"
+      ]
+    },
+    "medium": {
+      "present": [
+        "talent acquisition",
+        "ATS",
+        "interviewing",
+        "onboarding",
+        "HRIS",
+        "employment law",
+        "performance management",
+        "compensation and benefits"
+      ],
+      "missing": [
+        "employer branding",
+        "employee relations",
+        "HR analytics",
+        "CIPD/SHRM",
+        "DEI",
+        "LinkedIn Recruiter"
+      ]
+    },
+    "weak": {
+      "present": [
+        "onboarding"
+      ],
+      "missing": [
+        "talent acquisition",
+        "ATS",
+        "interviewing",
+        "employer branding",
+        "HRIS",
+        "employee relations",
+        "employment law",
+        "performance management",
+        "compensation and benefits",
+        "HR analytics",
+        "CIPD/SHRM",
+        "DEI",
+        "LinkedIn Recruiter"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

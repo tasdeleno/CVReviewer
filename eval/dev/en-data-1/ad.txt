@@ -1,0 +1,32 @@
+Data Scientist - Customer Analytics
+Helix Retail Group | Hybrid, London
+
+Who we are
+Helix Retail Group operates 300 stores and a fast-growing online shop. Our Customer Analytics team turns purchase data into decisions on pricing, personalization and churn.
+
+The role
+You will own end-to-end data science projects, from framing the business question to getting a model in front of users.
+
+Key responsibilities
+* Build and evaluate machine learning models (churn, demand, recommendations)
+* Query and transform large datasets using SQL and Python (pandas)
+* Run A/B tests together with product and marketing and interpret the results
+* Create dashboards and clear data visualizations for non-technical stakeholders
+* Work with engineers to move models to production
+
+Qualifications
+- MSc or BSc in a quantitative field (statistics, maths, CS, physics)
+- 2+ years of applied experience with Python, SQL and scikit-learn
+- Strong grounding in statistics (hypothesis testing, regression)
+- Experience with feature engineering on tabular data
+- Excellent communication skills - you can explain a model to a store manager
+- Familiarity with model deployment practices (MLOps, monitoring)
+
+Bonus points
+- Deep learning with PyTorch
+- Spark / PySpark for big data processing
+- NLP experience
+- Workflow orchestration (Airflow)
+- Experience on GCP (BigQuery)
+
+Perks: 25 days holiday, private pension, tech budget, quarterly team off-sites.

@@ -1,0 +1,30 @@
+Backend Engineer (Node.js / TypeScript)
+Northwind Labs - Remote (EU time zones)
+
+About us
+Northwind Labs builds logistics software used by 400+ warehouses across Europe. Our platform processes millions of events a day and we are growing the core platform team.
+
+What you'll do
+- Design, build and maintain backend services in Node.js and TypeScript
+- Develop and document REST APIs consumed by web, mobile and partner integrations
+- Model data and tune queries in PostgreSQL
+- Break the monolith into microservices, step by step
+- Ship containerized workloads (Docker) to AWS through our CI/CD pipelines
+- Take part in code review and pair with teammates on design
+- Work in an Agile team with two-week sprints
+
+What you'll bring
+- 3+ years of professional experience with TypeScript and Node.js
+- Solid understanding of REST API design and relational databases (PostgreSQL preferred)
+- Hands-on Docker experience and familiarity with AWS services
+- Habit of writing unit tests and reviewing others' code
+- Comfortable with Git, CI/CD and Agile ways of working
+
+Nice to have
+- Kubernetes in production
+- GraphQL
+- Redis for caching or queues
+- Infrastructure as code (Terraform)
+
+What we offer
+Flexible hours, 28 days of leave, learning budget of 1,500 EUR per year, home office stipend.

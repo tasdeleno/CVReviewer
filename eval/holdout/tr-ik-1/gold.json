@@ -1,0 +1,203 @@
+{
+  "id": "tr-ik-1",
+  "lang": "tr",
+  "sector": "ik",
+  "title": "İnsan Kaynakları Uzmanı (İşe Alım & Özlük)",
+  "keywords": [
+    {
+      "term": "işe alım",
+      "aliases": [
+        "recruitment",
+        "talent acquisition",
+        "personel alımı",
+        "recruiting"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mülakat",
+      "aliases": [
+        "interviewing",
+        "interviews",
+        "görüşme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "özlük işleri",
+      "aliases": [
+        "özlük dosyası",
+        "personnel records",
+        "personel özlük",
+        "personnel administration"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bordro",
+      "aliases": [
+        "payroll",
+        "puantaj"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iş hukuku",
+      "aliases": [
+        "İş Kanunu",
+        "SGK mevzuatı",
+        "labor law",
+        "employment law"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "performans yönetimi",
+      "aliases": [
+        "performance management",
+        "performans değerlendirme",
+        "performance review"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "eğitim ve gelişim",
+      "aliases": [
+        "learning and development",
+        "L&D",
+        "training and development",
+        "eğitim planlama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "işveren markası",
+      "aliases": [
+        "employer branding",
+        "employer brand"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerisi",
+      "aliases": [
+        "communication skills",
+        "iletişim",
+        "communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Office"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HRIS",
+      "aliases": [
+        "İK bilgi sistemi",
+        "İK yazılımı",
+        "HR information system",
+        "SuccessFactors",
+        "Workday"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İSG",
+      "aliases": [
+        "iş sağlığı ve güvenliği",
+        "occupational health and safety",
+        "OHS"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "işe alım",
+        "mülakat",
+        "özlük işleri",
+        "bordro",
+        "iş hukuku",
+        "performans yönetimi",
+        "eğitim ve gelişim",
+        "işveren markası",
+        "iletişim becerisi",
+        "Excel",
+        "HRIS",
+        "İngilizce"
+      ],
+      "missing": [
+        "İSG"
+      ]
+    },
+    "medium": {
+      "present": [
+        "işe alım",
+        "mülakat",
+        "özlük işleri",
+        "bordro",
+        "iletişim becerisi",
+        "Excel"
+      ],
+      "missing": [
+        "iş hukuku",
+        "performans yönetimi",
+        "eğitim ve gelişim",
+        "işveren markası",
+        "HRIS",
+        "İSG",
+        "İngilizce"
+      ]
+    },
+    "weak": {
+      "present": [
+        "performans yönetimi",
+        "iletişim becerisi",
+        "Excel"
+      ],
+      "missing": [
+        "işe alım",
+        "mülakat",
+        "özlük işleri",
+        "bordro",
+        "iş hukuku",
+        "eğitim ve gelişim",
+        "işveren markası",
+        "HRIS",
+        "İSG",
+        "İngilizce"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

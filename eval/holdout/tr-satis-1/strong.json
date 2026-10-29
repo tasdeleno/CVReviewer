@@ -1,0 +1,64 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Serkan Polat",
+    "email": "serkan.polat@example.com",
+    "phone": "0555 010 1231",
+    "url": "",
+    "summary": "7 yıllık saha satış deneyimine sahip, bayi ağı yönetiminde başarılı B2B satış profesyoneli.",
+    "location": "Bursa"
+  },
+  "workExperiences": [
+    {
+      "company": "Marmara Boya Sanayi",
+      "jobTitle": "Bölge Satış Müdür Yardımcısı",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "35 bayiden oluşan bayi ağını yönettim, 6 yeni bayi kazandırdım",
+        "B2B satış ve saha satışı ziyaret planıyla haftada ortalama 20 müşteri ziyareti yaptım",
+        "150 firmalık müşteri portföyünü yönettim, cirosunu %22 büyüttüm",
+        "Yıllık satış hedefini 3 yıl üst üste %100'ün üzerinde gerçekleştirdim",
+        "Teklif hazırlama ve fiyat/vade müzakeresini yürüttüm",
+        "Tüm ziyaret ve tahsilat verilerini CRM'e işleyip haftalık raporlama yaptım",
+        "Excel ile bölge satış analizleri hazırladım"
+      ]
+    },
+    {
+      "company": "Yapı Dünyası",
+      "jobTitle": "Satış Temsilcisi",
+      "date": "2016 - 2019",
+      "descriptions": [
+        "Bölge müşterilerine saha satışı yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Uludağ Üniversitesi",
+      "degree": "İktisat (Lisans)",
+      "date": "2011 - 2015",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, Office, CRM, müzakere teknikleri, İngilizce (B1)",
+      "B sınıfı ehliyet, askerlik tamamlandı"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Çalışma Deneyimi",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Beceriler ve Diğer",
+    "custom": ""
+  }
+}

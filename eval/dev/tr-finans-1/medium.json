@@ -1,0 +1,55 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Hakan Doğan",
+    "email": "hakan.dogan@example.com",
+    "phone": "0555 010 1154",
+    "url": "",
+    "summary": "Ön muhasebeden mali işlere geçmek isteyen, titiz çalışan muhasebe uzmanı.",
+    "location": "Mersin"
+  },
+  "workExperiences": [
+    {
+      "company": "Akdeniz Lojistik",
+      "jobTitle": "Muhasebe Uzmanı",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Logo programında günlük muhasebe kayıtlarını girdim",
+        "Aylık KDV beyannamelerini hazırladım",
+        "Cari hesap mutabakatı mektuplarını gönderip takip ettim",
+        "e-Fatura ve e-Defter işlemlerinden sorumluydum",
+        "Bilanço ve gelir tablosu hazırlığında mali müşavire yardımcı oldum",
+        "Excel (düşeyara, pivot tablo) ile raporlar hazırladım",
+        "Yabancı tedarikçilerle İngilizce (orta) yazışmalar yürüttüm"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Mersin Üniversitesi",
+      "degree": "Maliye (Lisans)",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Logo Tiger, Excel, e-Fatura, İngilizce (orta), detaylara dikkat"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Öğrenim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

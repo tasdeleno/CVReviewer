@@ -1,0 +1,179 @@
+{
+  "id": "tr-veri-1",
+  "lang": "tr",
+  "sector": "veri",
+  "title": "Veri Mühendisi",
+  "keywords": [
+    {
+      "term": "SQL",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "Python",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "ETL",
+      "aliases": [
+        "ELT",
+        "veri hattı",
+        "data pipeline",
+        "pipeline",
+        "veri entegrasyonu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Apache Spark",
+      "aliases": [
+        "Spark",
+        "PySpark"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Airflow",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "veri ambarı",
+      "aliases": [
+        "data warehouse",
+        "DWH"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "veri modelleme",
+      "aliases": [
+        "data modeling",
+        "yıldız şema",
+        "star schema",
+        "boyutsal modelleme",
+        "dimensional modeling"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Git",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "Docker",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "problem çözme",
+      "aliases": [
+        "problem solving",
+        "problem-solving",
+        "analitik düşünme",
+        "analytical thinking"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Kafka",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "dbt",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "bulut platformları",
+      "aliases": [
+        "cloud",
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "SQL",
+        "Python",
+        "ETL",
+        "Apache Spark",
+        "Airflow",
+        "veri ambarı",
+        "veri modelleme",
+        "Git",
+        "Docker",
+        "problem çözme",
+        "dbt",
+        "bulut platformları"
+      ],
+      "missing": [
+        "Kafka"
+      ]
+    },
+    "medium": {
+      "present": [
+        "SQL",
+        "Python",
+        "ETL",
+        "veri ambarı",
+        "veri modelleme",
+        "Git",
+        "problem çözme"
+      ],
+      "missing": [
+        "Apache Spark",
+        "Airflow",
+        "Docker",
+        "Kafka",
+        "dbt",
+        "bulut platformları"
+      ]
+    },
+    "weak": {
+      "present": [
+        "SQL",
+        "Git",
+        "problem çözme"
+      ],
+      "missing": [
+        "Python",
+        "ETL",
+        "Apache Spark",
+        "Airflow",
+        "veri ambarı",
+        "veri modelleme",
+        "Docker",
+        "Kafka",
+        "dbt",
+        "bulut platformları"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  }
+}

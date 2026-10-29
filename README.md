@@ -1,3 +1,19 @@
+# CVReviewer
+
+[OpenResume](https://github.com/xitanggg/open-resume) fork'u: CV'yi (PDF) yapıştırılan iş ilanına göre
+skorlar, ilandaki anahtar kelimelerden CV'de olanları/eksikleri gösterir ve bölüm bölüm öneri verir.
+İlan ve CV İngilizce veya Türkçe olabilir (karışık da). Her şey tarayıcıda çalışır; sunucu, yapay zekâ
+veya üçüncü taraf istek yoktur.
+
+- Motor: `src/app/lib/job-match/` (anahtar kelime çıkarma, eşleştirme, skor), parser'a Türkçe desteği eklendi.
+- Doğrulama: `npm run eval` — sentetik CV/ilan veri setiyle (`eval/`, bkz. `eval/README.md`) motoru ölçer,
+  `EVAL_SCORE` basar. Holdout seti için `EVAL_SPLIT=holdout npm run eval` (yalnız tur sonunda).
+- Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
+
+Aşağısı upstream'in orijinal README'sidir.
+
+---
+
 # OpenResume
 
 OpenResume is a powerful open-source resume builder and resume parser.

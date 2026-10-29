@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Hannah Cole",
+    "email": "hannah.cole@example.com",
+    "phone": "+1 555 010 1084",
+    "url": "linkedin.com/in/hannahcole-example",
+    "summary": "B2B digital marketer with 8 years of experience in SaaS growth. Led teams of up to 5 and managed budgets above 1M EUR a year.",
+    "location": "Berlin, Germany"
+  },
+  "workExperiences": [
+    {
+      "company": "Cirrus Cloud",
+      "jobTitle": "Head of Digital Marketing",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Own the 900k EUR annual marketing budget; improved blended CAC by 22%",
+        "Grew organic traffic 3.1x in two years through technical SEO and a content marketing programme",
+        "Manage Google Ads and LinkedIn campaigns (B2B lead gen) with weekly bid optimization",
+        "Built HubSpot marketing automation workflows and monthly newsletters (open rate 38%)",
+        "Defined channel KPIs and a GA4 reporting dashboard for the leadership team",
+        "Run A/B tests on landing pages (+14% conversion)",
+        "Lead a team of 5 specialists and freelancers"
+      ]
+    },
+    {
+      "company": "Brightwave",
+      "jobTitle": "Marketing Specialist",
+      "date": "2015 - 2019",
+      "descriptions": [
+        "Managed social media channels and Facebook campaigns",
+        "Supported Salesforce CRM lead hand-over to sales"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Humboldt University",
+      "degree": "BA Communication Science",
+      "date": "2011 - 2014",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SEO, Google Ads, GA4, HubSpot, Salesforce, LinkedIn Ads, A/B testing, Looker Studio"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "EXPERIENCE",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "CORE SKILLS",
+    "custom": ""
+  }
+}
