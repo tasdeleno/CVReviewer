@@ -248,3 +248,50 @@ describe("job-match - suggestion kinds", () => {
     );
   });
 });
+
+describe("job-match - title and quantity rules", () => {
+  const kindsFor = (ad: string, summary: string, bullets: string[]) =>
+    suggest({
+      jobAd: ad,
+      matches: [],
+      resume: {
+        ...initialResumeState,
+        profile: { ...initialResumeState.profile, summary },
+        workExperiences: [
+          { ...initialResumeState.workExperiences[0], descriptions: bullets },
+        ],
+      },
+      resumeText: [summary, ...bullets].join("\n"),
+      langs: { ad: "en", resume: "en" },
+    }).map((s) => s.kind);
+
+  it("a title counts in its own words, a synonym or a translation", () => {
+    expect(
+      kindsFor("Engineering Manager", "Engineering Manager, 10 years", [])
+    ).not.toContain("title");
+    expect(
+      kindsFor("Veri Mühendisi", "Data engineer with 6 years", [])
+    ).not.toContain("title");
+    expect(
+      kindsFor("Digital Marketing Manager", "Head of Digital Marketing", [])
+    ).not.toContain("title");
+    expect(kindsFor("Data Analyst", "Marketing specialist", [])).toContain(
+      "title"
+    );
+  });
+
+  it("units make a quantity, digits inside names don't", () => {
+    const quantified = [
+      "Grew users to 10k",
+      "Cut latency to 20ms",
+      "Grew traffic 3x",
+    ];
+    expect(kindsFor("Data Analyst", "Data analyst", quantified)).not.toContain(
+      "unquantified"
+    );
+    const names = ["Ran B2B deals", "Set up GA4", "Managed 3PL partners"];
+    expect(kindsFor("Data Analyst", "Data analyst", names)).toContain(
+      "unquantified"
+    );
+  });
+});

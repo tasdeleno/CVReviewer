@@ -1,0 +1,13 @@
+# metric_direction: higher_is_better
+iteration	timestamp	commit	metric	delta	guard	guard-metric	status	description
+0	2026-10-29T21:36:37+03:00	94fb0f2	91.9	0.0	pass	36/36	baseline	tur 2 başlangıcı (B2: dev 12 ilan, yeni metrik)
+1	2026-10-29T21:37:51+03:00	-	92.4	+0.5	pass	36/36	keep	zayıf fiil: EN was/help/assist/support biçimleri, TR sorumluydum/destek verdim cümle içinde de
+2	2026-10-29T21:40:03+03:00	-	92.8	+0.4	pass	36/36	keep	unvan: EN/TR eşanlam-çeviri grupları, kapsam kelimesi (bölge/saha) atılır, "Head of X" = "X Manager"
+3	2026-10-29T21:42:19+03:00	-	93.5	+0.7	pass	36/36	keep	parser özet: madde işaretli satırlar ve parantezsiz telefon özet adayı değil
+4	2026-10-29T21:43:05+03:00	-	94.1	+0.6	pass	36/36	keep	deneyim bölümü tanınmazsa madde işaretli satırlar öneri için madde sayılır
+5	2026-10-29T21:43:56+03:00	-	94.2	+0.1	pass	36/36	keep	ölçülmemiş madde: harfe bitişik rakam (B2B, GA4, 3PL) sayı değil; 3x çarpanı sayı
+6	2026-10-29T21:44:59+03:00	-	94.1	-0.1	pass	36/36	discard	only-in-skills tercih dışı tüm becerilere (normal dahil): recall +, precision daha çok düştü
+7	2026-10-29T21:46:05+03:00	-	94.3	+0.1	pass	36/36	keep	EN -ize/-ise türetmesi (Dockerized)
+8	2026-10-29T21:47:42+03:00	-	94.5	+0.2	pass	36/36	keep	önem işaretleri: "Artılar" başlığı, "big plus"/"strong plus" satır içi
+9	2026-10-29T21:49:34+03:00	-	94.8	+0.3	pass	36/36	keep	başlıklı ilanlarda tanıtım bloğundaki sektör (domain) kelimeleri anahtar kelime değil; unvan satırı hariç
+10	2026-10-29T21:50:19+03:00	-	94.9	+0.1	pass	36/36	keep	Python ima: pandas, NumPy, PySpark, scikit-learn, PyTorch, Django, Flask, FastAPI, pytest

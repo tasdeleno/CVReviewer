@@ -1,0 +1,22 @@
+{
+  "version": "2.1.0",
+  "source": "loop",
+  "timestamp": "2026-10-29T22:10:00",
+  "status": "BOUNDED",
+  "results_tsv": "autoresearch/loop-261029-2136/results.tsv",
+  "findings": [
+    {"iteration": 3, "delta": 0.7, "change": "parser özet: madde işaretli satır ve parantezsiz telefon özet değil"},
+    {"iteration": 4, "delta": 0.6, "change": "deneyim bölümü tanınmazsa madde işaretli satırlar madde sayılır"},
+    {"iteration": 1, "delta": 0.5, "change": "zayıf fiil kapsamı EN/TR"},
+    {"measurement": "dev gold 'ideally X' zorunlu, holdout v2 'X ideally' tercih: tutarsız; tur dışı düzeltilmeli"}
+  ],
+  "config": {
+    "goal": "ilan-CV eşleştirme ve öneri motoru doğruluğu (tur 2)",
+    "scope": ["src/app/lib/job-match/**", "src/app/lib/parse-resume-from-pdf/**"],
+    "metric": "EVAL_SCORE",
+    "direction": "higher_is_better",
+    "verify": "npm run eval",
+    "guard": "npx jest --ci",
+    "result": {"dev": [91.9, 94.9], "holdout_v2": [79.3, 80.8]}
+  }
+}

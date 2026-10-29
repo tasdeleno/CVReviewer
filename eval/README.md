@@ -71,11 +71,14 @@ B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm 
 - Holdout v2 ile dev arasındaki 12.6 puanlık fark beklenen bir sonuç: sağlık, lojistik ve eğitim terimleri sözlükte yok. Bu fark, motorun genelleşip genelleşmediğinin ölçüsü. Kapatmak için holdout'a özgü sözlük eklemek ezber olur ve yasak.
 - Holdout v2 gold'u kör yazıldı. Önemde 95/95, var/eksikte 284/285, önerilerde 107/108 uyum. İki uyuşmazlıkta daha katı okuma seçildi.
 
+**Tur 2 sonu (loop-261029-2136, 10 iterasyon, 9 tutuldu):** dev 91.9 → 94.9, holdout v2 79.3 → 80.8 (yalnızca toplam skor, 2. bakış). Dev kazancının yaklaşık yarısı holdout'a taşındı ve fark 12.6'dan 14.1'e açıldı. Kazançların çoğu öneri kurallarından geldi: zayıf fiil kapsamı, unvan eşanlamları, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar. Holdout farkının asıl kaynağı sektör sözlüğünün eksikliği; bunu kapatmak için ezber yapılmadı. Ayrıntı: `autoresearch/loop-261029-2136/`.
+
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
-Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. Holdout v2'ye 1 kez bakıldı (B2).
+Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. Holdout v2'ye 2 kez bakıldı (B2 ve tur 2 sonu).
 
 ## Sonraki tur adayları (öncelik sırasıyla)
+0. **Önce ölçüm tutarlılığı (tur dışı, ayrı commit):** Dev gold'u "ERP, ideally SAP" ve "ideally selling SaaS" ifadelerini zorunlu etiketlemiş; holdout v2 ve kılavuz "ideally" ile nitelenen öğeyi tercih sayıyor. Dev gold düzeltilip yeni baseline alınmadan satır içi tercih kapsamı (aday 3, PRD 1) denenemez.
 1. ~~Önce ölçüm düzeltmesi~~ (yapıldı, B0): motor kelimesi önce adını tam taşıdığı gold'a bağlanır, yoksa içinde geçtiği gold'a ("Leadership" → "team leadership"), böylece "Excel" artık VBA'nın "Excel macros" alias'ına bağlanmıyor. Bir gold birden çok motor kelimesine denk gelirse herhangi biri bulunduysa "var". Gold'da present+missing terimleri tam bölmüyorsa eval hata verir.
 2. Öneri hataları (B1 raporu): unvan eşanlamı ve çevirisi (FP&A Analyst, Head of Digital Marketing, Frontend developer≈Geliştirici, Data engineer≈Veri Mühendisi) yüzünden fazladan `title` önerisi çıkıyor. "Supported" ve "destek verdim" gibi zayıf fiiller kaçıyor; cümle ortasındaki "sorumluydum" da kaçıyor. Ima ile kanıtlanan beceriler (pandas → Python) ve ehliyet için fazladan `only-in-skills` önerisi çıkıyor. Ölçülmemiş madde kontrolünde B2B ve GA4 sayı sayılıyor. Başlıksız CV'de özet ve maddeler ayrıştırılamıyor.
 3. Satır içi "tercihen/preferably" kapsamı: işaret yalnız ait olduğu öğeyi değil tüm satırı "tercih" yapıyor ("Google Analytics (tercihen GA4), Search Console…").
