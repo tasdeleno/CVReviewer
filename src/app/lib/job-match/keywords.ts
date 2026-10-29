@@ -70,15 +70,19 @@ const ABOUT_CANDIDATE = / (?:you|your|candidate|candidates|aday\S*|sen|siz) /;
 // prettier-ignore
 const INLINE_REQUIRED = ["must have", "required", "is a must", "zorunlu", "mutlaka", "sart"];
 
+// From the user's pairwise judgments (eval/README.md, Faz D): one missing requirement
+// outweighs four missing pluses and about three missing duty skills; a duty skill
+// outweighs two pluses. Fitted to those 7 answers, so recheck in the real-ad trial.
 const WEIGHTS: Record<Importance, number> = {
-  required: 2,
+  required: 3,
   normal: 1,
-  preferred: 0.5,
+  preferred: 0.25,
 };
 // Keywords found outside the dictionary are less certain to be real skills
 const UNKNOWN_WEIGHT_FACTOR = 0.7;
-// ATS screening is driven by hard skills; soft skills count, but half as much
-const SOFT_WEIGHT_FACTOR = 0.5;
+// ATS screening is driven by hard skills; two soft skills don't make up for one
+// missing technical requirement
+const SOFT_WEIGHT_FACTOR = 0.25;
 
 // Folded words separated by single spaces, padded so " pattern" means "at a word start"
 const toWords = (text: string) =>

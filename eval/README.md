@@ -58,6 +58,7 @@ Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) v
 ## Çalıştırma
 - `npm run eval`: dev CV'lerini PDF'e çevirir (`scripts/gen-fixtures.mjs`), motoru çalıştırır, `EVAL_SCORE=<0-100>` basar ve `eval/report-dev.md` yazar (ayrıntılı hata listesi).
 - `EVAL_SPLIT=holdout npm run eval`: holdout ölçümü. Yalnız tur sonunda; **yalnız toplam skor okunur**, `report-holdout.md` açılmaz.
+- `EVAL_DUMP=<dosya> npm run eval`: her CV'nin eşleşmelerini (etiket, önem, kategori, var/yok) JSON'a yazar. Ağırlıkları motoru yeniden çalıştırmadan, dışarıda yeniden skorlamak için kullanılır. Holdout'ta kullanılmaz.
 - `npx jest --ci`: birim testleri (guard). Her değişiklikte hepsi geçmeli.
 - `TRY_DIR=<repo dışı klasör> npm run try`: gerçek ilan/CV denemesi (skorlanmaz), bkz. kök README.
 
@@ -95,7 +96,8 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | Tur 2 sonu | motor (9 değişiklik) | 94.9 | 80.8 (v2) |
 | B3 | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
 | B4 | ehliyet anahtar kelimeden koşula taşındı, iki dev ilanına koşul satırları eklendi | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
-| **PRD 1 (koşullar + önem kapsamı)** | motor: koşul çıkarımı, cümle/öğe kapsamı, şirket tanıtımı ve şirket satırı | **95.1** | ölçülmedi (Faz D'den sonra tek bakış) |
+| PRD 1 (koşullar + önem kapsamı) | motor: koşul çıkarımı, cümle/öğe kapsamı, şirket tanıtımı ve şirket satırı | 95.1 | ölçülmedi |
+| **PRD 1 + ağırlıklar** | ağırlıklar 3 / 1 / 0.25, soft ×0.25 (kullanıcının ikili tercihleri) | **95.1** | **82.5 (v2, 5. bakış)** |
 
 Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
 
@@ -126,6 +128,13 @@ Holdout yeniden ölçülmedi, çünkü ne motor ne de holdout gold'u değişti.
 - **Önceden kayıtlı beklenti tuttu:** önem 158/160 → 160/160 (SaaS ve B2B düzeldi), diğer bileşenler aynı, `EVAL_SCORE` 94.9 → 95.1.
 - **Neden döngü değil TDD:** Kurallar tek başına dev'de kazanç göstermiyor ve döngü protokolü kazanç göstermeyen değişikliği geri alıyor. Bu yüzden kurallar birim testleriyle tutuldu. Kalan önem hatası olmadığı için kısa autoresearch döngüsü koşulmadı.
 
+**Ağırlıklar (Faz D):** zorunlu / normal / tercih 2 / 1 / 0.5 → 3 / 1 / 0.25, soft ×0.5 → ×0.25. Sözlük dışı katsayısı ×0.7 değişmedi.
+- **Eval ağırlıkları ayırt edemiyor.** `EVAL_DUMP` ile yeniden skorlanan 16 aday setin hepsi sıralamayı 36/36 tutturdu ve strong–medium farkları birbirine yakın çıktı (27–35).
+- **Birincil ölçüt kullanıcının 7 ikili tercihi oldu.** Önceden kayıtlı dört set arasında en iyisi mevcut set çıktı (3/7). Cevaplardan türetilen set 7/7 uyuyor, ama bu aynı cevaplardan türetildiği için bağımsız bir doğrulama değil. Kullanıcı bunu bilerek seçti.
+- **Cevaplardan çıkan kısıtlar:** bir zorunlu eksik, dört artıdan ve yaklaşık üç normalden ağır; bir normal, iki artıdan ağır; iki soft skill, bir teknik zorunluyu telafi etmiyor.
+- Gerçek ilan denemesinde yeniden kontrol edilecek.
+- **Holdout v2:** 80.8 → 82.5, dev–holdout farkı 14.1 → 12.6. Bu tek bakış PRD 1'in üç fazının (koşullar, önem kapsamı, ağırlıklar) etkisini birlikte taşıyor. Önem kazancının bir kısmı (yaklaşık 0.3 puan) kazara görülen ALS, SAP ve BLS satırları nedeniyle kirli sayılmalı.
+
 ### Ayrıntılar
 
 B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm değişti (motor değil). Var/eksik doğruluğu dev'de 335/348 → 344/348; çıkarma F1'i aynı.
@@ -145,13 +154,14 @@ B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm 
 
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
-Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. **Holdout v2'ye 3 kez bakıldı** (B2, tur 2 sonu, review düzeltmelerinden sonra); hepsinde yalnızca toplam skor okundu, ayrıntılı rapor hiç açılmadı.
+Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. **Holdout v2'ye 5 kez bakıldı:** B2, tur 2 sonu, review düzeltmelerinden sonra, kazara bir 4. bakış ve PRD 1 sonu (son ikisi aşağıda). Hepsinde yalnızca toplam skor okundu, ayrıntılı rapor hiç açılmadı.
 - **Kazara 4. bakış (2026-10-30, aday 0 hazırlığı):** `eval/` üzerinde çalıştırılan bir grep, `report-holdout.md`'den üç "Yanlış önem" satırını gösterdi: ALS (gold tercih, motor zorunlu), SAP (gold zorunlu, motor tercih) ve BLS (gold zorunlu, motor tercih).
 - Bu üç satır satır içi tercih kuralının (aday 1) holdout'taki hatalarını ele veriyor, yani aday 1 için yanlılık riski taşıyor.
 - Bundan sonra grep'ler `eval/dev` ile sınırlandırılmalı.
+- **5. bakış (PRD 1 sonu):** yalnızca toplam skor okundu (82.5), rapor açılmadı. Bakış sayısı arttığı için yeni bir holdout (v3) gerekebilir.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Ağırlıklar (PRD 1, Faz D):** zorunlu 2 / normal 1 / tercih 0.5. Kullanıcının ikili tercihleriyle denetlenecek.
+1. **Gerçek ilan denemesi (kullanıcı kararı):** tüm motor adaylarından sonra, arayüzden önce. Ağırlıklar ve koşul desenleri orada yeniden kontrol edilecek.
 2. **Sektör genelleşmesi:** Holdout v2 farkı (14.1) büyük ölçüde sözlükte olmayan sağlık, lojistik ve eğitim terimlerinden kaynaklanıyor. Holdout'a bakarak sözlük doldurmak ezber olur. Doğru yol, sözlüğü holdout'u görmeden genel kaynaklardan genişletmek ya da sözlük dışı terimleri (ilandaki kısaltmalar, isim öbekleri) daha iyi çıkarmak.
 3. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
