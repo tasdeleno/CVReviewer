@@ -38,17 +38,19 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 - Kayıtlar: `autoresearch/loop-<YYMMDD-HHMM>/` (`results.tsv`, `evals-summary.md`, `handoff.json`). Yeni tur önce son turun kayıtlarını okur.
 
 ## Durum (2026-10-29)
-| | Baseline | Tur 1 sonu | Şu an |
-|---|---|---|---|
-| Dev | 90.6 | 95.5 | 95.3 |
-| Holdout | 86.6 | 89.9 | 90.4 |
+| | Baseline | Tur 1 sonu | Tur 1 + temizlik | Ölçüm düzeltmesi (B0) |
+|---|---|---|---|---|
+| Dev | 90.6 | 95.5 | 95.3 | 96.2 |
+| Holdout | 86.6 | 89.9 | 90.4 | 90.4 |
+
+B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm değişti (motor değil). Var/eksik doğruluğu dev'de 335/348 → 344/348; çıkarma F1'i aynı.
 
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
-Holdout'a bugüne kadar 4 kez **toplam skor** olarak bakıldı (ayrıntısına hiç bakılmadı). Tekrarlı bakış hafif seçim yanlılığı yaratır; birkaç tur daha sonra yeni bir holdout seti üretmek gerekebilir.
+Holdout'a bugüne kadar 5 kez **toplam skor** olarak bakıldı (ayrıntısına hiç bakılmadı). Tekrarlı bakış hafif seçim yanlılığı yaratır; birkaç tur daha sonra yeni bir holdout seti üretmek gerekebilir.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Önce ölçüm düzeltmesi (döngü dışı, ayrı commit):** `run-eval.ts` `isSameKeyword` gevşek. Gold alias'ı başka bir becerinin adını içerince ("VBA" → alias "Excel macros" → Excel) gold yanlış anahtar kelimeye bağlanıyor. Ayrıca bir gold birden çok anahtar kelimeye denk gelince ("CPA/ACCA" → CPA ve ACCA) yalnız ilki değerlendiriliyor; "herhangi biri bulunduysa var" olmalı. Kalan "yok ama bulundu" hatalarının çoğu bu. Düzeltip yeni baseline al.
+1. ~~Önce ölçüm düzeltmesi~~ (yapıldı, B0): motor kelimesi önce adını tam taşıdığı gold'a bağlanır, yoksa içinde geçtiği gold'a ("Leadership" → "team leadership"), böylece "Excel" artık VBA'nın "Excel macros" alias'ına bağlanmıyor. Bir gold birden çok motor kelimesine denk gelirse herhangi biri bulunduysa "var". Gold'da present+missing terimleri tam bölmüyorsa eval hata verir.
 2. Satır içi "tercihen/preferably" kapsamı: işaret yalnız ait olduğu öğeyi değil tüm satırı "tercih" yapıyor ("Google Analytics (tercihen GA4), Search Console…").
 3. Unvan eşanlamları: "Engineer" ↔ "Developer", "Uzman" ↔ "Specialist" (öneri modülündeki unvan kontrolü).
 4. Öneri kalitesi eval'de ölçülmüyor: gold'a beklenen zayıf maddeler / eksik bölümler eklenip metriğe katılabilir.

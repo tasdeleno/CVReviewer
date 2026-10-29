@@ -44,16 +44,49 @@ const readTextItems = async (path: string) => {
 };
 
 const goldForms = (gold: GoldKeyword) => [gold.term, ...gold.aliases];
-const isSameKeyword = (keyword: AdKeyword, gold: GoldKeyword) => {
+const isSameKeyword = (
+  keyword: AdKeyword,
+  gold: GoldKeyword,
+  whole: boolean
+) => {
   const labelText = toTokenizedText(keyword.label);
   // Each gold form separately, so a phrase can't straddle two forms
   return goldForms(gold).some((form) => {
     const formText = toTokenizedText(form);
     return (
-      keyword.phrases.some((phrase) => hasPhrase(formText, phrase)) ||
-      hasPhrase(labelText, toPhrase(form))
+      keyword.phrases.some(
+        (phrase) =>
+          (!whole || phrase.tokens.length === formText.folded.length) &&
+          hasPhrase(formText, phrase)
+      ) || hasPhrase(labelText, toPhrase(form))
     );
   });
+};
+
+/**
+ * Gold keywords an engine keyword stands for: those it names as a whole form, else those
+ * that merely contain it ("Leadership" for "team leadership"). So "Excel" maps to the gold
+ * Excel only, not also to VBA through its alias "Excel macros".
+ */
+const linkGolds = (keyword: AdKeyword, golds: GoldKeyword[]) => {
+  const whole = golds.filter((gk) => isSameKeyword(keyword, gk, true));
+  return whole.length
+    ? whole
+    : golds.filter((gk) => isSameKeyword(keyword, gk, false));
+};
+
+/** present/missing must split the gold terms exactly, or decisions are silently skewed */
+const checkGold = (gold: Gold) => {
+  const terms = gold.keywords.map((gk) => gk.term).sort();
+  for (const fit of FITS) {
+    const { present, missing } = gold.resumes[fit];
+    const split = [...present, ...missing].sort();
+    if (JSON.stringify(split) !== JSON.stringify(terms)) {
+      throw new Error(
+        `${gold.id}/${fit}: present+missing gold terimlerini tam bölmüyor`
+      );
+    }
+  }
 };
 
 const pct = (n: number, d: number) => (d === 0 ? 1 : n / d);
@@ -75,20 +108,22 @@ test(`eval ${split}`, async () => {
     const dir = join(splitDir, id);
     const ad = readFileSync(join(dir, "ad.txt"), "utf8");
     const gold: Gold = JSON.parse(readFileSync(join(dir, "gold.json"), "utf8"));
+    checkGold(gold);
     const scores = {} as Record<Fit, number>;
     report.push(`## ${id}`);
 
     for (const fit of FITS) {
       const result = analyze(ad, await readTextItems(join(dir, `${fit}.pdf`)));
       scores[fit] = result.score;
+      const links = result.matches.map((keyword) =>
+        linkGolds(keyword, gold.keywords)
+      );
 
       if (fit === "strong") {
         // Keyword extraction quality (same for every resume of the ad)
-        const spurious = result.matches.filter(
-          (keyword) => !gold.keywords.some((gk) => isSameKeyword(keyword, gk))
-        );
+        const spurious = result.matches.filter((_, i) => !links[i].length);
         const missed = gold.keywords.filter(
-          (gk) => !result.matches.some((keyword) => isSameKeyword(keyword, gk))
+          (gk) => !links.some((golds) => golds.includes(gk))
         );
         extractedTotal += result.matches.length;
         extractedCorrect += result.matches.length - spurious.length;
@@ -104,14 +139,15 @@ test(`eval ${split}`, async () => {
         );
       }
 
-      // Present/missing decisions, only for gold keywords the engine extracted
+      // Present/missing decisions, only for gold keywords the engine extracted. One gold
+      // term can map to several engine keywords ("CPA/ACCA"): present if any was found.
       const wrong: string[] = [];
       for (const gk of gold.keywords) {
-        const keyword = result.matches.find((k) => isSameKeyword(k, gk));
-        if (!keyword) continue;
+        const linked = result.matches.filter((_, i) => links[i].includes(gk));
+        if (!linked.length) continue;
         const truth = gold.resumes[fit].present.includes(gk.term);
         decisions++;
-        if (keyword.found === truth) decisionsCorrect++;
+        if (linked.some((k) => k.found) === truth) decisionsCorrect++;
         else
           wrong.push(
             `${gk.term} (${truth ? "var ama bulunamadı" : "yok ama bulundu"})`
