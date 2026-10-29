@@ -19,6 +19,7 @@ import {
   tokenize,
   toTokenizedText,
   type Phrase,
+  type TokenizedText,
 } from "lib/job-match/text";
 
 export type Importance = "required" | "normal" | "preferred";
@@ -49,10 +50,23 @@ const HEADING_PATTERNS: [Block, string[]][] = [
     "hakkimizda", "yan haklar", "biz kimiz", "olanaklar", "imkanlar"]],
 ];
 
-// Inline markers that make a single line "preferred" or "required" regardless of its block
+// Inline markers that make a sentence "preferred" or "required" regardless of its block
 // prettier-ignore
 const INLINE_PREFERRED = ["is a plus", "a plus", "big plus", "strong plus", "nice to have", "preferred", "is an advantage", "bonus",
-  "tercih sebebi", "tercihen", "arti olarak", "avantaj"];
+  "tercih sebebi", "arti olarak", "avantaj"];
+// Adverbs make only their own item preferred ("an ERP, ideally SAP"), or the whole
+// sentence they open ("Tercihen Python, SQL bilgisi")
+// prettier-ignore
+const PREFERRED_ADVERBS = ["ideally", "preferably", "if possible", "tercihen", "ideal olarak", "mumkunse"];
+// Words whose dot does not end a sentence ("(ör. HubSpot)", "e.g. Python"), folded, with
+// their inner dots. "etc." usually ends a sentence, so it is not here.
+// prettier-ignore
+const ABBREVIATIONS = new Set(["vb", "vs", "or", "orn", "bkz", "e.g", "i.e", "inc", "ltd", "a.s", "yrs", "approx"]);
+// An intro sentence describing the employer ("Stackwell is a Series B SaaS company"), in
+// toWords form; a sentence about the candidate ("You are a business analyst") is not one
+// prettier-ignore
+const COMPANY_INTRO = / (?:is|we are) an? (?:\S+ ){0,4}(?:company|startup|scaleup|firm|provider|agency|manufacturer|bank|retailer|consultancy) | (?:firmamiz|sirketimiz|kurulusumuz) /;
+const ABOUT_CANDIDATE = / (?:you|your|candidate|candidates|aday\S*|sen|siz) /;
 // prettier-ignore
 const INLINE_REQUIRED = ["must have", "required", "is a must", "zorunlu", "mutlaka", "sart"];
 
@@ -113,6 +127,95 @@ const getImportance = (line: string, block: Block): Importance => {
   if (block === "required") return "required";
   if (block === "preferred") return "preferred";
   return "normal";
+};
+
+/** Splits text after each break character that sits outside parentheses */
+const splitOutsideParens = (
+  text: string,
+  isBreak: (text: string, i: number) => boolean
+): string[] => {
+  const parts: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === "(") depth++;
+    else if (text[i] === ")") depth = Math.max(0, depth - 1);
+    else if (depth === 0 && isBreak(text, i)) {
+      parts.push(text.slice(start, i + 1));
+      start = i + 1;
+    }
+  }
+  // An unclosed "(" would swallow the rest of the line: split again ignoring parentheses
+  if (depth > 0) return splitOutsideParens(text.replace(/[()]/g, " "), isBreak);
+  parts.push(text.slice(start));
+  return parts.filter((part) => part.trim());
+};
+const endsSentence = (text: string, i: number) =>
+  /[.!?]/.test(text[i]) &&
+  (i + 1 === text.length || /\s/.test(text[i + 1])) &&
+  !ABBREVIATIONS.has(foldText(text.slice(text.lastIndexOf(" ", i) + 1, i)));
+const endsItem = (text: string, i: number) =>
+  text[i] === "," || text[i] === ";";
+
+interface ImportancePart {
+  text: TokenizedText;
+  importance: Importance;
+  companyIntro: boolean;
+}
+/**
+ * The importance of each part of a line: predicate markers reach their sentence, adverbs
+ * their item (a parenthesis holding the adverb is an item of its own).
+ */
+const importanceParts = (content: string, block: Block): ImportancePart[] =>
+  splitOutsideParens(content, endsSentence).flatMap((sentence) => {
+    const words = toWords(sentence);
+    const companyIntro =
+      block === "intro" &&
+      COMPANY_INTRO.test(words) &&
+      !ABOUT_CANDIDATE.test(words);
+    const part = (text: string, importance: Importance) => ({
+      text: toTokenizedText(text),
+      importance,
+      companyIntro,
+    });
+    // "Ideally you know Python, but SQL is a must": the item level sorts it out
+    if (
+      PREFERRED_ADVERBS.some((a) =>
+        words.startsWith(` ${toWords(a).trim()} `)
+      ) &&
+      !hasMarker(words, INLINE_REQUIRED)
+    ) {
+      return [part(sentence, "preferred")];
+    }
+    const base = getImportance(sentence, block);
+    const hasAdverb = (text: string) =>
+      hasMarker(toWords(text), PREFERRED_ADVERBS);
+    return splitOutsideParens(sentence, endsItem).flatMap((item) => {
+      const groups = (item.match(/\([^()]*\)/g) ?? []).filter(hasAdverb);
+      const rest = groups.reduce(
+        (text, group) => text.replace(group, " "),
+        item
+      );
+      return [rest, ...groups].map((text) =>
+        part(text, hasAdverb(text) ? "preferred" : base)
+      );
+    });
+  });
+
+const mentions = (parts: ImportancePart[], phrases: Phrase[]) =>
+  parts.filter((p) => phrases.some((phrase) => hasPhrase(p.text, phrase)));
+
+/** Importance of a keyword from the parts that mention it; the strongest wins */
+const importanceIn = (parts: ImportancePart[], phrases: Phrase[]) => {
+  const hits = mentions(parts, phrases);
+  // A phrase split across parts ("machine, learning") falls back to the whole line
+  const ranked = hits.length ? hits : parts;
+  return ranked
+    .map((p) => p.importance)
+    .reduce<Importance>(
+      (a, b) => (IMPORTANCE_RANK[b] > IMPORTANCE_RANK[a] ? b : a),
+      ranked.length ? "preferred" : "normal"
+    );
 };
 
 // Acronyms, CamelCase and symbol tokens ("AWS", "PowerBI", "C#") look like tool names
@@ -197,12 +300,23 @@ export const extractJobAd = (ad: string) => {
       content = heading.content; // "Requirements: Python, SQL"
     }
     if (block === "skip") continue;
+    // "Lumen Software (B2B SaaS) - Berlin": the line under the title names the employer.
+    // Its first part, outside parentheses, is a name with no skill, unlike "SQL - 3 years"
+    // or "Python | Django | Remote".
+    const isCompanyLine =
+      i === 1 &&
+      !headings[0] &&
+      !heading &&
+      line.trim().split(/\s+/).length <= 10 &&
+      /\s[-–|]\s/.test(line) &&
+      !containsSkill(line.split(/\s[-–|]\s/)[0].replace(/\([^()]*\)/g, " "));
+    if (isCompanyLine) continue;
     const spans = findConditionSpans(content);
     spans.forEach(({ kind }) => conditions.push({ kind, line }));
     if (spans.length) content = withoutConditions(content, spans);
+    // After blanking: a condition's own marker ("ehliyet zorunludur") stays with it
+    const parts = importanceParts(content, block);
 
-    const importance = getImportance(content, block);
-    const weight = WEIGHTS[importance];
     const context = line.trim();
     const text = toTokenizedText(content);
     const covered = new Set<string>(); // tokens already part of a dictionary match
@@ -215,15 +329,21 @@ export const extractJobAd = (ad: string) => {
       const span = spans[0];
       if (!span) return;
       // The intro describes the employer ("a retail bank", "900 çalışanlı gıda üreticisi"):
-      // its industry words are not asked of the candidate. The title line still counts.
+      // its industry words are not asked of the candidate. Without headings the intro is
+      // the whole ad, so only sentences describing the company are left out, both as a
+      // mention and for importance. The title line still counts.
+      const domain = skill.category === "domain" && !onTitleLine;
+      const asked = domain ? parts.filter((p) => !p.companyIntro) : parts;
       if (
-        block === "intro" &&
-        hasHeadings &&
-        !onTitleLine &&
-        skill.category === "domain"
+        domain &&
+        ((block === "intro" && hasHeadings) ||
+          (!mentions(asked, skill.phrases).length &&
+            mentions(parts, skill.phrases).length))
       ) {
         return;
       }
+      const importance = importanceIn(asked, skill.phrases);
+      const weight = WEIGHTS[importance];
       // All matched forms, so "SAP FI" covers "FI" even though "SAP" matched first
       spans.forEach((s) => tokenize(s).forEach((token) => covered.add(token)));
       const forms = [...skill.en, ...skill.tr].map(foldText);
@@ -266,11 +386,13 @@ export const extractJobAd = (ad: string) => {
       ) {
         continue;
       }
+      const phrases = [toPhrase(token)];
+      const importance = importanceIn(parts, phrases);
       add(`token:${foldText(token)}`, {
         label: token,
-        phrases: [toPhrase(token)],
+        phrases,
         importance,
-        weight: weight * UNKNOWN_WEIGHT_FACTOR,
+        weight: WEIGHTS[importance] * UNKNOWN_WEIGHT_FACTOR,
         context,
       });
     }
