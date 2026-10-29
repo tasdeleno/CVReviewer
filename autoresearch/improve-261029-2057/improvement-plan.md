@@ -41,3 +41,14 @@ Kalan bütün bulgular yerel kural ya da sözlük ile yapılabilir.
 - Yurt dışına EN başvuru yapan ama kişisel bilgileri TR alışkanlığıyla yazan CV
 - Unvan eşanlamı (ilanda "Engineer", CV'de "Developer")
 - İki sütun, başlıksız ve karışık dil
+
+## Uygulama durumu (2026-10-30)
+| PRD | Durum |
+|---|---|
+| 1 Zorunlu/tercih ve TR demografik şartlar | Kısmen yapıldı. Tur 2'de "Artılar" başlığı ve "big plus"/"strong plus" işaretleri eklendi. Öğe düzeyinde tercih kapsamı, dev gold'undaki "ideally" tutarsızlığı nedeniyle bekliyor (eval/README aday 0). Demografik şartların ayrıştırılması ve önem için ek sinyaller henüz yok. |
+| 2 Unvan eşanlamları | Büyük ölçüde yapıldı (tur 2): EN/TR eşanlam ve çeviri grupları, kapsam kelimeleri, "Head of X". Eksikler: FP&A ≈ Financial ve ROLE_WORDS'de "partner". |
+| 3 PDF metin sağlığı | Yapılmadı. |
+| 4 Satır düzeyi yazım | Kısmen yapıldı. Zayıf fiil kapsamı genişledi (tur 2); zamir, klişe ve fiil tekrarı kontrolleri yok. |
+| 5 Yurt dışı kişisel bilgi | Yapılmadı. Test verisi holdout v2'de mevcut (en-health-1 medium). |
+| 6 Deneyim yılı (yüzdesel) | Yapılmadı. |
+| 7 Eşleşme şeffaflığı | Yapılmadı. |

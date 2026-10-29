@@ -17,14 +17,16 @@ veya üçüncü taraf istek yoktur.
   ve sonraki tur adayları `eval/README.md`'de; tur kayıtları `autoresearch/loop-*/`.
 - Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
 
-### Durum (2026-10-29)
+### Durum (2026-10-30)
 - Tamam: statik export + gizlilik (analytics yok), Türkçe parser, eşleştirme motoru, öneri + ATS modülü,
   sentetik eval (18 ilan; metrik öneri F1 ve önem doğruluğunu da ölçüyor), autoresearch turu 1 ve 2,
-  improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), gerçek ilan denemesi. 38 birim testi.
+  improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), regresyon kapısı (STABLE),
+  gerçek ilan denemesi. 38 birim testi.
 - Skor (tur 2 sonu): dev 94.9, holdout v2 80.8. Holdout v2'deki sağlık, lojistik ve eğitim ilanları hiç
   görülmemiş sektörler; aradaki fark sözlük eksikliğinden kaynaklanıyor. Ayrıntı ve sonraki adaylar `eval/README.md`'de.
-- Sırada: önce dev gold'undaki "ideally" tutarsızlığının düzeltilmesi (ayrı commit), sonra PRD'lerden seçilenler,
-  ardından arayüz (Faz 4: Türkçe analiz sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
+- Sırada: önce dev gold'undaki "ideally" tutarsızlığının düzeltilmesi (ayrı commit), sonra PRD'lerden seçilenler
+  (uygulama durumu `autoresearch/improve-261029-2057/improvement-plan.md`'de), ardından arayüz (Faz 4: Türkçe
+  analiz sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
 - Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
 
 Aşağısı upstream'in orijinal README'sidir.

@@ -51,12 +51,24 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 - Tur sonu: holdout toplam skoru + dev–holdout farkı raporlanır. Fark açılıyorsa ezber var demektir.
 - Ölçüm kodunda hata bulunursa tur sırasında düzeltilmez; tur sonrası ayrı commit'le düzeltilip yeniden baseline alınır.
 - Kayıtlar: `autoresearch/loop-<YYMMDD-HHMM>/` (`results.tsv`, `evals-summary.md`, `handoff.json`). Yeni tur önce son turun kayıtlarını okur.
+- Holdout'a yapılan her bakış "Durum" bölümünde sayılır. Bakış sayısı artınca seçim yanlılığı birikir; birkaç tur sonra yeni bir holdout gerekir.
+- Tur sonu reviewer düzeltmeleri motoru değiştirirse dev ve holdout yeniden ölçülür ve sonuç commit mesajına yazılır.
 
-## Durum (2026-10-29)
-| | Baseline | Tur 1 sonu | Tur 1 + temizlik | Ölçüm düzeltmesi (B0) |
-|---|---|---|---|---|
-| Dev | 90.6 | 95.5 | 95.3 | 96.2 |
-| Holdout | 86.6 | 89.9 | 90.4 | 90.4 |
+## Durum (2026-10-30)
+Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0, B1, B2) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
+
+| Aşama | Ne değişti | Dev | Holdout |
+|---|---|---|---|
+| Tur 1 öncesi | ilk ölçüm | 90.6 | 86.6 (eski) |
+| Tur 1 sonu + temizlik | motor | 95.3 | 90.4 (eski) |
+| B0 | ölçüm düzeltmesi (gold bağlama) | 96.2 | 90.4 (eski) |
+| B1 | metriğe öneri F1 ve önem doğruluğu eklendi | 94.0 | 86.7 (eski) |
+| B2 | eski holdout dev'e taşındı, holdout v2 eklendi | 91.9 | 79.3 (v2) |
+| **Tur 2 sonu** | motor (9 değişiklik) | **94.9** | **80.8 (v2)** |
+
+Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
+
+### Ayrıntılar
 
 B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm değişti (motor değil). Var/eksik doğruluğu dev'de 335/348 → 344/348; çıkarma F1'i aynı.
 
@@ -71,17 +83,28 @@ B0'dan itibaren skorlar öncekilerle doğrudan karşılaştırılamaz: ölçüm 
 - Holdout v2 ile dev arasındaki 12.6 puanlık fark beklenen bir sonuç: sağlık, lojistik ve eğitim terimleri sözlükte yok. Bu fark, motorun genelleşip genelleşmediğinin ölçüsü. Kapatmak için holdout'a özgü sözlük eklemek ezber olur ve yasak.
 - Holdout v2 gold'u kör yazıldı. Önemde 95/95, var/eksikte 284/285, önerilerde 107/108 uyum. İki uyuşmazlıkta daha katı okuma seçildi.
 
-**Tur 2 sonu (loop-261029-2136, 10 iterasyon, 9 tutuldu):** dev 91.9 → 94.9, holdout v2 79.3 → 80.8 (yalnızca toplam skor, 2. bakış). Dev kazancının yaklaşık yarısı holdout'a taşındı ve fark 12.6'dan 14.1'e açıldı. Kazançların çoğu öneri kurallarından geldi: zayıf fiil kapsamı, unvan eşanlamları, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar. Holdout farkının asıl kaynağı sektör sözlüğünün eksikliği; bunu kapatmak için ezber yapılmadı. Ayrıntı: `autoresearch/loop-261029-2136/`.
+**Tur 2 sonu (loop-261029-2136, 10 iterasyon, 9 tutuldu):** dev 91.9 → 94.9, holdout v2 79.3 → 80.8 (yalnızca toplam skor; 2. bakış, review düzeltmelerinden sonraki 3. bakışta da 80.8). Dev kazancının yaklaşık yarısı holdout'a taşındı ve fark 12.6'dan 14.1'e açıldı. Kazançların çoğu öneri kurallarından geldi: zayıf fiil kapsamı, unvan eşanlamları, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar. Holdout farkının asıl kaynağı sektör sözlüğünün eksikliği; bunu kapatmak için ezber yapılmadı. Ayrıntı: `autoresearch/loop-261029-2136/`.
 
 Tur 1'de (10 iterasyon, hepsi keep): özet başlıkları, araç→beceri çıkarımı, EN türetme ekleri, TR tamlama kökleri, kısaltma kara listesi, eşanlamlar, bölüm başlıkları, ekosistem sözlüğü. Sonrasında review ve gerçek ilan denemesiyle yanlış pozitifler temizlendi (dev 95.5 → 95.3 bilinçli takas). Ayrıntı: `autoresearch/loop-261029-1952/`.
 
-Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. Holdout v2'ye 2 kez bakıldı (B2 ve tur 2 sonu).
+Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşındı. **Holdout v2'ye 3 kez bakıldı** (B2, tur 2 sonu, review düzeltmelerinden sonra); hepsinde yalnızca toplam skor okundu, ayrıntılı rapor hiç açılmadı.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-0. **Önce ölçüm tutarlılığı (tur dışı, ayrı commit):** Dev gold'u "ERP, ideally SAP" ve "ideally selling SaaS" ifadelerini zorunlu etiketlemiş; holdout v2 ve kılavuz "ideally" ile nitelenen öğeyi tercih sayıyor. Dev gold düzeltilip yeni baseline alınmadan satır içi tercih kapsamı (aday 3, PRD 1) denenemez.
-1. ~~Önce ölçüm düzeltmesi~~ (yapıldı, B0): motor kelimesi önce adını tam taşıdığı gold'a bağlanır, yoksa içinde geçtiği gold'a ("Leadership" → "team leadership"), böylece "Excel" artık VBA'nın "Excel macros" alias'ına bağlanmıyor. Bir gold birden çok motor kelimesine denk gelirse herhangi biri bulunduysa "var". Gold'da present+missing terimleri tam bölmüyorsa eval hata verir.
-2. Öneri hataları (B1 raporu): unvan eşanlamı ve çevirisi (FP&A Analyst, Head of Digital Marketing, Frontend developer≈Geliştirici, Data engineer≈Veri Mühendisi) yüzünden fazladan `title` önerisi çıkıyor. "Supported" ve "destek verdim" gibi zayıf fiiller kaçıyor; cümle ortasındaki "sorumluydum" da kaçıyor. Ima ile kanıtlanan beceriler (pandas → Python) ve ehliyet için fazladan `only-in-skills` önerisi çıkıyor. Ölçülmemiş madde kontrolünde B2B ve GA4 sayı sayılıyor. Başlıksız CV'de özet ve maddeler ayrıştırılamıyor.
-3. Satır içi "tercihen/preferably" kapsamı: işaret yalnız ait olduğu öğeyi değil tüm satırı "tercih" yapıyor ("Google Analytics (tercihen GA4), Search Console…").
-4. ~~Öneri kalitesi eval'de ölçülmüyor~~ (yapıldı, B1).
-5. Dev–holdout farkını kapatmak için sözlük eklemelerini sınırlı tut; gerekirse veri setini yeni sektörlerle (sağlık, lojistik, eğitim) genişlet.
+0. **Önce ölçüm tutarlılığı (tur dışı, ayrı commit):** Dev gold'u "ERP, ideally SAP" (en-finance-1) ve "ideally selling SaaS" (en-sales-1) ifadelerini zorunlu etiketlemiş. Holdout v2 ve kılavuz ise "ideally" ile nitelenen öğeyi tercih sayıyor. Dev gold kılavuza göre düzeltilip yeni baseline alınmadan satır içi tercih kapsamı (aday 1, PRD 1) denenemez. Ayrıca LinkedIn Recruiter (en-hr-1) hem sorumluluklarda hem "Nice to have" satırında geçiyor; gold tercih diyor, motor en yüksek önemi alıyor. Hangisinin doğru olduğuna karar verilmeli.
+1. **Satır içi tercih kapsamı (PRD 1):** "tercihen", "ideally" ve "a plus" yalnızca ait olduğu öğeyi tercih yapmalı ("Google Analytics (tercihen GA4), Search Console…"). Bunun için önce aday 0 yapılmalı.
+2. **Sektör genelleşmesi:** Holdout v2 farkı (14.1) büyük ölçüde sözlükte olmayan sağlık, lojistik ve eğitim terimlerinden kaynaklanıyor. Holdout'a bakarak sözlük doldurmak ezber olur. Doğru yol, sözlüğü holdout'u görmeden genel kaynaklardan genişletmek ya da sözlük dışı terimleri (ilandaki kısaltmalar, isim öbekleri) daha iyi çıkarmak.
+3. **Kalan dev hataları (tur 2 raporu):**
+   - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
+   - Fazladan çıkarılan kelimeler: bölüm adları (Economics, İktisat / İşletme). Gold kuralı bunları anahtar kelime saymıyor, motor ise eğitim önerisi için çıkarıyor; bu bir karar konusu.
+   - FP&A Analyst ≈ Financial Analyst unvanı tanınmıyor.
+   - ROLE_WORDS'de "partner" yok, bu yüzden "Talent Acquisition Partner" ilanında unvan önerisi hiç çıkmıyor.
+   - İma ile kanıtta fazladan `only-in-skills`: blog yazıları → content marketing.
+4. **Review'dan kalan LOW'lar:**
+   - Ölçülmemiş madde kontrolü bitişik birimleri (5GB, 10km, 40hrs) ad sayıyor.
+   - Madde yedeği, deneyim bölümü hiç ayrıştırılamadığında madde işaretli beceri ve eğitim satırlarını da madde sayıyor (`suggest.ts`'teki ponytail notu).
+   - `titleVariants` en kötü durumda 4096 varyant üretiyor; bu yalnızca 6 kelimelik yapay bir unvanda olur.
+   - TR edilgen yapı tespiti yok.
+5. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
 6. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
+
+Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
