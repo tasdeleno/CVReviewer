@@ -152,7 +152,7 @@ tool|Canva
 tool|SAP, SAP ERP, SAP FI, SAP CO, SAP HANA, S/4HANA
 tool|ERP, ERP systems|ERP sistemleri, kurumsal kaynak planlama
 tool|Oracle ERP, Oracle NetSuite, NetSuite
-tool|Logo Tiger, Logo Go, Logo Yazılım, Netsis
+tool|Logo Tiger, Logo Go, Logo Yazılım, =Logo, Netsis
 domain|e-invoice, e-ledger|e-Fatura, e-Defter, e-Arşiv, e-İrsaliye, e-dönüşüm
 tool|Salesforce
 tool|HubSpot
@@ -269,7 +269,7 @@ method|FP&A, financial planning and analysis|finansal planlama ve analiz
 method|supply chain|tedarik zinciri
 method|procurement, purchasing|satın alma
 method|logistics|lojistik
-method|inventory management|stok yönetimi, envanter yönetimi
+method|inventory management, stock control|stok yönetimi, envanter yönetimi, stok takibi, stok kontrolü
 domain|IFRS, International Financial Reporting Standards|UFRS, TFRS
 domain|US GAAP, GAAP
 domain|tax procedure law|Vergi Usul Kanunu, VUK
@@ -279,13 +279,13 @@ domain|fintech
 domain|SaaS
 domain|banking|bankacılık
 domain|insurance|sigortacılık
-domain|retail|perakende
+domain|retail|perakende, mağazacılık
 domain|FMCG|hızlı tüketim
 domain|labor law, employment law|iş hukuku, iş kanunu
 domain|GDPR, data privacy|KVKK, kişisel verilerin korunması
 domain|compliance, regulatory compliance|mevzuat uyumu
-soft|communication, communication skills|iletişim, iletişim becerileri
-soft|teamwork, team player, collaboration|takım çalışması, ekip çalışması, iş birliği, işbirliği
+soft|communication, communication skills, verbal communication, written communication|iletişim, iletişim becerileri, sözlü iletişim, yazılı iletişim
+soft|teamwork, team player, collaboration, cross-functional collaboration|takım çalışması, ekip çalışması, iş birliği, işbirliği
 soft|leadership|liderlik
 soft|problem solving, problem-solving|problem çözme
 soft|analytical thinking, analytical skills|analitik düşünme
@@ -301,7 +301,7 @@ soft|creativity|yaratıcılık
 soft|mentoring, coaching|mentorluk, koçluk
 soft|multitasking|çoklu görev
 soft|ownership|sahiplenme
-soft|interpersonal skills|kişilerarası ilişkiler
+soft|interpersonal skills|kişilerarası ilişkiler, insan ilişkileri
 soft|persuasion|ikna
 cert|CPA, Certified Public Accountant|SMMM, YMM
 cert|ACCA
@@ -327,6 +327,103 @@ edu|economics|ekonomi, iktisat
 edu|business administration|işletme
 edu|mathematics|matematik
 edu|psychology|psikoloji
+edu|sports science, physical education|spor bilimleri, beden eğitimi, BESYO, beden eğitimi ve spor
+tool|Nebim
+method|personal training, one-on-one training|kişisel antrenman, kişisel antrenörlük, birebir antrenman, birebir çalışma, birebir ders
+method|personal training sales, PT sales|özel ders satışı, paket satışı
+method|group fitness, group exercise, group classes|grup dersleri, grup egzersizi
+method|functional training|fonksiyonel antrenman
+method|strength training, strength and conditioning, resistance training|kuvvet antrenmanı, kondisyon antrenmanı
+method|program design, exercise programming, workout programming|program tasarımı, antrenman programı, antrenman programlama, egzersiz programı
+method|fitness assessment, body composition analysis|fitness değerlendirmesi, vücut analizi, vücut kompozisyonu
+method|Pilates, reformer Pilates|pilates
+method|yoga|yoga
+method|CrossFit|crossfit
+method|HIIT, high-intensity interval training|yüksek yoğunluklu interval antrenman
+method|injury prevention, corrective exercise|sakatlık önleme, düzeltici egzersiz
+method|swimming instruction, swim coaching|yüzme eğitmenliği, yüzme antrenörlüğü
+method|massage therapy, sports massage, soft tissue manipulation|masaj terapisi, spor masajı
+method|member retention, client retention|üye sadakati, üye memnuniyeti
+domain|nutrition, sports nutrition, nutrition coaching|beslenme, sporcu beslenmesi, beslenme danışmanlığı
+domain|exercise physiology, kinesiology, anatomy|egzersiz fizyolojisi, kinesiyoloji, anatomi
+domain|fitness, fitness industry, health club, gym|fitness sektörü, spor salonu, spor merkezi
+cert|NASM, NASM-CPT
+cert|=ACE
+cert|ACSM
+cert|NSCA, CSCS
+cert|personal training certification, personal trainer certification|kişisel antrenör sertifikası
+cert|first aid, CPR|ilk yardım, ilk yardım sertifikası
+cert|coaching license|antrenör belgesi, antrenörlük belgesi, kademe antrenör
+method|administrative support, office administration, office management|idari işler, idari destek, ofis yönetimi, ofis asistanlığı
+method|calendar management, diary management, appointment scheduling|ajanda yönetimi, takvim yönetimi, randevu takibi
+method|data entry|veri girişi
+method|document management, filing, records management|evrak takibi, dosyalama, arşivleme, doküman yönetimi
+method|business correspondence|resmi yazışma, yazışmalar
+method|travel arrangements|seyahat organizasyonu
+method|meeting organization, minute taking|toplantı organizasyonu, toplantı tutanağı
+method|front desk, reception|resepsiyon, ön büro
+method|switchboard, phone handling|santral yönetimi, telefon trafiği
+tool|computer literacy, computer skills|bilgisayar kullanımı, bilgisayar bilgisi, bilgisayar okuryazarlığı
+method|field sales, direct sales, outside sales|saha satışı, doğrudan satış
+method|proposal preparation, quotations|teklif hazırlama, fiyat teklifi
+method|customer acquisition, new business acquisition|müşteri kazanımı, yeni müşteri kazanımı
+method|customer visits, client visits|müşteri ziyareti
+method|customer satisfaction|müşteri memnuniyeti
+method|client relationships, relationship management|müşteri ilişkileri
+method|upselling, cross-selling|çapraz satış, ek satış
+method|telesales, phone sales|telefonla satış, telesatış
+method|retail operations, store operations, store management|mağaza operasyonları, mağaza yönetimi, perakende operasyonları
+method|visual merchandising|görsel düzenleme
+method|cash handling, cash register|kasa işlemleri, kasa kullanımı
+method|event management, event planning, trade shows|etkinlik yönetimi, etkinlik organizasyonu, fuar organizasyonu
+method|digital advertising, online advertising|dijital reklam, reklam yönetimi
+method|graphic design|grafik tasarım
+method|video production, video editing|video çekimi, video kurgu, video düzenleme
+method|photography|fotoğraf çekimi, fotoğrafçılık
+method|art direction|sanat yönetmenliği
+method|product marketing|ürün pazarlaması
+method|customer journey|müşteri yolculuğu
+soft|diction|diksiyon
+soft|decision making|karar verme
+soft|relationship building|ilişki kurma
+method|tax returns, VAT returns|vergi beyannamesi, beyanname hazırlama, KDV beyannamesi
+method|period-end close, year-end close|dönem sonu kapanış, dönem sonu işlemleri, yıl sonu kapanış
+method|debt collection, receivables collection|tahsilat, tahsilat takibi
+method|invoicing, billing|faturalama, fatura kesme, fatura takibi
+method|timekeeping, attendance tracking|puantaj
+method|personnel files, HR administration|özlük işleri, özlük dosyaları
+method|social security filings|SGK işlemleri, SGK bildirgeleri, işe giriş çıkış işlemleri
+method|bank reconciliation, banking transactions|banka mutabakatı, banka işlemleri
+method|pre-accounting|ön muhasebe
+method|cost analysis|maliyet analizi
+method|internal controls|iç kontrol
+method|financial management|finansal yönetim
+tool|=Mikro, Mikro Yazılım
+domain|foreign trade, import export|dış ticaret, ithalat, ihracat
+domain|customs|gümrük, gümrük işlemleri
+method|shipping, dispatch|sevkiyat, sevkiyat planlama
+method|warehouse operations, warehouse management|depo operasyonları, depo yönetimi
+method|goods receipt, goods receiving|mal kabul
+method|order management, order tracking|sipariş takibi, sipariş yönetimi
+method|equipment maintenance, preventive maintenance|ekipman bakımı, periyodik bakım, önleyici bakım
+cert|forklift certification, forklift operation|forklift, forklift belgesi
+cert|SRC certificate, psychotechnic certificate|SRC belgesi, psikoteknik belgesi
+cert|vocational qualification certificate|MYK belgesi, mesleki yeterlilik belgesi
+domain|occupational health and safety, OHS, workplace safety|iş sağlığı ve güvenliği, İSG, iş güvenliği
+domain|food safety, HACCP|gıda güvenliği
+domain|hygiene, sanitation|hijyen, sanitasyon
+domain|hospitality, guest relations, hotel operations|otelcilik, misafir ilişkileri, misafir memnuniyeti, konaklama
+domain|infection control, infection prevention|enfeksiyon kontrolü, enfeksiyon önleme
+method|technical support, IT support, help desk|teknik destek, BT destek, yardım masası
+method|technical documentation|teknik dokümantasyon
+method|incident response, incident management|olay müdahalesi, olay yönetimi
+method|data governance|veri yönetişimi
+method|team management, people management|ekip yönetimi, takım yönetimi, personel yönetimi
+method|operations management|operasyon yönetimi
+method|strategic planning, business strategy|stratejik planlama, iş stratejisi
+method|continuous improvement, Kaizen|sürekli iyileştirme, kaizen
+method|quality control, quality management|kalite kontrol, kalite yönetimi
+method|management consulting|yönetim danışmanlığı
 `;
 
 /**
@@ -369,7 +466,7 @@ const IMPLIED_BY: Record<string, string> = {
  * "risk yönetim süreçleri". So multi-word Turkish forms are matched by the stem of their
  * last word, which still matches the possessive form via the suffix rules.
  */
-const toTurkishCompoundStems = (form: string): string[] => {
+export const toTurkishCompoundStems = (form: string): string[] => {
   const words = form.split(" ");
   if (words.length < 2) return [form];
   const last = words[words.length - 1];
@@ -415,4 +512,4 @@ export const SKILLS: SkillEntry[] = RAW.trim()
   });
 
 export const getSkillLabel = (skill: SkillEntry, lang: "en" | "tr") =>
-  (lang === "tr" && skill.tr[0]) || skill.en[0];
+  (lang === "tr" && skill.tr[0]) || skill.en[0] || skill.tr[0];

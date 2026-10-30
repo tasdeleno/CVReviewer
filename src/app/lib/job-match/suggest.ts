@@ -249,7 +249,8 @@ export const suggest = ({
   // 1. Missing tools/technologies/certificates/languages -> Skills
   const toSkills = missing.filter(
     (m) =>
-      !m.skill || ["tech", "tool", "cert", "lang"].includes(m.skill.category)
+      m.kind !== "phrase" &&
+      (!m.skill || ["tech", "tool", "cert", "lang"].includes(m.skill.category))
   );
   if (toSkills.length) {
     suggestions.push({
@@ -263,9 +264,13 @@ export const suggest = ({
     });
   }
 
-  // 2. Missing methods/domain knowledge -> the closest experience bullet
+  // 2. Missing methods/domain knowledge and phrases -> the closest experience bullet
   for (const m of missing
-    .filter((m) => m.skill && ["method", "domain"].includes(m.skill.category))
+    .filter(
+      (m) =>
+        m.kind === "phrase" ||
+        (m.skill && ["method", "domain"].includes(m.skill.category))
+    )
     .slice(0, 4)) {
     const closest = findClosestBullet(bullets, m.context);
     const head = `«${labelOf(m, langs)}» ilanda ${
@@ -312,9 +317,11 @@ export const suggest = ({
     });
   }
 
-  // 5. Required skills that only appear in the Skills list
+  // 5. Required skills that only appear in the Skills list (not phrases: a Skills
+  // list rarely holds a duty phrase, and when it does it is a tool name)
   const onlyInSkills = matches.filter(
     (m) =>
+      m.kind !== "phrase" &&
       m.importance === "required" &&
       m.sections.length > 0 &&
       m.sections.every((section) => toCanonicalSection(section) === "skills")
@@ -346,7 +353,9 @@ export const suggest = ({
     );
   if (!resume.profile.summary.trim()) {
     const top = matches
-      .filter((m) => m.found && m.importance === "required")
+      .filter(
+        (m) => m.kind !== "phrase" && m.found && m.importance === "required"
+      )
       .slice(0, 3)
       .map((m) => labelOf(m, langs));
     const highlights = [

@@ -10,6 +10,7 @@ import {
   getSkillLabel,
   type SkillEntry,
 } from "lib/job-match/dictionary";
+import { extractPhrases } from "lib/job-match/phrases";
 import {
   detectLang,
   findPhraseSpan,
@@ -25,7 +26,9 @@ import {
 export type Importance = "required" | "normal" | "preferred";
 
 export interface AdKeyword {
-  label: string; // dictionary label, or the token as written in the ad
+  // dictionary skill, tool-like token, or domain phrase outside the dictionary
+  kind: "dict" | "token" | "phrase";
+  label: string; // dictionary label, or the token/phrase as written in the ad
   skill?: SkillEntry; // undefined for keywords found outside the dictionary
   phrases: Phrase[];
   importance: Importance;
@@ -45,9 +48,11 @@ const HEADING_PATTERNS: [Block, string[]][] = [
     "must have", "looking for", "about you", "your profile", "skills", "nitelik", "gereksinim", "beklenti",
     "aradigimiz", "aranan", "yetkinlik", "sart"]],
   ["responsibilities", ["responsibilit", "what you'll do", "what you will do", "duties", "the role", "your role",
-    "sorumluluk", "gorev", "is tanimi", "neler yapacaksin", "neler yapacaksiniz"]],
+    "sorumluluk", "gorev", "is tanimi", "neler yapacaksin", "neler yapacaksiniz",
+    "job description", "role description", "position description", "position summary", "pozisyon tanimi"]],
   ["skip", ["benefit", "we offer", "perks", "about us", "who we are", "why join", "sunduklarimiz", "neler sunuyoruz",
-    "hakkimizda", "yan haklar", "biz kimiz", "olanaklar", "imkanlar"]],
+    "hakkimizda", "yan haklar", "biz kimiz", "olanaklar", "imkanlar", "you will receive", "you'll receive",
+    "additional information", "compensation", "sunuyoruz"]],
 ];
 
 // Inline markers that make a sentence "preferred" or "required" regardless of its block
@@ -86,7 +91,10 @@ const BOILERPLATE = ["equal opportunit", "affirmative action", "eeo", "regardles
   "pay transparency", "registered trademark", "applicants with disabilities",
   "disabilities act", "recruitment and selection process", "as part of the hiring process", "condition of employment",
   "immunization polic", "vaccination polic", "hiring guidelines", "hires new team members", "kisisel verileriniz",
-  "aydinlatma metni", "kvkk kapsaminda", "ozel saglik sigortasi", "yemek karti", "servis imkani"];
+  "aydinlatma metni", "kvkk kapsaminda", "ozel saglik sigortasi", "yemek karti", "servis imkani",
+  // pay and leave sentences outside a benefits heading ("We offer relocation support, 27 days annual leave")
+  "we offer", "annual leave", "days holiday", "bank holidays", "stock options", "private healthcare",
+  "company discounts", "personel yemegi"];
 // Not length-preserving (splitOutsideParens drops blank parts and, with unbalanced
 // parentheses, all parentheses); importanceParts does the same, so nothing reads offsets
 const withoutBoilerplate = (content: string) =>
@@ -105,11 +113,23 @@ const WEIGHTS: Record<Importance, number> = {
 // With fewer distinct hard skills than this the score is noise: one soft skill made an HR
 // resume score 100 on a cook ad. Dev ads sit at 0–2 or 4+ (tur 3), so 3 leaves a margin.
 export const MIN_AD_SKILLS = 3;
+// Phrases don't count: an ad with no known skill yields plenty of them
 export const isInsufficient = (keywords: AdKeyword[]) =>
-  keywords.filter((k) => k.skill?.category !== "soft").length < MIN_AD_SKILLS;
+  keywords.filter((k) => k.kind !== "phrase" && k.skill?.category !== "soft")
+    .length < MIN_AD_SKILLS;
 
 // Keywords found outside the dictionary are less certain to be real skills
 const UNKNOWN_WEIGHT_FACTOR = 0.7;
+// Phrases even less: some are only the ad's wording ("accurate records")
+const PHRASE_WEIGHT_FACTOR = 0.5;
+const MAX_PHRASES = 60;
+const PHRASE_BLOCKS: Block[] = ["required", "preferred", "responsibilities"];
+// Prose longer than this in an asked-for block is about the employer or the team
+const MAX_PHRASE_LINE_WORDS = 25;
+const BULLET = /^\s*(?:[-*•–·▪●◦]|\d+[.)])/;
+// prettier-ignore
+const EDUCATION_MARKERS = ["graduate", "degree", "bachelor", "bsc", "msc", "university", "diploma", "mezun",
+  "bolum", "fakulte", "universite", "lisans", "yuksekokul"];
 // ATS screening is driven by hard skills; two soft skills don't make up for one
 // missing technical requirement
 const SOFT_WEIGHT_FACTOR = 0.25;
@@ -317,6 +337,7 @@ export const extractJobAd = (ad: string) => {
   const hasHeadings = headings.some(Boolean);
   let block: Block = "intro";
   let isTitleLine = true;
+  let phraseCount = 0;
   for (const [i, line] of Array.from(lines.entries())) {
     const heading = headings[i];
     let content = line;
@@ -386,6 +407,7 @@ export const extractJobAd = (ad: string) => {
       spans.forEach((s) => tokenize(s).forEach((token) => covered.add(token)));
       const forms = [...skill.en, ...skill.tr].map(foldText);
       const keyword: AdKeyword = {
+        kind: "dict",
         // The ad's own wording ("Bordro") when uninflected, else the dictionary label
         label: forms.includes(foldText(span))
           ? span
@@ -427,10 +449,51 @@ export const extractJobAd = (ad: string) => {
       const phrases = [toPhrase(token)];
       const importance = importanceIn(parts, phrases);
       add(`token:${foldText(token)}`, {
+        kind: "token",
         label: token,
         phrases,
         importance,
         weight: WEIGHTS[importance] * UNKNOWN_WEIGHT_FACTOR,
+        context,
+      });
+    }
+
+    // Domain phrases from what the ad asks for; without headings only from bulleted
+    // lines, since its prose is mostly about the employer
+    const asksPhrases =
+      !onTitleLine &&
+      // Fields of study are the dictionary's job ("Endüstri Mühendisliği mezunu")
+      !hasMarker(toWords(content), EDUCATION_MARKERS) &&
+      (hasHeadings
+        ? PHRASE_BLOCKS.includes(block) &&
+          (BULLET.test(line) ||
+            content.split(/\s+/).length <= MAX_PHRASE_LINE_WORDS)
+        : BULLET.test(line));
+    if (!asksPhrases) continue;
+    // A phrase inherits no requirement from its block: only an explicit marker
+    const marked = hasMarker(toWords(content), INLINE_REQUIRED);
+    const isBoundary = isMostlyUpperCase(content)
+      ? () => false
+      : looksLikeTechToken;
+    for (const candidate of extractPhrases(
+      content,
+      adLang,
+      isBoundary,
+      covered,
+      block === "responsibilities"
+    )) {
+      const key = `phrase:${candidate.key}`;
+      if (!byKey.has(key) && phraseCount >= MAX_PHRASES) break;
+      if (!byKey.has(key)) phraseCount++;
+      const phrases = candidate.forms.map(toPhrase);
+      const found = importanceIn(parts, phrases);
+      const importance = found === "required" && !marked ? "normal" : found;
+      add(key, {
+        kind: "phrase",
+        label: candidate.label,
+        phrases,
+        importance,
+        weight: WEIGHTS[importance] * PHRASE_WEIGHT_FACTOR,
         context,
       });
     }
