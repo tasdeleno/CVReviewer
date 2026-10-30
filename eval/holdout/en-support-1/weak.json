@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Camila Ortiz",
+    "email": "camila.ortiz@example.com",
+    "phone": "+57 555 010 8833",
+    "url": "",
+    "summary": "Friendly hotel receptionist who loves helping guests.",
+    "location": "Cali, Colombia"
+  },
+  "workExperiences": [
+    {
+      "company": "Hotel Río Cali",
+      "jobTitle": "Front Desk Receptionist",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Checked guests in and out",
+        "Answered phone calls and emails from guests",
+        "Helped guests with taxi and tour bookings"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Universidad del Valle",
+      "degree": "Tecnología en Gestión Hotelera",
+      "date": "2018 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "English (B1), Spanish (native)",
+      "Microsoft Office"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

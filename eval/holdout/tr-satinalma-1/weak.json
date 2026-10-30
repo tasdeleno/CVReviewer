@@ -1,0 +1,60 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Oğuz Kandemir",
+    "email": "oguz.kandemir@example.com",
+    "phone": "0555 010 3329",
+    "url": "",
+    "summary": "Depo ve sevkiyat alanında çalışmış, düzenli ve sorumluluk sahibi bir depo sorumlusuyum.",
+    "location": "İstanbul / Sultanbeyli"
+  },
+  "workExperiences": [
+    {
+      "company": "Kartal Yapı Market",
+      "jobTitle": "Depo Sorumlusu",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "Depoya gelen malzemelerin sayımından ve rafa yerleştirilmesinden sorumluydum",
+        "Aylık stok sayımlarında görev aldım",
+        "Mağaza siparişlerini hazırlayıp araca yükledim"
+      ]
+    },
+    {
+      "company": "Sancaktepe Nakliyat",
+      "jobTitle": "Şoför",
+      "date": "2017 - 2020",
+      "descriptions": [
+        "İstanbul içi malzeme dağıtımı yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Sultanbeyli Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2013 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office (temel)",
+      "B sınıfı ve C sınıfı ehliyet, SRC belgesi"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

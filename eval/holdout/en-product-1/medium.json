@@ -1,0 +1,63 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Barış Ekinci",
+    "email": "baris.ekinci@example.com",
+    "phone": "0555 010 1034",
+    "url": "",
+    "summary": "E-ticaret ve abonelik ürünlerinde 6 yıllık ürün yöneticisi. Kullanıcı araştırması ve deney odaklı çalışıyorum.",
+    "location": "İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Sepetim Teknoloji",
+      "jobTitle": "Kıdemli Ürün Yöneticisi",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Ödeme ve sepet deneyimi için ürün yol haritasını hazırladım ve önceliklendirmeyi yönettim",
+        "Mühendislik, tasarım ve pazarlama ekipleriyle fonksiyonlar arası çalışarak 14 özellik yayına aldım",
+        "PRD ve kullanıcı hikâyelerini yazdım, sprint planlamalarına katıldım",
+        "Dönüşüm oranı ve elde tutma gibi ürün metriklerini Amplitude panolarıyla izledim",
+        "A/B testleriyle ödeme adımında dönüşümü %11 artırdım"
+      ]
+    },
+    {
+      "company": "Mobilya.com",
+      "jobTitle": "Ürün Analisti",
+      "date": "2018 - 2021",
+      "descriptions": [
+        "Haftalık KPI raporlarını hazırladım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Boğaziçi Üniversitesi",
+      "degree": "Endüstri Mühendisliği (Lisans)",
+      "date": "2013 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Jira, Amplitude, Figma, Google Analytics",
+      "Veri analizi, iletişim",
+      "İngilizce (C1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

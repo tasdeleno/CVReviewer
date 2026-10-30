@@ -1,0 +1,389 @@
+{
+  "id": "en-hr-2",
+  "lang": "en",
+  "sector": "hr",
+  "title": "People Operations Partner",
+  "keywords": [
+    {
+      "term": "People Operations",
+      "aliases": [
+        "People Ops",
+        "HR operations",
+        "human resources",
+        "HR generalist",
+        "HR business partner",
+        "HRBP",
+        "insan kaynakları",
+        "İK"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "employee relations",
+      "aliases": [
+        "ER",
+        "employee relations issues",
+        "grievances",
+        "grievance handling",
+        "çalışan ilişkileri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "investigations",
+      "aliases": [
+        "workplace investigations",
+        "ER investigations",
+        "disciplinary investigations",
+        "disiplin soruşturması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "performance management",
+      "aliases": [
+        "performance coaching",
+        "performance reviews",
+        "performans yönetimi",
+        "performans değerlendirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "manager coaching",
+      "aliases": [
+        "coaching managers",
+        "coaching",
+        "leadership coaching",
+        "yönetici koçluğu",
+        "koçluk"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "onboarding",
+      "aliases": [
+        "new hire onboarding",
+        "orientation",
+        "işe alıştırma",
+        "oryantasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "compliance",
+      "aliases": [
+        "HR compliance",
+        "regulatory compliance",
+        "mevzuat uyumu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "labor law",
+      "aliases": [
+        "labor laws",
+        "labour law",
+        "employment law",
+        "İş Kanunu",
+        "iş hukuku"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HRIS",
+      "aliases": [
+        "HR systems",
+        "Workday",
+        "BambooHR",
+        "UKG",
+        "ADP",
+        "SuccessFactors",
+        "SAP HR",
+        "İK bilgi sistemi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ATS",
+      "aliases": [
+        "applicant tracking system",
+        "Greenhouse",
+        "Lever",
+        "iCIMS",
+        "başvuru takip sistemi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Google Suite",
+      "aliases": [
+        "Google Workspace",
+        "G Suite",
+        "Google Sheets",
+        "Google Docs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "workforce planning",
+      "aliases": [
+        "staffing",
+        "headcount planning",
+        "işgücü planlaması",
+        "kadro planlaması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hiring",
+      "aliases": [
+        "recruitment",
+        "recruiting",
+        "talent acquisition",
+        "hiring strategy",
+        "interview calibration",
+        "işe alım"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "employee engagement",
+      "aliases": [
+        "engagement",
+        "engagement surveys",
+        "çalışan bağlılığı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "retention",
+      "aliases": [
+        "turnover",
+        "employee retention",
+        "attrition",
+        "devir oranı",
+        "işgücü devir hızı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "succession planning",
+      "aliases": [
+        "halef planlaması",
+        "yedekleme planı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "leadership development",
+      "aliases": [
+        "talent development",
+        "internal promotions",
+        "liderlik gelişimi",
+        "yetenek gelişimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HR analytics",
+      "aliases": [
+        "people data",
+        "people analytics",
+        "HR reporting",
+        "İK raporlama",
+        "İK raporları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HR policies",
+      "aliases": [
+        "People policies",
+        "policy rollouts",
+        "employee handbook",
+        "İK politikaları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "communicator",
+        "communication",
+        "iletişim becerisi",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "attention to detail",
+      "aliases": [
+        "detail-oriented",
+        "detay odaklı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "frontline teams",
+      "aliases": [
+        "hourly teams",
+        "hourly employees",
+        "hourly crew",
+        "field-based teams",
+        "store-level teams",
+        "store teams",
+        "field operations",
+        "saha ekipleri",
+        "mavi yaka"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hospitality/retail",
+      "aliases": [
+        "food & beverage",
+        "F&B",
+        "hospitality",
+        "retail",
+        "restaurant",
+        "yiyecek içecek",
+        "perakende",
+        "otelcilik"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "People Operations",
+        "employee relations",
+        "investigations",
+        "performance management",
+        "manager coaching",
+        "onboarding",
+        "compliance",
+        "labor law",
+        "HRIS",
+        "ATS",
+        "Google Suite",
+        "workforce planning",
+        "hiring",
+        "employee engagement",
+        "retention",
+        "HR analytics",
+        "HR policies",
+        "frontline teams",
+        "hospitality/retail"
+      ],
+      "missing": [
+        "succession planning",
+        "leadership development",
+        "communication skills",
+        "attention to detail"
+      ]
+    },
+    "medium": {
+      "present": [
+        "People Operations",
+        "labor law",
+        "HRIS",
+        "hiring",
+        "retention",
+        "HR analytics",
+        "frontline teams"
+      ],
+      "missing": [
+        "employee relations",
+        "investigations",
+        "performance management",
+        "manager coaching",
+        "onboarding",
+        "compliance",
+        "ATS",
+        "Google Suite",
+        "workforce planning",
+        "employee engagement",
+        "succession planning",
+        "leadership development",
+        "HR policies",
+        "communication skills",
+        "attention to detail",
+        "hospitality/retail"
+      ]
+    },
+    "weak": {
+      "present": [
+        "onboarding",
+        "Google Suite",
+        "frontline teams",
+        "hospitality/retail"
+      ],
+      "missing": [
+        "People Operations",
+        "employee relations",
+        "investigations",
+        "performance management",
+        "manager coaching",
+        "compliance",
+        "labor law",
+        "HRIS",
+        "ATS",
+        "workforce planning",
+        "hiring",
+        "employee engagement",
+        "retention",
+        "succession planning",
+        "leadership development",
+        "HR analytics",
+        "HR policies",
+        "communication skills",
+        "attention to detail"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "weak-verbs"
+    ],
+    "medium": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "travel"
+    },
+    {
+      "kind": "residence"
+    }
+  ]
+}

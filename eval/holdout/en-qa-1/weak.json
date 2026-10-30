@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Tanya Reeves",
+    "email": "tanya.reeves@example.com",
+    "phone": "+1 555 010 1179",
+    "url": "",
+    "summary": "",
+    "location": "Murfreesboro, TN"
+  },
+  "workExperiences": [
+    {
+      "company": "Harvest Snacks Co.",
+      "jobTitle": "Quality Control Technician",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Did in-process checks on package weights every hour",
+        "Filled out HACCP logbooks and sanitation checklists",
+        "Responsible for holding product that failed checks",
+        "Helped the supervisor with customer complaints"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Motlow State Community College",
+      "degree": "A.A.S. Food Science",
+      "date": "2019 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "HACCP, SQF",
+      "Microsoft Excel",
+      "Teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

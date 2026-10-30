@@ -1,0 +1,267 @@
+{
+  "id": "en-sport-1",
+  "lang": "en",
+  "sector": "sport",
+  "title": "Personal Trainer, Downtown Manhattan",
+  "keywords": [
+    {
+      "term": "client base",
+      "aliases": [
+        "client acquisition",
+        "active client base",
+        "client retention",
+        "client book"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "scheduling",
+      "aliases": [
+        "schedule management",
+        "client appointments",
+        "appointment scheduling",
+        "scheduling systems",
+        "Mindbody"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "personal training sales",
+      "aliases": [
+        "sell personal training",
+        "PT sales",
+        "personal training packages",
+        "package sales",
+        "özel ders satışı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "fitness assessments",
+      "aliases": [
+        "fitness assessment",
+        "body composition analysis",
+        "movement screens",
+        "fitness değerlendirmesi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "program design",
+      "aliases": [
+        "personalized programs",
+        "individual programs",
+        "exercise programming",
+        "training programs",
+        "kişiye özel antrenman programı",
+        "antrenman programı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "virtual training",
+      "aliases": [
+        "virtual clients",
+        "online coaching",
+        "online training",
+        "remote coaching",
+        "online antrenman"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "customer service",
+      "aliases": [
+        "hospitality",
+        "member experience",
+        "client experience",
+        "member service",
+        "müşteri memnuniyeti"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "fitness floor safety",
+      "aliases": [
+        "safe fitness floor",
+        "gym floor",
+        "safe equipment use"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "continuing education",
+      "aliases": [
+        "CEU",
+        "CEUs",
+        "CEC",
+        "workshops",
+        "seminars"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "personal training certification",
+      "aliases": [
+        "CPT",
+        "NASM",
+        "ACE",
+        "ACSM",
+        "NSCA",
+        "certified personal trainer",
+        "TVGFBF"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CPR/AED",
+      "aliases": [
+        "CPR",
+        "AED"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "verbal communication",
+        "written communication",
+        "communication",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "time management",
+      "aliases": [
+        "zaman yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "organizational skills",
+      "aliases": [
+        "organization skills",
+        "organizasyon becerisi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "computer skills",
+      "aliases": [
+        "basic computer skills",
+        "technology skills",
+        "MS Office"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "client base",
+        "scheduling",
+        "personal training sales",
+        "fitness assessments",
+        "program design",
+        "virtual training",
+        "customer service",
+        "fitness floor safety",
+        "continuing education",
+        "personal training certification",
+        "CPR/AED",
+        "communication skills",
+        "time management",
+        "computer skills"
+      ],
+      "missing": [
+        "organizational skills"
+      ]
+    },
+    "medium": {
+      "present": [
+        "client base",
+        "personal training sales",
+        "fitness assessments",
+        "program design",
+        "customer service",
+        "fitness floor safety",
+        "personal training certification",
+        "CPR/AED"
+      ],
+      "missing": [
+        "scheduling",
+        "virtual training",
+        "continuing education",
+        "communication skills",
+        "time management",
+        "organizational skills",
+        "computer skills"
+      ]
+    },
+    "weak": {
+      "present": [
+        "scheduling",
+        "customer service",
+        "CPR/AED",
+        "computer skills"
+      ],
+      "missing": [
+        "client base",
+        "personal training sales",
+        "fitness assessments",
+        "program design",
+        "virtual training",
+        "fitness floor safety",
+        "continuing education",
+        "personal training certification",
+        "communication skills",
+        "time management",
+        "organizational skills"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "shift"
+    },
+    {
+      "kind": "work-permit"
+    }
+  ]
+}

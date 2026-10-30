@@ -1,0 +1,61 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Mehmet Koç",
+    "email": "mehmet.koc@example.com",
+    "phone": "0555 010 8812",
+    "url": "",
+    "summary": "Ofis ve plaza temizliğinde 4 yıllık deneyimli temizlik görevlisi.",
+    "location": "Çayırova, Kocaeli"
+  },
+  "workExperiences": [
+    {
+      "company": "Parlak Tesis Yönetimi (Kule Plaza)",
+      "jobTitle": "Temizlik Görevlisi",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Ofis katları, toplantı salonları ve tuvaletlerin günlük temizliğini yaptım",
+        "Çöpleri toplayıp atık konteynerlerine taşıdım",
+        "Toplantılarda çay ve kahve ikramına yardımcı oldum",
+        "Hijyen kurallarına uygun çalıştım"
+      ]
+    },
+    {
+      "company": "Gebze Market",
+      "jobTitle": "Reyon Görevlisi",
+      "date": "2019 - 2021",
+      "descriptions": [
+        "Reyon düzeni ve ürün yerleştirme"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Çayırova Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Ofis temizliği, cam silme",
+      "Ekip çalışması"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

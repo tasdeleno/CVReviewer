@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Emre Doğanay",
+    "email": "emre.doganay@example.com",
+    "phone": "+90 555 010 2245",
+    "url": "",
+    "summary": "Attorney at law (Adana Bar) with 9 years in commercial litigation and debt enforcement for manufacturing and retail clients.",
+    "location": "Adana"
+  },
+  "workExperiences": [
+    {
+      "company": "Doğanay Law Office",
+      "jobTitle": "Attorney",
+      "date": "2019 - Present",
+      "descriptions": [
+        "Handle commercial law disputes for 25 corporate clients, from pre-trial negotiation to appeal",
+        "Run debt enforcement files through UYAP; recovered TRY 9.5M in 2024",
+        "Draft and review supply and distribution contracts",
+        "Prepare monthly case status reports for client management"
+      ]
+    },
+    {
+      "company": "Çukurova Tekstil A.Ş.",
+      "jobTitle": "In-house Lawyer",
+      "date": "2016 - 2019",
+      "descriptions": [
+        "Gave legal advice to HR on employment law matters and represented the company in 18 labour cases",
+        "Responsible for trademark renewals and corporate filings"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ankara University",
+      "degree": "LLB, Faculty of Law",
+      "date": "2011 - 2015",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "UYAP, Lexpera, MS Office",
+      "Turkish (native), English (C1)",
+      "Communication, teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

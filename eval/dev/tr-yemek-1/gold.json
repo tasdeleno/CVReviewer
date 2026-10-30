@@ -1,0 +1,196 @@
+{
+  "id": "tr-yemek-1",
+  "lang": "tr",
+  "sector": "yemek",
+  "title": "Aşçı",
+  "keywords": [
+    {
+      "term": "catering",
+      "aliases": [
+        "toplu yemek",
+        "toplu yemek üretimi",
+        "hastane mutfağı",
+        "otel mutfağı",
+        "endüstriyel mutfak",
+        "hotel kitchen",
+        "hospital kitchen",
+        "mass catering"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "zeytinyağlılar",
+      "aliases": [
+        "zeytinyağlı",
+        "soğuk mutfak",
+        "soğuk yemek",
+        "cold kitchen",
+        "garde manger",
+        "olive oil dishes"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hijyen",
+      "aliases": [
+        "hijyen kuralları",
+        "gıda hijyeni",
+        "mutfak temizliği",
+        "food hygiene",
+        "food safety",
+        "HACCP",
+        "gıda güvenliği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "ekip çalışması",
+        "teamwork",
+        "team player"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müşteri memnuniyeti",
+      "aliases": [
+        "customer satisfaction",
+        "guest satisfaction",
+        "misafir memnuniyeti"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "diyet menüleri",
+      "aliases": [
+        "diyet listeleri",
+        "diyet yemekleri",
+        "diet menus",
+        "special diets",
+        "therapeutic diets"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "menü planlama",
+      "aliases": [
+        "menü hazırlığı",
+        "menü hazırlama",
+        "yeni menü",
+        "menu planning",
+        "menu development"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "reçete",
+      "aliases": [
+        "reçeteye uygun üretim",
+        "reçete kartları",
+        "standart reçete",
+        "recipes",
+        "recipe cards"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sunum",
+      "aliases": [
+        "yemek sunumu",
+        "tabak sunumu",
+        "plating",
+        "food presentation"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "catering",
+        "zeytinyağlılar",
+        "hijyen",
+        "diyet menüleri",
+        "menü planlama",
+        "reçete"
+      ],
+      "missing": [
+        "takım çalışması",
+        "müşteri memnuniyeti",
+        "sunum"
+      ]
+    },
+    "medium": {
+      "present": [
+        "hijyen",
+        "takım çalışması",
+        "müşteri memnuniyeti",
+        "reçete"
+      ],
+      "missing": [
+        "catering",
+        "zeytinyağlılar",
+        "diyet menüleri",
+        "menü planlama",
+        "sunum"
+      ]
+    },
+    "weak": {
+      "present": [
+        "hijyen",
+        "müşteri memnuniyeti"
+      ],
+      "missing": [
+        "catering",
+        "zeytinyağlılar",
+        "takım çalışması",
+        "diyet menüleri",
+        "menü planlama",
+        "reçete",
+        "sunum"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "shift"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "url": "",
+    "name": "Mert Yalçın",
+    "email": "mert.yalcin@example.com",
+    "phone": "+90 535 000 2211",
+    "location": "Ankara, Turkey",
+    "summary": "Backend engineer with 4 years of experience building Python APIs and data-heavy services. Recently shipped LLM-powered features in production."
+  },
+  "workExperiences": [
+    {
+      "company": "Paylane",
+      "jobTitle": "Backend Engineer",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Built and maintained REST APIs in Python (FastAPI) serving 2M requests per day",
+        "Designed PostgreSQL schemas and cut p95 query latency by 40% through indexing and query rewrites",
+        "Shipped a support-ticket triage assistant using LangChain and the OpenAI API, with an evaluation suite in pytest",
+        "Moved background jobs to Celery and Redis, removing timeouts in the payment reconciliation flow",
+        "Took part in the on-call rotation and wrote root cause analyses for production incidents"
+      ]
+    },
+    {
+      "company": "Kodlab Yazılım",
+      "jobTitle": "Software Developer",
+      "date": "2021 - 2023",
+      "descriptions": [
+        "Developed internal admin panels with PHP (Laravel) and MySQL",
+        "Integrated third-party payment and shipping APIs",
+        "Wrote unit tests and set up GitLab CI pipelines"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Middle East Technical University",
+      "degree": "BSc Computer Engineering",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Python, FastAPI, Django, PHP, Laravel, JavaScript",
+      "PostgreSQL, MySQL, Redis",
+      "Docker, Git, GitLab CI, Linux",
+      "LangChain, OpenAI API, pytest"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "Projects",
+    "skills": "Skills",
+    "custom": "Certifications"
+  }
+}

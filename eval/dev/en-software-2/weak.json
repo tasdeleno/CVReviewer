@@ -1,0 +1,62 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Ozan Kılıç",
+    "email": "ozan.kilic@example.com",
+    "phone": "0555 010 6623",
+    "url": "",
+    "summary": "Manuel ve otomasyon testlerinde 3 yıllık deneyime sahip yazılım test uzmanı.",
+    "location": "İzmir"
+  },
+  "workExperiences": [
+    {
+      "company": "Egeport Yazılım",
+      "jobTitle": "Yazılım Test Uzmanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Web ve mobil uygulamalar için test senaryoları yazdım ve koşturdum",
+        "Selenium ve Python ile 150 regresyon testini otomatikleştirdim",
+        "Hataları Jira'da kayıt altına alıp geliştiricilerle takip ettim",
+        "Sprint toplantılarına katıldım"
+      ]
+    },
+    {
+      "company": "Körfez Bilişim",
+      "jobTitle": "Teknik Destek Uzmanı",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Kullanıcı taleplerine destek verdim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Dokuz Eylül Üniversitesi",
+      "degree": "Bilgisayar Programcılığı (Önlisans)",
+      "date": "2018 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Selenium, Postman, Jira, Python (temel)",
+      "SQL, Git",
+      "İngilizce (B1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

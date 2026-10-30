@@ -1,0 +1,53 @@
+{
+  "lang": "en",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Deniz Arıkan",
+    "email": "deniz.arikan@example.com",
+    "phone": "+90 555 010 5527",
+    "url": "",
+    "summary": "Interior architect focused on retail and café interiors, strong in 3D visualization and client presentations.",
+    "location": "Ankara"
+  },
+  "workExperiences": [
+    {
+      "company": "Mekan Studio",
+      "jobTitle": "Interior Architect",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Created 3D models and photorealistic renders in SketchUp and Lumion for 30+ concepts",
+        "Prepared client presentation boards and mood boards",
+        "Drew technical drawings (plans, sections, elevations) in AutoCAD",
+        "Worked on furniture selection and material lists for the design team"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Bilkent University",
+      "degree": "BFA Interior Architecture and Environmental Design",
+      "date": "2019 - 2023",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SketchUp, Lumion, AutoCAD, Adobe Photoshop",
+      "Turkish (native), English (C1)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

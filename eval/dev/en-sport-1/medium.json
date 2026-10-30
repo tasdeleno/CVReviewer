@@ -1,0 +1,67 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "url": "",
+    "name": "Can Erdem",
+    "email": "can.erdem@example.com",
+    "phone": "+90 538 000 5566",
+    "location": "Istanbul, Turkey",
+    "summary": "Certified personal trainer with 3 years in premium clubs. Focused on functional training, strength and fat-loss programs."
+  },
+  "workExperiences": [
+    {
+      "company": "MacFit Nişantaşı",
+      "jobTitle": "Personal Trainer",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Built and kept an active client base of 25+ members; sold personal training packages",
+        "Designed individual programs for weight loss, muscle gain and conditioning, tracked progress monthly",
+        "Ran fitness assessments and complimentary intro sessions for new members",
+        "Led small-group functional training and core classes"
+      ]
+    },
+    {
+      "company": "Hilton Bomonti Spa & Fitness",
+      "jobTitle": "Fitness Instructor",
+      "date": "2022 - 2023",
+      "descriptions": [
+        "Guided hotel guests on safe equipment use on the gym floor",
+        "Kept the fitness area clean, organized and safe"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Marmara University",
+      "degree": "BSc Sports Science (Coaching Education)",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Functional training, strength training, Pilates (mat), core training",
+      "Fitness assessments, program design",
+      "Sales, customer service"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "NASM Certified Personal Trainer (2022)",
+      "CPR/AED - Turkish Red Crescent (2025)",
+      "TVGFBF Fitness Coach Level 1 (2021)"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "Projects",
+    "skills": "Skills",
+    "custom": "Certifications"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Ece Tunalı",
+    "email": "ece.tunali@example.com",
+    "phone": "0555 010 5512",
+    "url": "",
+    "summary": "Konut ve ofis iç mimarlık projelerinde 3 yıllık deneyime sahip iç mimar. Konseptten saha teslimine kadar projeleri koordine ediyorum.",
+    "location": "Ankara / Çankaya"
+  },
+  "workExperiences": [
+    {
+      "company": "Atölye Kare İç Mimarlık",
+      "jobTitle": "İç Mimar",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Toplam 9.000 m² alanda 24 konut ve ofis iç mimarlık projesini konseptten teslime kadar koordine ettim",
+        "3ds Max ve Corona ile 3D görselleştirme yapıp müşterilere 60'tan fazla sunum hazırladım",
+        "AutoCAD'de plan, kesit ve görünüş teknik çizimlerini ve detay paftalarını oluşturdum",
+        "Mobilya ve doğrama atölyeleriyle malzeme ve üretim takibini haftalık toplantılarla yürüttüm",
+        "Saha uygulama süreçlerinde 15 taşeron ekibin kalite kontrolünü yaptım",
+        "Proje bütçesini ve iş programını takip ederek 2024'te projelerin %90'ını zamanında teslim ettim",
+        "Revizyonları ve maliyet değişikliklerini proje dokümantasyonuna işleyip aylık rapor hazırladım"
+      ]
+    },
+    {
+      "company": "Çizgi Mimarlık",
+      "jobTitle": "Stajyer İç Mimar",
+      "date": "2021 - 2022",
+      "descriptions": [
+        "SketchUp ile 3D modelleme ve malzeme listesi hazırlığı"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hacettepe Üniversitesi",
+      "degree": "İç Mimarlık ve Çevre Tasarımı (Lisans)",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "AutoCAD, 3ds Max, Corona Renderer, SketchUp, Photoshop",
+      "B sınıfı ehliyet"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Programlar",
+    "custom": ""
+  }
+}

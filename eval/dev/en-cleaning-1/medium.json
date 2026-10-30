@@ -1,0 +1,66 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "url": "",
+    "name": "Hatice Demir",
+    "email": "hatice.demir@example.com",
+    "phone": "0543 000 3377",
+    "location": "Gebze, Kocaeli",
+    "summary": ""
+  },
+  "workExperiences": [
+    {
+      "company": "Medikal Park Hastanesi (taşeron: Pırıl Temizlik Hizmetleri)",
+      "jobTitle": "Temizlik Personeli",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Hasta odaları, koridorlar ve ameliyathane önü alanların temizliği",
+        "Tıbbi atık ve evsel atıkların ayrıştırılarak belirlenen alanlara taşınması",
+        "Zemin yıkama makinesi ile büyük alanların temizliği",
+        "Hijyen ve enfeksiyon kontrol kurallarına uygun çalışma"
+      ]
+    },
+    {
+      "company": "Gebze Organize Sanayi - Tekstil Fabrikası",
+      "jobTitle": "Çay ve Temizlik Elemanı",
+      "date": "2018 - 2021",
+      "descriptions": [
+        "Ofis ve üretim alanı temizliği, çay servisi",
+        "Temizlik malzemelerinin stok takibi"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gebze Mesleki ve Teknik Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Zemin yıkama makinesi kullanımı",
+      "Tıbbi atık yönetimi",
+      "Vardiyalı çalışmaya uygun"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "İş Sağlığı ve Güvenliği Temel Eğitimi (2022)",
+      "Hastane Hijyeni Eğitimi (2021)"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": "Sertifikalar"
+  }
+}

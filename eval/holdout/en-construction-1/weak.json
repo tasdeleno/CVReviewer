@@ -1,0 +1,53 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Tyler Brennan",
+    "email": "tyler.brennan@example.com",
+    "phone": "+1 555 010 7762",
+    "url": "",
+    "summary": "Hardworking construction foreman with a strong safety record on residential job sites.",
+    "location": "Gardena, CA"
+  },
+  "workExperiences": [
+    {
+      "company": "Brennan & Sons Framing",
+      "jobTitle": "Framing Foreman",
+      "date": "2018 - Present",
+      "descriptions": [
+        "Led a framing crew of 6 on single-family homes",
+        "Responsible for daily safety talks and tool checks",
+        "Read blueprints and laid out walls",
+        "Worked with inspectors during framing inspections"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gardena High School",
+      "degree": "High School Diploma",
+      "date": "2010 - 2014",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "OSHA 10, forklift certified",
+      "Blueprint reading"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work History",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Priya Raman",
+    "email": "priya.raman@example.com",
+    "phone": "+44 7700 900 412",
+    "url": "",
+    "summary": "Python developer with 3 years building Django services for an online retailer. Interested in moving into AI engineering.",
+    "location": "Manchester, UK"
+  },
+  "workExperiences": [
+    {
+      "company": "Threadline Retail",
+      "jobTitle": "Software Developer",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Build Django REST APIs for the checkout and returns services",
+        "Added a GraphQL layer for the mobile app's product catalogue",
+        "Worked on moving email and invoice jobs to Celery background workers",
+        "Wrote pytest suites for order flows",
+        "Set up Grafana dashboards and alerts for API error rates"
+      ]
+    },
+    {
+      "company": "Brightwave Agency",
+      "jobTitle": "Junior Developer",
+      "date": "2021 - 2023",
+      "descriptions": [
+        "Maintained client websites in JavaScript and Vue",
+        "Fixed bugs reported by the QA team"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Leeds",
+      "degree": "BSc Computer Science",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Python, Django, Django REST Framework, Celery",
+      "PostgreSQL, Redis, Docker",
+      "GraphQL, pytest, Grafana",
+      "JavaScript, Vue"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

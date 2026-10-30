@@ -1,0 +1,61 @@
+
+PHP Yazılım Geliştirme Uzmanı (Full Stack Developer)
+Bilyana Golf Holidays | Antalya | Tam Zamanlı
+Hakkımızda
+Bilyana Golf Holidays, 30 yılı aşkın deneyimiyle uluslararası golf turizmi alanında faaliyet gösteren, Türkiye'nin önde gelen golf tur operatörlerinden biridir.
+Başta İngiltere, Almanya ve diğer Avrupa ülkeleri olmak üzere uluslararası pazarlarda faaliyet gösteren şirketimiz; golf tatili organizasyonları, otel ve golf sahası rezervasyonları, ulaşım hizmetleri ve destinasyon operasyonlarını kendi organizasyon altyapısıyla yürütmektedir.
+Antalya/Belek merkezli operasyon yapımız, uluslararası satış ekiplerimiz ve geliştirdiğimiz dijital rezervasyon sistemlerimizle teknoloji yatırımlarımıza devam ediyoruz.
+Mevcut PHP ve MySQL tabanlı yazılım altyapımızı geliştirmek, dijital platformlarımızın performansını artırmak ve yeni projelerimizde aktif görev almak üzere PHP Yazılım Geliştirme Uzmanı (Full Stack Developer) arıyoruz.
+İş Tanımı
+- Mevcut PHP ve MySQL tabanlı web uygulamalarının geliştirilmesi, bakımı ve iyileştirilmesi,
+- Şirketimizin online rezervasyon, satış ve operasyon yönetim sistemlerinin geliştirilmesi,
+- Web sitesi, yönetim panelleri ve şirket içi yazılım uygulamalarının geliştirilmesi,
+- Yeni modüllerin ve kullanıcı dostu web arayüzlerinin tasarlanması,
+- API ve üçüncü taraf sistem entegrasyonlarının gerçekleştirilmesi,
+- MySQL veritabanı optimizasyonu, sorgu performansı ve veri bütünlüğünün sağlanması,
+- Mevcut sistemlerdeki hataların tespit edilmesi ve giderilmesi,
+- Yazılım güvenliği, sistem performansı ve sürdürülebilir kod yapısının geliştirilmesi,
+- Satış, rezervasyon ve operasyon departmanlarıyla koordineli çalışarak iş süreçlerine yönelik yazılım çözümleri üretilmesi,
+- Yeni dijital projelerin analiz, geliştirme, test ve canlıya alma süreçlerinde aktif rol alınması.
+Genel Nitelikler
+- Üniversitelerin Bilgisayar Mühendisliği, Yazılım Mühendisliği veya ilgili lisans bölümlerinden mezun,
+- Yazılım geliştirme alanında en az 3 yıl profesyonel deneyime sahip,
+- Mevcut yazılım projelerini analiz edebilen ve geliştirebilen,
+- Nesne yönelimli programlama (OOP) ve yazılım tasarım prensiplerine hâkim,
+- Web tabanlı kurumsal uygulamalar geliştirme deneyimi bulunan,
+- Analitik düşünme ve problem çözme becerileri güçlü,
+- Takım çalışmasına yatkın ve iletişim becerileri gelişmiş,
+- Sorumluluk alabilen, sonuç odaklı ve öğrenmeye açık,
+- Teknik dokümantasyon ve kod standartlarına önem veren.
+Teknik Yetkinlikler – Zorunlu
+- PHP: PHP ile web tabanlı uygulama geliştirme konusunda ileri düzey deneyim,
+- MySQL: Veritabanı tasarımı, SQL sorguları, ilişkisel veri yapıları ve performans optimizasyonunda deneyim,
+- JavaScript: Dinamik web uygulamaları ve kullanıcı arayüzleri geliştirme deneyimi,
+- HTML5 / CSS3: Modern, responsive ve kullanıcı dostu web arayüzleri geliştirebilme,
+- REST API / JSON: Web servisleri geliştirme ve üçüncü taraf sistemlerle entegrasyon deneyimi,
+- Git: Versiyon kontrol sistemleriyle çalışma deneyimi,
+- OOP / Clean Code: Nesne yönelimli programlama, temiz kod ve sürdürülebilir yazılım geliştirme prensiplerine hâkimiyet,
+- Debugging & Testing: Hata analizi, test, performans iyileştirme ve refactoring konularında deneyim,
+- Web Güvenliği: Temel web uygulama güvenliği, veri doğrulama ve güvenli yazılım geliştirme konularında bilgi sahibi olmak.
+Tercih Sebebi Olacak Yetkinlikler
+- Laravel veya benzeri PHP framework'leriyle geliştirme deneyimi,
+- React, Vue.js veya benzeri modern JavaScript teknolojilerine aşinalık,
+- C# / .NET, ASP.NET Core veya MS SQL Server deneyimi,
+- Online rezervasyon, e-ticaret, CRM veya ERP sistemlerinde çalışma deneyimi,
+- Yüksek kullanıcı trafiğine sahip web uygulamalarında performans optimizasyonu deneyimi,
+- Yapay zekâ servisleri, LLM API'leri ve AI destekli yazılım entegrasyonları konusunda bilgi veya deneyim,
+- SEO uyumlu web uygulamaları ve teknik SEO prensipleri hakkında bilgi sahibi olmak,
+- İngilizce teknik dokümantasyonu takip edebilecek seviyede dil bilgisi.
+Bilyana Golf'te Sizi Neler Bekliyor?
+- 30 yılı aşkın geçmişe sahip uluslararası bir turizm şirketinde çalışma fırsatı,
+- Aktif olarak kullanılan gerçek rezervasyon ve operasyon sistemlerinde geliştirme yapma imkânı,
+- Uluslararası pazarlara hizmet veren web platformlarında çalışma deneyimi,
+- Yeni rezervasyon teknolojileri, satış otomasyonu ve yapay zekâ entegrasyon projelerinde görev alma fırsatı,
+- Kendi geliştirdiğiniz çözümlerin şirket operasyonlarına doğrudan katkısını görme imkânı,
+- Uzun vadeli kariyer ve mesleki gelişim fırsatları.
+Pozisyon Bilgileri
+Pozisyon: PHP Yazılım Geliştirme Uzmanı (Full Stack Developer)
+Çalışma Yeri: Antalya
+Çalışma Şekli: Tam Zamanlı
+Deneyim: En az 3 yıl
+Başvuru: Kariyer.net üzerinden başvurularınızı bekliyoruz.

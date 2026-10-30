@@ -1,0 +1,200 @@
+{
+  "id": "en-food-1",
+  "lang": "en",
+  "sector": "food",
+  "title": "Line Cook",
+  "keywords": [
+    {
+      "term": "food preparation",
+      "aliases": [
+        "food prep",
+        "prep work",
+        "prep cook",
+        "cooking",
+        "mise en place",
+        "yemek hazırlığı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "recipes",
+      "aliases": [
+        "recipe adherence",
+        "following recipes",
+        "recipe cards",
+        "reçete",
+        "reçeteye uygun"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "kitchen stations",
+      "aliases": [
+        "cooking stations",
+        "stations",
+        "line cooking",
+        "hot line",
+        "grill station",
+        "sauté station",
+        "sıcak hat",
+        "soğuk hat"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "food safety",
+      "aliases": [
+        "food hygiene",
+        "sanitation",
+        "cleanliness",
+        "HACCP",
+        "ServSafe",
+        "food handler",
+        "gıda güvenliği",
+        "gıda hijyeni",
+        "hijyen"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "fast-paced environment",
+      "aliases": [
+        "fast-paced",
+        "high-volume",
+        "sense of urgency",
+        "yoğun tempo"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teamwork",
+      "aliases": [
+        "team player",
+        "team-oriented",
+        "takım çalışması",
+        "ekip çalışması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "communication",
+        "iletişim becerisi",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "attention to detail",
+      "aliases": [
+        "detail-oriented",
+        "detay odaklı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem solving",
+      "aliases": [
+        "problem-solving",
+        "problem çözme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "customer service",
+      "aliases": [
+        "guest service",
+        "hospitality",
+        "müşteri memnuniyeti",
+        "müşteri hizmetleri"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "food preparation",
+        "recipes",
+        "kitchen stations",
+        "food safety",
+        "fast-paced environment",
+        "teamwork",
+        "communication skills",
+        "attention to detail"
+      ],
+      "missing": [
+        "problem solving",
+        "customer service"
+      ]
+    },
+    "medium": {
+      "present": [
+        "food preparation",
+        "recipes",
+        "kitchen stations",
+        "food safety",
+        "fast-paced environment"
+      ],
+      "missing": [
+        "teamwork",
+        "communication skills",
+        "attention to detail",
+        "problem solving",
+        "customer service"
+      ]
+    },
+    "weak": {
+      "present": [
+        "food safety",
+        "teamwork",
+        "customer service"
+      ],
+      "missing": [
+        "food preparation",
+        "recipes",
+        "kitchen stations",
+        "fast-paced environment",
+        "communication skills",
+        "attention to detail",
+        "problem solving"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "medium": [
+      "unquantified"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "work-permit"
+    }
+  ]
+}

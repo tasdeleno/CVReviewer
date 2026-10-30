@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Owen Gallagher",
+    "email": "owen.gallagher@example.com",
+    "phone": "+1 555 010 9927",
+    "url": "",
+    "summary": "",
+    "location": "Andover, MA"
+  },
+  "workExperiences": [
+    {
+      "company": "Bean There Café",
+      "jobTitle": "Barista",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Serve customers at the counter and drive-thru, keeping wait times short",
+        "Ring up orders on the Square POS",
+        "Restock milk, cups and pastries during the morning rush",
+        "Open the store at 5:30 am as part of a 5-person team"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Andover High School",
+      "degree": "High School Diploma",
+      "date": "2019 - 2023",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Customer service, teamwork",
+      "Square POS",
+      "Food safety certificate"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

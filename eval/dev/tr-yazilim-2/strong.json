@@ -1,0 +1,67 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Emre Çelik",
+    "email": "emre.celik@example.com",
+    "phone": "0555 010 7781",
+    "url": "",
+    "summary": "5 yıllık deneyime sahip PHP yazılım geliştirici. Turizm sektöründe rezervasyon ve yönetim paneli projeleri geliştirdim.",
+    "location": "Antalya"
+  },
+  "workExperiences": [
+    {
+      "company": "Akdeniz Tur Teknoloji",
+      "jobTitle": "Full Stack Developer",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Laravel ve MySQL ile online otel rezervasyon sistemini geliştirdim; günlük 3.000+ rezervasyon işleniyor",
+        "Yavaş MySQL sorgularını indeksleme ile optimize ederek sayfa yükleme süresini %45 azalttım",
+        "12 tedarikçi otel ve transfer firmasıyla REST API ve JSON tabanlı entegrasyonlar kurdum",
+        "Vue.js, JavaScript, HTML5 ve CSS3 ile responsive yönetim panelleri tasarladım",
+        "Eski PHP modüllerini OOP ve SOLID prensiplerine göre refactor ettim",
+        "PHPUnit ile birim testleri yazarak kritik ödeme akışlarında test kapsamını %70'e çıkardım",
+        "Form girdilerinde veri doğrulama ve CSRF koruması ekleyerek güvenlik açıklarını kapattım"
+      ]
+    },
+    {
+      "company": "Pamfilya Web Ajansı",
+      "jobTitle": "PHP Geliştirici",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Kurumsal müşteriler için PHP ile web siteleri ve e-ticaret modülleri geliştirdim",
+        "Canlı ortamdaki hataları log analiziyle tespit edip giderdim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Akdeniz Üniversitesi",
+      "degree": "Bilgisayar Mühendisliği (Lisans)",
+      "date": "2015 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "PHP, Laravel, MySQL, JavaScript, Vue.js, HTML5, CSS3",
+      "Git, GitHub, REST API, JSON, PHPUnit",
+      "Teknik dokümantasyon, takım çalışması, problem çözme",
+      "İngilizce (B2)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

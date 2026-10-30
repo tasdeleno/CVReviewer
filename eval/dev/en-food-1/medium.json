@@ -1,0 +1,67 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "url": "",
+    "name": "Serkan Öztürk",
+    "email": "serkan.ozturk@example.com",
+    "phone": "0555 000 4455",
+    "location": "Kartal, İstanbul",
+    "summary": "Otel ve catering mutfaklarında 6 yıllık deneyimli aşçı. Soğuk mutfak ve zeytinyağlılarda uzman."
+  },
+  "workExperiences": [
+    {
+      "company": "Kartal Grand Otel",
+      "jobTitle": "Soğuk Mutfak Şefi (Chef de Partie)",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Açık büfe ve alakart için günlük zeytinyağlı ve meze menülerini hazırladım",
+        "Reçete kartlarını standartlaştırdım, porsiyon maliyetlerini takip ettim",
+        "HACCP kurallarına göre mutfak hijyenini denetledim",
+        "3 kişilik komi ekibini yönettim ve eğittim"
+      ]
+    },
+    {
+      "company": "Lezzet Catering Hizmetleri",
+      "jobTitle": "Aşçı",
+      "date": "2019 - 2022",
+      "descriptions": [
+        "Günde 1.200 kişilik fabrika ve hastane yemeği üretiminde sıcak ve soğuk hat",
+        "Diyetisyenin hazırladığı diyet listelerine göre özel menü hazırlığı",
+        "Vardiyalı çalışma"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kartal Mesleki ve Teknik Anadolu Lisesi",
+      "degree": "Yiyecek İçecek Hizmetleri",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Soğuk mutfak, zeytinyağlılar, meze",
+      "HACCP, gıda hijyeni",
+      "Ekip yönetimi"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "Hijyen Eğitimi Sertifikası (2023)",
+      "MEB Aşçılık Ustalık Belgesi"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": "Sertifikalar"
+  }
+}

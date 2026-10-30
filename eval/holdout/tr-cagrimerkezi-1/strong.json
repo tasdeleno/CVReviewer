@@ -1,0 +1,65 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Zeynep Karaca",
+    "email": "zeynep.karaca@example.com",
+    "phone": "0555 010 6614",
+    "url": "",
+    "summary": "4 yıllık çağrı merkezi müşteri temsilcisi. İngilizce ve Türkçe hatlarda gelen çağrı yönetimi, müşteri odaklı çözüm ve KPI hedeflerinde istikrarlı performans.",
+    "location": "İstanbul / Kağıthane"
+  },
+  "workExperiences": [
+    {
+      "company": "Telekontakt Dış Kaynak Hizmetleri",
+      "jobTitle": "Çağrı Merkezi Müşteri Temsilcisi",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Bir havayolu projesinde günde ortalama 90 gelen çağrıyı Türkçe ve İngilizce karşıladım",
+        "Konuşma kalitesi puanım 12 ay üst üste %95'in üzerinde kaldı",
+        "İlk temasta çözülemeyen talepleri CRM üzerinden ilgili birimlere iletip sonuçlanınca müşteriye geri dönüş yaptım",
+        "Ürün ve kampanya eğitimlerini tamamlayıp yeni paketleri müşteriye ikna edici şekilde sundum; ek satış oranım %18",
+        "Ortalama görüşme süresi ve ilk çağrıda çözüm KPI hedeflerini 2024'ün 4 çeyreğinde de tutturdum",
+        "Takım liderinin geri bildirimleriyle 3 yeni temsilcinin uyum sürecine eşlik ettim"
+      ]
+    },
+    {
+      "company": "Boğaz Kafe",
+      "jobTitle": "Garson",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Günlük 150+ müşteriye servis verdim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Anadolu Üniversitesi Açıköğretim",
+      "degree": "Turizm ve Otel İşletmeciliği (Ön Lisans)",
+      "date": "2019 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "İngilizce (C1), Türkçe (ana dil)",
+      "Genesys, Salesforce CRM, MS Office",
+      "Diksiyon eğitimi sertifikası (2022)",
+      "Ekip çalışması, insan ilişkileri"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

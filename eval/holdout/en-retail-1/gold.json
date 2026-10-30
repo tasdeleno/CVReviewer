@@ -1,0 +1,193 @@
+{
+  "id": "en-retail-1",
+  "lang": "en",
+  "sector": "retail",
+  "title": "Retail Associate",
+  "keywords": [
+    {
+      "term": "customer service",
+      "aliases": [
+        "customer experience",
+        "customer experiences",
+        "customer service experience",
+        "müşteri hizmetleri",
+        "müşteri deneyimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "retail sales",
+      "aliases": [
+        "retail",
+        "sales floor",
+        "selling",
+        "perakende",
+        "perakende satış"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "omni-channel",
+      "aliases": [
+        "omnichannel",
+        "omni-channel services",
+        "BOPIS",
+        "buy online, pick up in store",
+        "ship-from-store"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "POS",
+      "aliases": [
+        "point of sale",
+        "POS system",
+        "cash register",
+        "transactions",
+        "kasa"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "loyalty programs",
+      "aliases": [
+        "loyalty program",
+        "rewards program",
+        "loyalty sign-ups",
+        "sadakat programı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "visual merchandising",
+      "aliases": [
+        "merchandising",
+        "floor sets",
+        "floor presentation",
+        "görsel düzenleme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "restocking",
+      "aliases": [
+        "stocking",
+        "replenishment",
+        "shipments",
+        "inventory",
+        "stock",
+        "stok"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teamwork",
+      "aliases": [
+        "team player",
+        "collaborate",
+        "takım çalışması",
+        "ekip çalışması"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication",
+      "aliases": [
+        "communication skills",
+        "strong communication",
+        "iletişim"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "customer service",
+        "retail sales",
+        "omni-channel",
+        "POS",
+        "loyalty programs",
+        "visual merchandising",
+        "restocking",
+        "teamwork",
+        "communication"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "customer service",
+        "POS",
+        "restocking",
+        "teamwork"
+      ],
+      "missing": [
+        "retail sales",
+        "omni-channel",
+        "loyalty programs",
+        "visual merchandising",
+        "communication"
+      ]
+    },
+    "weak": {
+      "present": [
+        "restocking"
+      ],
+      "missing": [
+        "customer service",
+        "retail sales",
+        "omni-channel",
+        "POS",
+        "loyalty programs",
+        "visual merchandising",
+        "teamwork",
+        "communication"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "no-summary",
+      "unquantified"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "age"
+    },
+    {
+      "kind": "shift"
+    },
+    {
+      "kind": "residence"
+    }
+  ]
+}

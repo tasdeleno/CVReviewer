@@ -1,0 +1,62 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Emir Aslan",
+    "email": "emir.aslan@example.com",
+    "phone": "0555 010 6629",
+    "url": "",
+    "summary": "",
+    "location": "İstanbul / Bağcılar"
+  },
+  "workExperiences": [
+    {
+      "company": "Elektro Dünyası Mağazaları",
+      "jobTitle": "Satış Danışmanı",
+      "date": "2023 - Halen",
+      "descriptions": [
+        "Mağazaya gelen müşterilere ürün bilgisi verdim ve satış yaptım",
+        "Müşteri odaklı yaklaşımımla mağaza memnuniyet anketinde ilk 3'e girdim",
+        "Teslimatı geciken siparişlerde müşterileri arayıp geri dönüş yaptım"
+      ]
+    },
+    {
+      "company": "Bağcılar Belediyesi Çağrı Merkezi",
+      "jobTitle": "Yarı Zamanlı Çağrı Karşılama Elemanı",
+      "date": "2022 - 2023",
+      "descriptions": [
+        "Vatandaşlardan gelen çağrıları karşılayıp kayıt açtım",
+        "Çözülemeyen şikayetleri ilgili birime yönlendirdim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Bağcılar Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, bilgisayar kullanımı",
+      "İkna kabiliyeti, ekip çalışması",
+      "İngilizce (A2)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Yetenekler",
+    "custom": ""
+  }
+}

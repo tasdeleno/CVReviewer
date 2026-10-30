@@ -1,0 +1,61 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Kaan Öz",
+    "email": "kaan.oz@example.com",
+    "phone": "0555 010 9971",
+    "url": "",
+    "summary": "",
+    "location": "Bakırköy, İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Marmara Termal Otel",
+      "jobTitle": "Cankurtaran",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Havuz alanının güvenliğinden ve misafir takibinden sorumluydum",
+        "Havuz suyu ölçümlerini kayıt altına aldım ve havuz alanının hijyen kontrollerini yaptım",
+        "Havuz kenarındaki ilk yardım dolabının kontrolüne destek verdim"
+      ]
+    },
+    {
+      "company": "Bakırköy Halı Saha",
+      "jobTitle": "Saha Görevlisi",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Saha rezervasyonları ve kasa"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Bakırköy Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Cankurtaran belgesi (2022)",
+      "İlk yardım",
+      "Yüzme"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

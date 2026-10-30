@@ -1,0 +1,307 @@
+{
+  "id": "tr-satinalma-1",
+  "lang": "tr",
+  "sector": "procurement",
+  "title": "Satın Alma Uzmanı",
+  "keywords": [
+    {
+      "term": "satın alma",
+      "aliases": [
+        "satınalma",
+        "satın alma süreçleri",
+        "tedarik süreçleri",
+        "procurement",
+        "purchasing"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "maliyet analizi",
+      "aliases": [
+        "maliyet düşürme",
+        "maliyet azaltma",
+        "maliyet avantajı",
+        "cost analysis",
+        "cost reduction",
+        "cost savings"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "tedarikçi yönetimi",
+      "aliases": [
+        "tedarikçi geliştirme",
+        "tedarikçi ilişkileri",
+        "supplier management",
+        "vendor management"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "tedarikçi araştırması",
+      "aliases": [
+        "yeni tedarikçi",
+        "alternatif tedarikçi",
+        "tedarikçi portföyü",
+        "supplier research",
+        "supplier sourcing"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "tedarikçi performansı",
+      "aliases": [
+        "tedarikçi değerlendirme",
+        "tedarikçi performans",
+        "supplier performance",
+        "supplier evaluation",
+        "vendor evaluation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "çelik ve metal malzemeler",
+      "aliases": [
+        "çelik profil",
+        "demir-çelik",
+        "demir çelik",
+        "sac",
+        "boru",
+        "bağlantı elemanları",
+        "hırdavat",
+        "steel",
+        "sheet metal",
+        "fasteners"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "fiyat karşılaştırması",
+      "aliases": [
+        "teklif toplama",
+        "fiyat teklifi",
+        "fiyat teklifleri",
+        "teklif karşılaştırma",
+        "price comparison",
+        "quotations",
+        "RFQ"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "pazarlık",
+      "aliases": [
+        "fiyat pazarlığı",
+        "müzakere",
+        "negotiation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "piyasa araştırması",
+      "aliases": [
+        "piyasa fiyatları",
+        "piyasa takibi",
+        "market research",
+        "market prices"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "stok yönetimi",
+      "aliases": [
+        "stok takibi",
+        "stok sayımı",
+        "stok seviyeleri",
+        "stok planlama",
+        "malzeme takibi",
+        "inventory management",
+        "stock control"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sipariş planlama",
+      "aliases": [
+        "sipariş yönetimi",
+        "satın alma siparişi",
+        "order planning",
+        "purchase orders"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "termin takibi",
+      "aliases": [
+        "teslimat takibi",
+        "sipariş takibi",
+        "termin",
+        "delivery tracking",
+        "lead time"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Office",
+        "Microsoft Office",
+        "Office programları",
+        "MS Excel",
+        "Microsoft Excel",
+        "ileri Excel"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ERP",
+      "aliases": [
+        "ERP programları",
+        "SAP",
+        "Logo",
+        "Netsis",
+        "Mikro",
+        "stok takip programı"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "analitik düşünme",
+      "aliases": [
+        "analitik",
+        "analytical thinking"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "planlama ve organizasyon",
+      "aliases": [
+        "organizasyon becerisi",
+        "planlama becerisi",
+        "planning and organization",
+        "organizational skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "raporlama",
+      "aliases": [
+        "satın alma raporları",
+        "rapor",
+        "reporting"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "satın alma",
+        "maliyet analizi",
+        "tedarikçi yönetimi",
+        "tedarikçi araştırması",
+        "tedarikçi performansı",
+        "çelik ve metal malzemeler",
+        "fiyat karşılaştırması",
+        "pazarlık",
+        "piyasa araştırması",
+        "stok yönetimi",
+        "sipariş planlama",
+        "termin takibi",
+        "Excel",
+        "ERP",
+        "analitik düşünme",
+        "planlama ve organizasyon",
+        "raporlama"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "satın alma",
+        "tedarikçi performansı",
+        "fiyat karşılaştırması",
+        "pazarlık",
+        "stok yönetimi",
+        "sipariş planlama",
+        "termin takibi",
+        "Excel",
+        "planlama ve organizasyon"
+      ],
+      "missing": [
+        "maliyet analizi",
+        "tedarikçi yönetimi",
+        "tedarikçi araştırması",
+        "çelik ve metal malzemeler",
+        "piyasa araştırması",
+        "ERP",
+        "analitik düşünme",
+        "raporlama"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Excel"
+      ],
+      "missing": [
+        "satın alma",
+        "maliyet analizi",
+        "tedarikçi yönetimi",
+        "tedarikçi araştırması",
+        "tedarikçi performansı",
+        "çelik ve metal malzemeler",
+        "fiyat karşılaştırması",
+        "pazarlık",
+        "piyasa araştırması",
+        "stok yönetimi",
+        "sipariş planlama",
+        "termin takibi",
+        "ERP",
+        "analitik düşünme",
+        "planlama ve organizasyon",
+        "raporlama"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "no-summary",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "license"
+    }
+  ]
+}

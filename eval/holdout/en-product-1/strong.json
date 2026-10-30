@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Lena Hartmann",
+    "email": "lena.hartmann@example.com",
+    "phone": "+1 555 010 1027",
+    "url": "",
+    "summary": "Product leader with 10 years in B2B workflow software, the last 5 owning billing and invoicing products for a freight-tech platform.",
+    "location": "San Francisco, CA"
+  },
+  "workExperiences": [
+    {
+      "company": "CargoLane",
+      "jobTitle": "Principal Product Manager, Billing & Payments",
+      "date": "2020 - Present",
+      "descriptions": [
+        "Own product strategy and a 3-year roadmap for quoting, billing and invoicing across 4 engineering teams",
+        "Launched AI agents that auto-reconcile carrier invoices, cutting manual billing work by 62%",
+        "Built a metrics framework linking invoice accuracy to gross margin; now used in quarterly planning",
+        "Write SQL daily in Snowflake for quantitative analysis to size opportunities and settle prioritization debates",
+        "Align engineering, design, finance and operations on trade-offs when priorities compete",
+        "Run weekly syncs with engineering teams in Austin and Kraków across 3 time zones",
+        "Present investment cases to the executive team and board twice a year",
+        "Mentored 4 PMs on writing specs and PRDs; 2 promoted to senior"
+      ]
+    },
+    {
+      "company": "Ledgerly",
+      "jobTitle": "Product Manager",
+      "date": "2016 - 2020",
+      "descriptions": [
+        "Shipped an AP automation workflow used by 1,200 mid-market finance teams"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Michigan",
+      "degree": "B.S. Industrial and Operations Engineering",
+      "date": "2012 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SQL, Snowflake, Looker, Amplitude, Jira, Figma",
+      "Written and verbal communication, stakeholder alignment"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Selin Arslan",
+    "email": "selin.arslan@example.com",
+    "phone": "0555 010 7844",
+    "url": "",
+    "summary": "WordPress ile web sitesi kurulumu ve içerik yönetimi yapan web tasarımcı.",
+    "location": "Muratpaşa, Antalya"
+  },
+  "workExperiences": [
+    {
+      "company": "Lara Dijital Ajans",
+      "jobTitle": "Web Tasarımcı",
+      "date": "2023 - Halen",
+      "descriptions": [
+        "Müşteri sitelerinin WordPress tema ve eklenti güncellemelerinden sorumluydum",
+        "Elementor ile kampanya sayfaları hazırladım",
+        "Google Analytics raporlarını aylık olarak müşterilere ilettim",
+        "Temel SEO ayarlarını (başlık, meta açıklama) yaptım"
+      ]
+    },
+    {
+      "company": "Serbest Çalışma",
+      "jobTitle": "Grafik Tasarımcı",
+      "date": "2021 - 2023",
+      "descriptions": [
+        "Küçük işletmeler için logo ve sosyal medya görselleri tasarladım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Akdeniz Üniversitesi",
+      "degree": "Grafik Tasarım (Önlisans)",
+      "date": "2019 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "WordPress, Elementor, HTML, CSS",
+      "Photoshop, Illustrator, Figma",
+      "Google Analytics"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

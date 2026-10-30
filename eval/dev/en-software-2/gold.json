@@ -1,0 +1,321 @@
+{
+  "id": "en-software-2",
+  "lang": "en",
+  "sector": "software",
+  "title": "Backend Engineer (Python),AI Engineering: Agent Foundations",
+  "keywords": [
+    {
+      "term": "Python",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "LangGraph",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "LangChain",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "LLM",
+      "aliases": [
+        "LLMs",
+        "large language models",
+        "LLM application frameworks",
+        "AI-powered features",
+        "generative AI",
+        "GenAI",
+        "AI agents",
+        "agentic",
+        "OpenAI API"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "REST APIs",
+      "aliases": [
+        "REST",
+        "RESTful",
+        "REST API",
+        "RESTful APIs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "GraphQL",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "gRPC",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "pytest",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "automated testing",
+      "aliases": [
+        "test automation",
+        "automated tests",
+        "unit tests",
+        "unit testing",
+        "integration tests",
+        "test otomasyonu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "LLM evaluation",
+      "aliases": [
+        "evals",
+        "evaluation suite",
+        "agent evaluation",
+        "model evaluation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "on-call",
+      "aliases": [
+        "on-call rotation",
+        "incident response",
+        "production support"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "root cause analysis",
+      "aliases": [
+        "RCA",
+        "root cause analyses",
+        "postmortems",
+        "post-mortems"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "observability",
+      "aliases": [
+        "monitoring",
+        "OpenTelemetry",
+        "Prometheus",
+        "Grafana",
+        "tracing",
+        "Datadog"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "asynchronous processing",
+      "aliases": [
+        "async",
+        "asyncio",
+        "background jobs",
+        "background processing",
+        "background workers",
+        "Celery",
+        "task queues"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "data modeling",
+      "aliases": [
+        "data models",
+        "schema design",
+        "database schemas",
+        "veri modelleme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "performance optimization",
+      "aliases": [
+        "performance bottlenecks",
+        "profiling",
+        "performance tuning",
+        "performans optimizasyonu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "written communication",
+        "verbal communication",
+        "communication",
+        "iletişim becerisi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "technical documentation",
+      "aliases": [
+        "documentation",
+        "technical proposals",
+        "technical writing",
+        "design docs",
+        "teknik dokümantasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "cross-functional collaboration",
+      "aliases": [
+        "cross-functional",
+        "cross-functional teams"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Ruby on Rails",
+      "aliases": [
+        "Rails",
+        "Ruby"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "JavaScript",
+      "aliases": [
+        "JS"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Vue",
+      "aliases": [
+        "Vue.js"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "Python",
+        "LangChain",
+        "LLM",
+        "REST APIs",
+        "pytest",
+        "automated testing",
+        "LLM evaluation",
+        "on-call",
+        "root cause analysis",
+        "asynchronous processing",
+        "data modeling",
+        "performance optimization",
+        "JavaScript"
+      ],
+      "missing": [
+        "LangGraph",
+        "GraphQL",
+        "gRPC",
+        "observability",
+        "communication skills",
+        "technical documentation",
+        "cross-functional collaboration",
+        "Ruby on Rails",
+        "Vue"
+      ]
+    },
+    "medium": {
+      "present": [
+        "Python",
+        "REST APIs",
+        "GraphQL",
+        "pytest",
+        "automated testing",
+        "observability",
+        "asynchronous processing",
+        "JavaScript",
+        "Vue"
+      ],
+      "missing": [
+        "LangGraph",
+        "LangChain",
+        "LLM",
+        "gRPC",
+        "LLM evaluation",
+        "on-call",
+        "root cause analysis",
+        "data modeling",
+        "performance optimization",
+        "communication skills",
+        "technical documentation",
+        "cross-functional collaboration",
+        "Ruby on Rails"
+      ]
+    },
+    "weak": {
+      "present": [
+        "Python",
+        "automated testing"
+      ],
+      "missing": [
+        "LangGraph",
+        "LangChain",
+        "LLM",
+        "REST APIs",
+        "GraphQL",
+        "gRPC",
+        "pytest",
+        "LLM evaluation",
+        "on-call",
+        "root cause analysis",
+        "observability",
+        "asynchronous processing",
+        "data modeling",
+        "performance optimization",
+        "communication skills",
+        "technical documentation",
+        "cross-functional collaboration",
+        "Ruby on Rails",
+        "JavaScript",
+        "Vue"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified"
+    ],
+    "medium": [
+      "title",
+      "weak-verbs",
+      "unquantified"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified"
+    ]
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "id": "tr-hukuk-1",
+  "lang": "tr",
+  "sector": "legal",
+  "title": "Avukat",
+  "keywords": [
+    {
+      "term": "avukatlık ruhsatı",
+      "aliases": [
+        "ruhsatlı avukat",
+        "barosuna kayıtlı",
+        "attorney at law",
+        "baroya kayıtlı",
+        "baro sicil",
+        "licensed attorney",
+        "bar admission",
+        "admitted to the bar"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "inşaat mevzuatı",
+      "aliases": [
+        "inşaat hukuku",
+        "yapı mevzuatı",
+        "imar mevzuatı",
+        "imar hukuku",
+        "construction law",
+        "construction regulations"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ticaret hukuku",
+      "aliases": [
+        "ticari hukuk",
+        "Türk Ticaret Kanunu",
+        "TTK",
+        "commercial law"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "icra ve iflas hukuku",
+      "aliases": [
+        "icra hukuku",
+        "icra takibi",
+        "icra takipleri",
+        "icra dosyası",
+        "enforcement and bankruptcy law",
+        "debt enforcement"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iş hukuku",
+      "aliases": [
+        "İş Kanunu",
+        "labor law",
+        "labour law",
+        "employment law"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "gayrimenkul hukuku",
+      "aliases": [
+        "taşınmaz hukuku",
+        "gayrimenkul",
+        "real estate law"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hukuki danışmanlık",
+      "aliases": [
+        "hukuk müşavirliği",
+        "hukuki görüş",
+        "legal counsel",
+        "legal advice",
+        "legal advisory"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sözleşme hazırlama",
+      "aliases": [
+        "sözleşme yönetimi",
+        "sözleşme incelemesi",
+        "sözleşmeler",
+        "contract drafting",
+        "contract review",
+        "contracts"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "dava takibi",
+      "aliases": [
+        "dava süreçleri",
+        "dava yönetimi",
+        "uyuşmazlık",
+        "litigation",
+        "dispute resolution"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hukuki risk analizi",
+      "aliases": [
+        "hukuki risk",
+        "risk analizi",
+        "legal risk",
+        "risk assessment"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mevzuat uyumu",
+      "aliases": [
+        "mevzuata uyum",
+        "mevzuat takibi",
+        "uyum süreçleri",
+        "regulatory compliance",
+        "compliance"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "raporlama",
+      "aliases": [
+        "rapor",
+        "reporting",
+        "reports"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analitik düşünme",
+      "aliases": [
+        "analitik",
+        "analytical thinking",
+        "analytical"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem çözme",
+      "aliases": [
+        "problem solving",
+        "problem-solving"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ekip çalışması",
+      "aliases": [
+        "takım çalışması",
+        "teamwork"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerileri",
+      "aliases": [
+        "iletişim becerisi",
+        "iletişim",
+        "communication skills",
+        "communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müzakere",
+      "aliases": [
+        "müzakere becerisi",
+        "pazarlık",
+        "negotiation"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "avukatlık ruhsatı",
+        "inşaat mevzuatı",
+        "ticaret hukuku",
+        "icra ve iflas hukuku",
+        "iş hukuku",
+        "gayrimenkul hukuku",
+        "hukuki danışmanlık",
+        "sözleşme hazırlama",
+        "dava takibi",
+        "hukuki risk analizi",
+        "mevzuat uyumu",
+        "raporlama",
+        "analitik düşünme",
+        "problem çözme",
+        "ekip çalışması",
+        "müzakere"
+      ],
+      "missing": [
+        "iletişim becerileri"
+      ]
+    },
+    "medium": {
+      "present": [
+        "avukatlık ruhsatı",
+        "ticaret hukuku",
+        "icra ve iflas hukuku",
+        "iş hukuku",
+        "hukuki danışmanlık",
+        "sözleşme hazırlama",
+        "dava takibi",
+        "raporlama",
+        "ekip çalışması",
+        "iletişim becerileri",
+        "müzakere"
+      ],
+      "missing": [
+        "inşaat mevzuatı",
+        "gayrimenkul hukuku",
+        "hukuki risk analizi",
+        "mevzuat uyumu",
+        "analitik düşünme",
+        "problem çözme"
+      ]
+    },
+    "weak": {
+      "present": [
+        "dava takibi"
+      ],
+      "missing": [
+        "avukatlık ruhsatı",
+        "inşaat mevzuatı",
+        "ticaret hukuku",
+        "icra ve iflas hukuku",
+        "iş hukuku",
+        "gayrimenkul hukuku",
+        "hukuki danışmanlık",
+        "sözleşme hazırlama",
+        "hukuki risk analizi",
+        "mevzuat uyumu",
+        "raporlama",
+        "analitik düşünme",
+        "problem çözme",
+        "ekip çalışması",
+        "iletişim becerileri",
+        "müzakere"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ]
+  }
+}

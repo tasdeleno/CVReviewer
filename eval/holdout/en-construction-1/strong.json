@@ -1,0 +1,67 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Marcus Holloway",
+    "email": "marcus.holloway@example.com",
+    "phone": "+1 555 010 7741",
+    "url": "",
+    "summary": "PMP-certified construction project engineer with 6 years delivering lab, cleanroom and manufacturing facility buildouts from scope development to closeout.",
+    "location": "Torrance, CA"
+  },
+  "workExperiences": [
+    {
+      "company": "Pacific Ridge Builders",
+      "jobTitle": "Project Engineer",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Managed 9 capital projects ($2M–$18M) for biotech and aerospace clients, including two ISO 7 cleanroom suites",
+        "Built project budgets and construction schedules in Smartsheet; delivered 8 of 9 projects on or under budget",
+        "Ran bid leveling for 40+ subcontractor proposals per project and recommended contractor selection",
+        "Drafted and administered subcontracts, negotiating change orders worth $1.4M in total",
+        "Coordinated design reviews with A&E consultants and checked drawings against city building codes",
+        "Secured building permits and scheduled city inspections for 14 permit packages",
+        "Logged and tracked 600+ RFIs and 350 submittals; reviewed monthly pay applications against schedule of values",
+        "Expedited long-lead MEP equipment procurement, recovering 5 weeks on a fab expansion",
+        "Led weekly site visits and EHS walks with superintendents; zero recordable incidents across 180,000 labor hours",
+        "Presented weekly status and risk updates to owner stakeholders and facilities teams"
+      ]
+    },
+    {
+      "company": "Hartwell Structural Engineers",
+      "jobTitle": "Junior Structural Engineer",
+      "date": "2019 - 2021",
+      "descriptions": [
+        "Prepared structural calculations and Revit models for 12 steel-frame warehouses"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "California State University, Long Beach",
+      "degree": "B.S. Civil Engineering",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Procore, Smartsheet, Revit, AutoCAD, Bluebeam, MS Project",
+      "PMP (2023), OSHA 30"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills & Certifications",
+    "custom": ""
+  }
+}
