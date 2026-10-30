@@ -1,0 +1,61 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Jordan Blake",
+    "email": "jordan.blake@example.com",
+    "phone": "+1 555 010 3350",
+    "url": "",
+    "summary": "",
+    "location": "Milton, ON"
+  },
+  "workExperiences": [
+    {
+      "company": "Northfield Distribution",
+      "jobTitle": "Warehouse Associate",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Picked and packed online orders",
+        "Helped keep aisles clear of pallets and debris",
+        "Broke down cardboard for the recycling baler",
+        "Drove a reach truck after in-house training"
+      ]
+    },
+    {
+      "company": "Corner Cup Café",
+      "jobTitle": "Counter Staff",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Served customers and cleaned tables"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Milton District High School",
+      "degree": "Ontario Secondary School Diploma",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Reach truck, RF scanner",
+      "Customer service"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

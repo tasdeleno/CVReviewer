@@ -1,0 +1,60 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Deniz Acar",
+    "email": "deniz.acar@example.com",
+    "phone": "+90 555 010 5590",
+    "url": "",
+    "summary": "Barista with 2 years of experience in busy specialty coffee shops. Friendly and customer-focused.",
+    "location": "Beşiktaş, Istanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Kuzey Coffee Roasters",
+      "jobTitle": "Barista",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Prepared espresso drinks and simple sandwiches during peak hours",
+        "Kept the bar and seating area clean in line with hygiene rules",
+        "Helped with weekly stock counts"
+      ]
+    },
+    {
+      "company": "Bebek Bakery",
+      "jobTitle": "Counter Staff",
+      "date": "2022 - 2023",
+      "descriptions": [
+        "Served customers and handled the till"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kadıköy Anadolu Lisesi",
+      "degree": "High School Diploma",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Espresso, latte art, cash handling",
+      "Customer satisfaction"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Kevin Park",
+    "email": "kevin.park@example.com",
+    "phone": "+1 555 010 6688",
+    "url": "",
+    "summary": "Front desk associate at a busy gym who enjoys helping members and staying active.",
+    "location": "Jersey City, NJ"
+  },
+  "workExperiences": [
+    {
+      "company": "IronWorks Gym",
+      "jobTitle": "Front Desk Associate",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Checked in members and answered questions about classes",
+        "Helped sell memberships during promotions",
+        "Responsible for keeping the locker rooms tidy",
+        "Booked personal training appointments in the club's scheduling system"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hudson County Community College",
+      "degree": "AS Kinesiology (in progress)",
+      "date": "2024 - Present",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Customer service, cash handling",
+      "MS Office",
+      "CPR/AED certified"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

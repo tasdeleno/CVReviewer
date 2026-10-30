@@ -1,0 +1,230 @@
+{
+  "id": "tr-temizlik-1",
+  "lang": "tr",
+  "sector": "temizlik",
+  "title": "MEYDANCI - TEMİZLİK PERSONELİ",
+  "keywords": [
+    {
+      "term": "dış saha temizliği",
+      "aliases": [
+        "dış alan temizliği",
+        "çevre temizliği",
+        "saha temizliği",
+        "açık alan temizliği",
+        "outdoor cleaning",
+        "grounds cleaning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "oluk ve kanal temizliği",
+      "aliases": [
+        "çatı olukları",
+        "oluk temizliği",
+        "yağmur suyu kanalları",
+        "kanal temizliği",
+        "gutter cleaning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "peyzaj",
+      "aliases": [
+        "peyzaj bakımı",
+        "çevre düzenleme",
+        "bahçe bakımı",
+        "yeşil alan bakımı",
+        "çim biçme",
+        "landscaping",
+        "grounds maintenance"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "tuvalet temizliği",
+      "aliases": [
+        "WC temizliği",
+        "soyunma odası temizliği",
+        "lavabo temizliği",
+        "restroom cleaning",
+        "washroom cleaning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "sarf malzeme takibi",
+      "aliases": [
+        "sarf malzemeleri",
+        "malzeme kabulü",
+        "temizlik malzemeleri",
+        "stok takibi",
+        "supplies"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "atık yönetimi",
+      "aliases": [
+        "çöp toplama",
+        "atık toplama",
+        "atıkların taşınması",
+        "waste management",
+        "waste disposal"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ekipman bakımı",
+      "aliases": [
+        "ekipman bakımı ve temizliği",
+        "makine bakımı",
+        "equipment maintenance"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "geri dönüşüm",
+      "aliases": [
+        "geri dönüşüm atıkları",
+        "recycling"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "makineli temizlik",
+      "aliases": [
+        "makine ile temizlik",
+        "zemin yıkama makinesi",
+        "temizlik makinesi",
+        "floor scrubber",
+        "machine cleaning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "çay servisi",
+      "aliases": [
+        "çay hizmeti",
+        "ikram",
+        "tea service"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "üretim alanı temizliği",
+      "aliases": [
+        "fabrika temizliği",
+        "endüstriyel temizlik",
+        "üretim alanları",
+        "industrial cleaning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iş sağlığı ve güvenliği",
+      "aliases": [
+        "İSG",
+        "occupational health and safety",
+        "OHS",
+        "health and safety"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hijyen kuralları",
+      "aliases": [
+        "hijyen",
+        "hygiene"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "sarf malzeme takibi",
+        "atık yönetimi",
+        "makineli temizlik",
+        "çay servisi",
+        "üretim alanı temizliği",
+        "iş sağlığı ve güvenliği",
+        "hijyen kuralları"
+      ],
+      "missing": [
+        "dış saha temizliği",
+        "oluk ve kanal temizliği",
+        "peyzaj",
+        "tuvalet temizliği",
+        "ekipman bakımı",
+        "geri dönüşüm"
+      ]
+    },
+    "medium": {
+      "present": [
+        "tuvalet temizliği",
+        "atık yönetimi",
+        "çay servisi",
+        "hijyen kuralları"
+      ],
+      "missing": [
+        "dış saha temizliği",
+        "oluk ve kanal temizliği",
+        "peyzaj",
+        "sarf malzeme takibi",
+        "ekipman bakımı",
+        "geri dönüşüm",
+        "makineli temizlik",
+        "üretim alanı temizliği",
+        "iş sağlığı ve güvenliği"
+      ]
+    },
+    "weak": {
+      "present": [
+        "peyzaj",
+        "çay servisi"
+      ],
+      "missing": [
+        "dış saha temizliği",
+        "oluk ve kanal temizliği",
+        "tuvalet temizliği",
+        "sarf malzeme takibi",
+        "atık yönetimi",
+        "ekipman bakımı",
+        "geri dönüşüm",
+        "makineli temizlik",
+        "üretim alanı temizliği",
+        "iş sağlığı ve güvenliği",
+        "hijyen kuralları"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "no-summary",
+      "unquantified"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Burak Şahin",
+    "email": "burak.sahin@example.com",
+    "phone": "+90 555 010 3311",
+    "url": "",
+    "summary": "HR specialist with 4 years in retail, covering recruitment, onboarding and personnel administration for store teams.",
+    "location": "Istanbul, Turkey"
+  },
+  "workExperiences": [
+    {
+      "company": "Mavi Kuş Retail",
+      "jobTitle": "HR Specialist",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Recruited and onboarded 120+ store staff per year across 14 stores",
+        "Kept personnel files and employment contracts up to date in line with Turkish Labour Law",
+        "Collected monthly attendance records from store managers and sent payroll inputs to the accounting firm",
+        "Worked on the annual engagement survey with the HR manager",
+        "Prepared headcount and turnover reports in Excel"
+      ]
+    },
+    {
+      "company": "Kadıköy Kitap Kafe",
+      "jobTitle": "Store Supervisor",
+      "date": "2019 - 2022",
+      "descriptions": [
+        "Managed shift schedules for a team of 9",
+        "Handled customer complaints and daily cash reconciliation"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Istanbul University",
+      "degree": "BA Labour Economics and Industrial Relations",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Excel, MS Office",
+      "Recruitment, onboarding, Turkish Labour Law",
+      "Communication, teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

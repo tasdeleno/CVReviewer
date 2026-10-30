@@ -1,0 +1,61 @@
+{
+  "lang": "en",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Ashley Moore",
+    "email": "ashley.moore@example.com",
+    "phone": "+1 555 010 4482",
+    "url": "",
+    "summary": "",
+    "location": "Queens, NY"
+  },
+  "workExperiences": [
+    {
+      "company": "QuickBite Burgers",
+      "jobTitle": "Cashier",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Took orders and handled cash and card payments",
+        "Assisted with restocking the condiment station",
+        "Greeted guests and answered menu questions"
+      ]
+    },
+    {
+      "company": "Queens Public Library",
+      "jobTitle": "Volunteer",
+      "date": "2021 - 2022",
+      "descriptions": [
+        "Helped organize weekend reading events"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Flushing High School",
+      "degree": "High School Diploma",
+      "date": "2019 - 2023",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Cash handling, POS systems",
+      "Food handler card",
+      "Teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "lang": "tr",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Yusuf Ertekin",
+    "email": "yusuf.ertekin@example.com",
+    "phone": "0555 010 4438",
+    "url": "",
+    "summary": "Çalışkan, öğrenmeye açık ve dürüst biriyim. Fabrikada çalışmak istiyorum.",
+    "location": "Denizli / Çardak"
+  },
+  "workExperiences": [
+    {
+      "company": "Çardak Market",
+      "jobTitle": "Reyon Görevlisi",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Reyonların düzenlenmesi ve ürün dizilmesi işlerinde çalıştım",
+        "Gelen malları depoya taşıdım",
+        "Kasada müşterilere yardımcı oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Çardak Çok Programlı Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Ekip çalışmasına yatkın, B sınıfı ehliyet"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Mert Ulusoy",
+    "email": "mert.ulusoy@example.com",
+    "phone": "0555 010 4423",
+    "url": "",
+    "summary": "Plastik enjeksiyon makinelerinde 4 yıl deneyimliyim, vardiyalı çalışmaya alışkınım.",
+    "location": "Denizli / Merkezefendi"
+  },
+  "workExperiences": [
+    {
+      "company": "Denizli Ambalaj A.Ş.",
+      "jobTitle": "Plastik Enjeksiyon Operatörü",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Enjeksiyon makinelerinde kalıp değişimi ve makine ayarı yaptım",
+        "Ürünleri kalite standartlarına göre gözle kontrol edip kasalara yerleştirdim",
+        "Vardiya devirlerinde üretim takibi için adetleri forma işledim",
+        "Bakım ekibine arıza durumlarında destek verdim"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Merkezefendi Anadolu Lisesi",
+      "degree": "Lise",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Makine kullanımı, kalıp değişimi",
+      "Takım çalışması",
+      "El becerisi"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

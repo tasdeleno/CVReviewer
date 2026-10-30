@@ -1,0 +1,55 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Elif Sarıkaya",
+    "email": "elif.sarikaya@example.com",
+    "phone": "0555 010 1162",
+    "url": "",
+    "summary": "Katı ve sıvı form ilaç üretiminde 3 yıllık kalite güvence uzmanı. GMP uyumu ve sapma yönetimi odaklı çalışıyorum.",
+    "location": "Kocaeli / Gebze"
+  },
+  "workExperiences": [
+    {
+      "company": "Anadolu İlaç Sanayi A.Ş.",
+      "jobTitle": "Kalite Güvence Uzmanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Tablet ve şurup hatlarında seri kayıtlarını SOP'lere göre inceledim",
+        "Sapma kayıtlarını açtım ve DÖF süreçlerinin takibini yaptım",
+        "Kök neden analizi toplantılarına katıldım",
+        "İç tetkiklerde ve TİTCK denetim hazırlığında destek verdim",
+        "Hat açılış kontrolü ve proses içi kontrolleri yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Ankara Üniversitesi",
+      "degree": "Kimya (Lisans)",
+      "date": "2016 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "GMP, iyi dokümantasyon uygulamaları",
+      "SAP QM, MS Office",
+      "İngilizce (B2), iletişim, problem çözme"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

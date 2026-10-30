@@ -1,0 +1,65 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Av. Selin Karataş",
+    "email": "selin.karatas@example.com",
+    "phone": "0555 010 2231",
+    "url": "",
+    "summary": "Mersin Barosuna kayıtlı avukat. İnşaat ve yapı sektöründe 12 yıllık şirket avukatlığı deneyimi; sözleşme, dava ve icra süreçlerini uçtan uca yönetiyorum.",
+    "location": "Mersin"
+  },
+  "workExperiences": [
+    {
+      "company": "Akdeniz Konut Yapı A.Ş.",
+      "jobTitle": "Şirket Avukatı",
+      "date": "2017 - Halen",
+      "descriptions": [
+        "Yılda 140+ taşeron, tedarik ve kat karşılığı inşaat sözleşmesini hazırladım, inceledim ve karşı tarafla müzakere ettim",
+        "Şirketin taraf olduğu 85 dava ve uyuşmazlık dosyasını yönettim; davaların %78'i lehimize sonuçlandı",
+        "İcra takiplerini başlatıp yürüttüm, 2023'te 14 milyon TL alacağın tahsilini sağladım",
+        "İmar mevzuatı ve yapı denetimi değişikliklerini takip ederek yönetime üç ayda bir hukuki risk raporu sundum",
+        "Belediye, tapu müdürlüğü ve yapı denetim firmalarıyla yazışma ve koordinasyonu yürüttüm",
+        "İş Kanunu kapsamındaki işçi alacağı davalarında şirketi temsil ettim (32 dosya)",
+        "Şantiye ekiplerine yönelik mevzuata uyum ve sözleşme yönetimi eğitimleri verdim"
+      ]
+    },
+    {
+      "company": "Yıldız & Ortakları Hukuk Bürosu",
+      "jobTitle": "Avukat",
+      "date": "2013 - 2017",
+      "descriptions": [
+        "Ticaret hukuku ve gayrimenkul hukuku alanında 20'den fazla şirket müvekkile hukuki danışmanlık verdim",
+        "Tapu iptal ve tescil davalarında dosya hazırlığı ve duruşma takibi yaptım"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Dokuz Eylül Üniversitesi",
+      "degree": "Hukuk Fakültesi (Lisans)",
+      "date": "2008 - 2012",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "UYAP, Kazancı İçtihat Bankası, Lexpera, MS Office",
+      "Analitik düşünme, problem çözme, müzakere, ekip çalışması"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

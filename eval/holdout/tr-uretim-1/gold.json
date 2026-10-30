@@ -1,0 +1,158 @@
+{
+  "id": "tr-uretim-1",
+  "lang": "tr",
+  "sector": "manufacturing",
+  "title": "Ekstrüder Üretim Operatörü",
+  "keywords": [
+    {
+      "term": "ekstrüder",
+      "aliases": [
+        "ekstrüder makinesi",
+        "ekstrüzyon",
+        "ekstrüzyon makineleri",
+        "extruder",
+        "extrusion"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "üretim makineleri kullanımı",
+      "aliases": [
+        "makine kullanımı",
+        "makine operatörlüğü",
+        "üretim makineleri",
+        "machine operation",
+        "machine operator"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "üretim takibi",
+      "aliases": [
+        "üretimi takip",
+        "üretim takip",
+        "production monitoring",
+        "production tracking"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "makine kontrolü",
+      "aliases": [
+        "makine kontrolleri",
+        "machine checks"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "kalite kuralları",
+      "aliases": [
+        "kalite kontrol",
+        "kalite standartları",
+        "kalite",
+        "quality control",
+        "quality standards"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "el becerisi",
+      "aliases": [
+        "el becerisi gelişmiş",
+        "manual dexterity"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "ekip çalışması",
+        "teamwork"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "ekstrüder",
+        "üretim makineleri kullanımı",
+        "üretim takibi",
+        "makine kontrolü",
+        "kalite kuralları",
+        "takım çalışması"
+      ],
+      "missing": [
+        "el becerisi"
+      ]
+    },
+    "medium": {
+      "present": [
+        "üretim makineleri kullanımı",
+        "üretim takibi",
+        "kalite kuralları",
+        "el becerisi",
+        "takım çalışması"
+      ],
+      "missing": [
+        "ekstrüder",
+        "makine kontrolü"
+      ]
+    },
+    "weak": {
+      "present": [
+        "takım çalışması"
+      ],
+      "missing": [
+        "ekstrüder",
+        "üretim makineleri kullanımı",
+        "üretim takibi",
+        "makine kontrolü",
+        "kalite kuralları",
+        "el becerisi"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "no-summary"
+    ],
+    "medium": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "military"
+    },
+    {
+      "kind": "shift"
+    },
+    {
+      "kind": "residence"
+    }
+  ]
+}

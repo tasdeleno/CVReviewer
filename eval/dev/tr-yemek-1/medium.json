@@ -1,0 +1,62 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Fatma Yılmaz",
+    "email": "fatma.yilmaz@example.com",
+    "phone": "0555 010 5521",
+    "url": "",
+    "summary": "Esnaf lokantası ve restoranlarda 4 yıllık sıcak mutfak deneyimi olan aşçı.",
+    "location": "Maltepe, İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Maltepe Ev Yemekleri Lokantası",
+      "jobTitle": "Aşçı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Günlük 15 çeşit sıcak yemek ve çorba hazırlıyorum",
+        "Reçetelere uygun porsiyon ve lezzet standardını koruyorum",
+        "Mutfak temizliği ve hijyeninden sorumluyum",
+        "Yeni gelen komilere ekip çalışması içinde iş öğrettim"
+      ]
+    },
+    {
+      "company": "Kadıköy Balık Restoran",
+      "jobTitle": "Komi",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Sebze doğrama ve mise en place hazırlığına yardımcı oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Maltepe Mesleki ve Teknik Anadolu Lisesi",
+      "degree": "Yiyecek İçecek Hizmetleri",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Sıcak mutfak, ev yemekleri, çorbalar",
+      "Gıda hijyeni",
+      "Müşteri memnuniyeti"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

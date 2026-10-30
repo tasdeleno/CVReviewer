@@ -1,0 +1,247 @@
+{
+  "id": "tr-cagrimerkezi-1",
+  "lang": "tr",
+  "sector": "call-center",
+  "title": "Çağrı Merkezi Müşteri Temsilcisi",
+  "keywords": [
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "ileri seviye İngilizce",
+        "English",
+        "advanced English"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "diksiyon",
+      "aliases": [
+        "düzgün diksiyon",
+        "akıcı diksiyon",
+        "diction"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müşteri odaklılık",
+      "aliases": [
+        "müşteri odaklı",
+        "hizmet odaklı",
+        "customer focus",
+        "customer-oriented",
+        "customer-focused"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ekip çalışması",
+      "aliases": [
+        "takım çalışması",
+        "teamwork"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ikna kabiliyeti",
+      "aliases": [
+        "ikna",
+        "persuasion",
+        "persuasive"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "insan ilişkileri",
+      "aliases": [
+        "kişilerarası ilişkiler",
+        "interpersonal skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bilgisayar kullanımı",
+      "aliases": [
+        "bilgisayar",
+        "MS Office",
+        "computer skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "çağrı merkezi programları",
+      "aliases": [
+        "projede kullanılan programlar",
+        "CRM",
+        "Genesys",
+        "Avaya",
+        "çağrı merkezi yazılımı",
+        "call center software"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "gelen çağrı karşılama",
+      "aliases": [
+        "gelen çağrılar",
+        "gelen çağrı",
+        "çağrı karşılama",
+        "inbound çağrı",
+        "inbound calls",
+        "inbound"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "konuşma kalitesi standartları",
+      "aliases": [
+        "konuşma kalitesi",
+        "kalite standartları",
+        "kalite puanı",
+        "call quality",
+        "quality score"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "eskalasyon",
+      "aliases": [
+        "ilgili birimlere iletmek",
+        "ilgili birime yönlendirme",
+        "escalation",
+        "escalated"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ürün bilgisi",
+      "aliases": [
+        "ürün eğitimleri",
+        "ürün eğitimi",
+        "product knowledge",
+        "product training"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müşteri geri dönüşü",
+      "aliases": [
+        "geri dönüş",
+        "geri arama",
+        "call back",
+        "callback",
+        "follow-up"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "KPI hedefleri",
+      "aliases": [
+        "KPI",
+        "performans hedefleri",
+        "KPI targets"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "İngilizce",
+        "diksiyon",
+        "müşteri odaklılık",
+        "ekip çalışması",
+        "ikna kabiliyeti",
+        "insan ilişkileri",
+        "bilgisayar kullanımı",
+        "çağrı merkezi programları",
+        "gelen çağrı karşılama",
+        "konuşma kalitesi standartları",
+        "eskalasyon",
+        "ürün bilgisi",
+        "müşteri geri dönüşü",
+        "KPI hedefleri"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "İngilizce",
+        "müşteri odaklılık",
+        "ekip çalışması",
+        "ikna kabiliyeti",
+        "bilgisayar kullanımı",
+        "gelen çağrı karşılama",
+        "eskalasyon",
+        "ürün bilgisi",
+        "müşteri geri dönüşü"
+      ],
+      "missing": [
+        "diksiyon",
+        "insan ilişkileri",
+        "çağrı merkezi programları",
+        "konuşma kalitesi standartları",
+        "KPI hedefleri"
+      ]
+    },
+    "weak": {
+      "present": [
+        "İngilizce",
+        "ekip çalışması"
+      ],
+      "missing": [
+        "diksiyon",
+        "müşteri odaklılık",
+        "ikna kabiliyeti",
+        "insan ilişkileri",
+        "bilgisayar kullanımı",
+        "çağrı merkezi programları",
+        "gelen çağrı karşılama",
+        "konuşma kalitesi standartları",
+        "eskalasyon",
+        "ürün bilgisi",
+        "müşteri geri dönüşü",
+        "KPI hedefleri"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "no-summary",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "military"
+    }
+  ]
+}

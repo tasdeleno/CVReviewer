@@ -1,0 +1,66 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Hakan Yurtsever",
+    "email": "hakan.yurtsever@example.com",
+    "phone": "0555 010 3302",
+    "url": "",
+    "summary": "Metal ve inşaat malzemeleri üreticilerinde 8 yıllık satın alma uzmanı. Demir-çelik ve hırdavat tedarikinde maliyet analizi ve tedarikçi geliştirme odaklı çalışıyorum.",
+    "location": "İstanbul / Ümraniye"
+  },
+  "workExperiences": [
+    {
+      "company": "Boğaziçi Çelik Konstrüksiyon",
+      "jobTitle": "Satın Alma Uzmanı",
+      "date": "2019 - Halen",
+      "descriptions": [
+        "Çelik profil, sac, boru ve bağlantı elemanları için yıllık 180 milyon TL'lik satın alma bütçesini yönettim",
+        "Her kalem için en az 3 fiyat teklifi toplayıp karşılaştırma tablosu hazırladım; pazarlıkla birim maliyeti %9 düşürdüm",
+        "12 yeni yerli tedarikçi geliştirerek alternatif tedarikçi portföyü oluşturdum",
+        "45 tedarikçinin performansını termin, kalite ve fiyat kriterleriyle üç ayda bir puanladım",
+        "LME ve yurt içi piyasa fiyatlarını haftalık takip edip alım zamanlamasını belirledim",
+        "Depo ve üretim planlamayla birlikte stok seviyelerini planladım, stok devir hızını 5'ten 7'ye çıkardım",
+        "Logo Tiger ERP üzerinde ayda ortalama 300 satın alma siparişi açtım ve termin takibini yaptım",
+        "Aylık satın alma raporlarını Excel'de hazırlayıp genel müdüre sundum"
+      ]
+    },
+    {
+      "company": "Marmara Hırdavat Ltd.",
+      "jobTitle": "Satın Alma Asistanı",
+      "date": "2016 - 2019",
+      "descriptions": [
+        "Hırdavat ve sarf malzemesi siparişlerinin takibi ve fatura kontrolü"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kocaeli Üniversitesi",
+      "degree": "Endüstri Mühendisliği (Lisans)",
+      "date": "2011 - 2016",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Logo Tiger ERP, MS Office, ileri Excel (pivot, düşeyara)",
+      "Analitik düşünme, planlama ve organizasyon",
+      "B sınıfı ehliyet (2014)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": ""
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "id": "tr-ik-2",
+  "lang": "tr",
+  "sector": "ik",
+  "title": "İnsan Kaynakları Uzmanı",
+  "keywords": [
+    {
+      "term": "Mikro personel programı",
+      "aliases": [
+        "Mikro",
+        "Mikro Personel",
+        "Logo Bordro",
+        "Logo Bordro Plus",
+        "Netsis",
+        "bordro programı",
+        "payroll software"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bordro",
+      "aliases": [
+        "payroll",
+        "bordro hesaplama",
+        "bordrolama",
+        "payroll processing"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "özlük işleri",
+      "aliases": [
+        "özlük dosyası",
+        "özlük",
+        "personnel records",
+        "personnel files",
+        "personnel administration"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "yan haklar",
+      "aliases": [
+        "benefits",
+        "fringe benefits",
+        "employee benefits",
+        "yan hak"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ücret yönetimi",
+      "aliases": [
+        "compensation",
+        "compensation management",
+        "ücretlendirme",
+        "ücret politikası",
+        "C&B"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İş Kanunu",
+      "aliases": [
+        "iş hukuku",
+        "çalışma mevzuatı",
+        "SGK mevzuatı",
+        "labor law",
+        "labour law",
+        "employment law"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "MUHSGK",
+      "aliases": [
+        "muhtasar ve prim hizmet beyannamesi",
+        "muhtasar beyanname"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İŞKUR",
+      "aliases": [
+        "İş-Kur",
+        "İŞKUR teşvikleri",
+        "Turkish Employment Agency"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "MS Office",
+      "aliases": [
+        "Microsoft Office",
+        "Word",
+        "PowerPoint"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "MS Excel",
+        "Microsoft Excel"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Excel makro",
+      "aliases": [
+        "makro",
+        "VBA",
+        "Excel macros",
+        "macros"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analitik düşünme",
+      "aliases": [
+        "analytical thinking",
+        "analitik",
+        "analytical skills"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ekip çalışması",
+      "aliases": [
+        "takım çalışması",
+        "teamwork",
+        "team player"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerisi",
+      "aliases": [
+        "iletişim",
+        "communication skills",
+        "communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SGK bildirgeleri",
+      "aliases": [
+        "SGK işe giriş",
+        "işe giriş ve işten çıkış bildirgeleri",
+        "SGK işlemleri",
+        "social security filings"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "puantaj",
+      "aliases": [
+        "timesheet",
+        "timesheets",
+        "time and attendance",
+        "attendance records"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "prim sistemleri",
+      "aliases": [
+        "prim",
+        "prim hesaplama",
+        "bonus",
+        "bonus schemes",
+        "incentive pay"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "İK raporlama",
+      "aliases": [
+        "İK raporları",
+        "HR reporting",
+        "HR reports",
+        "HR analytics",
+        "İK analitiği"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "Mikro personel programı",
+        "bordro",
+        "özlük işleri",
+        "yan haklar",
+        "ücret yönetimi",
+        "İş Kanunu",
+        "MUHSGK",
+        "İŞKUR",
+        "MS Office",
+        "Excel",
+        "Excel makro",
+        "analitik düşünme",
+        "ekip çalışması",
+        "SGK bildirgeleri",
+        "puantaj",
+        "prim sistemleri",
+        "İK raporlama"
+      ],
+      "missing": [
+        "iletişim becerisi"
+      ]
+    },
+    "medium": {
+      "present": [
+        "bordro",
+        "özlük işleri",
+        "İş Kanunu",
+        "MS Office",
+        "Excel",
+        "ekip çalışması",
+        "iletişim becerisi",
+        "puantaj",
+        "İK raporlama"
+      ],
+      "missing": [
+        "Mikro personel programı",
+        "yan haklar",
+        "ücret yönetimi",
+        "MUHSGK",
+        "İŞKUR",
+        "Excel makro",
+        "analitik düşünme",
+        "SGK bildirgeleri",
+        "prim sistemleri"
+      ]
+    },
+    "weak": {
+      "present": [
+        "MS Office",
+        "Excel",
+        "puantaj"
+      ],
+      "missing": [
+        "Mikro personel programı",
+        "bordro",
+        "özlük işleri",
+        "yan haklar",
+        "ücret yönetimi",
+        "İş Kanunu",
+        "MUHSGK",
+        "İŞKUR",
+        "Excel makro",
+        "analitik düşünme",
+        "ekip çalışması",
+        "iletişim becerisi",
+        "SGK bildirgeleri",
+        "prim sistemleri",
+        "İK raporlama"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "medium": [
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  }
+}

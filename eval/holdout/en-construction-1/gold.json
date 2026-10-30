@@ -1,0 +1,381 @@
+{
+  "id": "en-construction-1",
+  "lang": "en",
+  "sector": "construction",
+  "title": "Construction Project Engineer",
+  "keywords": [
+    {
+      "term": "construction project management",
+      "aliases": [
+        "construction projects",
+        "project lifecycle",
+        "construction management",
+        "scope development",
+        "capital projects",
+        "large capital projects",
+        "facility buildout",
+        "infrastructure projects",
+        "inşaat proje yönetimi",
+        "proje yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "budgets and schedules",
+      "aliases": [
+        "budget management",
+        "budgets",
+        "budget",
+        "budgeting",
+        "cost control",
+        "scheduling",
+        "schedules",
+        "project schedule",
+        "construction schedule",
+        "bütçe",
+        "iş programı",
+        "zaman planı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bid evaluation",
+      "aliases": [
+        "competitive proposals",
+        "proposal evaluation",
+        "bid leveling",
+        "vendor selection",
+        "contractor selection",
+        "teklif değerlendirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "contract management",
+      "aliases": [
+        "contract administration",
+        "contracts",
+        "contract negotiation",
+        "sözleşme yönetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "design reviews",
+      "aliases": [
+        "design review",
+        "A&E coordination",
+        "design deliverables",
+        "tasarım incelemesi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "building codes",
+      "aliases": [
+        "codes",
+        "code compliance",
+        "regulatory standards",
+        "municipal standards",
+        "yönetmelik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "permitting",
+      "aliases": [
+        "permits",
+        "building permits",
+        "permit",
+        "ruhsat"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "site inspections",
+      "aliases": [
+        "site visits",
+        "field inspections",
+        "inspections",
+        "saha denetimi",
+        "şantiye denetimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "procurement",
+      "aliases": [
+        "material procurement",
+        "expediting",
+        "satın alma"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "stakeholder communication",
+      "aliases": [
+        "stakeholder management",
+        "stakeholders",
+        "communication",
+        "paydaş iletişimi",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "safety compliance",
+      "aliases": [
+        "EHS",
+        "construction safety",
+        "environmental compliance",
+        "site safety",
+        "OSHA",
+        "iş güvenliği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "change orders",
+      "aliases": [
+        "change order",
+        "change order proposals",
+        "değişiklik emri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "invoice review",
+      "aliases": [
+        "contractor invoices",
+        "progress payments",
+        "pay applications",
+        "pay requests",
+        "hakediş"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "RFIs",
+      "aliases": [
+        "RFI",
+        "requests for information"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "submittals",
+      "aliases": [
+        "submittal",
+        "submittal log"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "project documentation",
+      "aliases": [
+        "documentation",
+        "specifications",
+        "closeout documents",
+        "proje dokümantasyonu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "facilities coordination",
+      "aliases": [
+        "facilities teams",
+        "building operations",
+        "operational handoff",
+        "handoff"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "space planning",
+      "aliases": [
+        "space allocation",
+        "real estate planning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "engineering principles",
+      "aliases": [
+        "MEP",
+        "MEP systems",
+        "structural engineering",
+        "structural",
+        "electrical and mechanical",
+        "mechanical, electrical",
+        "mechanical and electrical",
+        "elektrik ve mekanik",
+        "statik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "PMP",
+      "aliases": [
+        "Project Management Professional",
+        "PSP",
+        "Planning & Scheduling Professional",
+        "Planning and Scheduling Professional"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "Revit",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "AutoCAD",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "Smartsheet",
+      "aliases": [],
+      "importance": "preferred"
+    },
+    {
+      "term": "cleanroom",
+      "aliases": [
+        "clean room",
+        "cleanrooms",
+        "temiz oda"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "construction project management",
+        "budgets and schedules",
+        "bid evaluation",
+        "contract management",
+        "design reviews",
+        "building codes",
+        "permitting",
+        "site inspections",
+        "procurement",
+        "stakeholder communication",
+        "safety compliance",
+        "change orders",
+        "invoice review",
+        "RFIs",
+        "submittals",
+        "facilities coordination",
+        "engineering principles",
+        "PMP",
+        "Revit",
+        "AutoCAD",
+        "Smartsheet",
+        "cleanroom"
+      ],
+      "missing": [
+        "project documentation",
+        "space planning"
+      ]
+    },
+    "medium": {
+      "present": [
+        "construction project management",
+        "budgets and schedules",
+        "site inspections",
+        "procurement",
+        "stakeholder communication",
+        "change orders",
+        "invoice review",
+        "RFIs",
+        "submittals",
+        "project documentation",
+        "AutoCAD"
+      ],
+      "missing": [
+        "bid evaluation",
+        "contract management",
+        "design reviews",
+        "building codes",
+        "permitting",
+        "safety compliance",
+        "facilities coordination",
+        "space planning",
+        "engineering principles",
+        "PMP",
+        "Revit",
+        "Smartsheet",
+        "cleanroom"
+      ]
+    },
+    "weak": {
+      "present": [
+        "site inspections",
+        "safety compliance"
+      ],
+      "missing": [
+        "construction project management",
+        "budgets and schedules",
+        "bid evaluation",
+        "contract management",
+        "design reviews",
+        "building codes",
+        "permitting",
+        "procurement",
+        "stakeholder communication",
+        "change orders",
+        "invoice review",
+        "RFIs",
+        "submittals",
+        "project documentation",
+        "facilities coordination",
+        "space planning",
+        "engineering principles",
+        "PMP",
+        "Revit",
+        "AutoCAD",
+        "Smartsheet",
+        "cleanroom"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "work-permit"
+    }
+  ]
+}

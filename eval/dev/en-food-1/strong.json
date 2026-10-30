@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Marcus Hill",
+    "email": "marcus.hill@example.com",
+    "phone": "+1 555 010 4410",
+    "url": "",
+    "summary": "Line cook with 4 years in scratch kitchens and high-volume fast-casual restaurants. ServSafe certified, calm under pressure and a strong team player.",
+    "location": "Brooklyn, NY"
+  },
+  "workExperiences": [
+    {
+      "company": "Fieldstone Eatery",
+      "jobTitle": "Line Cook",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Work grill, sauté and prep stations, rotating weekly across a 6-station line",
+        "Cook 300+ covers per lunch rush while keeping ticket times under 8 minutes",
+        "Follow recipe cards and portion guides for seasonal menus",
+        "Keep the station clean and log fridge temperatures for the health inspection",
+        "Train new prep cooks on knife skills and plating standards"
+      ]
+    },
+    {
+      "company": "Bay Ridge Diner",
+      "jobTitle": "Prep Cook",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Prepped vegetables, sauces and proteins for a 120-seat diner",
+        "Covered the dish station when the team was short-staffed"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Brooklyn Technical High School",
+      "degree": "High School Diploma",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Grill, sauté, prep, knife skills",
+      "ServSafe Food Handler (2024)",
+      "Communication, attention to detail"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

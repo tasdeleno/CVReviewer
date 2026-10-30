@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Jenna Morales",
+    "email": "jenna.morales@example.com",
+    "phone": "+1 555 010 9914",
+    "url": "",
+    "summary": "Retail associate with 4 years on the sales floor of outdoor and workwear stores; at my best during holiday rushes.",
+    "location": "Wilmington, MA"
+  },
+  "workExperiences": [
+    {
+      "company": "Summit Trail Outfitters",
+      "jobTitle": "Retail Sales Associate",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Serve 60–90 customers a shift, matching them with the right boots and gear; average customer satisfaction score of 4.8/5",
+        "Process sales, returns and exchanges on Lightspeed POS with zero cash variances in 2024",
+        "Fulfill buy online, pick up in store (BOPIS) and ship-from-store orders, about 40 a week in peak season",
+        "Signed up 300+ members to the rewards program, the top total in the district for Q4 2024",
+        "Unload weekly shipments of 50+ cartons and restock the floor before opening",
+        "Set new floor sets and window displays following visual merchandising guides",
+        "Train 3 seasonal hires each year and cover shifts for the team during the holiday rush"
+      ]
+    },
+    {
+      "company": "Burger Barn",
+      "jobTitle": "Crew Member",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Took orders and handled the register during lunch rush (150+ orders a day)"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Wilmington High School",
+      "degree": "High School Diploma",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Lightspeed POS, Shopify POS",
+      "Communication, upselling, teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

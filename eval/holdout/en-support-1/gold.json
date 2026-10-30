@@ -1,0 +1,230 @@
+{
+  "id": "en-support-1",
+  "lang": "en",
+  "sector": "customer-support",
+  "title": "Customer Support Specialist",
+  "keywords": [
+    {
+      "term": "technical support",
+      "aliases": [
+        "tech support",
+        "technical issues",
+        "teknik destek"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "phone and email support",
+      "aliases": [
+        "phone support",
+        "email support",
+        "phone, email",
+        "via phone",
+        "telefon ve e-posta"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "troubleshooting",
+      "aliases": [
+        "troubleshoot",
+        "troubleshooting screen share",
+        "sorun giderme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "customer needs analysis",
+      "aliases": [
+        "customer needs",
+        "identifying customer needs",
+        "needs analysis",
+        "müşteri ihtiyaçları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "product feedback",
+      "aliases": [
+        "product challenges",
+        "bug reports",
+        "bug reporting",
+        "feature requests",
+        "ürün geri bildirimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "provisioning",
+      "aliases": [
+        "account provisioning",
+        "system provisioning",
+        "account setup",
+        "new customer systems"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "content creation",
+      "aliases": [
+        "support content",
+        "training content",
+        "içerik üretimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "knowledge base",
+      "aliases": [
+        "knowledge base articles",
+        "help center",
+        "help articles",
+        "KB articles",
+        "email templates",
+        "email template",
+        "macros",
+        "canned responses",
+        "bilgi bankası"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "escalation",
+      "aliases": [
+        "escalations",
+        "escalate",
+        "escalated",
+        "eskalasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "English",
+      "aliases": [
+        "fluent English",
+        "written and verbal English",
+        "İngilizce"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "written and verbal communication",
+        "communication",
+        "iletişim becerileri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SaaS",
+      "aliases": [
+        "software as a service",
+        "SaaS platform"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "CRM (Zendesk)",
+      "aliases": [
+        "CRM",
+        "Zendesk"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "technical support",
+        "phone and email support",
+        "troubleshooting",
+        "customer needs analysis",
+        "product feedback",
+        "provisioning",
+        "content creation",
+        "knowledge base",
+        "escalation",
+        "English",
+        "SaaS",
+        "CRM (Zendesk)"
+      ],
+      "missing": [
+        "communication skills"
+      ]
+    },
+    "medium": {
+      "present": [
+        "technical support",
+        "phone and email support",
+        "troubleshooting",
+        "escalation",
+        "English",
+        "communication skills",
+        "CRM (Zendesk)"
+      ],
+      "missing": [
+        "customer needs analysis",
+        "product feedback",
+        "provisioning",
+        "content creation",
+        "knowledge base",
+        "SaaS"
+      ]
+    },
+    "weak": {
+      "present": [
+        "English"
+      ],
+      "missing": [
+        "technical support",
+        "phone and email support",
+        "troubleshooting",
+        "customer needs analysis",
+        "product feedback",
+        "provisioning",
+        "content creation",
+        "knowledge base",
+        "escalation",
+        "communication skills",
+        "SaaS",
+        "CRM (Zendesk)"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": []
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "no-summary"
+    ],
+    "medium": [
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "shift"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Valentina Restrepo",
+    "email": "valentina.restrepo@example.com",
+    "phone": "+57 555 010 8812",
+    "url": "",
+    "summary": "",
+    "location": "Medellín, Colombia"
+  },
+  "workExperiences": [
+    {
+      "company": "Nimbus Learning (SaaS)",
+      "jobTitle": "Customer Support Specialist",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Resolve 45–60 technical support tickets a day by phone, email and Zoom screen share for US enterprise customers",
+        "Troubleshoot SSO, video upload and integration issues; first-contact resolution of 78%",
+        "Run discovery calls to understand customer needs and show admins which features fit their workflows",
+        "Provision new customer workspaces and user roles (120+ accounts in 2024)",
+        "Wrote 35 knowledge base articles and 20 Zendesk email templates (macros), cutting repeat tickets by 15%",
+        "Escalate complex cases to Tier 2 and Customer Success with full reproduction steps",
+        "Log bug reports and feature requests in Jira for the product team; 9 shipped in 2024",
+        "Turned webinar recordings into 12 short how-to videos for the training team"
+      ]
+    },
+    {
+      "company": "Contacto Global BPO",
+      "jobTitle": "Bilingual Customer Service Agent",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Handled 80+ inbound calls per shift for a US telecom account in English and Spanish"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Universidad EAFIT",
+      "degree": "B.A. Modern Languages",
+      "date": "2015 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Zendesk, Jira, Salesforce, Loom, Google Workspace",
+      "English (C2), Spanish (native)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Professional Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

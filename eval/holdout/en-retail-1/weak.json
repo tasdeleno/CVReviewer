@@ -1,0 +1,51 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Darnell Price",
+    "email": "darnell.price@example.com",
+    "phone": "+1 555 010 9932",
+    "url": "",
+    "summary": "Reliable warehouse worker looking for a new opportunity.",
+    "location": "Lowell, MA"
+  },
+  "workExperiences": [
+    {
+      "company": "Merrimack Distribution",
+      "jobTitle": "Warehouse Associate",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Picked and packed online orders",
+        "Responsible for loading trucks",
+        "Helped with inventory counts and restocking shelves"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Lowell High School",
+      "degree": "High School Diploma",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Forklift certified, RF scanner"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Objective",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

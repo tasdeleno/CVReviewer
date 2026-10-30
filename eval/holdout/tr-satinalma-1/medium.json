@@ -1,0 +1,63 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Gizem Aksoy",
+    "email": "gizem.aksoy@example.com",
+    "phone": "0555 010 3316",
+    "url": "",
+    "summary": "",
+    "location": "Kocaeli"
+  },
+  "workExperiences": [
+    {
+      "company": "Anadolu Gıda Sanayi A.Ş.",
+      "jobTitle": "Satınalma Uzmanı",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Ambalaj ve hammadde tedarikçilerinden teklif toplama ve teklif karşılaştırma tablolarını hazırladım",
+        "Tedarikçilerle fiyat ve ödeme vadesi müzakerelerine katıldım",
+        "Satın alma siparişlerini oluşturup teslimat takibini yaptım",
+        "Yılda iki kez tedarikçi değerlendirme anketlerini yürüttüm",
+        "Haftalık stok takibi tablolarını Excel'de güncelledim"
+      ]
+    },
+    {
+      "company": "Körfez Lojistik",
+      "jobTitle": "Operasyon Asistanı",
+      "date": "2019 - 2021",
+      "descriptions": [
+        "Sevkiyat evraklarının hazırlanması ve arşivlenmesi"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Sakarya Üniversitesi",
+      "degree": "İşletme (Lisans)",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MS Office, Excel",
+      "Planlama ve organizasyon",
+      "B sınıfı ehliyet"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim Bilgileri",
+    "projects": "",
+    "skills": "Yetenekler",
+    "custom": ""
+  }
+}

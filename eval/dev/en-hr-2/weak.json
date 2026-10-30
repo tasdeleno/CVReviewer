@@ -1,0 +1,61 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Tyler Nguyen",
+    "email": "tyler.nguyen@example.com",
+    "phone": "+1 555 010 2795",
+    "url": "",
+    "summary": "",
+    "location": "Quincy, MA"
+  },
+  "workExperiences": [
+    {
+      "company": "Beacon Bagel House",
+      "jobTitle": "Shift Lead",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Responsible for opening and closing the store",
+        "Helped with onboarding of new baristas during their first week",
+        "Built the weekly shift schedule for an hourly crew of 12",
+        "Counted cash drawers and handled customer complaints"
+      ]
+    },
+    {
+      "company": "Northgate Grocers",
+      "jobTitle": "Cashier",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Worked the register and stocked shelves"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Quincy High School",
+      "degree": "High School Diploma",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Square POS, Google Sheets, scheduling",
+      "Customer service, teamwork"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

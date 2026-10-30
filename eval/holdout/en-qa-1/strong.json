@@ -1,0 +1,67 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Brianna Okafor",
+    "email": "brianna.okafor@example.com",
+    "phone": "+1 555 010 1156",
+    "url": "",
+    "summary": "QA specialist with 4 years of on-the-floor quality oversight for sterile injectables at a CDMO.",
+    "location": "Nashville, TN"
+  },
+  "workExperiences": [
+    {
+      "company": "Volunteer Pharma Services",
+      "jobTitle": "QA Specialist, Floor Support",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Provide real-time QA oversight on 3 filling and packaging lines across night and weekend shifts",
+        "Perform line clearances, in-process checks and AQL inspections for about 25 lots a month",
+        "Review executed batch records and logbooks against SOPs and Good Documentation Practices; error rate down 40% in 2024",
+        "Act as designated observer for DEA Schedule II controlled substance handling and destruction",
+        "Verify label issuance and reconciliation for every packaging run",
+        "Qualified visual inspection and automated visual inspection on a new Seidenader line",
+        "Open deviations in MasterControl and lead OOS/OOT and CAPA investigations using 5 Whys and Fishbone",
+        "Coach 30+ operators on cGMP and cleanroom gowning; gowning failures fell from 9 to 2 per quarter",
+        "Prepared the floor for 2 FDA inspections and 6 internal audits with no observations on my lines"
+      ]
+    },
+    {
+      "company": "Music City Labs",
+      "jobTitle": "Quality Control Technician",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Ran environmental monitoring and cleaning verification sampling in ISO 7 and ISO 8 rooms"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Middle Tennessee State University",
+      "degree": "B.S. Biology",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "MasterControl, TrackWise, SAP QM",
+      "21 CFR 210/211, ICH Q7/Q10",
+      "Communication, problem-solving"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profile",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

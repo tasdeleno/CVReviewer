@@ -1,0 +1,67 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "url": "",
+    "name": "Elif Karaca",
+    "email": "elif.karaca@example.com",
+    "phone": "0532 000 1144",
+    "location": "İzmit, Kocaeli",
+    "summary": "5 yıllık bordro ve özlük işleri deneyimine sahip İK uzmanı. SGK bildirgeleri, puantaj ve ücret yönetimi süreçlerinde uçtan uca sorumluluk aldım."
+  },
+  "workExperiences": [
+    {
+      "company": "Körfez Otomotiv Yan Sanayi A.Ş.",
+      "jobTitle": "İnsan Kaynakları Uzmanı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "450 kişilik fabrikada aylık bordro hesaplamalarını Logo Bordro Plus ile hazırladım",
+        "SGK işe giriş ve işten çıkış bildirgelerini yasal süreler içinde düzenledim, MUHSGK beyannamelerini mali müşavirle mutabık ettim",
+        "Puantaj kayıtlarını vardiya amirleriyle mutabakat sağlayarak sisteme işledim",
+        "Yan haklar ve prim sistemini yeniden düzenleyen projede yer aldım; yıllık prim hesaplamalarını Excel makrolarıyla otomatikleştirdim",
+        "Aylık İK raporlarını (devir oranı, fazla mesai, izin) yönetime sundum"
+      ]
+    },
+    {
+      "company": "Gebze Lojistik Hizmetleri",
+      "jobTitle": "İK Uzman Yardımcısı",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Özlük dosyalarının ve personel sözleşmelerinin takibini yaptım",
+        "İŞKUR teşvik başvurularını hazırladım",
+        "İşe alım görüşmelerinin planlanmasına destek oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kocaeli Üniversitesi",
+      "degree": "Çalışma Ekonomisi ve Endüstri İlişkileri",
+      "date": "2015 - 2019",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Logo Bordro Plus, SAP HR (temel), MS Excel (makro, pivot), MS Office",
+      "İş Kanunu ve SGK mevzuatı",
+      "Ekip çalışması, analitik düşünme"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "Bordro Uzmanlığı Sertifikası - Kocaeli Üniversitesi Sürekli Eğitim Merkezi (2021)"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Özet",
+    "workExperiences": "İş Deneyimi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Beceriler",
+    "custom": "Sertifikalar"
+  }
+}

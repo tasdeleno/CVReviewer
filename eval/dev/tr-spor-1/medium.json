@@ -1,0 +1,61 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Ece Kurt",
+    "email": "ece.kurt@example.com",
+    "phone": "0555 010 9934",
+    "url": "",
+    "summary": "Grup dersleri ve pilates alanında 2 yıllık deneyimli fitness eğitmeni.",
+    "location": "Kağıthane, İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "FitLine Spor Salonu",
+      "jobTitle": "Grup Dersleri Eğitmeni",
+      "date": "2023 - Halen",
+      "descriptions": [
+        "Haftada 12 mat pilates ve core dersi veriyorum",
+        "Yeni üyelere salon turu ve ekipman kullanımı konusunda bilgi verdim",
+        "Salonun yaz kampı etkinliklerine katıldım",
+        "Üye memnuniyeti anketlerinde 4,8/5 puan aldım"
+      ]
+    },
+    {
+      "company": "Kağıthane Belediyesi Spor Merkezi",
+      "jobTitle": "Stajyer Eğitmen",
+      "date": "2022 - 2023",
+      "descriptions": [
+        "Çocuk jimnastik derslerinde antrenöre yardımcı oldum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Yeditepe Üniversitesi",
+      "degree": "Beden Eğitimi ve Spor Öğretmenliği",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Mat pilates, core, esneme",
+      "İletişim, takım çalışması"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profil",
+    "workExperiences": "Deneyim",
+    "educations": "EĞİTİM",
+    "projects": "",
+    "skills": "Yetkinlikler",
+    "custom": ""
+  }
+}

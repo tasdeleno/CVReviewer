@@ -1,0 +1,52 @@
+{
+  "lang": "tr",
+  "layout": "two-column",
+  "profile": {
+    "name": "Cansu Yener",
+    "email": "cansu.yener@example.com",
+    "phone": "0555 010 5534",
+    "url": "",
+    "summary": "Grafik tasarım alanında çalışan, yaratıcı ve detaycı bir tasarımcıyım.",
+    "location": "Ankara / Keçiören"
+  },
+  "workExperiences": [
+    {
+      "company": "Pixel Reklam Ajansı",
+      "jobTitle": "Grafik Tasarımcı",
+      "date": "2022 - Halen",
+      "descriptions": [
+        "Sosyal medya ve broşür tasarımları yaptım",
+        "Müşteri sunumları için görsel hazırlıklarına destek verdim",
+        "Baskı öncesi dosya kontrollerinden sorumluydum"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Gazi Üniversitesi",
+      "degree": "Grafik Tasarım (Lisans)",
+      "date": "2018 - 2022",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Photoshop, Illustrator, InDesign",
+      "Temel SketchUp"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Hakkımda",
+    "workExperiences": "Deneyim",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Programlar",
+    "custom": ""
+  }
+}

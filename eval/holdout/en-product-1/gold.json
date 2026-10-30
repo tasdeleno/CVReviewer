@@ -1,0 +1,276 @@
+{
+  "id": "en-product-1",
+  "lang": "en",
+  "sector": "product-management",
+  "title": "Staff Product Manager",
+  "keywords": [
+    {
+      "term": "product management",
+      "aliases": [
+        "product manager",
+        "ürün yönetimi",
+        "ürün yöneticisi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "product strategy",
+      "aliases": [
+        "product vision",
+        "domain strategy",
+        "ürün stratejisi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "AI agents",
+      "aliases": [
+        "intelligent agents",
+        "AI agent",
+        "LLM agents",
+        "AI-powered automation",
+        "yapay zeka ajanları",
+        "yapay zeka"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "quoting, billing and invoicing",
+      "aliases": [
+        "quoting",
+        "billing",
+        "invoicing",
+        "quote-to-cash",
+        "faturalama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "product roadmap",
+      "aliases": [
+        "roadmap",
+        "roadmaps",
+        "yol haritası"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "prioritization",
+      "aliases": [
+        "trade-offs",
+        "trade-off",
+        "prioritize",
+        "önceliklendirme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "cross-functional collaboration",
+      "aliases": [
+        "cross-functional",
+        "cross-functional teams",
+        "engineering, design",
+        "fonksiyonlar arası"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "executive communication",
+      "aliases": [
+        "senior leadership",
+        "leadership forums",
+        "executive stakeholders",
+        "üst yönetim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "global teams",
+      "aliases": [
+        "cross-border",
+        "distributed teams",
+        "global footprint",
+        "offshore teams",
+        "global ekipler"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "metrics frameworks",
+      "aliases": [
+        "metrics framework",
+        "product metrics",
+        "success metrics",
+        "KPIs",
+        "KPI",
+        "metrikler"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analytical skills",
+      "aliases": [
+        "analytical",
+        "quantitative",
+        "data-driven",
+        "data analysis",
+        "veri analizi",
+        "analitik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "product specs",
+      "aliases": [
+        "specs",
+        "PRDs",
+        "PRD",
+        "product requirements",
+        "spesifikasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mentoring",
+      "aliases": [
+        "mentorship",
+        "mentor",
+        "mentored",
+        "coaching",
+        "mentorluk"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication",
+      "aliases": [
+        "written and verbal communication",
+        "communication skills",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "B2B workflow software",
+      "aliases": [
+        "B2B",
+        "B2B SaaS",
+        "workflow software",
+        "supply chain platforms",
+        "logistics technology",
+        "supply chain",
+        "logistics",
+        "freight",
+        "lojistik",
+        "tedarik zinciri"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "product management",
+        "product strategy",
+        "AI agents",
+        "quoting, billing and invoicing",
+        "product roadmap",
+        "prioritization",
+        "cross-functional collaboration",
+        "executive communication",
+        "global teams",
+        "metrics frameworks",
+        "analytical skills",
+        "SQL",
+        "product specs",
+        "mentoring",
+        "communication",
+        "B2B workflow software"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "product management",
+        "product roadmap",
+        "prioritization",
+        "cross-functional collaboration",
+        "metrics frameworks",
+        "analytical skills",
+        "product specs",
+        "communication"
+      ],
+      "missing": [
+        "product strategy",
+        "AI agents",
+        "quoting, billing and invoicing",
+        "executive communication",
+        "global teams",
+        "SQL",
+        "mentoring",
+        "B2B workflow software"
+      ]
+    },
+    "weak": {
+      "present": [
+        "analytical skills",
+        "SQL",
+        "product specs"
+      ],
+      "missing": [
+        "product management",
+        "product strategy",
+        "AI agents",
+        "quoting, billing and invoicing",
+        "product roadmap",
+        "prioritization",
+        "cross-functional collaboration",
+        "executive communication",
+        "global teams",
+        "metrics frameworks",
+        "mentoring",
+        "communication",
+        "B2B workflow software"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ]
+  }
+}

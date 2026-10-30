@@ -1,0 +1,67 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Olivia Grant",
+    "email": "olivia.grant@example.com",
+    "phone": "+1 555 010 6620",
+    "url": "",
+    "summary": "NASM-certified personal trainer with 5 years in luxury clubs in Manhattan. Builds personalized strength and mobility programs for in-person and virtual clients.",
+    "location": "Brooklyn, NY"
+  },
+  "workExperiences": [
+    {
+      "company": "Hudson Athletic Club",
+      "jobTitle": "Senior Personal Trainer",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Grew an active client base from 12 to 38 clients, selling $14K in personal training packages per month",
+        "Run fitness assessments and movement screens for every new member intro session",
+        "Design and coach personalized programs for 30 in-person and 8 virtual clients",
+        "Manage my calendar of 40+ weekly sessions in Mindbody with no double bookings",
+        "Complete 20+ CEUs a year through workshops on mobility and pre/postnatal training",
+        "Keep the fitness floor organized and safe during shifts"
+      ]
+    },
+    {
+      "company": "Pier 9 Fitness",
+      "jobTitle": "Personal Trainer",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Greeted members and handled service requests on the gym floor, keeping a 4.9/5 member experience rating"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Hunter College",
+      "degree": "BS Exercise Science",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Strength training, mobility, program design",
+      "Mindbody, Google Calendar, MS Office",
+      "Communication, time management"
+    ]
+  },
+  "custom": {
+    "descriptions": [
+      "NASM Certified Personal Trainer (2020)",
+      "CPR/AED - American Red Cross (2025)"
+    ]
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": "Certifications"
+  }
+}

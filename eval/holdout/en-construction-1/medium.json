@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Priya Nandakumar",
+    "email": "priya.nandakumar@example.com",
+    "phone": "+1 555 010 7756",
+    "url": "",
+    "summary": "Assistant project manager in commercial tenant improvement construction.",
+    "location": "Long Beach, CA"
+  },
+  "workExperiences": [
+    {
+      "company": "Coastline Interiors Group",
+      "jobTitle": "Assistant Project Manager",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Maintained RFI and submittal logs for office tenant improvement projects",
+        "Prepared change order requests and tracked contract documentation",
+        "Assisted the project manager with project schedules and weekly owner meetings",
+        "Helped review subcontractor pay applications",
+        "Attended site walks and punch-list inspections"
+      ]
+    },
+    {
+      "company": "Coastline Interiors Group",
+      "jobTitle": "Project Coordinator",
+      "date": "2020 - 2022",
+      "descriptions": [
+        "Ordered materials and tracked deliveries for 20+ jobs"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of California, Irvine",
+      "degree": "B.A. Urban Studies",
+      "date": "2016 - 2020",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Procore, AutoCAD, Excel",
+      "Budget tracking",
+      "Stakeholder communication"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Profile",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

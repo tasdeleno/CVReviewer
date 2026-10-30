@@ -1,0 +1,413 @@
+{
+  "id": "en-qa-1",
+  "lang": "en",
+  "sector": "quality-assurance",
+  "title": "QA Specialist",
+  "keywords": [
+    {
+      "term": "cGMP",
+      "aliases": [
+        "GMP",
+        "current Good Manufacturing Practice",
+        "Good Manufacturing Practice",
+        "GMP compliance",
+        "İyi İmalat Uygulamaları",
+        "GMP uyumu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "batch records",
+      "aliases": [
+        "batch record",
+        "batch record review",
+        "executed batch records",
+        "seri kayıtları",
+        "üretim kayıtları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "SOPs",
+      "aliases": [
+        "SOP",
+        "standard operating procedures",
+        "standart çalışma prosedürleri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "line clearance",
+      "aliases": [
+        "line clearances",
+        "QA line clearance",
+        "hat temizliği kontrolü",
+        "hat açılış kontrolü"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "in-process checks",
+      "aliases": [
+        "in-process inspections",
+        "in-process controls",
+        "IPC",
+        "proses içi kontrol"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "AQL inspections",
+      "aliases": [
+        "AQL",
+        "AQL sampling",
+        "acceptance quality limit"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "visual inspection",
+      "aliases": [
+        "automated visual inspection",
+        "automated inspection",
+        "100% visual inspection",
+        "görsel kontrol"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "controlled substances",
+      "aliases": [
+        "controlled substance handling",
+        "controlled substance",
+        "DEA Schedule",
+        "kontrollü maddeler"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "labeling reconciliation",
+      "aliases": [
+        "label reconciliation",
+        "labeling issuance",
+        "label issuance",
+        "etiket mutabakatı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "lot disposition",
+      "aliases": [
+        "lot release",
+        "batch disposition",
+        "batch release",
+        "seri serbest bırakma"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "cleaning and sanitization",
+      "aliases": [
+        "cleaning verification",
+        "sanitization",
+        "environmental controls",
+        "environmental monitoring",
+        "temizlik ve sanitasyon"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "deviations",
+      "aliases": [
+        "deviation",
+        "deviation investigations",
+        "sapma",
+        "sapmalar"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "OOS/OOT",
+      "aliases": [
+        "OOS",
+        "OOT",
+        "out of specification",
+        "out of trend",
+        "spesifikasyon dışı"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "CAPA",
+      "aliases": [
+        "corrective and preventive action",
+        "DÖF",
+        "düzeltici ve önleyici faaliyet"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "root cause analysis",
+      "aliases": [
+        "RCA",
+        "5 Whys",
+        "Fishbone",
+        "FMEA",
+        "kök neden analizi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Good Documentation Practices",
+      "aliases": [
+        "GDP",
+        "ALCOA",
+        "GMP documentation",
+        "iyi dokümantasyon uygulamaları"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "document control",
+      "aliases": [
+        "controlled documents",
+        "document management",
+        "doküman kontrolü"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "FDA/ICH regulations",
+      "aliases": [
+        "FDA",
+        "ICH",
+        "21 CFR",
+        "DEA",
+        "regulatory standards"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "audits and inspections",
+      "aliases": [
+        "internal audits",
+        "internal audit",
+        "audits",
+        "self-inspection",
+        "regulatory inspections",
+        "inspection readiness",
+        "FDA inspections",
+        "regulatory inspection",
+        "iç denetim",
+        "iç tetkik",
+        "denetim hazırlığı",
+        "resmi denetimler"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "on-the-floor QA support",
+      "aliases": [
+        "real-time QA support",
+        "floor QA",
+        "QA floor support",
+        "production floor",
+        "QA oversight on the floor"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "operator coaching",
+      "aliases": [
+        "coaching operators",
+        "operator training",
+        "guidance to operators",
+        "operatör eğitimi"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "cleanroom gowning",
+      "aliases": [
+        "cleanroom",
+        "gowning",
+        "aseptic gowning",
+        "temiz oda"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication",
+      "aliases": [
+        "communication skills",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem-solving",
+      "aliases": [
+        "problem solving",
+        "problem çözme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "interpersonal skills",
+      "aliases": [
+        "interpersonal",
+        "kişilerarası beceriler"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "MasterControl",
+      "aliases": [
+        "Master Control",
+        "electronic quality systems",
+        "eQMS",
+        "Veeva Vault",
+        "TrackWise",
+        "SAP QM"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "cGMP",
+        "batch records",
+        "SOPs",
+        "line clearance",
+        "in-process checks",
+        "AQL inspections",
+        "visual inspection",
+        "controlled substances",
+        "labeling reconciliation",
+        "cleaning and sanitization",
+        "deviations",
+        "OOS/OOT",
+        "CAPA",
+        "root cause analysis",
+        "Good Documentation Practices",
+        "FDA/ICH regulations",
+        "audits and inspections",
+        "on-the-floor QA support",
+        "operator coaching",
+        "cleanroom gowning",
+        "communication",
+        "problem-solving",
+        "MasterControl"
+      ],
+      "missing": [
+        "lot disposition",
+        "document control",
+        "interpersonal skills"
+      ]
+    },
+    "medium": {
+      "present": [
+        "cGMP",
+        "batch records",
+        "SOPs",
+        "line clearance",
+        "in-process checks",
+        "deviations",
+        "CAPA",
+        "root cause analysis",
+        "Good Documentation Practices",
+        "audits and inspections",
+        "communication",
+        "problem-solving",
+        "MasterControl"
+      ],
+      "missing": [
+        "AQL inspections",
+        "visual inspection",
+        "controlled substances",
+        "labeling reconciliation",
+        "lot disposition",
+        "cleaning and sanitization",
+        "OOS/OOT",
+        "document control",
+        "FDA/ICH regulations",
+        "on-the-floor QA support",
+        "operator coaching",
+        "cleanroom gowning",
+        "interpersonal skills"
+      ]
+    },
+    "weak": {
+      "present": [
+        "in-process checks",
+        "cleaning and sanitization"
+      ],
+      "missing": [
+        "cGMP",
+        "batch records",
+        "SOPs",
+        "line clearance",
+        "AQL inspections",
+        "visual inspection",
+        "controlled substances",
+        "labeling reconciliation",
+        "lot disposition",
+        "deviations",
+        "OOS/OOT",
+        "CAPA",
+        "root cause analysis",
+        "Good Documentation Practices",
+        "document control",
+        "FDA/ICH regulations",
+        "audits and inspections",
+        "on-the-floor QA support",
+        "operator coaching",
+        "cleanroom gowning",
+        "communication",
+        "problem-solving",
+        "interpersonal skills",
+        "MasterControl"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "only-in-skills"
+    ],
+    "medium": [
+      "unquantified",
+      "weak-verbs",
+      "only-in-skills"
+    ],
+    "weak": [
+      "no-summary",
+      "unquantified",
+      "weak-verbs"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "shift"
+    }
+  ]
+}

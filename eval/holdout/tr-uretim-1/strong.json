@@ -1,0 +1,64 @@
+{
+  "lang": "tr",
+  "layout": "standard",
+  "profile": {
+    "name": "Serkan Bozdağ",
+    "email": "serkan.bozdag@example.com",
+    "phone": "0555 010 4417",
+    "url": "",
+    "summary": "",
+    "location": "Denizli / Çardak"
+  },
+  "workExperiences": [
+    {
+      "company": "Ege Kablo Sanayi",
+      "jobTitle": "Ekstrüder Operatörü",
+      "date": "2020 - Halen",
+      "descriptions": [
+        "3 hatlı PVC kablo ekstrüder makinesini vardiyalı olarak çalıştırdım",
+        "Vardiya başında sıcaklık, hız ve kalıp ayarlarıyla makine kontrollerini yaptım",
+        "Üretim takip formlarını her 2 saatte bir doldurarak fire oranını %4'ten %2,5'e indirdim",
+        "Kalite kontrol ekibiyle birlikte kablo çapı ve izolasyon kalınlığı ölçümlerini yaptım",
+        "Yeni gelen 6 operatöre makine kullanımı eğitimi verdim"
+      ]
+    },
+    {
+      "company": "Pamukkale Plastik",
+      "jobTitle": "Üretim Elemanı",
+      "date": "2017 - 2020",
+      "descriptions": [
+        "Boru ekstrüzyon hattında sarım ve paketleme yaptım",
+        "Ekip çalışmasıyla günlük 12 ton üretim hedefini tutturduk"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Çardak Mesleki ve Teknik Anadolu Lisesi",
+      "degree": "Elektrik-Elektronik Teknolojisi",
+      "date": "2013 - 2017",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Ekstrüder ve sarım makineleri, kumpas ve mikrometre kullanımı",
+      "Forklift operatör belgesi",
+      "Askerlik: Tamamlandı (2019)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "İş Tecrübesi",
+    "educations": "Eğitim",
+    "projects": "",
+    "skills": "Yetkinlikler ve Belgeler",
+    "custom": ""
+  }
+}

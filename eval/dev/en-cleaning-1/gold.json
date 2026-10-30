@@ -1,0 +1,222 @@
+{
+  "id": "en-cleaning-1",
+  "lang": "en",
+  "sector": "cleaning",
+  "title": "Janitor/Cleaner Aide",
+  "keywords": [
+    {
+      "term": "patient room cleaning",
+      "aliases": [
+        "patient rooms",
+        "hospital cleaning",
+        "hasta odaları",
+        "hastane temizliği"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "mopping",
+      "aliases": [
+        "dry/wet mopping",
+        "wet mopping",
+        "dry mopping",
+        "floor cleaning",
+        "floor care",
+        "zemin temizliği",
+        "zemin yıkama"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "waste disposal",
+      "aliases": [
+        "waste",
+        "waste removal",
+        "waste management",
+        "biohazard waste",
+        "atık",
+        "atık yönetimi",
+        "tıbbi atık"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "linen handling",
+      "aliases": [
+        "soiled linen",
+        "linen",
+        "linens",
+        "kirli çamaşır",
+        "çamaşır"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "quality assessment",
+      "aliases": [
+        "quality checks",
+        "quality inspections",
+        "quality audits",
+        "kalite kontrol"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "communication skills",
+      "aliases": [
+        "communication",
+        "iletişim becerisi",
+        "iletişim"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "English",
+      "aliases": [
+        "İngilizce"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "housekeeping",
+      "aliases": [
+        "housekeeper",
+        "janitorial",
+        "janitor",
+        "custodial",
+        "cleaner",
+        "environmental services",
+        "temizlik personeli",
+        "kat hizmetleri"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "healthcare environment",
+      "aliases": [
+        "healthcare",
+        "hospital",
+        "long-term care",
+        "clinic",
+        "hastane",
+        "sağlık"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "work independently",
+      "aliases": [
+        "independently",
+        "working independently",
+        "bağımsız çalışma"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "heavy machinery",
+      "aliases": [
+        "floor scrubber",
+        "auto scrubber",
+        "floor machine",
+        "burnisher",
+        "zemin yıkama makinesi",
+        "temizlik makinesi"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "patient room cleaning",
+        "mopping",
+        "waste disposal",
+        "linen handling",
+        "communication skills",
+        "English",
+        "housekeeping",
+        "healthcare environment",
+        "work independently",
+        "heavy machinery"
+      ],
+      "missing": [
+        "quality assessment"
+      ]
+    },
+    "medium": {
+      "present": [
+        "patient room cleaning",
+        "mopping",
+        "waste disposal",
+        "housekeeping",
+        "healthcare environment",
+        "heavy machinery"
+      ],
+      "missing": [
+        "linen handling",
+        "quality assessment",
+        "communication skills",
+        "English",
+        "work independently"
+      ]
+    },
+    "weak": {
+      "present": [
+        "waste disposal",
+        "heavy machinery"
+      ],
+      "missing": [
+        "patient room cleaning",
+        "mopping",
+        "linen handling",
+        "quality assessment",
+        "communication skills",
+        "English",
+        "housekeeping",
+        "healthcare environment",
+        "work independently"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "medium": [
+      "no-summary",
+      "unquantified"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "shift"
+    },
+    {
+      "kind": "health-report"
+    }
+  ]
+}

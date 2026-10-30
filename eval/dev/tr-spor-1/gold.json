@@ -1,0 +1,275 @@
+{
+  "id": "tr-spor-1",
+  "lang": "tr",
+  "sector": "spor",
+  "title": "Spor Eğitmeni",
+  "keywords": [
+    {
+      "term": "kişiye özel antrenman programı",
+      "aliases": [
+        "antrenman programı",
+        "kişisel antrenman programı",
+        "kişiye özel program",
+        "program hazırlama",
+        "program design",
+        "personalized programs",
+        "individual programs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "gelişim takibi",
+      "aliases": [
+        "ilerleme takibi",
+        "ölçüm takibi",
+        "progress tracking",
+        "tracked progress"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ekipman rehberliği",
+      "aliases": [
+        "ekipman kullanımı",
+        "doğru ekipman kullanımı",
+        "equipment guidance",
+        "safe equipment use"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "özel ders satışı",
+      "aliases": [
+        "PT satışı",
+        "paket satışı",
+        "personal training sales",
+        "personal training packages"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "hijyen",
+      "aliases": [
+        "hijyen standartları",
+        "hygiene",
+        "cleanliness"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "salon güvenliği",
+      "aliases": [
+        "ekipman güvenliği",
+        "salon düzeni",
+        "fitness alanı düzeni",
+        "safe fitness floor",
+        "gym floor safety"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "etkinlik organizasyonu",
+      "aliases": [
+        "kulüp etkinlikleri",
+        "sportif organizasyon",
+        "üye sadakat projeleri",
+        "event organization",
+        "club events"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "antrenörlük belgesi",
+      "aliases": [
+        "TVGFBF",
+        "1. Kademe Antrenörlük",
+        "antrenör belgesi",
+        "Fitness Coach Level 1",
+        "coaching certificate"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "fonksiyonel antrenman",
+      "aliases": [
+        "fonksiyonel",
+        "functional training"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "pilates",
+      "aliases": [
+        "mat pilates",
+        "reformer"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "crossfit",
+      "aliases": [
+        "CrossFit"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "core egzersizleri",
+      "aliases": [
+        "core",
+        "core antrenmanı",
+        "core training"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerisi",
+      "aliases": [
+        "iletişim",
+        "communication skills",
+        "communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "ikna kabiliyeti",
+      "aliases": [
+        "ikna",
+        "persuasion",
+        "persuasive"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "üye memnuniyeti",
+      "aliases": [
+        "müşteri memnuniyeti",
+        "member satisfaction",
+        "customer satisfaction"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "ekip çalışması",
+        "teamwork",
+        "team player"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "kişiye özel antrenman programı",
+        "gelişim takibi",
+        "ekipman rehberliği",
+        "özel ders satışı",
+        "hijyen",
+        "salon güvenliği",
+        "antrenörlük belgesi",
+        "fonksiyonel antrenman",
+        "pilates",
+        "core egzersizleri"
+      ],
+      "missing": [
+        "etkinlik organizasyonu",
+        "crossfit",
+        "iletişim becerisi",
+        "ikna kabiliyeti",
+        "üye memnuniyeti",
+        "takım çalışması"
+      ]
+    },
+    "medium": {
+      "present": [
+        "ekipman rehberliği",
+        "etkinlik organizasyonu",
+        "pilates",
+        "core egzersizleri",
+        "iletişim becerisi",
+        "üye memnuniyeti",
+        "takım çalışması"
+      ],
+      "missing": [
+        "kişiye özel antrenman programı",
+        "gelişim takibi",
+        "özel ders satışı",
+        "hijyen",
+        "salon güvenliği",
+        "antrenörlük belgesi",
+        "fonksiyonel antrenman",
+        "crossfit",
+        "ikna kabiliyeti"
+      ]
+    },
+    "weak": {
+      "present": [
+        "hijyen"
+      ],
+      "missing": [
+        "kişiye özel antrenman programı",
+        "gelişim takibi",
+        "ekipman rehberliği",
+        "özel ders satışı",
+        "salon güvenliği",
+        "etkinlik organizasyonu",
+        "antrenörlük belgesi",
+        "fonksiyonel antrenman",
+        "pilates",
+        "crossfit",
+        "core egzersizleri",
+        "iletişim becerisi",
+        "ikna kabiliyeti",
+        "üye memnuniyeti",
+        "takım çalışması"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "medium": [
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "no-summary",
+      "weak-verbs",
+      "unquantified"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "appearance"
+    },
+    {
+      "kind": "shift"
+    },
+    {
+      "kind": "residence"
+    }
+  ]
+}

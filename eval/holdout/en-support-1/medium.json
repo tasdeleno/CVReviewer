@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Andrés Gómez",
+    "email": "andres.gomez@example.com",
+    "phone": "+57 555 010 8827",
+    "url": "",
+    "summary": "Bilingual call center agent with 3 years of phone support experience for internet and TV customers.",
+    "location": "Bogotá, Colombia"
+  },
+  "workExperiences": [
+    {
+      "company": "TeleAndes Contact Center",
+      "jobTitle": "Customer Support Specialist",
+      "date": "2022 - Present",
+      "descriptions": [
+        "Answer inbound calls about internet outages and walk customers through modem troubleshooting",
+        "Escalate unresolved issues to field technicians",
+        "Keep customer notes updated in the CRM",
+        "Responsible for meeting average handle time targets"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "SENA",
+      "degree": "Técnico en Atención al Cliente",
+      "date": "2019 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "English (B2), Spanish (native)",
+      "Salesforce Service Cloud",
+      "Communication skills"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

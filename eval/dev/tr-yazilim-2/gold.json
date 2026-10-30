@@ -1,0 +1,439 @@
+{
+  "id": "tr-yazilim-2",
+  "lang": "tr",
+  "sector": "yazilim",
+  "title": "PHP Yazılım Geliştirme Uzmanı (Full Stack Developer)",
+  "keywords": [
+    {
+      "term": "PHP",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "MySQL",
+      "aliases": [
+        "MariaDB"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "veritabanı optimizasyonu",
+      "aliases": [
+        "database optimization",
+        "sorgu optimizasyonu",
+        "query optimization",
+        "sorgu performansı",
+        "indexing",
+        "indeksleme",
+        "veritabanı tasarımı",
+        "database design"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "JavaScript",
+      "aliases": [
+        "JS",
+        "ES6"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "HTML/CSS",
+      "aliases": [
+        "HTML5",
+        "CSS3",
+        "HTML",
+        "CSS"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "responsive tasarım",
+      "aliases": [
+        "responsive",
+        "responsive design",
+        "mobil uyumlu"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "REST API",
+      "aliases": [
+        "REST",
+        "RESTful",
+        "REST APIs",
+        "web servisleri",
+        "web services",
+        "API entegrasyonu",
+        "API integration",
+        "third-party APIs"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "JSON",
+      "aliases": [],
+      "importance": "required"
+    },
+    {
+      "term": "Git",
+      "aliases": [
+        "GitHub",
+        "GitLab",
+        "Bitbucket",
+        "versiyon kontrol",
+        "version control"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "OOP",
+      "aliases": [
+        "nesne yönelimli programlama",
+        "object-oriented programming",
+        "object-oriented"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "clean code",
+      "aliases": [
+        "temiz kod",
+        "SOLID",
+        "kod standartları",
+        "coding standards",
+        "yazılım tasarım prensipleri",
+        "design patterns"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "debugging",
+      "aliases": [
+        "hata ayıklama",
+        "hata analizi",
+        "troubleshooting",
+        "root cause analysis"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "yazılım testi",
+      "aliases": [
+        "test",
+        "testing",
+        "unit test",
+        "unit tests",
+        "birim test",
+        "PHPUnit",
+        "pytest"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "refactoring",
+      "aliases": [
+        "refactor",
+        "yeniden düzenleme"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "web güvenliği",
+      "aliases": [
+        "web security",
+        "yazılım güvenliği",
+        "güvenli yazılım geliştirme",
+        "veri doğrulama",
+        "input validation",
+        "OWASP"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "performans optimizasyonu",
+      "aliases": [
+        "performance optimization",
+        "performans iyileştirme",
+        "sistem performansı",
+        "performance tuning"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teknik dokümantasyon",
+      "aliases": [
+        "technical documentation",
+        "dokümantasyon",
+        "documentation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "analitik düşünme",
+      "aliases": [
+        "analytical thinking",
+        "analitik"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "problem çözme",
+      "aliases": [
+        "problem solving"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "takım çalışması",
+      "aliases": [
+        "ekip çalışması",
+        "teamwork",
+        "team player"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "iletişim becerisi",
+      "aliases": [
+        "iletişim",
+        "communication skills",
+        "communication"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "rezervasyon sistemleri",
+      "aliases": [
+        "online rezervasyon",
+        "rezervasyon sistemi",
+        "booking system",
+        "booking engine",
+        "reservation system"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "Laravel",
+      "aliases": [
+        "Symfony",
+        "CodeIgniter",
+        "PHP framework"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "React/Vue.js",
+      "aliases": [
+        "React",
+        "Vue.js",
+        "Vue",
+        "Angular"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "C#/.NET",
+      "aliases": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "ASP.NET"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "MS SQL Server",
+      "aliases": [
+        "MSSQL",
+        "SQL Server"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "e-ticaret/CRM/ERP",
+      "aliases": [
+        "e-ticaret",
+        "e-commerce",
+        "CRM",
+        "ERP"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "yapay zekâ entegrasyonu",
+      "aliases": [
+        "yapay zeka",
+        "AI entegrasyonu",
+        "AI integration",
+        "LLM",
+        "LLM API",
+        "OpenAI API",
+        "LangChain"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "SEO",
+      "aliases": [
+        "teknik SEO",
+        "technical SEO"
+      ],
+      "importance": "preferred"
+    },
+    {
+      "term": "İngilizce",
+      "aliases": [
+        "English"
+      ],
+      "importance": "preferred"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "PHP",
+        "MySQL",
+        "veritabanı optimizasyonu",
+        "JavaScript",
+        "HTML/CSS",
+        "responsive tasarım",
+        "REST API",
+        "JSON",
+        "Git",
+        "OOP",
+        "clean code",
+        "debugging",
+        "yazılım testi",
+        "refactoring",
+        "web güvenliği",
+        "performans optimizasyonu",
+        "teknik dokümantasyon",
+        "problem çözme",
+        "takım çalışması",
+        "rezervasyon sistemleri",
+        "Laravel",
+        "React/Vue.js",
+        "e-ticaret/CRM/ERP",
+        "İngilizce"
+      ],
+      "missing": [
+        "analitik düşünme",
+        "iletişim becerisi",
+        "C#/.NET",
+        "MS SQL Server",
+        "yapay zekâ entegrasyonu",
+        "SEO"
+      ]
+    },
+    "medium": {
+      "present": [
+        "PHP",
+        "MySQL",
+        "veritabanı optimizasyonu",
+        "JavaScript",
+        "REST API",
+        "Git",
+        "debugging",
+        "yazılım testi",
+        "performans optimizasyonu",
+        "Laravel",
+        "yapay zekâ entegrasyonu"
+      ],
+      "missing": [
+        "HTML/CSS",
+        "responsive tasarım",
+        "JSON",
+        "OOP",
+        "clean code",
+        "refactoring",
+        "web güvenliği",
+        "teknik dokümantasyon",
+        "analitik düşünme",
+        "problem çözme",
+        "takım çalışması",
+        "iletişim becerisi",
+        "rezervasyon sistemleri",
+        "React/Vue.js",
+        "C#/.NET",
+        "MS SQL Server",
+        "e-ticaret/CRM/ERP",
+        "SEO",
+        "İngilizce"
+      ]
+    },
+    "weak": {
+      "present": [
+        "HTML/CSS",
+        "SEO"
+      ],
+      "missing": [
+        "PHP",
+        "MySQL",
+        "veritabanı optimizasyonu",
+        "JavaScript",
+        "responsive tasarım",
+        "REST API",
+        "JSON",
+        "Git",
+        "OOP",
+        "clean code",
+        "debugging",
+        "yazılım testi",
+        "refactoring",
+        "web güvenliği",
+        "performans optimizasyonu",
+        "teknik dokümantasyon",
+        "analitik düşünme",
+        "problem çözme",
+        "takım çalışması",
+        "iletişim becerisi",
+        "rezervasyon sistemleri",
+        "Laravel",
+        "React/Vue.js",
+        "C#/.NET",
+        "MS SQL Server",
+        "e-ticaret/CRM/ERP",
+        "yapay zekâ entegrasyonu",
+        "İngilizce"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "medium": [
+      "unquantified",
+      "only-in-skills"
+    ],
+    "weak": [
+      "title",
+      "weak-verbs",
+      "unquantified",
+      "only-in-skills"
+    ]
+  }
+}

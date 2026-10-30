@@ -1,0 +1,67 @@
+{
+  "lang": "en",
+  "layout": "two-column",
+  "profile": {
+    "name": "Danielle Brooks",
+    "email": "danielle.brooks@example.com",
+    "phone": "+1 555 010 2740",
+    "url": "linkedin.com/in/daniellebrooks-example",
+    "summary": "HR business partner with 6 years supporting hourly store teams in multi-unit retail and quick-service restaurants. Known for calm, well-documented employee relations work and practical manager coaching.",
+    "location": "Boston, MA"
+  },
+  "workExperiences": [
+    {
+      "company": "Harborline Coffee Co.",
+      "jobTitle": "HR Business Partner",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Partner with 4 district managers and 38 general managers across 52 cafés in New England",
+        "Lead employee relations cases and workplace investigations from intake to resolution, closing 140+ cases a year with documented findings",
+        "Coach GMs and shift leads on performance management, feedback and difficult conversations",
+        "Rebuilt the new-hire onboarding journey in UKG, cutting 90-day turnover from 41% to 29%",
+        "Run quarterly engagement surveys and action planning for 1,900 employees",
+        "Built people data dashboards in Google Sheets for attendance, turnover and staffing across all 52 cafés",
+        "Rolled out updated attendance and meal-break policies to stay compliant with Massachusetts labor law",
+        "Partner with Talent Acquisition on hiring plans and interview calibration for seasonal peaks"
+      ]
+    },
+    {
+      "company": "Copley Outfitters",
+      "jobTitle": "HR Generalist",
+      "date": "2018 - 2021",
+      "descriptions": [
+        "Supported store managers in 11 retail locations with staffing and scheduling",
+        "Administered the Greenhouse ATS for hourly hiring"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "University of Massachusetts Boston",
+      "degree": "BA Psychology",
+      "date": "2014 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "UKG, Greenhouse, Google Workspace, Excel",
+      "Employee relations, investigations, coaching",
+      "SHRM-CP (2022)"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "PROFILE",
+    "workExperiences": "Experience",
+    "educations": "EDUCATION",
+    "projects": "",
+    "skills": "SKILLS",
+    "custom": ""
+  }
+}

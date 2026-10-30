@@ -1,0 +1,53 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Kevin Liu",
+    "email": "kevin.liu@example.com",
+    "phone": "+1 555 010 1048",
+    "url": "",
+    "summary": "Business analyst looking for a new challenge at a tech company.",
+    "location": "Oakland, CA"
+  },
+  "workExperiences": [
+    {
+      "company": "Bayline Insurance",
+      "jobTitle": "Business Analyst",
+      "date": "2021 - Present",
+      "descriptions": [
+        "Wrote requirement specs for the claims portal based on business user interviews",
+        "Wrote SQL queries for monthly reports",
+        "Supported the project manager with status updates",
+        "Participated in user acceptance testing"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "San Francisco State University",
+      "degree": "B.S. Business Administration",
+      "date": "2017 - 2021",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "SQL, Excel, Visio",
+      "Analytical skills"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "Summary",
+    "workExperiences": "Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

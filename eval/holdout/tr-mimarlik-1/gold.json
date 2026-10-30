@@ -1,0 +1,212 @@
+{
+  "id": "tr-mimarlik-1",
+  "lang": "tr",
+  "sector": "architecture",
+  "title": "İç Mimar",
+  "keywords": [
+    {
+      "term": "iç mimarlık projeleri",
+      "aliases": [
+        "iç mimarlık",
+        "iç mimari proje",
+        "iç mekan tasarımı",
+        "interior architecture",
+        "interior design"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "proje koordinasyonu",
+      "aliases": [
+        "proje planlama",
+        "proje yönetimi",
+        "projeleri koordine",
+        "project coordination",
+        "project management"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "3D tasarım",
+      "aliases": [
+        "3D modelleme",
+        "3D görselleştirme",
+        "görselleştirme",
+        "render",
+        "3ds Max",
+        "SketchUp",
+        "3D design",
+        "3D visualization",
+        "3D modelling"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "müşteri sunumu",
+      "aliases": [
+        "sunum",
+        "sunumlar",
+        "client presentations",
+        "presentations"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "teknik çizim",
+      "aliases": [
+        "teknik çizimler",
+        "plan, kesit, görünüş",
+        "kesit",
+        "görünüş",
+        "technical drawings",
+        "construction drawings"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "proje dokümantasyonu",
+      "aliases": [
+        "dokümantasyon",
+        "documentation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "malzeme ve üretim takibi",
+      "aliases": [
+        "malzeme takibi",
+        "üretim takibi",
+        "üretim ekipleriyle koordinasyon",
+        "imalat takibi",
+        "material tracking",
+        "production follow-up"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "saha uygulama",
+      "aliases": [
+        "saha uygulaması",
+        "uygulama süreçleri",
+        "şantiye",
+        "uygulama projeleri",
+        "site supervision",
+        "site implementation"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "kalite kontrolü",
+      "aliases": [
+        "kalite kontrol",
+        "quality control"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "bütçe ve zaman planı",
+      "aliases": [
+        "bütçe takibi",
+        "bütçe",
+        "zaman planı",
+        "iş programı",
+        "budget",
+        "schedule"
+      ],
+      "importance": "required"
+    },
+    {
+      "term": "raporlama",
+      "aliases": [
+        "rapor",
+        "reporting",
+        "reports"
+      ],
+      "importance": "required"
+    }
+  ],
+  "resumes": {
+    "strong": {
+      "present": [
+        "iç mimarlık projeleri",
+        "proje koordinasyonu",
+        "3D tasarım",
+        "müşteri sunumu",
+        "teknik çizim",
+        "proje dokümantasyonu",
+        "malzeme ve üretim takibi",
+        "saha uygulama",
+        "kalite kontrolü",
+        "bütçe ve zaman planı",
+        "raporlama"
+      ],
+      "missing": []
+    },
+    "medium": {
+      "present": [
+        "iç mimarlık projeleri",
+        "3D tasarım",
+        "müşteri sunumu",
+        "teknik çizim"
+      ],
+      "missing": [
+        "proje koordinasyonu",
+        "proje dokümantasyonu",
+        "malzeme ve üretim takibi",
+        "saha uygulama",
+        "kalite kontrolü",
+        "bütçe ve zaman planı",
+        "raporlama"
+      ]
+    },
+    "weak": {
+      "present": [
+        "müşteri sunumu"
+      ],
+      "missing": [
+        "iç mimarlık projeleri",
+        "proje koordinasyonu",
+        "3D tasarım",
+        "teknik çizim",
+        "proje dokümantasyonu",
+        "malzeme ve üretim takibi",
+        "saha uygulama",
+        "kalite kontrolü",
+        "bütçe ve zaman planı",
+        "raporlama"
+      ]
+    }
+  },
+  "expectedSections": {
+    "strong": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ],
+    "medium": [],
+    "weak": [
+      "summary",
+      "workExperiences",
+      "educations",
+      "skills"
+    ]
+  },
+  "expectedSuggestions": {
+    "strong": [],
+    "medium": [
+      "unquantified",
+      "weak-verbs"
+    ],
+    "weak": [
+      "title",
+      "unquantified",
+      "weak-verbs"
+    ]
+  },
+  "conditions": [
+    {
+      "kind": "license"
+    }
+  ]
+}

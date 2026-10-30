@@ -1,0 +1,52 @@
+{
+  "lang": "en",
+  "layout": "standard",
+  "profile": {
+    "name": "Kerem Yalçın",
+    "email": "kerem.yalcin@example.com",
+    "phone": "+90 555 010 6633",
+    "url": "",
+    "summary": "Friendly barista who enjoys meeting new people and working in a busy team.",
+    "location": "Istanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Moda Coffee House",
+      "jobTitle": "Barista",
+      "date": "2023 - Present",
+      "descriptions": [
+        "Prepared espresso drinks and served customers",
+        "Helped with opening and closing the café",
+        "Kept the bar area clean and stocked"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Kadıköy Anatolian High School",
+      "degree": "High School Diploma",
+      "date": "2019 - 2023",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Teamwork, English (B1)",
+      "Latte art"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "About me",
+    "workExperiences": "Work Experience",
+    "educations": "Education",
+    "projects": "",
+    "skills": "Skills",
+    "custom": ""
+  }
+}

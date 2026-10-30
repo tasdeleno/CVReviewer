@@ -1,0 +1,61 @@
+{
+  "lang": "tr",
+  "layout": "no-headings",
+  "profile": {
+    "name": "Gamze Aydın",
+    "email": "gamze.aydin@example.com",
+    "phone": "0555 010 4417",
+    "url": "",
+    "summary": "",
+    "location": "Pendik, İstanbul"
+  },
+  "workExperiences": [
+    {
+      "company": "Yıldız Yapı Malzemeleri Ltd.",
+      "jobTitle": "Ön Muhasebe Elemanı",
+      "date": "2021 - Halen",
+      "descriptions": [
+        "Fatura girişleri ve cari hesap takibinden sorumluydum",
+        "Personelin aylık puantaj çizelgelerini toplayıp muhasebe müdürüne ilettim",
+        "Banka mutabakatlarına yardımcı oldum",
+        "Kasa ve çek-senet takibini yaptım"
+      ]
+    },
+    {
+      "company": "Ege Kırtasiye",
+      "jobTitle": "Satış Danışmanı",
+      "date": "2018 - 2021",
+      "descriptions": [
+        "Mağaza satış ve kasa işlemleri"
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "school": "Anadolu Üniversitesi Açıköğretim Fakültesi",
+      "degree": "Muhasebe ve Vergi Uygulamaları (Önlisans)",
+      "date": "2016 - 2018",
+      "gpa": "",
+      "descriptions": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "featuredSkills": [],
+    "descriptions": [
+      "Logo Go, Excel, MS Office",
+      "F klavye"
+    ]
+  },
+  "custom": {
+    "descriptions": []
+  },
+  "sectionTitles": {
+    "summary": "",
+    "workExperiences": "",
+    "educations": "",
+    "projects": "",
+    "skills": "",
+    "custom": ""
+  }
+}
