@@ -27,8 +27,9 @@ veya üçüncü taraf istek yoktur.
   62 birim testi.
 - Skor (tur 3): dev 88.4, holdout v3 1. bakış 75.6 (tur 3 öncesi motor). Hizmet/mavi yaka ilanlarında
   sözlük neredeyse boş; bu ilanlar "yetersiz sinyal" olarak işaretleniyor. Ayrıntı `eval/README.md`'de.
-- Sırada: sözlük genelleşmesi (tur 4, Türkçe kaynak gerekiyor), ardından arayüz (Faz 4: Türkçe analiz
-  sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
+- Sırada: tur 4 (planlandı): ifade çıkarımı ve açık kaynaklardan ilan madenciliğiyle sözlük. İlan ve CV
+  aynı dilde varsayılıyor. Ardından arayüz (Faz 4, tam kapsam: analiz sayfası, ATS Testi; mesajlar
+  yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok). Ayrıntı `eval/README.md`.
 - Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
 
 Aşağısı upstream'in orijinal README'sidir.
