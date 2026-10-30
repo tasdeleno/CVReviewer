@@ -221,7 +221,7 @@ method|brand management, branding|marka yönetimi, markalaşma
 method|market research|pazar araştırması
 method|competitor analysis, competitive analysis|rakip analizi
 method|campaign management|kampanya yönetimi
-method|conversion rate optimization, CRO|dönüşüm oranı optimizasyonu
+method|conversion rate optimization, =CRO|dönüşüm oranı optimizasyonu
 method|influencer marketing|influencer pazarlaması
 method|lead generation|potansiyel müşteri yaratma
 method|B2B

@@ -30,7 +30,8 @@ export type SuggestionKind =
   | "title"
   | "weak-verbs"
   | "unquantified"
-  | "long-bullets";
+  | "long-bullets"
+  | "low-signal";
 
 export interface Suggestion {
   kind: SuggestionKind;
@@ -202,16 +203,30 @@ export const suggest = ({
   resume,
   resumeText,
   langs,
+  insufficient = false,
 }: {
   jobAd: string;
   matches: KeywordMatch[];
   resume: Resume;
   resumeText: string;
   langs: Langs;
+  insufficient?: boolean;
 }): Suggestion[] => {
   const lang = langs.resume;
   const suggestions: Suggestion[] = [];
-  const missing = matches.filter((m) => !m.found).sort(byWeight);
+  // An ad with too few skills gives no reliable "missing" list: say so instead
+  const missing = insufficient
+    ? []
+    : matches.filter((m) => !m.found).sort(byWeight);
+  if (insufficient) {
+    suggestions.push({
+      kind: "low-signal",
+      section: "general",
+      priority: "high",
+      message:
+        "İlandan yeterli beceri çıkarılamadı; skor güvenilir değil. Eksik beceri önerisi verilmedi. İlanın gereksinim kısmını ayrıca okuyup CV'ni ona göre kontrol et.",
+    });
+  }
   const hasRequired = (ms: KeywordMatch[]) =>
     ms.some((m) => m.importance === "required");
   const parsedBullets = [

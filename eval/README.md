@@ -3,9 +3,15 @@
 CV ile iş ilanı anahtar kelime eşleştirme aracı için **tamamen kurgusal** değerlendirme verisi. Tüm kişi, şirket, e-posta (example.com) ve telefon (555, 07700 900) bilgileri uydurmadır; gerçek kişi/kurum ile ilgisi yoktur.
 
 ## İçerik
-- 18 ilan: 9 sektör × EN + TR. Her ilan için 3 CV: `strong`, `medium`, `weak` (çapraz dil çiftleri dahil).
-- `dev/` (12 ilan): yazılım, veri, pazarlama, finans, İK, satış. İK ve satış 2026-10-29'a kadar holdout'tu; 6 kez toplam skoruna bakıldığı için dev'e taşındı.
-- `holdout/` (6 ilan, **holdout v2**): sağlık, lojistik, eğitim. Hiç görülmemiş sektörler; `autoresearch/scenario-261029-2122/` kenar durumlarını taşır (Kariyer.net birleşik başlığı, TR demografik şartlar, satır içi tercih, unvan eşanlamı/çevirisi, rakamlı kısaltmalar, cümle ortasında zayıf fiil, 40+ kelimelik madde, kıvrık kesme işaretli ekler). Gold iki bağımsız etiketleyiciyle kör yazıldı. Not: holdout v2'yi motoru geliştiren oturum yazdı; içeriği bilinir, bu yüzden tur sırasında holdout dosyaları ve raporu açılmaz.
+- Her ilan için 3 CV: `strong`, `medium`, `weak` (çapraz dil çiftleri dahil). CV'ler her zaman yapaydır.
+- `dev/` (28 ilan): yazılım, veri, pazarlama, finans, İK, satış, sağlık, lojistik, eğitim (yapay ilanlar, EN + TR), artı temizlik, yemek, spor, İK, yazılım (10 **gerçek** ilan, gerçek ilan denemesinden; kaynaklar `C:\Users\tasde\OneDrive\Masaüstü\cvreviewer-try\SOURCES.md`).
+  - İK ve satış 2026-10-29'a kadar holdout'tu; 6 kez toplam skoruna bakıldığı için dev'e taşındı.
+  - Sağlık, lojistik ve eğitim holdout v2'ydi (`autoresearch/scenario-261029-2122/` kenar durumlarıyla); 5 bakıştan sonra, 2026-10-30'da dev'e taşındı.
+  - Gerçek ilanların gold'unu motor çıktısını görmemiş bir agent yazdı; dev olduğu için ikinci etiketleyici kullanılmadı.
+- `holdout/` (10 ilan, **holdout v3**, 2026-10-30): 10 farklı sektörden **gerçek** ilan, 5 TR + 5 EN, 7 beyaz yaka + 3 mavi yaka. Sektörler: hukuk, satın alma, üretim operatörü, iç mimarlık, çağrı merkezi, inşaat, müşteri destek, perakende, ürün yönetimi, kalite güvence. Hiçbiri dev'de yok. Kaynaklar `holdout/SOURCES.md`.
+  - **Kör üretim:** ilanları, 30 CV'yi ve gold'u bir alt agent yazdı. İkinci bir agent (farklı model) gold'u bağımsız etiketledi, uyuşmazlıkları yazar çözdü (45 uyuşmazlığın 22'sinde yazar, 23'ünde ikinci etiketleyici kazandı). Uzlaştırma öncesi uyum: terimler %88–91 eşleşti; önem κ 1.00, var/eksik κ 0.96, öneri κ 0.95, koşul κ 0.96. Rastgele 10 terimlik örnek kullanıcı kontrolü için `cvreviewer-try/v3-sample.md`'de.
+  - Motoru geliştiren oturum v3'ün dosyalarını açmadı. **Kirlenme:** agent raporlarında birkaç terim düzeyinde ipucu geçti (ör. hukuk ilanında meslek ruhsatı, bir ilanda ikamet koşulu, "dava takibi"). CV ya da skor ayrıntısı geçmedi.
+  - **v3 bir regresyon alarmıdır:** 10 ilanla %90 aralığı ~7 puan genişliğinde. Aralıktan küçük farklar kazanç olarak okunmaz.
 - Dizin düzeni iki split'te aynıdır.
 
 ## Dosyalar (`<split>/<id>/`)
@@ -28,6 +34,7 @@ Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) v
 - `preferred`: Terim yalnızca bir tercih bağlamında geçiyor. Tercih bağlamı şunlardır: "ideally", "nice to have", "a plus", "tercihen", "tercih sebebi", ya da "Preferred" veya "Artılar" gibi bir bölüm.
 - `required`: Terim görev ya da şart satırlarında en az bir kez nitelemesiz geçiyor. Bu durumda aynı terimin tercih bağlamında da geçmesi sonucu değiştirmez (**zorunlu kazanır**).
 - Şirket tanıtımındaki geçişler ("Series B SaaS company") şart sayılmaz.
+- **Anahtar kelime sayılmayanlar (gerçek ilanlar, tur 3):** yalnızca şirket tanıtımında, yan haklarda, EEO/çeşitlilik, gizlilik/yasal ya da başvuru prosedürü metninde geçen terimler adaydan istenmiyor, gold'a girmez. Bu metinlerden okunan koşullar (E-Verify → `work-permit`, aşı/sağlık taraması → `health-report`) yine koşuldur.
 - Bu kural dış kaynakla doğrulanmış değil, bir konvansiyondur (2026-10-30). Literatürde ve piyasadaki araçlarda çakışma durumu için bir kural bulunamadı.
 - Gerçek ilan denemesinden sonra gözden geçirilecek. Tartışmalı etiketler:
   - SAP (en-finance-1): "month-end close in SAP" ve "ERP, ideally SAP". İkinci ifade "ERP zorunlu, SAP tercih" diye de okunabilir.
@@ -56,7 +63,7 @@ Anahtar kelimeden türeyen öneriler (eksik beceri, eksik soft skill, eğitim) v
 **Holdout motor geliştirme sırasında açılmaz.** Ayarlama/hata ayıklama yalnızca `dev/` üzerinde yapılır; holdout sadece nihai ölçüm içindir.
 
 ## Çalıştırma
-- `npm run eval`: dev CV'lerini PDF'e çevirir (`scripts/gen-fixtures.mjs`), motoru çalıştırır, `EVAL_SCORE=<0-100>` basar ve `eval/report-dev.md` yazar (ayrıntılı hata listesi).
+- `npm run eval`: dev CV'lerini PDF'e çevirir (`scripts/gen-fixtures.mjs`), motoru çalıştırır, `EVAL_SCORE=<0-100>` basar ve `eval/report-dev.md` yazar (ayrıntılı hata listesi). Skorun yanında ilanlar üzerinde bootstrap ile %90 güven aralığı da basılır. Birim ilandır, çünkü bir ilanın üç CV'si aynı anahtar kelimeleri paylaşır. Aralığın dışına çıkmayan farklar kazanç olarak okunmaz.
 - `EVAL_SPLIT=holdout npm run eval`: holdout ölçümü. Yalnız tur sonunda; **yalnız toplam skor okunur**, `report-holdout.md` açılmaz.
 - `EVAL_DUMP=<dosya> npm run eval`: her CV'nin eşleşmelerini (etiket, önem, kategori, var/yok) JSON'a yazar. Ağırlıkları motoru yeniden çalıştırmadan, dışarıda yeniden skorlamak için kullanılır. Holdout'ta kullanılmaz.
 - `npx jest --ci`: birim testleri (guard). Her değişiklikte hepsi geçmeli.
@@ -97,7 +104,18 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | B3 | dev gold'unda önem etiketleri yazılı kurala göre düzeltildi (aday 0) | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
 | B4 | ehliyet anahtar kelimeden koşula taşındı, iki dev ilanına koşul satırları eklendi | 94.9 | 80.8 (v2, yeniden ölçülmedi) |
 | PRD 1 (koşullar + önem kapsamı) | motor: koşul çıkarımı, cümle/öğe kapsamı, şirket tanıtımı ve şirket satırı | 95.1 | ölçülmedi |
-| **PRD 1 + ağırlıklar** | ağırlıklar 3 / 1 / 0.25, soft ×0.25 (kullanıcının ikili tercihleri) | **95.1** | **82.5 (v2, 5. bakış)** |
+| PRD 1 + ağırlıklar | ağırlıklar 3 / 1 / 0.25, soft ×0.25 (kullanıcının ikili tercihleri) | 95.1 | 82.5 (v2, 5. bakış) |
+| B5 | v2 dev'e taşındı (18 ilan), skor %90 güven aralığıyla raporlanıyor | 91.5 (88.7–93.9) | — |
+| B6 | 10 gerçek ilan dev'e (28 ilan); holdout v3 (10 gerçek ilan) | 87.3 (84.7–89.8) | 75.6 (71.8–78.8; v3, 1. bakış) |
+| **Tur 3** | boilerplate boşaltma, kısaltma/büyük harf yanlış pozitifleri, görünüş koşulu, PDF kelime boşluğu, az sinyal bayrağı | **88.4 (86.0–90.5)** | **76.7 (73.6–79.5; v3, 2. bakış — aralık içinde, regresyon yok)** |
+
+**Tur 3 (gerçek ilan bulguları, TDD):** bulgular `cvreviewer-try/FINDINGS.md`'de, önce/sonra tablosuyla.
+- **Boilerplate:** EEO, gizlilik, işe alım prosedürü ve yan hak cümleleri koşul çıkarımından sonra, anahtar kelime için boşaltılıyor (`keywords.ts`, `BOILERPLATE`). Dar ipuçları; tek başına "privacy", "benefits", "KVKK" kullanılmadı. Dev precision 80.3 → 82.9, recall 63.8'de kaldı (gerçek gereksinim yutulmadı).
+- **Yanlış pozitifler:** TA, IP, AMER ve büyük harfle yazılmış sıradan kelimeler (PEOPLE …) `NOT_SKILLS`'te; CRO artık büyük/küçük harfe duyarlı ("cross"a uymuyordu).
+- **Koşul:** "bakımlı tutulması" (yer) görünüş sayılmıyor; "dış görünüşüne özen" sayılıyor.
+- **PDF:** boşluk glifi düşen öğeler arasındaki kelime boşluğu korunuyor ("450kişilik" → "450 kişilik"). Bölüm parse oranı değişmedi.
+- **Az sinyal:** 3'ten az sert beceri çıkan ilanda `insufficient` bayrağı, eksik beceri önerisi yerine `low-signal` uyarısı; eval bu ilanların sıralamasını ölçmüyor (sıralama 74/84 → 66/69, 5 ilan çıktı). Dev'deki dağılım 0–2 ya da 4+, eşik arada. 10 deneme ilanının 5'i yetersiz; sebep bu ilanlarda çıkarımın boş olması (sözlük turu).
+- **Bilinçli bırakılanlar:** "You're responsive" (bare alias dev CV'lerinde gerçek kullanımı da yakalıyor), Spark (slogan, büyük harfle), uzun "… YOU WILL RECEIVE:" yan hak başlığı (6 kelime sınırı), şirket adı GitLab.
 
 Tur 2 sonundaki dev bileşenleri: çıkarma F1 88.3, var/eksik 468/480, sıralama 36/36, bölüm 121/124, önem 158/160, öneri F1 95.9. Regresyon kapısı (`autoresearch/regression-261029-2203/`) STABLE çıktı.
 
@@ -158,12 +176,15 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 - **Kazara 4. bakış (2026-10-30, aday 0 hazırlığı):** `eval/` üzerinde çalıştırılan bir grep, `report-holdout.md`'den üç "Yanlış önem" satırını gösterdi: ALS (gold tercih, motor zorunlu), SAP (gold zorunlu, motor tercih) ve BLS (gold zorunlu, motor tercih).
 - Bu üç satır satır içi tercih kuralının (aday 1) holdout'taki hatalarını ele veriyor, yani aday 1 için yanlılık riski taşıyor.
 - Bundan sonra grep'ler `eval/dev` ile sınırlandırılmalı.
-- **5. bakış (PRD 1 sonu):** yalnızca toplam skor okundu (82.5), rapor açılmadı. Bakış sayısı arttığı için yeni bir holdout (v3) gerekebilir.
+- **5. bakış (PRD 1 sonu):** yalnızca toplam skor okundu (82.5), rapor açılmadı. Ardından v2 dev'e taşındı.
+
+**Holdout v3 bakışları** (yalnızca toplam skor ve aralık, rapor hiç açılmadı): 1. bakış tur 3 öncesi motorla 75.6 (71.8–78.8); 2. bakış tur 3 sonu 76.7 (73.6–79.5). Fark aralığın içinde: regresyon yok, kazanç olarak okunmaz.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Gerçek ilan denemesi (kullanıcı kararı):** tüm motor adaylarından sonra, arayüzden önce. Ağırlıklar ve koşul desenleri orada yeniden kontrol edilecek.
-2. **Sektör genelleşmesi:** Holdout v2 farkı (14.1) büyük ölçüde sözlükte olmayan sağlık, lojistik ve eğitim terimlerinden kaynaklanıyor. Holdout'a bakarak sözlük doldurmak ezber olur. Doğru yol, sözlüğü holdout'u görmeden genel kaynaklardan genişletmek ya da sözlük dışı terimleri (ilandaki kısaltmalar, isim öbekleri) daha iyi çıkarmak.
-3. **Kalan dev hataları (tur 2 raporu):**
+1. **Sözlük genelleşmesi (tur 4, bulgu 1):** hizmet ve mavi yaka ilanlarında çıkarım neredeyse boş (dev recall 63.8; 5 deneme ilanı "yetersiz"). Sözlük holdout'u görmeden genel kaynaklardan genişletilmeli ya da sözlük dışı isim öbekleri daha iyi çıkarılmalı. ESCO Türkçe içermiyor (lisansı doğrulanmalı), O*NET CC BY 4.0 ve yalnızca İngilizce; Türkçe için ayrı kaynak gerekiyor.
+2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), CV dilinden dil becerisi (İngilizce CV → İngilizce), "Personal Training certification".
+3. **Ağırlıkların gerçek ilanda kontrolü:** tur 3 denemesinde anlamlı skor veren çift sayısı az; 1 ve 2'den sonra yeniden.
+4. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
    - Fazladan çıkarılan kelimeler: bölüm adları (Economics, İktisat / İşletme). Gold kuralı bunları anahtar kelime saymıyor, motor ise eğitim önerisi için çıkarıyor; bu bir karar konusu.
    - FP&A Analyst ≈ Financial Analyst unvanı tanınmıyor.
@@ -173,12 +194,12 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
      - Ayrı bir etiketleme işi, tur dışında yapılmalı.
      - SAP için dış görüşün önerdiği okumayla birlikte ele alınmalı: kategori (ERP) zorunlu, örnek araç (SAP) tercih.
    - "What you'll be doing" başlığı tanınmıyor (`HEADING_PATTERNS`'taki "what you'll do" bu ifadeyi kapsamıyor). Bu yüzden en-hr-1'in sorumluluk satırları ilk bölüm (`intro`) sayılıyor. Şu an sonucu değiştirmiyor (LOW).
-4. **Review'dan kalan LOW'lar:**
+5. **Review'dan kalan LOW'lar:**
    - Ölçülmemiş madde kontrolü bitişik birimleri (5GB, 10km, 40hrs) ad sayıyor.
    - Madde yedeği, deneyim bölümü hiç ayrıştırılamadığında madde işaretli beceri ve eğitim satırlarını da madde sayıyor (`suggest.ts`'teki ponytail notu).
    - `titleVariants` en kötü durumda 4096 varyant üretiyor; bu yalnızca 6 kelimelik yapay bir unvanda olur.
    - TR edilgen yapı tespiti yok.
-5. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
-6. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
+6. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
+7. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
 
-Kapananlar: ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); ilan koşulları ve satır içi tercih kapsamı (PRD 1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
+Kapananlar: gerçek ilan denemesi ve holdout v3 (tur 3); boilerplate, kısaltma yanlış pozitifleri, PDF kelime boşluğu ve az sinyal bayrağı (tur 3); ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); ilan koşulları ve satır içi tercih kapsamı (PRD 1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
