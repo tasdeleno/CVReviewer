@@ -181,10 +181,24 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 **Holdout v3 bakışları** (yalnızca toplam skor ve aralık, rapor hiç açılmadı): 1. bakış tur 3 öncesi motorla 75.6 (71.8–78.8); 2. bakış tur 3 sonu 76.7 (73.6–79.5). Fark aralığın içinde: regresyon yok, kazanç olarak okunmaz.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Sözlük genelleşmesi (tur 4, bulgu 1):** hizmet ve mavi yaka ilanlarında çıkarım neredeyse boş (dev recall 63.8; 5 deneme ilanı "yetersiz"). Sözlük holdout'u görmeden genel kaynaklardan genişletilmeli ya da sözlük dışı isim öbekleri daha iyi çıkarılmalı. ESCO Türkçe içermiyor (lisansı doğrulanmalı), O*NET CC BY 4.0 ve yalnızca İngilizce; Türkçe için ayrı kaynak gerekiyor.
-2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), CV dilinden dil becerisi (İngilizce CV → İngilizce), "Personal Training certification".
-3. **Ağırlıkların gerçek ilanda kontrolü:** tur 3 denemesinde anlamlı skor veren çift sayısı az; 1 ve 2'den sonra yeniden.
-4. **Kalan dev hataları (tur 2 raporu):**
+1. **Tur 4 (planlandı, başlanmadı):** plan `~/.claude/plans/tur4-ifade-cikarimi-ve-madencilik.md`.
+   - **Kullanıcı kararları (2026-10-30):**
+     - İlan ve CV her zaman aynı dilde (EN↔EN, TR↔TR). Çapraz dil CV'leri eval skorundan çıkarılacak (yeni baseline B7).
+     - Odak alanları: spor/antrenörlük ve geniş beyaz yaka (idari, pazarlama/satış, finans, yönetim, danışmanlık).
+     - Sözlük, açık kaynaklardan (Greenhouse/SmartRecruiters API, eleman.net, techcareer.net) 400–600 ilanlık bir korpus üzerinden madencilikle kurulacak. LinkedIn kullanılmayacak: robots.txt ve kullanıcı sözleşmesi izinsiz taramayı yasaklıyor.
+   - **Adımlar:**
+     1. eval'de çapraz dil hariç tutma ve `pct(0,0)` düzeltmesi.
+     2. Sözlükten bağımsız ifade çıkarımı: `AdKeyword.kind`, önem en çok `normal`, ağırlık ×0.5, ifadeler "deneyim maddesine ekle" önerisine yönlenir, `isInsufficient` ifadeleri saymaz.
+     3. Korpus madenciliğiyle sözlük; sonra sözlük dondurulur.
+     4. Dondurulmuş sözlükle 8 yeni odak ilanında hafif gold ile recall ölçümü, ardından holdout v3'e 3. ve 4. bakış.
+   - **Hazır Türkçe kaynak yok:** ESCO'da Türkçe yok; Kariyer.net/İTÜ veri seti (arXiv 2601.22885) yayımlanmadı; MYK "tüm hakları saklı".
+   - **Beklenti:** ifade çıkarımı "yetersiz" ilanları kurtarmaz, onları yalnızca sözlük kurtarabilir. Kaçırılan dev gold'larının 145/156'sı ilanda aynen geçtiği için dev kazancı iyimser olacak.
+2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), "Personal Training certification". CV dilinden dil becerisi çıkarmak, aynı dil kararıyla önemini kaybetti.
+3. **Ağırlıkların gerçek ilanda kontrolü:** tur 4'ten sonra.
+4. **Faz 4 (arayüz, tur 4'ten sonra, ana plandaki tam kapsam):** analiz sayfası, pazarlama sayfalarının silinmesi, `/resume-parser` → "ATS Testi". Silent-failure review'dan (2032a70) gelen iki zorunluluk:
+   - Boilerplate filtresinin sildiği cümleler arayüzde "yok sayıldı" olarak gösterilmeli (sessiz veri kaybı olmasın).
+   - `score` yalnızca `insufficient` bayrağıyla birlikte gösterilmeli (tip ya da bileşen kuralı); aşçı ilanındaki "100" bayraksız görünmemeli.
+5. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
    - Fazladan çıkarılan kelimeler: bölüm adları (Economics, İktisat / İşletme). Gold kuralı bunları anahtar kelime saymıyor, motor ise eğitim önerisi için çıkarıyor; bu bir karar konusu.
    - FP&A Analyst ≈ Financial Analyst unvanı tanınmıyor.
@@ -194,12 +208,12 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
      - Ayrı bir etiketleme işi, tur dışında yapılmalı.
      - SAP için dış görüşün önerdiği okumayla birlikte ele alınmalı: kategori (ERP) zorunlu, örnek araç (SAP) tercih.
    - "What you'll be doing" başlığı tanınmıyor (`HEADING_PATTERNS`'taki "what you'll do" bu ifadeyi kapsamıyor). Bu yüzden en-hr-1'in sorumluluk satırları ilk bölüm (`intro`) sayılıyor. Şu an sonucu değiştirmiyor (LOW).
-5. **Review'dan kalan LOW'lar:**
+6. **Review'dan kalan LOW'lar:**
    - Ölçülmemiş madde kontrolü bitişik birimleri (5GB, 10km, 40hrs) ad sayıyor.
    - Madde yedeği, deneyim bölümü hiç ayrıştırılamadığında madde işaretli beceri ve eğitim satırlarını da madde sayıyor (`suggest.ts`'teki ponytail notu).
    - `titleVariants` en kötü durumda 4096 varyant üretiyor; bu yalnızca 6 kelimelik yapay bir unvanda olur.
    - TR edilgen yapı tespiti yok.
-6. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
-7. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
+7. **PRD'ler** (`autoresearch/improve-261029-2057/`; uygulama durumu orada `improvement-plan.md`'de): kişisel bilgi kontrolü (PRD 5), deneyim yılı yüzdesi (PRD 6), PDF metin sağlığı (PRD 3) ve eşleşme şeffaflığı (PRD 7) henüz yapılmadı.
+8. Bilinen küçük sorunlar (LOW): "Social Profiles" başlığı özet sayılabilir; "digital markets" → digital marketing; "International/Leadership …" ilk satırı unvan sanılabilir.
 
 Kapananlar: gerçek ilan denemesi ve holdout v3 (tur 3); boilerplate, kısaltma yanlış pozitifleri, PDF kelime boşluğu ve az sinyal bayrağı (tur 3); ölçüm düzeltmesi (B0); öneri kalitesi metriği (B1); önem etiketleme kuralı ve dev gold tutarlılığı (B3, eski aday 0); ilan koşulları ve satır içi tercih kapsamı (PRD 1); tur 2'de zayıf fiil kapsamı, unvan eşanlamları ve çevirisi, başlıksız CV'de özet ve madde ayrıştırma, rakamlı kısaltmalar, "Artılar" ve "big plus" işaretleri, tanıtım bloğundaki sektör kelimeleri, -ize türetmesi ve Python ima kuralı.
