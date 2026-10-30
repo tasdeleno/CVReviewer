@@ -135,35 +135,95 @@ const checkGold = (gold: Gold) => {
 
 const pct = (n: number, d: number) => (d === 0 ? 1 : n / d);
 
+// prettier-ignore
+const COUNT_KEYS = ["extractedTotal", "extractedCorrect", "goldTotal", "goldExtracted",
+  "decisions", "decisionsCorrect", "rankPairs", "rankCorrect", "sectionsExpected",
+  "sectionsFound", "importanceTotal", "importanceCorrect", "suggestTp", "suggestFp",
+  "suggestFn", "conditionTp", "conditionFp", "conditionFn"] as const;
+type Counts = Record<(typeof COUNT_KEYS)[number], number>;
+const sumCounts = (list: Counts[]) => {
+  const total = Object.fromEntries(COUNT_KEYS.map((k) => [k, 0])) as Counts;
+  for (const c of list) COUNT_KEYS.forEach((k) => (total[k] += c[k]));
+  return total;
+};
+
+const metrics = (t: Counts) => {
+  const precision = pct(t.extractedCorrect, t.extractedTotal);
+  const recall = pct(t.goldExtracted, t.goldTotal);
+  const f1 = (2 * precision * recall) / (precision + recall || 1);
+  const decisionAccuracy = pct(t.decisionsCorrect, t.decisions);
+  const rankAccuracy = pct(t.rankCorrect, t.rankPairs);
+  const sectionRecall = pct(t.sectionsFound, t.sectionsExpected);
+  const importanceAccuracy = pct(t.importanceCorrect, t.importanceTotal);
+  const suggestPrecision = pct(t.suggestTp, t.suggestTp + t.suggestFp);
+  const suggestRecall = pct(t.suggestTp, t.suggestTp + t.suggestFn);
+  const suggestF1 =
+    (2 * suggestPrecision * suggestRecall) /
+    (suggestPrecision + suggestRecall || 1);
+  // Ranking and section parsing sit near 100%, so they weigh less than the new parts
+  const composite =
+    100 *
+    (0.3 * f1 +
+      0.3 * decisionAccuracy +
+      0.1 * rankAccuracy +
+      0.05 * sectionRecall +
+      0.1 * importanceAccuracy +
+      0.15 * suggestF1);
+  return {
+    precision,
+    recall,
+    f1,
+    decisionAccuracy,
+    rankAccuracy,
+    sectionRecall,
+    importanceAccuracy,
+    suggestPrecision,
+    suggestRecall,
+    suggestF1,
+    composite,
+  };
+};
+
+/**
+ * 90% interval of EVAL_SCORE, resampling ads with replacement. The ad is the unit: its
+ * three resumes share its keywords, so they are not independent. Seeded, so reruns agree.
+ */
+const bootstrapInterval = (perAd: Counts[], rounds = 1000) => {
+  let seed = 1;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const scores = Array.from(
+    { length: rounds },
+    () =>
+      metrics(
+        sumCounts(perAd.map(() => perAd[Math.floor(rand() * perAd.length)]))
+      ).composite
+  ).sort((a, b) => a - b);
+  return [
+    scores[Math.floor(rounds * 0.05)],
+    scores[Math.ceil(rounds * 0.95) - 1],
+  ];
+};
+
 test(`eval ${split}`, async () => {
-  let extractedTotal = 0;
-  let extractedCorrect = 0;
-  let goldTotal = 0;
-  let goldExtracted = 0;
-  let decisions = 0;
-  let decisionsCorrect = 0;
-  let rankPairs = 0;
-  let rankCorrect = 0;
-  let sectionsExpected = 0;
-  let sectionsFound = 0;
-  let importanceTotal = 0;
-  let importanceCorrect = 0;
-  let suggestTp = 0;
-  let suggestFp = 0;
-  let suggestFn = 0;
-  let conditionTp = 0;
-  let conditionFp = 0;
-  let conditionFn = 0;
+  const perAd: Counts[] = [];
   const report: string[] = [`# Eval raporu (${split})`, ""];
   // EVAL_DUMP=<path>: per-resume matches, to rescore other weights offline
   const dump: unknown[] = [];
 
-  for (const id of readdirSync(splitDir).sort()) {
+  // Ad folders only: the split also holds notes (holdout/SOURCES.md)
+  const ids = readdirSync(splitDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
+  for (const id of ids) {
     const dir = join(splitDir, id);
     const ad = readFileSync(join(dir, "ad.txt"), "utf8");
     const gold: Gold = JSON.parse(readFileSync(join(dir, "gold.json"), "utf8"));
     checkGold(gold);
+    const c = sumCounts([]);
+    perAd.push(c);
     const scores = {} as Record<Fit, number>;
+    let insufficient = false; // same for every resume of the ad
     report.push(`## ${id}`);
 
     for (const fit of FITS) {
@@ -180,6 +240,7 @@ test(`eval ${split}`, async () => {
         })),
       });
       scores[fit] = result.score;
+      insufficient = result.insufficient;
       const links = result.matches.map((keyword) =>
         linkGolds(keyword, gold.keywords)
       );
@@ -190,10 +251,10 @@ test(`eval ${split}`, async () => {
         const missed = gold.keywords.filter(
           (gk) => !links.some((golds) => golds.includes(gk))
         );
-        extractedTotal += result.matches.length;
-        extractedCorrect += result.matches.length - spurious.length;
-        goldTotal += gold.keywords.length;
-        goldExtracted += gold.keywords.length - missed.length;
+        c.extractedTotal += result.matches.length;
+        c.extractedCorrect += result.matches.length - spurious.length;
+        c.goldTotal += gold.keywords.length;
+        c.goldExtracted += gold.keywords.length - missed.length;
 
         // Importance: gold only says required or preferred, so the engine's "normal"
         // (responsibilities, intro) counts as not preferred. Several linked keywords:
@@ -207,12 +268,12 @@ test(`eval ${split}`, async () => {
             .reduce((a, b) =>
               IMPORTANCE_RANK[a] >= IMPORTANCE_RANK[b] ? a : b
             );
-          importanceTotal++;
+          c.importanceTotal++;
           if (
             (importance === "preferred") ===
             (gk.importance === "preferred")
           ) {
-            importanceCorrect++;
+            c.importanceCorrect++;
           } else {
             wrongImportance.push(
               `${gk.term} (gold ${gk.importance}, motor ${importance})`
@@ -238,9 +299,9 @@ test(`eval ${split}`, async () => {
         const missedConditions = goldConditions.filter(
           (kind) => !predictedConditions.includes(kind)
         );
-        conditionTp += predictedConditions.length - extraConditions.length;
-        conditionFp += extraConditions.length;
-        conditionFn += missedConditions.length;
+        c.conditionTp += predictedConditions.length - extraConditions.length;
+        c.conditionFp += extraConditions.length;
+        c.conditionFn += missedConditions.length;
         report.push(
           `- Koşul: bulunamayan ${
             missedConditions.join(", ") || "-"
@@ -259,9 +320,9 @@ test(`eval ${split}`, async () => {
         (kind) => !expectedKinds.includes(kind)
       );
       const notGiven = expectedKinds.filter((kind) => !predicted.has(kind));
-      suggestTp += predicted.size - unexpected.length;
-      suggestFp += unexpected.length;
-      suggestFn += notGiven.length;
+      c.suggestTp += predicted.size - unexpected.length;
+      c.suggestFp += unexpected.length;
+      c.suggestFn += notGiven.length;
 
       // Present/missing decisions, only for gold keywords the engine extracted. One gold
       // term can map to several engine keywords ("CPA/ACCA"): present if any was found.
@@ -270,8 +331,8 @@ test(`eval ${split}`, async () => {
         const linked = result.matches.filter((_, i) => links[i].includes(gk));
         if (!linked.length) continue;
         const truth = gold.resumes[fit].present.includes(gk.term);
-        decisions++;
-        if (linked.some((k) => k.found) === truth) decisionsCorrect++;
+        c.decisions++;
+        if (linked.some((k) => k.found) === truth) c.decisionsCorrect++;
         else
           wrong.push(
             `${gk.term} (${truth ? "var ama bulunamadı" : "yok ama bulundu"})`
@@ -287,8 +348,8 @@ test(`eval ${split}`, async () => {
       };
       const expected = gold.expectedSections[fit] ?? [];
       const missingSections = expected.filter((section) => !parsed[section]);
-      sectionsExpected += expected.length;
-      sectionsFound += expected.length - missingSections.length;
+      c.sectionsExpected += expected.length;
+      c.sectionsFound += expected.length - missingSections.length;
 
       report.push(
         `- ${fit}: skor ${result.score}, dil ${result.langs.ad}/${
@@ -306,34 +367,43 @@ test(`eval ${split}`, async () => {
       ["medium", "weak"],
       ["strong", "weak"],
     ];
-    for (const [better, worse] of pairs) {
-      rankPairs++;
-      if (scores[better] > scores[worse]) rankCorrect++;
+    // A flagged score is not a verdict, so its order is not measured
+    if (insufficient) report.push("- Yetersiz sinyal: sıralama ölçülmedi");
+    for (const [better, worse] of insufficient ? [] : pairs) {
+      c.rankPairs++;
+      if (scores[better] > scores[worse]) c.rankCorrect++;
     }
     report.push("");
   }
 
-  const precision = pct(extractedCorrect, extractedTotal);
-  const recall = pct(goldExtracted, goldTotal);
-  const f1 = (2 * precision * recall) / (precision + recall || 1);
-  const decisionAccuracy = pct(decisionsCorrect, decisions);
-  const rankAccuracy = pct(rankCorrect, rankPairs);
-  const sectionRecall = pct(sectionsFound, sectionsExpected);
-  const importanceAccuracy = pct(importanceCorrect, importanceTotal);
-  const suggestPrecision = pct(suggestTp, suggestTp + suggestFp);
-  const suggestRecall = pct(suggestTp, suggestTp + suggestFn);
-  const suggestF1 =
-    (2 * suggestPrecision * suggestRecall) /
-    (suggestPrecision + suggestRecall || 1);
-  // Ranking and section parsing sit near 100%, so they weigh less than the new parts
-  const composite =
-    100 *
-    (0.3 * f1 +
-      0.3 * decisionAccuracy +
-      0.1 * rankAccuracy +
-      0.05 * sectionRecall +
-      0.1 * importanceAccuracy +
-      0.15 * suggestF1);
+  const total = sumCounts(perAd);
+  const {
+    decisionsCorrect,
+    decisions,
+    rankCorrect,
+    rankPairs,
+    sectionsFound,
+    sectionsExpected,
+    importanceCorrect,
+    importanceTotal,
+    conditionTp,
+    conditionFp,
+    conditionFn,
+  } = total;
+  const {
+    precision,
+    recall,
+    f1,
+    decisionAccuracy,
+    rankAccuracy,
+    sectionRecall,
+    importanceAccuracy,
+    suggestPrecision,
+    suggestRecall,
+    suggestF1,
+    composite,
+  } = metrics(total);
+  const [low, high] = bootstrapInterval(perAd);
 
   const summary = [
     `Çıkarma: precision ${(100 * precision).toFixed(1)}, recall ${(
@@ -361,6 +431,9 @@ test(`eval ${split}`, async () => {
     ).toFixed(
       1
     )} (${conditionTp} doğru, ${conditionFp} fazladan, ${conditionFn} eksik)`,
+    `Güven aralığı (%90, ${
+      perAd.length
+    } ilan üzerinde bootstrap): ${low.toFixed(1)}–${high.toFixed(1)}`,
     `EVAL_SCORE=${composite.toFixed(1)}`,
   ];
   report.splice(2, 0, ...summary, "");

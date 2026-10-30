@@ -1,8 +1,13 @@
-import { extractConditions, extractKeywords } from "lib/job-match/keywords";
+import {
+  extractConditions,
+  extractKeywords,
+  isInsufficient,
+} from "lib/job-match/keywords";
 import { checkConditions } from "lib/job-match/conditions";
 import { computeScore, matchKeywords } from "lib/job-match";
 import { suggest } from "lib/job-match/suggest";
 import { initialResumeState } from "lib/redux/resumeSlice";
+import { groupTextItemsIntoLines } from "lib/parse-resume-from-pdf/group-text-items-into-lines";
 import {
   detectLang,
   hasPhrase,
@@ -554,5 +559,122 @@ describe("job-match - importance scope", () => {
         "Account Executive\nLumen Software (B2B SaaS) - Berlin or Remote\nRequirements\n- SEO"
       )
     ).toEqual({ SEO: "required" });
+  });
+});
+
+describe("job-match - real-ad trial findings (tur 3)", () => {
+  it("legal, benefits and hiring-procedure sentences ask nothing of the candidate", () => {
+    // unheaded, right after the requirements: they used to become required keywords
+    const ad = [
+      "Requirements",
+      "- Python, SQL",
+      "- Equity Compensation & Employee Stock Purchase Plan",
+      "GitLab is proud to be an equal opportunity workplace. See also GitLab's EEO Policy.",
+      "Please note that external platforms may use automated tools, including artificial intelligence, for candidate screening.",
+      "Our Talent Acquisition team can help answer any questions during the recruiting process.",
+      "Naked Farmer participates in E-Verify to confirm employment eligibility.",
+      "Kişisel verileriniz KVKK aydınlatma metni kapsamında işlenir.",
+    ].join("\n");
+    expect(keywordsOf(ad)).toEqual({ Python: "required", SQL: "required" });
+  });
+
+  it("ordinary requirement wording near the markers stays", () => {
+    expect(
+      keywordsOf(
+        "Requirements\n- Experience with GANs (generator/discriminator), PyTorch\n- Python, SQL, regardless of industry"
+      )
+    ).toMatchObject({ PyTorch: "required", Python: "required" });
+  });
+
+  it("the same words still count when the ad asks for them", () => {
+    expect(
+      keywordsOf(
+        "Requirements\n- Experience with compensation and benefits administration\n- Knowledge of privacy regulations (GDPR)"
+      )
+    ).toMatchObject({
+      "compensation and benefits": "required",
+      GDPR: "required",
+    });
+  });
+
+  it("legal text still yields its conditions", () => {
+    expect(
+      extractConditions(
+        "Requirements\n- SQL\nWe participate in E-Verify. You must be authorized to work in the US."
+      ).map((c) => c.kind)
+    ).toEqual(["work-permit"]);
+  });
+
+  // ponytail: "You're responsive" still matches responsive design; dev resumes write
+  // "responsive arayüzler", so the bare alias stays until a trait/skill rule exists
+  it("common capitalised words and region codes are not skills", () => {
+    const keywords = keywordsOf(
+      "Requirements\n- Partner with TA and Payroll\n- We believe in exemplary PEOPLE experiences\n- Teams across EMEA, AMER and India"
+    );
+    expect(keywords).not.toHaveProperty("TA");
+    expect(keywords).not.toHaveProperty("PEOPLE");
+    expect(keywords).not.toHaveProperty("AMER");
+    // the CRO alias used to match "cross" as an inflected form
+    expect(
+      keywordsOf("Requirements\n- Partner cross-functionally with Finance")
+    ).not.toHaveProperty("conversion rate optimization");
+  });
+
+  it("an ad with too few hard skills is flagged and gets no missing-skill advice", () => {
+    // the cook ad of the trial: one soft skill only, an HR resume scored 100 on it
+    const cook = extractKeywords(
+      "Aşçı\nGENEL NİTELİKLER\nHijyen kurallarına dikkat eden\nTakım çalışmasına yatkın"
+    );
+    expect(isInsufficient(cook)).toBe(true);
+    expect(
+      isInsufficient(extractKeywords("Requirements: Python, SQL, Docker"))
+    ).toBe(false);
+    const kinds = suggest({
+      jobAd: "Requirements: teamwork",
+      matches: matchKeywords(extractKeywords("Requirements: teamwork"), []),
+      resume: initialResumeState,
+      resumeText: "",
+      langs: { ad: "en", resume: "en" },
+      insufficient: true,
+    }).map((s) => s.kind);
+    expect(kinds).toContain("low-signal");
+    expect(kinds).not.toContain("soft-skills");
+  });
+
+  it("a gap left for a dropped space glyph keeps the words apart", () => {
+    const item = (text: string, x: number, width: number) => ({
+      text,
+      x,
+      width,
+      y: 0,
+      height: 10,
+      fontName: "Roboto",
+      hasEOL: false,
+    });
+    // "• 450" | "kişilik": 2.5 gap (a space); "Bor" | "dro": no gap (a noise split)
+    const [line] = groupTextItemsIntoLines([
+      item("• 450", 36, 22.7),
+      item("kişilik fabrikada", 61.2, 80),
+      item("Bor", 141.2, 15),
+      item("dro", 156.2, 15),
+    ]);
+    expect(line.map((t) => t.text)).toEqual(["• 450 kişilik fabrikadaBordro"]);
+    // a letter-spaced heading, one glyph per item, still reads as one word
+    const [heading] = groupTextItemsIntoLines(
+      Array.from("EXPERIENCE", (c, i) => item(c, 36 + i * 9, 6))
+    );
+    expect(heading.map((t) => t.text)).toEqual(["EXPERIENCE"]);
+  });
+
+  it("'bakımlı' about a place is not an appearance condition, about a person it is", () => {
+    const kinds = (ad: string) => extractConditions(ad).map((c) => c.kind);
+    expect(
+      kinds("Yeşil alanların temiz ve bakımlı tutulmasını sağlamak")
+    ).toEqual([]);
+    expect(kinds("Bakımlı ve güler yüzlü")).toEqual(["appearance"]);
+    expect(kinds("Temiz ve bakımlı olması")).toEqual(["appearance"]);
+    expect(
+      kinds("Dış görünüşüne ve kişisel bakımına özen gösteren, dinamik")
+    ).toEqual(["appearance"]);
   });
 });

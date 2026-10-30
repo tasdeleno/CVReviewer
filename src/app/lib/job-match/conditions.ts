@@ -73,7 +73,8 @@ const PATTERNS: [ConditionKind, RegExp][] = [
   ["pregnancy", /\bhamile (?:olmayan|olmamak)\w*|\bgebe olmayan\b|\bnot pregnant\b|\bevlilik plani\w*/g],
   ["religion", /\b(?:basortusuz|basortulu|turbansiz|turbanli)\w*|\b(?:christian|muslim|jewish) (?:applicants?|candidates?|only)\b/g],
   ["smoking", /\bsigara (?:ve alkol )?(?:kullanmayan|icmeyen)\w*|\bnon[- ]?smok\w*/g],
-  ["appearance", /\b(?:iyi )?gorunumlu\b|\bbakimli\b|\bboy \d{3}\b|\bdovme\w* (?:olmayan|bulunmayan)\b|\bgood[- ]looking\b|\bclean[- ]shaven\b/g],
+  // "alanların bakımlı tutulması" describes a place, not the candidate
+  ["appearance", /\b(?:iyi )?gorunumlu\b|\bbakimli\b(?! (?:tutul|hale))|\bdis gorunus\w* ozen\w*|\bdis gorunus\w* ve kisisel bakim\w* ozen\w*|\bboy \d{3}\b|\bdovme\w* (?:olmayan|bulunmayan)\b|\bgood[- ]looking\b|\bclean[- ]shaven\b/g],
 ];
 
 // Equal-opportunity sentences name the same traits but ask nothing of the candidate.

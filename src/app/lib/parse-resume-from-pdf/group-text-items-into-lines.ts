@@ -42,7 +42,10 @@ export const groupTextItemsIntoLines = (textItems: TextItems): Lines => {
       const leftItemXEnd = leftItem.x + leftItem.width;
       const distance = currentItem.x - leftItemXEnd;
       if (distance <= typicalCharWidth) {
-        if (shouldAddSpaceBetweenText(leftItem.text, currentItem.text)) {
+        if (
+          shouldAddSpaceBetweenText(leftItem.text, currentItem.text) ||
+          isWordGap(distance, typicalCharWidth, leftItem.text, currentItem.text)
+        ) {
           leftItem.text += " ";
         }
         leftItem.text += currentItem.text;
@@ -69,6 +72,20 @@ const shouldAddSpaceBetweenText = (leftText: string, rightText: string) => {
 
   return conditions.some((condition) => condition);
 };
+
+// Some generators drop the space glyph between items and leave only the gap ("• 450" |
+// "kişilik"). A space is about half a typical character wide, noise splits sit at ~0.
+// ponytail: fixed 0.3 ratio, tune against real PDFs if words start splitting or fusing
+const isWordGap = (
+  distance: number,
+  typicalCharWidth: number,
+  leftText: string,
+  rightText: string
+) =>
+  distance > 0.3 * typicalCharWidth &&
+  leftText.length > 1 && // letter-spaced headings come one glyph per item
+  !leftText.endsWith(" ") &&
+  !rightText.startsWith(" ");
 
 /**
  * Return the width of a typical character. (Helper util for groupTextItemsIntoLines)

@@ -60,13 +60,19 @@ const PRIORITY = { high: "🔴", medium: "🟡", low: "⚪" };
       const row: string[] = [];
       for (const ad of ads) {
         const result = analyze(ad.text, textItems);
-        row.push(String(result.score));
+        row.push(
+          result.insufficient
+            ? `${result.score} (yetersiz)`
+            : String(result.score)
+        );
         if (!targets.includes(ad.id)) continue;
 
         const label = (m: (typeof result.matches)[number]) =>
           `${m.label}${m.importance === "required" ? "*" : ""}`;
         details.push(
-          `## ${cv} × ${ad.id} — skor ${result.score}`,
+          `## ${cv} × ${ad.id} — skor ${result.score}${
+            result.insufficient ? " (yetersiz sinyal)" : ""
+          }`,
           "",
           `Dil: ilan ${result.langs.ad}, CV ${result.langs.resume}. (* = zorunlu)`,
           "",

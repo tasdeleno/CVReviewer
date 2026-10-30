@@ -3,7 +3,11 @@ import { groupTextItemsIntoLines } from "lib/parse-resume-from-pdf/group-text-it
 import { groupLinesIntoSections } from "lib/parse-resume-from-pdf/group-lines-into-sections";
 import { extractResumeFromSections } from "lib/parse-resume-from-pdf/extract-resume-from-sections";
 import { checkConditions } from "lib/job-match/conditions";
-import { extractJobAd, type AdKeyword } from "lib/job-match/keywords";
+import {
+  extractJobAd,
+  isInsufficient,
+  type AdKeyword,
+} from "lib/job-match/keywords";
 import { checkAts, suggest } from "lib/job-match/suggest";
 import {
   detectLang,
@@ -79,13 +83,23 @@ export const analyze = (jobAd: string, textItems: TextItems) => {
   };
   const ad = extractJobAd(jobAd);
   const matches = matchKeywords(ad.keywords, resumeLines);
+  // Too few skills in the ad: the score is shown flagged, not as a verdict
+  const insufficient = isInsufficient(ad.keywords);
   return {
     score: computeScore(matches),
+    insufficient,
     langs,
     matches,
     // not in the score: shown apart from the keywords (eval/README.md, conditions)
     conditions: checkConditions(ad.conditions, resumeText),
-    suggestions: suggest({ jobAd, matches, resume, resumeText, langs }),
+    suggestions: suggest({
+      jobAd,
+      matches,
+      resume,
+      resumeText,
+      langs,
+      insufficient,
+    }),
     ats: checkAts(textItems, resume),
     resume,
     sections,

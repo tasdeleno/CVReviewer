@@ -12,22 +12,23 @@ veya üçüncü taraf istek yoktur.
   `TRY_DIR=<klasör> npm run try` → `<klasör>/ads/*.txt` × `<klasör>/cvs/*.pdf` için skor matrisi ve
   ayrıntılı rapor (`<klasör>/report.md`). Skorlanmaz, gerçek ilan/CV denemek içindir. Gerçek CV
   kullanıyorsan klasörü repo dışında seç; rapor ve PDF'ler yanlışlıkla commit'e girmesin.
-- Doğrulama: `npm run eval` — sentetik CV/ilan veri setiyle (`eval/`, bkz. `eval/README.md`) motoru ölçer,
-  `EVAL_SCORE` basar. Holdout seti için `EVAL_SPLIT=holdout npm run eval` (yalnız tur sonunda).
+- Doğrulama: `npm run eval` — yapay CV'ler ve yapay + gerçek ilanlardan oluşan veri setiyle (`eval/`, bkz.
+  `eval/README.md`) motoru ölçer, `EVAL_SCORE` ve %90 güven aralığını basar. Holdout seti için
+  `EVAL_SPLIT=holdout npm run eval` (yalnız tur sonunda, yalnız toplam skor okunur).
 - Motor iyileştirme turları: autoresearch döngüsüyle (ölç → değiştir → tut/at). Protokol, güncel skorlar
   ve sonraki tur adayları `eval/README.md`'de; tur kayıtları `autoresearch/loop-*/`.
 - Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
 
 ### Durum (2026-10-30)
 - Tamam: statik export + gizlilik (analytics yok), Türkçe parser, eşleştirme motoru, öneri + ATS modülü,
-  sentetik eval (18 ilan; metrik öneri F1 ve önem doğruluğunu da ölçüyor), autoresearch turu 1 ve 2,
-  improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), regresyon kapısı (STABLE),
-  gerçek ilan denemesi. 38 birim testi.
-- Skor (tur 2 sonu): dev 94.9, holdout v2 80.8. Holdout v2'deki sağlık, lojistik ve eğitim ilanları hiç
-  görülmemiş sektörler; aradaki fark sözlük eksikliğinden kaynaklanıyor. Ayrıntı ve sonraki adaylar `eval/README.md`'de.
-- Sırada: önce dev gold'undaki "ideally" tutarsızlığının düzeltilmesi (ayrı commit), sonra PRD'lerden seçilenler
-  (uygulama durumu `autoresearch/improve-261029-2057/improvement-plan.md`'de), ardından arayüz (Faz 4: Türkçe
-  analiz sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
+  eval (dev 28 ilan, 10'u gerçek; holdout v3: 10 gerçek ilan, kör üretim), autoresearch turları 1–2,
+  improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), PRD 1 (ilan koşulları, önem kapsamı,
+  ağırlıklar), gerçek ilan denemesi ve tur 3 düzeltmeleri (boilerplate, yanlış pozitifler, az sinyal bayrağı).
+  62 birim testi.
+- Skor (tur 3): dev 88.4, holdout v3 1. bakış 75.6 (tur 3 öncesi motor). Hizmet/mavi yaka ilanlarında
+  sözlük neredeyse boş; bu ilanlar "yetersiz sinyal" olarak işaretleniyor. Ayrıntı `eval/README.md`'de.
+- Sırada: sözlük genelleşmesi (tur 4, Türkçe kaynak gerekiyor), ardından arayüz (Faz 4: Türkçe analiz
+  sayfası; mesajlar yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok).
 - Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
 
 Aşağısı upstream'in orijinal README'sidir.

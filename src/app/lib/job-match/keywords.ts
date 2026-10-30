@@ -70,6 +70,30 @@ const ABOUT_CANDIDATE = / (?:you|your|candidate|candidates|aday\S*|sen|siz) /;
 // prettier-ignore
 const INLINE_REQUIRED = ["must have", "required", "is a must", "zorunlu", "mutlaka", "sart"];
 
+// Sentences an employer adds to every ad: equal opportunity, privacy, hiring procedure,
+// pay and benefits. They often follow the requirements without a heading, so they are
+// blanked sentence by sentence wherever they stand. Narrow on purpose: bare "privacy",
+// "benefits" or "KVKK" are real requirements in DPO, payroll and HR ads.
+// prettier-ignore
+const BOILERPLATE = ["equal opportunit", "affirmative action", "eeo", "regardless of race", "regardless of age",
+  "regardless of gender", "regardless of sex", "without regard to race", "without regard to age",
+  "without regard to sex", "discrimination", "discriminate", "discriminatory", "reasonable accommodation", "accommodation needs", "accommodations for applicants",
+  "our privacy", "recruitment privacy", "e verify", "employment eligibility", "third party job boards",
+  "automated tools", "during the recruiting process", "during the recruitment process", "talent acquisition team",
+  "our recruiters", "we thank all", "only those selected", "only those individuals selected", "stock purchase",
+  "equity compensation", "equity package", "401 k", "paid time off", "parental leave", "bereavement",
+  "dental and vision", "medical dental", "commuter benefits", "tuition reimbursement", "profit sharing",
+  "pay transparency", "registered trademark", "applicants with disabilities",
+  "disabilities act", "recruitment and selection process", "as part of the hiring process", "condition of employment",
+  "immunization polic", "vaccination polic", "hiring guidelines", "hires new team members", "kisisel verileriniz",
+  "aydinlatma metni", "kvkk kapsaminda", "ozel saglik sigortasi", "yemek karti", "servis imkani"];
+// Not length-preserving (splitOutsideParens drops blank parts and, with unbalanced
+// parentheses, all parentheses); importanceParts does the same, so nothing reads offsets
+const withoutBoilerplate = (content: string) =>
+  splitOutsideParens(content, endsSentence)
+    .map((s) => (hasMarker(toWords(s), BOILERPLATE) ? " ".repeat(s.length) : s))
+    .join("");
+
 // From the user's pairwise judgments (eval/README.md, Faz D): one missing requirement
 // outweighs four missing pluses and about three missing duty skills; a duty skill
 // outweighs two pluses. Fitted to those 7 answers, so recheck in the real-ad trial.
@@ -78,6 +102,12 @@ const WEIGHTS: Record<Importance, number> = {
   normal: 1,
   preferred: 0.25,
 };
+// With fewer distinct hard skills than this the score is noise: one soft skill made an HR
+// resume score 100 on a cook ad. Dev ads sit at 0–2 or 4+ (tur 3), so 3 leaves a margin.
+export const MIN_AD_SKILLS = 3;
+export const isInsufficient = (keywords: AdKeyword[]) =>
+  keywords.filter((k) => k.skill?.category !== "soft").length < MIN_AD_SKILLS;
+
 // Keywords found outside the dictionary are less certain to be real skills
 const UNKNOWN_WEIGHT_FACTOR = 0.7;
 // ATS screening is driven by hard skills; two soft skills don't make up for one
@@ -249,10 +279,12 @@ const candidateTokens = (line: string) =>
 // Acronyms that are not skills
 // prettier-ignore
 const NOT_SKILLS = new Set(["CV", "OR", "AND", "THE", "WE", "YOU", "US", "TR", "EN", "VE", "ILE", "IK", "HR", "CEO",
-  "CTO", "CFO", "VP", "LTD", "AS", "INC", "LLC", "TL", "USD", "EUR", "KM", "SGK", "BES",
+  "CTO", "CFO", "VP", "LTD", "AS", "INC", "LLC", "TL", "USD", "EUR", "KM", "SGK", "BES", "TA", "IP",
   // places, time zones, company types, work arrangements
-  "UK", "EU", "USA", "UAE", "EMEA", "APAC", "LATAM", "NYC", "GMT", "UTC", "CET", "EST", "PST", "GMBH", "PLC", "SA", "AG",
-  "BV", "FTE", "PTO", "WFH", "ASAP", "FAQ", "PS", "NB", "ETC", "IE", "EG"]);
+  "UK", "EU", "USA", "UAE", "EMEA", "APAC", "LATAM", "AMER", "NYC", "GMT", "UTC", "CET", "EST", "PST", "GMBH", "PLC", "SA",
+  "AG", "BV", "FTE", "PTO", "WFH", "ASAP", "FAQ", "PS", "NB", "ETC", "IE", "EG",
+  // ordinary words written in capitals for emphasis ("exemplary PEOPLE experiences")
+  "PEOPLE", "TEAM", "OUR", "JOIN", "ABOUT", "WHO", "WHAT", "HOW", "WHY", "JOB", "ROLE", "NOTE", "NEW", "NOW"]);
 
 const IMPORTANCE_RANK: Record<Importance, number> = {
   preferred: 0,
@@ -318,6 +350,8 @@ export const extractJobAd = (ad: string) => {
     const spans = findConditionSpans(content);
     spans.forEach(({ kind }) => conditions.push({ kind, line }));
     if (spans.length) content = withoutConditions(content, spans);
+    // After conditions: "We participate in E-Verify" still says work permit
+    content = withoutBoilerplate(content);
     // After blanking: a condition's own marker ("ehliyet zorunludur") stays with it
     const parts = importanceParts(content, block);
 
