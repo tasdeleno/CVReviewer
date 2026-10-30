@@ -23,13 +23,13 @@ veya üçüncü taraf istek yoktur.
 - Tamam: statik export + gizlilik (analytics yok), Türkçe parser, eşleştirme motoru, öneri + ATS modülü,
   eval (dev 28 ilan, 10'u gerçek; holdout v3: 10 gerçek ilan, kör üretim), autoresearch turları 1–2,
   improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), PRD 1 (ilan koşulları, önem kapsamı,
-  ağırlıklar), gerçek ilan denemesi ve tur 3 düzeltmeleri (boilerplate, yanlış pozitifler, az sinyal bayrağı).
-  62 birim testi.
-- Skor (tur 3): dev 88.4, holdout v3 1. bakış 75.6 (tur 3 öncesi motor). Hizmet/mavi yaka ilanlarında
-  sözlük neredeyse boş; bu ilanlar "yetersiz sinyal" olarak işaretleniyor. Ayrıntı `eval/README.md`'de.
-- Sırada: tur 4 (planlandı): ifade çıkarımı ve açık kaynaklardan ilan madenciliğiyle sözlük. İlan ve CV
-  aynı dilde varsayılıyor. Ardından arayüz (Faz 4, tam kapsam: analiz sayfası, ATS Testi; mesajlar
-  yalnız metin olarak render edilir, `dangerouslySetInnerHTML` yok). Ayrıntı `eval/README.md`.
+  ağırlıklar), gerçek ilan denemesi ve tur 3 düzeltmeleri (boilerplate, yanlış pozitifler, az sinyal bayrağı),
+  tur 4 (sözlük dışı ifade çıkarımı, 572 ilanlık korpustan madencilikle ~100 kavramlık sözlük eki).
+  76 birim testi.
+- Skor (tur 4): dev 88.6 (B7 ölçümüyle; çapraz dil CV'leri ölçülmüyor), holdout v3 5. bakış 79.8
+  (tur 3 motoru aynı ölçümle 77.9). İlan ve CV aynı dilde varsayılıyor. Ayrıntı `eval/README.md`'de.
+- Sırada: arayüz (Faz 4, tam kapsam: analiz sayfası, ATS Testi; mesajlar yalnız metin olarak render
+  edilir, `dangerouslySetInnerHTML` yok; ifadeler sözlük becerilerinden ayrı gösterilir).
 - Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
 
 Aşağısı upstream'in orijinal README'sidir.

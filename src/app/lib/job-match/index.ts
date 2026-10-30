@@ -12,6 +12,7 @@ import { checkAts, suggest } from "lib/job-match/suggest";
 import {
   detectLang,
   hasPhrase,
+  hasWords,
   toTokenizedText,
   type Lang,
   type TokenizedText,
@@ -42,14 +43,22 @@ export const matchKeywords = (
     const phrases = [...keyword.phrases, ...(keyword.skill?.impliedBy ?? [])];
     const has = (text: TokenizedText) =>
       phrases.some((phrase) => hasPhrase(text, phrase));
+    // A phrase's words in any order within one line: "nursing care to patients" has
+    // "patient care", "hastaların bakımı" has "hasta bakımı"
+    const hasInLine = (text: TokenizedText) =>
+      has(text) ||
+      (keyword.kind === "phrase" &&
+        keyword.phrases.some((phrase) => hasWords(text, phrase)));
     const sections = Array.from(
       new Set(
-        lines.filter((line) => has(line.text)).map((line) => line.section)
+        lines
+          .filter((line) => hasInLine(line.text))
+          .map((line) => line.section)
       )
     );
     return {
       ...keyword,
-      found: sections.length > 0 || has(whole),
+      found: sections.length > 0 || hasInLine(whole),
       sections,
     };
   });

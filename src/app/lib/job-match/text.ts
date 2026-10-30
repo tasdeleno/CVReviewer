@@ -72,6 +72,14 @@ export const findPhraseSpan = (text: TokenizedText, phrase: Phrase) => {
 export const hasPhrase = (text: TokenizedText, phrase: Phrase) =>
   findPhraseSpan(text, phrase) !== undefined;
 
+/** Every word of the phrase somewhere in the text, each possibly inflected */
+export const hasWords = (text: TokenizedText, phrase: Phrase) =>
+  phrase.tokens.every((word) =>
+    text.folded.some((token) =>
+      tokenMatches(token, word, phrase.turkishSuffixes)
+    )
+  );
+
 // Function words only, used for language detection
 // prettier-ignore
 const EN_FUNCTION_WORDS = new Set(["the", "and", "of", "to", "in", "for", "with", "is", "are", "you", "we", "our", "will", "on", "as", "an", "be", "your", "this", "that"]);

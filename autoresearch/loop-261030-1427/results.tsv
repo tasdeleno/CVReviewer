@@ -1,0 +1,13 @@
+# metric_direction: higher_is_better
+iteration	timestamp	commit	metric	delta	guard	guard-metric	status	description
+0	2026-10-30T14:27:02+03:00	46048fc+wip	87.2	0.0	pass	pp44.9 f1 72.2 dec89.5	baseline	ifade kancası (tur 4 Adım 2 son hâli); B7=88.4 hedef
+1	2026-10-30T14:28:20+03:00	-	87.3	+0.1	pass	pp44.9 f1 72.2 dec89.7	keep	TR niteleyicilerde hal eki soyma + yumuşama sertleştirme (takib->takip)
+2	2026-10-30T14:29:47+03:00	-	87.4	+0.1	pass	pp45.3 f1 72.4 dec89.7	keep	TR çoğul iyelik+bulunma / sektör / pozisyon ile biten bağlam adaylarını at (ilk deneme "-ında" geniş, testte kırıldı, daraltıldı)
+3	2026-10-30T14:30:21+03:00	-	87.5	+0.1	pass	pp46.2 f1 72.8 dec89.7	keep	başı kişi olan adayları at (student nurses, store manager)
+4	2026-10-30T14:30:58+03:00	-	87.8	+0.3	pass	pp46.2 f1 72.8 dec90.9	keep	sırasız ifade eşleşmesi tüm CV metninde de (satır şartı yedekte kalktı)
+5	2026-10-30T14:32:19+03:00	-	88.0	+0.2	pass	pp46.7 f1 73.1 dec91.2	keep	çerçeve kökleri (kural/standart/prosedür/süreç/işlem/faaliyet) ve çerçeve soyulunca tek kelime aday
+6	2026-10-30T14:33:27+03:00	-	88.2	+0.2	pass	pp47.9 f1 73.9 dec91.2	keep	EN koşu başındaki fiil/-ing fiili at (ING_NOUNS istisnası)
+7	2026-10-30T14:34:58+03:00	-	88.3	+0.1	pass	pp48.0 f1 74.0 dec91.3	keep	TR çoğul+iyelik+yönelme/belirtme (nesne) ile biten adayları at; HBYS testi örneği güncellendi
+8	2026-10-30T14:35:35+03:00	-	88.4	+0.1	pass	pp48.5 f1 74.0 dec91.6	keep	TR baş öncesi yönelme ekli kelime = fiil cümlesi, at; "göre" durak
+9	2026-10-30T14:36:36+03:00	-	88.5	+0.1	pass	pp49.1 f1 74.3 dec91.5	keep	genel durak ekleri (altında, regarding, term, weekdays) + TR olumsuz eylemlik -mama/-meme
+10	2026-10-30T14:37:33+03:00	-	88.5	0.0	pass	pp49.4 f1 74.5 dec91.5	discard	EN ortadaki -ing fiili koşuyu böler (skor eşit; snapshot 9a dönüldü)

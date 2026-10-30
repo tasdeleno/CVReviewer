@@ -109,6 +109,17 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 | B6 | 10 gerçek ilan dev'e (28 ilan); holdout v3 (10 gerçek ilan) | 87.3 (84.7–89.8) | 75.6 (71.8–78.8; v3, 1. bakış) |
 | **Tur 3** | boilerplate boşaltma, kısaltma/büyük harf yanlış pozitifleri, görünüş koşulu, PDF kelime boşluğu, az sinyal bayrağı | **88.4 (86.0–90.5)** | **76.7 (73.6–79.5; v3, 2. bakış — aralık içinde, regresyon yok)** |
 
+| B7 | çapraz dil CV'leri var/eksik, skor/sıralama ve dile bağlı önerilerden (title, only-in-skills) çıkarıldı; payda 0 bileşen skordan düşer. B6/Tur 3 ile karşılaştırılamaz | 88.4 (85.8–90.6) | — |
+| B7-v3 (tur 3 motoru, B7 ölçümü) | holdout v3 yeniden ölçüldü | — | 77.9 (75.0–80.6; v3, 3. bakış) |
+| Tur 4 Adım 2 | sözlük dışı ifade çıkarımı (`phrases.ts`), ×0.5 ağırlık, sırasız eşleşme; loop-261030-1427 (87.2 → 88.5). İfade precision 49.1 (hedef 60, tutmuyor) | 88.5 (86.2–90.4), F1 74.3 | 79.0 (77.1–80.9; v3, 4. bakış) |
+| **Tur 4** | + korpus madenciliğiyle sözlük (~100 kavram; fitness, idari, satış sahası, TR muhasebe, lojistik, İSG/hijyen), korpusta görülen ifade gürültüsü, "Job Description" başlığı, tireli durak bileşikleri; review: TR isim istisnaları, ReDoS düzeltmesi | **88.6 (86.4–90.7), F1 75.9** | **79.8 (77.8–81.7; v3, 5. bakış, review düzeltmelerinden önce)** |
+
+**Tur 4 (ifade çıkarımı + odak sözlüğü):**
+- **Korpus:** 572 gerçek ilan (EN 254: Greenhouse 23 board, SmartRecruiters 9 şirket; TR 318: eleman.net 60 pozisyon sayfası). Odak alanı payı ~%47. Repo dışında `cvreviewer-try/corpus/` (index.tsv: url, kaynak, odak bayrağı). Dev, deneme ve holdout ilanları URL ve metin parçasıyla dışlandı. Sözlük v3'e bakılmadan bu korpustan çıkarıldığı için v3 farkı genelleşmeyi meşru ölçer.
+- **Korpusta "yetersiz" ilan oranı** (örnek içi): TR %40.3 → %21.7, EN %8.7 → %3.5. Kalan TR ilanların çoğu gerçekten az beceri isteyen hizmet/mavi yaka ilanları (güvenlik, şoför, kasiyer, çağrı merkezi).
+- **Odak denemesi** (`cvreviewer-try/focus/`, dondurulmuş sözlükle 8 yeni ilan, hafif gold motora bakılmadan yazıldı): recall tur 3 motoruyla 36.4 → yeni motorla 70.7 (yanlışlama eşiği +5, geçti); yetersiz 5/8 → 1/8. Göz kontrolünden sonraki iki genel düzeltmeyle 72.7 (artık örnek içi).
+- **Ölçüm notları:** B7'den itibaren çapraz dil CV'leri var/eksik, skor/sıralama ve dile bağlı önerilerde ölçülmez. İfade metrikleri ("İfade" satırı) skora girmez. Dev'de "personal training sales" gibi gold terimleri motordaki daha kısa "personal training"e bağlanır; zayıf CV kısa terimi içerince karar "yok ama bulundu" sayılır (başlık düzeltmesindeki dev −0.2'nin kaynağı).
+
 **Tur 3 (gerçek ilan bulguları, TDD):** bulgular `cvreviewer-try/FINDINGS.md`'de, önce/sonra tablosuyla.
 - **Boilerplate:** EEO, gizlilik, işe alım prosedürü ve yan hak cümleleri koşul çıkarımından sonra, anahtar kelime için boşaltılıyor (`keywords.ts`, `BOILERPLATE`). Dar ipuçları; tek başına "privacy", "benefits", "KVKK" kullanılmadı. Dev precision 80.3 → 82.9, recall 63.8'de kaldı (gerçek gereksinim yutulmadı).
 - **Yanlış pozitifler:** TA, IP, AMER ve büyük harfle yazılmış sıradan kelimeler (PEOPLE …) `NOT_SKILLS`'te; CRO artık büyük/küçük harfe duyarlı ("cross"a uymuyordu).
@@ -181,23 +192,19 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
 **Holdout v3 bakışları** (yalnızca toplam skor ve aralık, rapor hiç açılmadı): 1. bakış tur 3 öncesi motorla 75.6 (71.8–78.8); 2. bakış tur 3 sonu 76.7 (73.6–79.5). Fark aralığın içinde: regresyon yok, kazanç olarak okunmaz.
 
 ## Sonraki tur adayları (öncelik sırasıyla)
-1. **Tur 4 (planlandı, başlanmadı):** plan `~/.claude/plans/tur4-ifade-cikarimi-ve-madencilik.md`.
-   - **Kullanıcı kararları (2026-10-30):**
-     - İlan ve CV her zaman aynı dilde (EN↔EN, TR↔TR). Çapraz dil CV'leri eval skorundan çıkarılacak (yeni baseline B7).
-     - Odak alanları: spor/antrenörlük ve geniş beyaz yaka (idari, pazarlama/satış, finans, yönetim, danışmanlık).
-     - Sözlük, açık kaynaklardan (Greenhouse/SmartRecruiters API, eleman.net, techcareer.net) 400–600 ilanlık bir korpus üzerinden madencilikle kurulacak. LinkedIn kullanılmayacak: robots.txt ve kullanıcı sözleşmesi izinsiz taramayı yasaklıyor.
-   - **Adımlar:**
-     1. eval'de çapraz dil hariç tutma ve `pct(0,0)` düzeltmesi.
-     2. Sözlükten bağımsız ifade çıkarımı: `AdKeyword.kind`, önem en çok `normal`, ağırlık ×0.5, ifadeler "deneyim maddesine ekle" önerisine yönlenir, `isInsufficient` ifadeleri saymaz.
-     3. Korpus madenciliğiyle sözlük; sonra sözlük dondurulur.
-     4. Dondurulmuş sözlükle 8 yeni odak ilanında hafif gold ile recall ölçümü, ardından holdout v3'e 3. ve 4. bakış.
-   - **Hazır Türkçe kaynak yok:** ESCO'da Türkçe yok; Kariyer.net/İTÜ veri seti (arXiv 2601.22885) yayımlanmadı; MYK "tüm hakları saklı".
-   - **Beklenti:** ifade çıkarımı "yetersiz" ilanları kurtarmaz, onları yalnızca sözlük kurtarabilir. Kaçırılan dev gold'larının 145/156'sı ilanda aynen geçtiği için dev kazancı iyimser olacak.
+1. **Tur 4'ten kalanlar (bitti; ayrıntı yukarıda "Tur 4"):**
+   - **İfade precision'ı %47** (plan hedefi %60). Kullanıcı holdout kazancı nedeniyle kabul etti. Sonraki adım: EN için POS etiketleyici (wink-nlp) ya da ifadeleri skora katmadan ayrı liste göstermek (Faz 4 kararı).
+   - **İdari sözlük açığı** (odak göz kontrolü): "managing a complex calendar", "reconcile expenses", "end-to-end travel booking" yakalanmıyor; en-admin ilanı hâlâ yetersiz. Odak ilanına göre ayarlamamak için bilinçli olarak bekletildi.
+   - **Kısaltma token gürültüsü:** danışmanlık ilanında BPC, SPO, SLO, APO, LSD gibi ilana özgü kısaltmalar araç sanılıyor.
+   - **"ve/and" bölünüyor** (plandan sapma): "ölçme ve değerlendirme" gibi terimler yalnız sözlükle yakalanır.
+   - **Tüm CV'de sırasız ifade eşleşmesi** gerçek CV'de yanlış "var" riskini artırabilir; gerçek CV'lerle kontrol edilmeli.
+   - **Eval bağlama ayrıntısı:** daha kısa motor terimi daha uzun gold terimine bağlanıyor ("personal training" → "personal training sales"); ölçüm düzeltmesi ayrı bir iş.
 2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), "Personal Training certification". CV dilinden dil becerisi çıkarmak, aynı dil kararıyla önemini kaybetti.
 3. **Ağırlıkların gerçek ilanda kontrolü:** tur 4'ten sonra.
 4. **Faz 4 (arayüz, tur 4'ten sonra, ana plandaki tam kapsam):** analiz sayfası, pazarlama sayfalarının silinmesi, `/resume-parser` → "ATS Testi". Silent-failure review'dan (2032a70) gelen iki zorunluluk:
    - Boilerplate filtresinin sildiği cümleler arayüzde "yok sayıldı" olarak gösterilmeli (sessiz veri kaybı olmasın).
    - `score` yalnızca `insufficient` bayrağıyla birlikte gösterilmeli (tip ya da bileşen kuralı); aşçı ilanındaki "100" bayraksız görünmemeli.
+   - Tur 4: `kind: "phrase"` anahtar kelimeleri sözlük becerilerinden ayrı ve daha düşük öncelikle gösterilmeli ("İlanda geçen diğer ifadeler"); precision'ları ~%47.
 5. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
    - Fazladan çıkarılan kelimeler: bölüm adları (Economics, İktisat / İşletme). Gold kuralı bunları anahtar kelime saymıyor, motor ise eğitim önerisi için çıkarıyor; bu bir karar konusu.

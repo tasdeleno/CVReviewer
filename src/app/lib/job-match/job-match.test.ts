@@ -6,6 +6,8 @@ import {
 import { checkConditions } from "lib/job-match/conditions";
 import { computeScore, matchKeywords } from "lib/job-match";
 import { suggest } from "lib/job-match/suggest";
+import { SKILLS, getSkillLabel } from "lib/job-match/dictionary";
+import { foldText } from "lib/fold-text";
 import { initialResumeState } from "lib/redux/resumeSlice";
 import { groupTextItemsIntoLines } from "lib/parse-resume-from-pdf/group-text-items-into-lines";
 import {
@@ -15,8 +17,19 @@ import {
   toTokenizedText,
 } from "lib/job-match/text";
 
+// Dictionary and token keywords; phrases have their own tests
 const keywordsOf = (ad: string) =>
-  Object.fromEntries(extractKeywords(ad).map((k) => [k.label, k.importance]));
+  Object.fromEntries(
+    extractKeywords(ad)
+      .filter((k) => k.kind !== "phrase")
+      .map((k) => [k.label, k.importance])
+  );
+const phrasesOf = (ad: string) =>
+  Object.fromEntries(
+    extractKeywords(ad)
+      .filter((k) => k.kind === "phrase")
+      .map((k) => [k.label, k.importance])
+  );
 
 const has = (text: string, form: string) =>
   hasPhrase(toTokenizedText(text), toPhrase(form));
@@ -676,5 +689,221 @@ describe("job-match - real-ad trial findings (tur 3)", () => {
     expect(
       kinds("Dış görünüşüne ve kişisel bakımına özen gösteren, dinamik")
     ).toEqual(["appearance"]);
+  });
+});
+
+describe("job-match - phrases outside the dictionary (tur 4)", () => {
+  it("strips the qualifiers around a phrase and splits two phrases at 've'", () => {
+    expect(
+      phrasesOf(
+        "Nitelikler\n- Mekanik ventilatör takibi ve hasta bakımı konusunda deneyimli"
+      )
+    ).toEqual({
+      "Mekanik ventilatör takibi": "normal",
+      "hasta bakımı": "normal",
+    });
+    expect(
+      phrasesOf(
+        "Requirements\n- Experience in acute care, ideally on a surgical ward\n- Experience with discharge planning"
+      )
+    ).toEqual({
+      "acute care": "normal",
+      "surgical ward": "preferred",
+      "discharge planning": "normal",
+    });
+  });
+
+  it("'ve'/'and' end a phrase; single words left over are dropped", () => {
+    // joining across them made mostly noise ("physiotherapists and families")
+    expect(phrasesOf("Nitelikler\n- Ölçme ve değerlendirme bilgisi")).toEqual(
+      {}
+    );
+    expect(
+      phrasesOf("Requirements\n- Knowledge of discharge planning and control")
+    ).toEqual({ "discharge planning": "normal" });
+  });
+
+  it("turns an infinitive into a noun and drops light verbs and verb forms", () => {
+    expect(phrasesOf("Görevler\n- Teklif hazırlamak")).toEqual({
+      "Teklif hazırlama": "normal",
+    });
+    // a genitive left without its head ("istemlerinin uygulanması") is no phrase
+    expect(
+      phrasesOf("Görevler\n- Doktor istemlerinin zamanında uygulanması")
+    ).toEqual({});
+    expect(
+      phrasesOf(
+        "Görevler\n- Antrenman programları hazırlamak ve gelişimlerini izlemek"
+      )
+    ).toEqual({
+      "Antrenman programları hazırlama": "normal",
+      "gelişimlerini izleme": "normal",
+    });
+    expect(phrasesOf("Görevler\n- Raporlama yapmak")).toEqual({});
+    expect(
+      phrasesOf("What you'll do\n- Administer medications safely")
+    ).toEqual({});
+  });
+
+  it("drops generic, numeric, trait and dictionary-covered words", () => {
+    expect(
+      phrasesOf(
+        "Requirements\n- 3+ years of experience\n- Strong communication skills\n- Dynamic team player"
+      )
+    ).toEqual({});
+    // "HBYS" is a tool token: it ends a phrase
+    expect(phrasesOf("Görevler\n- Hasta kabulü HBYS üzerinden")).toEqual({
+      "Hasta kabulü": "normal",
+    });
+    // plural + possessive + accusative is a verb's object, not a skill
+    expect(
+      phrasesOf("Nitelikler\n- Hemşirelik kayıtlarını HBYS üzerinde tutabilen")
+    ).toEqual({});
+  });
+
+  it("takes no phrase from boilerplate, conditions, intro prose or the title", () => {
+    expect(
+      phrasesOf(
+        "Customer Service Representative\nWe are a fast growing retail company in sunny Leeds.\nRequirements\n- Valid driving licence\n- We are an equal opportunity employer regardless of race or gender"
+      )
+    ).toEqual({});
+    // Without headings only bulleted lines count
+    expect(
+      phrasesOf(
+        "Staff Nurse\nNorthgate is a teaching hospital with modern surgical wards"
+      )
+    ).toEqual({});
+    expect(
+      phrasesOf(
+        "Northgate is a teaching hospital\n- Wound care and patient safety"
+      )
+    ).toEqual({ "Wound care": "normal", "patient safety": "normal" });
+  });
+
+  it("a phrase is required only with an explicit marker, not from its block", () => {
+    expect(phrasesOf("Requirements\n- Wound care is a must")).toEqual({
+      "Wound care": "required",
+    });
+  });
+
+  it("matches the inflected forms a resume writes", () => {
+    const [phrase] = extractKeywords(
+      "Görevler\n- Hasta bakımında deneyimli"
+    ).filter((k) => k.kind === "phrase");
+    const found = (text: string) =>
+      matchKeywords([phrase], [{ section: "experience", text }])[0].found;
+    expect(found("Yoğun bakımda hasta bakımı ve takibi")).toBe(true);
+    expect(found("Hasta bakım planları hazırladım")).toBe(true);
+    expect(found("Hasta kabulü yaptım")).toBe(false);
+    const [en] = extractKeywords("Requirements\n- Patient assessments").filter(
+      (k) => k.kind === "phrase"
+    );
+    expect(
+      matchKeywords(
+        [en],
+        [{ section: "experience", text: "Ran a patient assessment" }]
+      )[0].found
+    ).toBe(true);
+  });
+
+  it("phrases don't make an ad sufficient and go to experience advice", () => {
+    const keywords = extractKeywords(
+      "Requirements\n- Wound care\n- Discharge planning\n- Surgical ward experience"
+    );
+    expect(keywords.filter((k) => k.kind === "phrase")).toHaveLength(3);
+    expect(isInsufficient(keywords)).toBe(true);
+    const kinds = suggest({
+      jobAd: "Requirements\n- Wound care",
+      matches: matchKeywords(extractKeywords("Requirements\n- Wound care"), []),
+      resume: initialResumeState,
+      resumeText: "",
+      langs: { ad: "en", resume: "en" },
+    }).map((s) => s.kind);
+    expect(kinds).toContain("missing-in-experience");
+    expect(kinds).not.toContain("missing-skills");
+  });
+
+  it("Turkish nouns that look like verb or case forms stay in phrases", () => {
+    // -mali, -mek, dative -ne/-ya and genitive -ün patterns would drop these
+    expect(phrasesOf("Görevler\n- Mali tablo analizi")).toEqual({
+      "Mali tablo analizi": "normal",
+    });
+    expect(phrasesOf("Görevler\n- Toplu yemek servisi")).toEqual({
+      "Toplu yemek servisi": "normal",
+    });
+    expect(phrasesOf("Görevler\n- Makine bakımı ve medya planlama")).toEqual({
+      "Makine bakımı": "normal",
+      "medya planlama": "normal",
+    });
+    expect(
+      phrasesOf(
+        "Görevler\n- Kozmetik ürün, günlük protein ve kimya laboratuvarı"
+      )
+    ).toEqual({
+      "Kozmetik ürün": "normal",
+      "günlük protein": "normal",
+      "kimya laboratuvarı": "normal",
+    });
+    // the exemption is for the bare noun only: "ürünün" still lost its head
+    expect(phrasesOf("Görevler\n- Kozmetik ürünün geliştirilmesi")).toEqual({});
+  });
+
+  it("English verb forms end a phrase; -ing nouns and 'staffing' do not", () => {
+    // "applied"/"identified" are past forms of stop verbs; "carries" the -s form
+    expect(
+      phrasesOf(
+        "Requirements\n- Applied risk scoring, identified fraud patterns"
+      )
+    ).toEqual({ "risk scoring": "normal", "fraud patterns": "normal" });
+    expect(
+      phrasesOf(
+        "Requirements\n- Branding guidelines, advertising campaigns, retail staffing"
+      )
+    ).toEqual({
+      "Branding guidelines": "normal",
+      "advertising campaigns": "normal",
+      "retail staffing": "normal",
+    });
+    // a person head is still dropped, also as "leading"
+    expect(phrasesOf("Requirements\n- Store staff, team leading")).toEqual({});
+  });
+
+  it("hyphenated stop compounds break a phrase, fast even on one huge token", () => {
+    expect(
+      phrasesOf("What you'll do\n- Support high-profile offsite events")
+    ).toEqual({ "offsite events": "normal" });
+    const start = Date.now();
+    extractKeywords(`Requirements\n- ${"a".repeat(100000)}`);
+    expect(Date.now() - start).toBeLessThan(1000);
+  });
+
+  it("the dictionary has no form in two lines and a label in every line", () => {
+    const owner = new Map<string, number>();
+    const clashes: string[] = [];
+    SKILLS.forEach((skill, i) => {
+      for (const form of Array.from(
+        new Set([...skill.en, ...skill.tr].map(foldText))
+      )) {
+        if (owner.has(form) && owner.get(form) !== i) clashes.push(form);
+        owner.set(form, i);
+      }
+      expect(getSkillLabel(skill, "en")).toBeTruthy();
+      expect(getSkillLabel(skill, "tr")).toBeTruthy();
+    });
+    expect(clashes).toEqual([]);
+  });
+
+  it("caps the phrases of one ad", () => {
+    const lines = Array.from(
+      { length: 80 },
+      (_, i) =>
+        `- Alpha${String.fromCharCode(
+          97 + (i % 26),
+          97 + Math.floor(i / 26)
+        )} omega`
+    );
+    expect(
+      Object.keys(phrasesOf(`Requirements\n${lines.join("\n")}`))
+    ).toHaveLength(60);
   });
 });
