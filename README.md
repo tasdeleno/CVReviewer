@@ -19,18 +19,26 @@ veya üçüncü taraf istek yoktur.
   ve sonraki tur adayları `eval/README.md`'de; tur kayıtları `autoresearch/loop-*/`.
 - Lisans: AGPL-3.0 (upstream ile aynı). Ağ üzerinden kullananlara değiştirilmiş kaynak sunulmalıdır.
 
-### Durum (2026-10-30)
+### Durum (2026-10-31)
 - Tamam: statik export + gizlilik (analytics yok), Türkçe parser, eşleştirme motoru, öneri + ATS modülü,
   eval (dev 28 ilan, 10'u gerçek; holdout v3: 10 gerçek ilan, kör üretim), autoresearch turları 1–2,
   improve araştırması (7 PRD, `autoresearch/improve-261029-2057/`), PRD 1 (ilan koşulları, önem kapsamı,
   ağırlıklar), gerçek ilan denemesi ve tur 3 düzeltmeleri (boilerplate, yanlış pozitifler, az sinyal bayrağı),
   tur 4 (sözlük dışı ifade çıkarımı, 572 ilanlık korpustan madencilikle ~100 kavramlık sözlük eki).
-  76 birim testi.
+  79 birim testi.
 - Skor (tur 4): dev 88.6 (B7 ölçümüyle; çapraz dil CV'leri ölçülmüyor), holdout v3 5. bakış 79.8
   (tur 3 motoru aynı ölçümle 77.9). İlan ve CV aynı dilde varsayılıyor. Ayrıntı `eval/README.md`'de.
-- Sırada: arayüz (Faz 4, tam kapsam: analiz sayfası, ATS Testi; mesajlar yalnız metin olarak render
-  edilir, `dangerouslySetInnerHTML` yok; ifadeler sözlük becerilerinden ayrı gösterilir).
-- Henüz arayüz yok: motor yalnız `npm run eval` / `npm run try` ve testlerle çalıştırılıyor.
+- Arayüz (Faz 4, 2026-10-31): `/` tek analiz sayfası. İlan metni yapıştırılır, CV (PDF) bırakılır;
+  solda daire skor (az sinyalde kesikli daire + uyarı), sağda bölüm bölüm numaralı öneri tabelaları,
+  ilan koşulları, var/eksik beceriler, düşük güvenli ifadeler, analize alınmayan ilan metni ve ATS
+  paneli. Tasarım: "sarı terminal tabelası" (`.impeccable/surfaces/`, `PRODUCT.md`). Pazarlama
+  sayfaları ve `/resume-parser` silindi; `/resume-builder` ve `/resume-import` menüde yok, kodu duruyor.
+  Girdi sınırları: ilan ve CV metni 30.000 karakter, PDF 10 MB ve 10 sayfa. Dış istek yok.
+  Yerelde: `npm run build` sonra `out/` klasörünü herhangi bir statik sunucuyla aç.
+- Sırada: deploy (Cloudflare Pages + Access + CSP). AGPL §13: ağ üzerinden kullananlara kaynak erişimi
+  (public repo, repo erişimi ya da sürüm arşivi + altbilgi bağlantısı) deploy adımında çözülecek;
+  altbilgideki lisans notu tek başına yetmez. İlan linkinden yükleme sonraki faza aday (tarayıcı başka
+  sitenin sayfasını okuyamaz, sunucu gerekir).
 
 Aşağısı upstream'in orijinal README'sidir.
 

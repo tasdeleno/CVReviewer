@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T00:00:00Z",
+  "title": "Design System: CVReviewer",
+  "extensions": {
+    "colorMeta": {
+      "sign": { "role": "primary", "displayName": "Tabela Sarısı", "canonical": "#ffcc00", "tonalRamp": ["#3d2f00", "#5c4700", "#806300", "#a88200", "#d4a500", "#ffcc00", "#ffdd55", "#fff1b8"] },
+      "ink": { "role": "neutral", "displayName": "Terminal Siyahı", "canonical": "#161616", "tonalRamp": ["#161616", "#2b2b2b", "#454545", "#626262", "#808080", "#a0a0a0", "#c4c4c4", "#ececec"] },
+      "white": { "role": "neutral", "displayName": "Tabela Beyazı", "canonical": "#ffffff", "tonalRamp": ["#262626", "#444444", "#666666", "#8a8a8a", "#afafaf", "#d4d4d4", "#ededed", "#ffffff"] },
+      "ground": { "role": "neutral", "displayName": "Taş Zemin", "canonical": "#eceae4", "tonalRamp": ["#262521", "#3f3d38", "#5c5a54", "#7b7972", "#9c9a93", "#bebbb4", "#d6d3cb", "#eceae4"] },
+      "line": { "role": "neutral", "displayName": "Taş Çizgi", "canonical": "#d6d3cb", "tonalRamp": ["#262521", "#3f3d38", "#5c5a54", "#7b7972", "#9c9a93", "#bebbb4", "#d6d3cb", "#eceae4"] },
+      "muted": { "role": "neutral", "displayName": "Sönük Metin", "canonical": "#5c5c58", "tonalRamp": ["#1f1f1d", "#33332f", "#474744", "#5c5c58", "#77776f", "#93938b", "#b3b3ab", "#d6d6d0"] },
+      "flag": { "role": "error", "displayName": "Uyarı Kırmızısı", "canonical": "#a3200f", "tonalRamp": ["#3a0b05", "#5c1208", "#7f190b", "#a3200f", "#c4402e", "#dc6d5d", "#ec9f94", "#f8d3ce"] }
+    },
+    "typographyMeta": {
+      "score": { "displayName": "Score", "purpose": "Yalnız skor dairesindeki sayı." },
+      "display": { "displayName": "Display", "purpose": "Sayfanın tek h1'i; mobilde 2.25rem, sm üstünde 3rem." },
+      "headline": { "displayName": "Headline", "purpose": "Yalnız lider öneri tabelasının başlığı." },
+      "title": { "displayName": "Title", "purpose": "Bölüm, tabela ve girdi tabelası başlıkları." },
+      "body": { "displayName": "Body", "purpose": "Mesajlar ve liste öğeleri; en fazla 70ch." },
+      "label": { "displayName": "Label", "purpose": "Öncelik etiketi, sayaçlar, bölüm notları, alıntılar." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "fold-arrow", "value": "transform 150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Açılır bölüm okunun açılınca 90° dönmesi; sistemdeki tek hareket." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Birincil Düğme",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tek ana eylem: Analiz et. Siyah, köşesiz, sağda sarı ok.",
+      "html": "<button class=\"ds-btn-primary\">Analiz et <svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; background: #161616; color: #ffffff; padding: 16px 28px; font-family: OpenSans, system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; border: none; border-radius: 0; cursor: pointer; } .ds-btn-primary .ds-arrow { width: 24px; height: 24px; color: #ffcc00; } .ds-btn-primary:hover { background: rgba(22,22,22,0.85); } .ds-btn-primary:focus-visible { outline: 2px solid #161616; outline-offset: 2px; } .ds-btn-primary:disabled { background: rgba(22,22,22,0.4); cursor: not-allowed; }"
+    },
+    {
+      "name": "Sütun Düğmesi",
+      "kind": "button",
+      "refersTo": "button-column-outline",
+      "description": "Siyah skor sütununda ikincil eylem: İlanı ya da CV'yi değiştir.",
+      "html": "<div class=\"ds-col-bg\"><button class=\"ds-btn-column\">İlanı ya da CV'yi değiştir</button></div>",
+      "css": ".ds-col-bg { background: #161616; padding: 24px; } .ds-btn-column { width: 100%; background: transparent; color: #ffffff; border: 2px solid #ffffff; border-radius: 0; padding: 10px 16px; font-family: OpenSans, system-ui, sans-serif; font-weight: 700; cursor: pointer; } .ds-btn-column:hover { background: #ffffff; color: #161616; } .ds-btn-column:focus-visible { outline: 2px solid #ffcc00; outline-offset: 2px; }"
+    },
+    {
+      "name": "İlan Metni Kutusu",
+      "kind": "input",
+      "refersTo": "input-textarea",
+      "description": "Sarı girdi tabelası içinde beyaz, 2px siyah çerçeveli metin kutusu ve tabular sayaç.",
+      "html": "<div class=\"ds-input-sign\"><label class=\"ds-input-head\"><span class=\"ds-num\">1</span><span class=\"ds-input-title\">İlan metni</span></label><textarea class=\"ds-textarea\" rows=\"4\" placeholder=\"İlanın tamamını buraya yapıştır…\"></textarea><p class=\"ds-count\">0 / 20.000 karakter</p></div>",
+      "css": ".ds-input-sign { background: #ffcc00; padding: 20px; font-family: OpenSans, system-ui, sans-serif; color: #161616; } .ds-input-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; } .ds-num { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #161616; color: #ffcc00; font-size: 1.125rem; font-weight: 700; } .ds-input-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; } .ds-textarea { display: block; width: 100%; box-sizing: border-box; background: #ffffff; border: 2px solid #161616; border-radius: 0; padding: 12px; font: inherit; resize: vertical; } .ds-textarea::placeholder { color: #5c5c58; } .ds-textarea:focus { outline: 2px solid #161616; outline-offset: 2px; } .ds-count { margin: 8px 0 0; font-size: 0.875rem; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Üst Bar",
+      "kind": "nav",
+      "refersTo": "nav-top",
+      "description": "Zeminle aynı renkte çizgisiz bar: ürün adı ve kilit ikonlu gizlilik notu.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">CVReviewer</a><p class=\"ds-nav-note\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path fill-rule=\"evenodd\" d=\"M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z\" clip-rule=\"evenodd\"/></svg>Tarayıcında çalışır · CV ve ilan cihazından çıkmaz</p></header>",
+      "css": ".ds-nav { display: flex; height: 3.5rem; align-items: center; justify-content: space-between; padding: 0 48px; background: #eceae4; font-family: OpenSans, system-ui, sans-serif; } .ds-nav-brand { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.025em; color: #161616; text-decoration: none; } .ds-nav-brand:focus-visible { outline: 2px solid #161616; outline-offset: 4px; } .ds-nav-note { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 0.875rem; color: #5c5c58; } .ds-nav-note svg { width: 14px; height: 14px; }"
+    },
+    {
+      "name": "Öneri Tabelaları",
+      "kind": "custom",
+      "refersTo": "sign-high",
+      "description": "Numaralı öneri tabelaları: yüksek sarı, orta beyaz, düşük yalnız 2px siyah üst çizgi; sağda hedef CV bölümü ve ok.",
+      "html": "<ol class=\"ds-signs\"><li class=\"ds-sign ds-sign-high\"><span class=\"ds-sign-num\">1</span><div><h3 class=\"ds-sign-title\">Excel, SAP</h3><p class=\"ds-sign-pri\">Öncelikli</p><p class=\"ds-sign-msg\">Bu araçları kullandığın işi deneyim maddelerinde göster.</p></div><p class=\"ds-sign-target\">İş Deneyimi <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3\"/></svg></p></li><li class=\"ds-sign ds-sign-medium\"><span class=\"ds-sign-num\">2</span><div><h3 class=\"ds-sign-title\">Özet ekle</h3><p class=\"ds-sign-pri\">Önerilen</p><p class=\"ds-sign-msg\">İlandaki unvanla açılan iki cümlelik bir özet yaz.</p></div><p class=\"ds-sign-target\">Özet <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3\"/></svg></p></li><li class=\"ds-sign ds-sign-low\"><span class=\"ds-sign-num\">3</span><div><h3 class=\"ds-sign-title\">Maddeleri kısalt</h3><p class=\"ds-sign-pri\">İsteğe bağlı</p><p class=\"ds-sign-msg\">İki satırı aşan maddeleri böl.</p></div><p class=\"ds-sign-target\">İş Deneyimi <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3\"/></svg></p></li></ol>",
+      "css": ".ds-signs { list-style: none; margin: 0; padding: 24px; background: #eceae4; display: flex; flex-direction: column; gap: 10px; font-family: OpenSans, system-ui, sans-serif; color: #161616; } .ds-sign { display: grid; grid-template-columns: 2.75rem 1fr auto; column-gap: 16px; padding: 16px 20px; } .ds-sign-high { background: #ffcc00; } .ds-sign-medium { background: #ffffff; } .ds-sign-low { border-top: 2px solid #161616; } .ds-sign-num { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; background: #161616; color: #ffffff; font-size: 1.125rem; font-weight: 700; font-variant-numeric: tabular-nums; } .ds-sign-high .ds-sign-num { color: #ffcc00; } .ds-sign-title { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.025em; } .ds-sign-pri { margin: 4px 0 0; font-size: 0.875rem; font-weight: 700; } .ds-sign-msg { margin: 8px 0 0; font-size: 0.875rem; max-width: 70ch; } .ds-sign-target { display: flex; align-items: center; gap: 8px; margin: 0; align-self: center; font-weight: 700; } .ds-sign-target svg { width: 28px; height: 28px; }"
+    },
+    {
+      "name": "Skor Sütunu",
+      "kind": "custom",
+      "refersTo": "score-column",
+      "description": "Siyah sütunda sarı skor dairesi ve sarı değerli sayaç listesi; az sinyalde kesikli çerçeve ve sarı levha.",
+      "html": "<aside class=\"ds-score-col\"><div class=\"ds-score-disk\"><span class=\"ds-score-num\">72</span><span class=\"ds-score-unit\">uyum / 100</span></div><dl class=\"ds-score-dl\"><div><dt>Zorunlu</dt><dd>4 / 5</dd></div><div><dt>İstenen</dt><dd>6 / 9</dd></div><div><dt>ATS kontrolleri</dt><dd>5 / 6</dd></div></dl><div class=\"ds-score-disk ds-score-disk-low\"><span class=\"ds-score-num\">40</span><span class=\"ds-score-unit\">uyum / 100</span></div><p class=\"ds-score-plate\">Az sinyal: ilanda üçten az beceri bulundu. Bu skor yol gösterici değil.</p></aside>",
+      "css": ".ds-score-col { width: 360px; box-sizing: border-box; background: #161616; color: #ffffff; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 20px; font-family: OpenSans, system-ui, sans-serif; } .ds-score-disk { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 224px; height: 224px; border-radius: 9999px; background: #ffcc00; color: #161616; } .ds-score-disk-low { background: transparent; border: 4px dashed #ffcc00; color: #ffffff; box-sizing: border-box; } .ds-score-num { font-size: 6.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; } .ds-score-unit { font-size: 0.875rem; font-weight: 700; } .ds-score-dl { width: 100%; margin: 0; font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-score-dl div { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.2); padding: 8px 0; } .ds-score-dl dd { margin: 0; font-weight: 700; color: #ffcc00; } .ds-score-plate { width: 100%; box-sizing: border-box; margin: 0; background: #ffcc00; color: #161616; padding: 8px 12px; font-size: 0.875rem; font-weight: 700; }"
+    },
+    {
+      "name": "Terim Listesi ve Durum Kareleri",
+      "kind": "custom",
+      "refersTo": "mark",
+      "description": "Durum biçimle okunur: dolu kare var, boş kare eksik (kalın), kesikli kare düşük güven, üstü çizili yok sayıldı.",
+      "html": "<ul class=\"ds-terms\"><li><span class=\"ds-mark\"></span><span class=\"ds-term ds-term-missing\">Power BI</span><span class=\"ds-term-meta\">zorunlu</span></li><li><span class=\"ds-mark ds-mark-on\"></span><span class=\"ds-term\">Excel</span><span class=\"ds-term-meta\">İş Deneyimi</span></li><li><span class=\"ds-mark ds-mark-dashed\"></span><span class=\"ds-term ds-term-missing\">bütçe planlaması</span><span class=\"ds-term-meta\">istenen</span></li><li class=\"ds-ignored\"><span></span><span class=\"ds-term\">Özel sağlık sigortası ve yemek kartı</span><span></span></li></ul>",
+      "css": ".ds-terms { list-style: none; margin: 0; padding: 0 24px; background: #eceae4; border-top: 1px solid #d6d3cb; border-bottom: 1px solid #d6d3cb; font-family: OpenSans, system-ui, sans-serif; color: #161616; } .ds-terms li { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid #d6d3cb; } .ds-terms li:first-child { border-top: none; } .ds-mark { display: inline-block; width: 12px; height: 12px; box-sizing: border-box; border: 2px solid currentColor; flex-shrink: 0; } .ds-mark-on { background: currentColor; } .ds-mark-dashed { border-style: dashed; } .ds-term { flex: 1; min-width: 0; } .ds-term-missing { font-weight: 700; } .ds-term-meta { font-size: 0.875rem; color: #5c5c58; } .ds-ignored .ds-term { color: #5c5c58; text-decoration: line-through; text-decoration-color: rgba(22,22,22,0.4); }"
+    },
+    {
+      "name": "Hata Levhası",
+      "kind": "custom",
+      "refersTo": "alert-error",
+      "description": "Kırmızının tek kullanımı: beyaz levhada kalın hata metni.",
+      "html": "<div class=\"ds-alert-wrap\"><p class=\"ds-alert\" role=\"alert\">PDF okunamadı; dosya bozuk olabilir. Başka bir PDF dene.</p></div>",
+      "css": ".ds-alert-wrap { background: #ffcc00; padding: 20px; } .ds-alert { margin: 0; background: #ffffff; color: #a3200f; padding: 8px 12px; font-family: OpenSans, system-ui, sans-serif; font-weight: 700; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Aydınlık terminal",
+    "overview": "Sonuç sayfası bir havalimanı terminalindeki yönlendirme tabelası gibi okunur: açık taş renginde bir zemin, solda siyah bir skor sütunu, sağda numaralı tabelalar. Her tabela ne yapılacağını söyler ve sağ kenarında gidilecek CV bölümünü bir okla gösterir. Sistem gün ışığı altında okunmak üzere kuruludur; derinlik, gölge ya da yuvarlatılmış kart yoktur. Hiyerarşi yalnız renk alanı (sarı, beyaz, sade), kalın tipografi ve 2px siyah çizgilerle kurulur.\n\nYoğunluk bir operasyon ekranınınkidir: kullanıcı skoru görür, hemen ardından sıradaki adımı okur, sonra eksik ve var terimleri, ilan koşullarını, yok sayılan ilan metnini ve ATS okunabilirliğini doğrular. Tek yazı ailesi (Open Sans, normal ve kalın) cümle düzeninde kullanılır; rakamlar her yerde tabulardır. Durum yalnız renkle taşınmaz, biçimle de okunur: dolu kare, boş kare, kesikli kare, üstü çizili metin.\n\nKapsam: bu sistem `/` analiz sayfasını ve onun bileşenlerini (`ScoreCard`, `Results`, `ResumeDropzone`'un `playgroundView` görünümü, `ResumeTable`, `TopNavBar`, kök `layout`) tanımlar. OpenResume'dan kalan `/resume-builder` ve `/resume-import` sayfaları hâlâ eski OpenResume stillerini (mor-mavi degrade `.btn-primary`, yuvarlatılmış köşeler) kullanır ve bu sistemin dışındadır; oradaki değerler buradaki kurallara örnek alınmaz.\n\nReddedilen: yeşil/kırmızı çip bulutu ve kartlı panel düzeni (kategori standardı).",
+    "keyCharacteristics": [
+      "Köşesiz düz alanlar; tek istisna skor dairesi.",
+      "Sarı yalnız yön, eylem ve yüksek öncelik için.",
+      "2px siyah çizgi yapı taşıdır; 1px taş rengi çizgi liste ayırıcıdır.",
+      "Numaralı tabelalar: siyah kare içinde numara, sağda hedef bölüm ve ok.",
+      "Durum biçimle de kodlanır (kare dolu/boş/kesikli, üstü çizili)."
+    ],
+    "rules": [
+      { "name": "The Yön Sarısı Rule", "body": "Sarı yalnız yön/eylem ve yüksek öncelikli tabelalar içindir. Süsleme, vurgu çizgisi ya da başarı rengi olarak kullanılmaz. Orta öncelik beyaz, düşük öncelik sade kalır.", "section": "colors" },
+      { "name": "The Tek Kırmızı Rule", "body": "`flag` yalnız hata uyarısıdır (`role=\"alert\"` ya da başarısız kontrol). Eksik bir beceri hata değildir: eksik terimler kırmızı değil, kalın ve boş kareyle gösterilir.", "section": "colors" },
+      { "name": "The Tabular Rakam Rule", "body": "Skor, sayaçlar, numaralar ve karakter sayacı her zaman `tabular-nums` ile dizilir.", "section": "typography" },
+      { "name": "The Başlık Üstü Boş Rule", "body": "Başlığın üstünde etiket (kicker/eyebrow) yoktur. Öncelik etiketi başlığın altında durur; bölüm notu başlık satırının sağına hizalanır.", "section": "typography" },
+      { "name": "The Gölgesiz Tabela Rule", "body": "Hiçbir yüzey gölge ya da yükselti almaz; ayrım renk alanı ve 2px çizgiyle yapılır.", "section": "elevation" },
+      { "name": "The Biçimle Durum Rule", "body": "Durum rengin yanında biçimle de taşınır: dolu kare = CV'de var, boş kare = eksik, kesikli kare/çerçeve = düşük güven, üstü çizili = analize alınmadı. Renk tek başına durum taşımaz.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do sarıyı (`sign`) yalnız yön, eylem ve yüksek öncelikli tabelalarda kullan.",
+      "Do durumu biçimle de kodla: dolu kare var, boş kare eksik, kesikli düşük güven, üstü çizili yok sayıldı.",
+      "Do düşük öncelikli tabelayı yalnız 2px siyah üst çizgiyle ayır.",
+      "Do her eylem tabelasına hedef CV bölümünü ve oku sağ kenarda yaz.",
+      "Do rakamları `tabular-nums` ile diz, uzun metni 70ch ile sınırla."
+    ],
+    "donts": [
+      "Don't kırmızıyı (`flag`) hata uyarısı dışında kullanma; eksik beceri hata değildir.",
+      "Don't beyaz ya da sarı tabelaya kart çerçevesi koyma.",
+      "Don't düşük önceliği kesikli çerçeveyle gösterme; kesikli düşük güvene ayrılmıştır.",
+      "Don't başlığın üstüne kicker/eyebrow etiket koyma.",
+      "Don't gölge, yuvarlatılmış köşe ya da yeşil/kırmızı çip bulutu kullanma.",
+      "Don't `/resume-builder` ve `/resume-import` sayfalarındaki OpenResume stillerini (`.btn-primary` degradesi, `--theme-purple`, `--theme-blue`) bu sisteme taşıma."
+    ]
+  }
+}

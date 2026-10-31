@@ -7,9 +7,6 @@
   .btn-primary {
     @apply bg-primary outline-theme-purple inline-block rounded-full px-6 py-2 font-semibold shadow-sm;
   }
-  .text-primary {
-    @apply bg-gradient-to-r from-[color:var(--theme-purple)] to-[color:var(--theme-blue)] bg-clip-text text-transparent !important;
-  }
   .bg-primary {
     @apply bg-gradient-to-r from-[color:var(--theme-purple)] to-[color:var(--theme-blue)] text-white;
   }
@@ -22,6 +19,11 @@
   .within-outline-theme-purple {
     @apply focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[color:var(--theme-purple)] hover:opacity-80 hover:outline-[color:var(--theme-purple)];
   }
+}
+
+::selection {
+  background: #ffcc00;
+  color: #161616;
 }
 
 :root {

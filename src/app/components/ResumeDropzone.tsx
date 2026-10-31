@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { parseResumeFromPdf } from "lib/parse-resume-from-pdf";
@@ -12,6 +12,9 @@ import addPdfSrc from "public/assets/add-pdf.svg";
 import Image from "next/image";
 import { cx } from "lib/cx";
 import { deepClone } from "lib/deep-clone";
+
+// A text resume is well under 1 MB; this only stops accidental huge files
+export const MAX_PDF_BYTES = 10 * 1024 * 1024;
 
 const defaultFileState = {
   name: "",
@@ -30,45 +33,64 @@ export const ResumeDropzone = ({
 }) => {
   const [file, setFile] = useState(defaultFileState);
   const [isHoveredOnDropzone, setIsHoveredOnDropzone] = useState(false);
-  const [hasNonPdfFile, setHasNonPdfFile] = useState(false);
+  const [fileError, setFileError] = useState("");
   const router = useRouter();
+  // The latest object URL, revoked on unmount
+  const fileUrlRef = useRef("");
+  useEffect(() => () => URL.revokeObjectURL(fileUrlRef.current), []);
 
   const hasFile = Boolean(file.name);
 
-  const setNewFile = (newFile: File) => {
-    if (file.fileUrl) {
-      URL.revokeObjectURL(file.fileUrl);
-    }
+  // Picking or removing a file swaps the control under the focus: move focus to the
+  // control that replaced it, but never on first load
+  const focusAfterSwap = useRef(false);
+  const removeButtonRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (!focusAfterSwap.current) return;
+    focusAfterSwap.current = false;
+    (hasFile ? removeButtonRef : inputRef).current?.focus();
+  }, [hasFile]);
 
-    const { name, size } = newFile;
-    const fileUrl = URL.createObjectURL(newFile);
-    setFile({ name, size, fileUrl });
+  const setFileUrl = (fileUrl: string) => {
+    if (fileUrlRef.current) URL.revokeObjectURL(fileUrlRef.current);
+    fileUrlRef.current = fileUrl;
     onFileUrlChange(fileUrl);
+  };
+
+  // Drop and file picker both land here: a drag of text or a link has no file
+  const handleFile = (newFile?: File) => {
+    if (!newFile) return;
+    if (!/\.pdf$/i.test(newFile.name)) {
+      setFileError("Yalnız PDF dosyası yüklenebilir.");
+      return;
+    }
+    if (newFile.size > MAX_PDF_BYTES) {
+      setFileError("PDF 10 MB'tan büyük. Daha küçük bir dosya seç.");
+      return;
+    }
+    setFileError("");
+    focusAfterSwap.current = true;
+    const fileUrl = URL.createObjectURL(newFile);
+    setFile({ name: newFile.name, size: newFile.size, fileUrl });
+    setFileUrl(fileUrl);
   };
 
   const onDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    const newFile = event.dataTransfer.files[0];
-    if (newFile.name.endsWith(".pdf")) {
-      setHasNonPdfFile(false);
-      setNewFile(newFile);
-    } else {
-      setHasNonPdfFile(true);
-    }
     setIsHoveredOnDropzone(false);
+    handleFile(event.dataTransfer.files[0]);
   };
 
-  const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files) return;
-
-    const newFile = files[0];
-    setNewFile(newFile);
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleFile(event.target.files?.[0]);
   };
 
   const onRemove = () => {
+    focusAfterSwap.current = true;
     setFile(defaultFileState);
-    onFileUrlChange("");
+    setFileError("");
+    setFileUrl("");
   };
 
   const onImportClick = async () => {
@@ -97,9 +119,9 @@ export const ResumeDropzone = ({
   return (
     <div
       className={cx(
-        "flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 ",
-        isHoveredOnDropzone && "border-sky-400",
-        playgroundView ? "pb-6 pt-4" : "py-12",
+        "flex justify-center border-2 border-dashed px-6",
+        isHoveredOnDropzone ? "border-ink bg-sign/30" : "border-muted",
+        playgroundView ? "py-6" : "rounded-md py-12",
         className
       )}
       onDragOver={(event) => {
@@ -109,72 +131,53 @@ export const ResumeDropzone = ({
       onDragLeave={() => setIsHoveredOnDropzone(false)}
       onDrop={onDrop}
     >
-      <div
-        className={cx(
-          "text-center",
-          playgroundView ? "space-y-2" : "space-y-3"
-        )}
-      >
+      <div className="space-y-3 text-center">
         {!playgroundView && (
           <Image
             src={addPdfSrc}
             className="mx-auto h-14 w-14"
-            alt="Add pdf"
+            alt=""
             aria-hidden="true"
             priority
           />
         )}
         {!hasFile ? (
           <>
-            <p
-              className={cx(
-                "pt-3 text-gray-700",
-                !playgroundView && "text-lg font-semibold"
-              )}
-            >
-              Browse a pdf file or drop it here
-            </p>
-            <p className="flex text-sm text-gray-500">
-              <LockClosedIcon className="mr-1 mt-1 h-3 w-3 text-gray-400" />
-              File data is used locally and never leaves your browser
+            <p className="text-lg font-bold">PDF'i buraya bırak ya da seç</p>
+            <p className="flex items-center justify-center gap-1.5 text-sm text-muted">
+              <LockClosedIcon className="h-3.5 w-3.5" aria-hidden="true" />
+              Dosya yalnız bu tarayıcıda okunur, hiçbir yere gönderilmez
             </p>
           </>
         ) : (
-          <div className="flex items-center justify-center gap-3 pt-3">
-            <div className="pl-7 font-semibold text-gray-900">
-              {file.name} - {getFileSizeString(file.size)}
+          <div className="flex items-center justify-center gap-3">
+            <div className="min-w-0 break-all font-bold">
+              {file.name} · {getFileSizeString(file.size)}
             </div>
             <button
+              ref={removeButtonRef}
               type="button"
-              className="outline-theme-blue rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-              title="Remove file"
+              className="p-1 text-muted hover:bg-ink/10 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
+              aria-label="Dosyayı kaldır"
+              title="Dosyayı kaldır"
               onClick={onRemove}
             >
-              <XMarkIcon className="h-6 w-6" />
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
         )}
-        <div className="pt-4">
+        <div className="pt-2">
           {!hasFile ? (
-            <>
-              <label
-                className={cx(
-                  "within-outline-theme-purple cursor-pointer rounded-full px-6 pb-2.5 pt-2 font-semibold shadow-sm",
-                  playgroundView ? "border" : "bg-primary"
-                )}
-              >
-                Browse file
-                <input
-                  type="file"
-                  className="sr-only"
-                  accept=".pdf"
-                  onChange={onInputChange}
-                />
-              </label>
-              {hasNonPdfFile && (
-                <p className="mt-6 text-red-400">Only pdf file is supported</p>
-              )}
-            </>
+            <label className="hover:bg-ink/85 inline-block cursor-pointer bg-ink px-6 py-2.5 font-bold text-white focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ink">
+              Dosya seç
+              <input
+                ref={inputRef}
+                type="file"
+                className="sr-only"
+                accept=".pdf,application/pdf"
+                onChange={onInputChange}
+              />
+            </label>
           ) : (
             <>
               {!playgroundView && (
@@ -183,14 +186,20 @@ export const ResumeDropzone = ({
                   className="btn-primary"
                   onClick={onImportClick}
                 >
-                  Import and Continue <span aria-hidden="true">→</span>
+                  İçe aktar ve devam et <span aria-hidden="true">→</span>
                 </button>
               )}
-              <p className={cx(" text-gray-500", !playgroundView && "mt-6")}>
-                Note: {!playgroundView ? "Import" : "Parser"} works best on
-                single column resume
+              <p
+                className={cx("text-sm text-muted", !playgroundView && "mt-6")}
+              >
+                Tek sütunlu CV'ler en iyi sonucu verir.
               </p>
             </>
+          )}
+          {fileError && (
+            <p role="alert" className="mt-4 font-bold text-flag">
+              {fileError}
+            </p>
           )}
         </div>
       </div>

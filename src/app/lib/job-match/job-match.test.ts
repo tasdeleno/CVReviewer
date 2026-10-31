@@ -1,10 +1,17 @@
 import {
   extractConditions,
+  extractJobAd,
   extractKeywords,
   isInsufficient,
 } from "lib/job-match/keywords";
 import { checkConditions } from "lib/job-match/conditions";
-import { computeScore, matchKeywords } from "lib/job-match";
+import {
+  InputTooLongError,
+  MAX_INPUT_CHARS,
+  analyze,
+  computeScore,
+  matchKeywords,
+} from "lib/job-match";
 import { suggest } from "lib/job-match/suggest";
 import { SKILLS, getSkillLabel } from "lib/job-match/dictionary";
 import { foldText } from "lib/fold-text";
@@ -905,5 +912,33 @@ describe("job-match - phrases outside the dictionary (tur 4)", () => {
     expect(
       Object.keys(phrasesOf(`Requirements\n${lines.join("\n")}`))
     ).toHaveLength(60);
+  });
+});
+
+describe("job-match - ignored ad text and input limit (Faz 4)", () => {
+  it("lists boilerplate sentences and title parentheses it left out", () => {
+    const { ignored, keywords } = extractJobAd(
+      "Data Analyst (SQL, Python)\nRequirements\n- Excel. We are an equal opportunity employer."
+    );
+    expect(ignored).toEqual([
+      "SQL, Python",
+      "We are an equal opportunity employer.",
+    ]);
+    expect(keywords.map((k) => k.label)).toEqual(["Excel"]);
+  });
+
+  it("lists lines under a skipped heading, once each", () => {
+    const { ignored } = extractJobAd(
+      "Requirements\n- Excel\nBenefits: Private health insurance\n- Ehliyet zorunlu\n- Ehliyet zorunlu"
+    );
+    expect(ignored).toEqual(["Private health insurance", "- Ehliyet zorunlu"]);
+  });
+
+  it("refuses input past the limit instead of truncating it", () => {
+    // The UI tells "too long" apart from engine bugs by this class
+    expect(() => analyze("a".repeat(MAX_INPUT_CHARS + 1), [])).toThrow(
+      InputTooLongError
+    );
+    expect(() => analyze("Requirements: Excel", [])).not.toThrow();
   });
 });

@@ -39,6 +39,7 @@ export interface Suggestion {
   priority: "high" | "medium" | "low";
   message: string; // Turkish UI text
   examples?: string[]; // resume lines the message is about
+  terms?: string[]; // ad keywords or title the message is about, for a UI heading
 }
 
 export interface AtsCheck {
@@ -79,11 +80,14 @@ const labelOf = (match: KeywordMatch, langs: Langs) => {
 };
 const list = (matches: KeywordMatch[], langs: Langs) =>
   matches
-    .map((m) => `${labelOf(m, langs)} - ${IMPORTANCE_TR[m.importance]}`)
+    .map((m) => `${labelOf(m, langs)} (${IMPORTANCE_TR[m.importance]})`)
     .join(", ");
 const byWeight = (a: KeywordMatch, b: KeywordMatch) => b.weight - a.weight;
-const quote = (text: string) =>
-  `«${text.length > 110 ? text.slice(0, 107) + "…" : text}»`;
+const quote = (line: string) => {
+  // The ad's own bullet glyph; "-20% cost" (no space) keeps its minus
+  const text = line.replace(/^[-–•*·]\s+/, "");
+  return `«${text.length > 110 ? text.slice(0, 107) + "…" : text}»`;
+};
 
 // prettier-ignore
 const WEAK_START_EN = /^((was|were) )?(responsible for|help(ed|s)?|assist(ed|s)?|support(ed|s)?|worked on|involved in|participated in|duties included|tasked with|handled|in charge of)\b(?! (desk|team)\b)/i;
@@ -261,6 +265,7 @@ export const suggest = ({
         toSkills,
         langs
       )}. Gerçekten biliyorsan Yetenekler bölümüne ekle; mümkünse bir deneyim maddesinde de nasıl kullandığını göster.`,
+      terms: toSkills.map((m) => labelOf(m, langs)),
     });
   }
 
@@ -284,6 +289,7 @@ export const suggest = ({
         ? `${head} Bu deneyimin varsa en yakın maddene ekle:`
         : `${head} Bu deneyimin varsa bir iş deneyimi maddesinde somut bir örnekle göster.`,
       examples: closest ? [closest] : undefined,
+      terms: [labelOf(m, langs)],
     });
   }
 
@@ -298,6 +304,7 @@ export const suggest = ({
         soft,
         langs
       )}. Özetinde ya da bir maddede somut bir örnekle (ör. "5 kişilik ekibe liderlik ettim") göster; sadece sıfat olarak yazma.`,
+      terms: soft.map((m) => labelOf(m, langs)),
     });
   }
 
@@ -314,6 +321,7 @@ export const suggest = ({
         edu,
         langs
       )}. Uygun bir bölüm/derecen varsa Eğitim'de açıkça yaz.`,
+      terms: edu.map((m) => labelOf(m, langs)),
     });
   }
 
@@ -336,6 +344,7 @@ export const suggest = ({
         .join(
           ", "
         )} yalnızca Yetenekler listesinde geçiyor. İşe alımcılar bağlam arar: en az birini bir deneyim maddesinde sonucuyla birlikte anlat.`,
+      terms: onlyInSkills.map((m) => labelOf(m, langs)),
     });
   }
 
@@ -378,6 +387,7 @@ export const suggest = ({
       section: "summary",
       priority: "medium",
       message: `İlandaki unvan («${title.title}») CV'nde geçmiyor. Gerçekten bu role uygunsan özetinde hedef unvan olarak kullan.`,
+      terms: [title.title],
     });
   }
 

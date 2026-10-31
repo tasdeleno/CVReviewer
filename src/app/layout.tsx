@@ -14,9 +14,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body>
+      <body className="bg-ground font-sign text-ink">
         <TopNavBar />
         {children}
+        <footer className="px-4 pb-8 pt-16 text-sm text-muted lg:px-12">
+          CVReviewer,{" "}
+          <a
+            className="underline underline-offset-2 hover:text-ink"
+            href="https://github.com/xitanggg/open-resume"
+          >
+            OpenResume
+          </a>{" "}
+          tabanlıdır ve AGPL-3.0 lisansıyla dağıtılır.
+        </footer>
       </body>
     </html>
   );

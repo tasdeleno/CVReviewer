@@ -37,3 +37,7 @@ next-env.d.ts
 # eval: generated fixture PDFs and reports
 /eval/**/*.pdf
 /eval/report-*.md
+
+# impeccable local artifacts (decision-page logs, review captures)
+.impeccable/questions/
+.impeccable/review/
