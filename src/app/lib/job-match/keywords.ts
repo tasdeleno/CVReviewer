@@ -97,9 +97,13 @@ const BOILERPLATE = ["equal opportunit", "affirmative action", "eeo", "regardles
   "company discounts", "personel yemegi"];
 // Not length-preserving (splitOutsideParens drops blank parts and, with unbalanced
 // parentheses, all parentheses); importanceParts does the same, so nothing reads offsets
-const withoutBoilerplate = (content: string) =>
+const withoutBoilerplate = (content: string, onIgnore: (s: string) => void) =>
   splitOutsideParens(content, endsSentence)
-    .map((s) => (hasMarker(toWords(s), BOILERPLATE) ? " ".repeat(s.length) : s))
+    .map((s) => {
+      if (!hasMarker(toWords(s), BOILERPLATE)) return s;
+      onIgnore(s);
+      return " ".repeat(s.length);
+    })
     .join("");
 
 // From the user's pairwise judgments (eval/README.md, Faz D): one missing requirement
@@ -320,6 +324,12 @@ const IMPORTANCE_RANK: Record<Importance, number> = {
 export const extractJobAd = (ad: string) => {
   const byKey = new Map<string, AdKeyword>();
   const conditions: { kind: ConditionKind; line: string }[] = [];
+  // Ad text left out of keyword extraction, shown in the UI so nothing is dropped silently
+  const ignored: string[] = [];
+  const ignore = (text: string) => {
+    const trimmed = text.trim();
+    if (trimmed && !ignored.includes(trimmed)) ignored.push(trimmed);
+  };
   const add = (key: string, keyword: AdKeyword) => {
     const existing = byKey.get(key);
     if (
@@ -347,6 +357,7 @@ export const extractJobAd = (ad: string) => {
       // the parentheses hold company/location. A first line that is a whole sentence
       // keeps them: "...a data analyst (SQL, Python) to join...".
       if (content.trim().split(/\s+/).length <= 8) {
+        content.match(/\([^()]*\)/g)?.forEach((p) => ignore(p.slice(1, -1)));
         content = content.replace(/\([^()]*\)/g, " ");
       }
       isTitleLine = false;
@@ -356,7 +367,10 @@ export const extractJobAd = (ad: string) => {
       if (!heading.content.trim()) continue;
       content = heading.content; // "Requirements: Python, SQL"
     }
-    if (block === "skip") continue;
+    if (block === "skip") {
+      ignore(content);
+      continue;
+    }
     // "Lumen Software (B2B SaaS) - Berlin": the line under the title names the employer.
     // Its first part, outside parentheses, is a name with no skill, unlike "SQL - 3 years"
     // or "Python | Django | Remote".
@@ -367,12 +381,15 @@ export const extractJobAd = (ad: string) => {
       line.trim().split(/\s+/).length <= 10 &&
       /\s[-–|]\s/.test(line) &&
       !containsSkill(line.split(/\s[-–|]\s/)[0].replace(/\([^()]*\)/g, " "));
-    if (isCompanyLine) continue;
+    if (isCompanyLine) {
+      ignore(line);
+      continue;
+    }
     const spans = findConditionSpans(content);
     spans.forEach(({ kind }) => conditions.push({ kind, line }));
     if (spans.length) content = withoutConditions(content, spans);
     // After conditions: "We participate in E-Verify" still says work permit
-    content = withoutBoilerplate(content);
+    content = withoutBoilerplate(content, ignore);
     // After blanking: a condition's own marker ("ehliyet zorunludur") stays with it
     const parts = importanceParts(content, block);
 
@@ -501,6 +518,7 @@ export const extractJobAd = (ad: string) => {
   return {
     keywords: Array.from(byKey.values()),
     conditions: toConditions(conditions),
+    ignored,
   };
 };
 

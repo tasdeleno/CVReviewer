@@ -51,9 +51,7 @@ export const matchKeywords = (
         keyword.phrases.some((phrase) => hasWords(text, phrase)));
     const sections = Array.from(
       new Set(
-        lines
-          .filter((line) => hasInLine(line.text))
-          .map((line) => line.section)
+        lines.filter((line) => hasInLine(line.text)).map((line) => line.section)
       )
     );
     return {
@@ -74,7 +72,27 @@ export const computeScore = (matches: KeywordMatch[]) => {
   return Math.round((100 * found) / total);
 };
 
+// The longest of 572 corpus ads is 12.7k characters. At 100k a many-line input took 2–3 s
+// on the main thread; at this cap it stays under a second.
+export const MAX_INPUT_CHARS = 30_000;
+
+export const resumeLength = (textItems: TextItems) =>
+  textItems.reduce((sum, item) => sum + item.text.length, 0);
+
+// Its own class: an engine bug can throw a RangeError too ("Invalid string length")
+export class InputTooLongError extends RangeError {
+  name = "InputTooLongError";
+}
+
 export const analyze = (jobAd: string, textItems: TextItems) => {
+  if (
+    jobAd.length > MAX_INPUT_CHARS ||
+    resumeLength(textItems) > MAX_INPUT_CHARS
+  ) {
+    throw new InputTooLongError(
+      `input longer than ${MAX_INPUT_CHARS} characters`
+    );
+  }
   const lines = groupTextItemsIntoLines(textItems);
   const sections = groupLinesIntoSections(lines);
   const resume = extractResumeFromSections(sections);
@@ -101,6 +119,7 @@ export const analyze = (jobAd: string, textItems: TextItems) => {
     matches,
     // not in the score: shown apart from the keywords (eval/README.md, conditions)
     conditions: checkConditions(ad.conditions, resumeText),
+    ignored: ad.ignored,
     suggestions: suggest({
       jobAd,
       matches,
@@ -114,3 +133,5 @@ export const analyze = (jobAd: string, textItems: TextItems) => {
     sections,
   };
 };
+
+export type Analysis = ReturnType<typeof analyze>;

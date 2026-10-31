@@ -21,11 +21,26 @@ import { readPdfDocument } from "lib/parse-resume-from-pdf/read-pdf-document";
  *     const textItems = await readPdf(fileUrl);
  * }
  */
+// A resume is 1–3 pages; past this it is not a resume and text extraction gets slow
+export const MAX_PDF_PAGES = 10;
+
+export class PdfTooLongError extends RangeError {
+  name = "PdfTooLongError";
+}
+
+/** Rejects with pdfjs's PasswordException for encrypted files, PdfTooLongError past MAX_PDF_PAGES */
 export const readPdf = async (fileUrl: string): Promise<TextItems> => {
   // isEvalSupported: false mitigates CVE-2024-4367 (arbitrary JS via crafted font) on pdfjs-dist < 4.2.67
   const pdfFile = await pdfjs.getDocument({
     url: fileUrl,
     isEvalSupported: false,
   }).promise;
-  return readPdfDocument(pdfFile);
+  try {
+    if (pdfFile.numPages > MAX_PDF_PAGES) {
+      throw new PdfTooLongError(`PDF has more than ${MAX_PDF_PAGES} pages`);
+    }
+    return await readPdfDocument(pdfFile);
+  } finally {
+    pdfFile.destroy().catch(() => {}); // cleanup only; the read's own outcome stands
+  }
 };

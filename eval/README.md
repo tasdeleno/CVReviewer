@@ -199,14 +199,16 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
    - **"ve/and" bölünüyor** (plandan sapma): "ölçme ve değerlendirme" gibi terimler yalnız sözlükle yakalanır.
    - **Tüm CV'de sırasız ifade eşleşmesi** gerçek CV'de yanlış "var" riskini artırabilir; gerçek CV'lerle kontrol edilmeli.
    - **Eval bağlama ayrıntısı:** daha kısa motor terimi daha uzun gold terimine bağlanıyor ("personal training" → "personal training sales"); ölçüm düzeltmesi ayrı bir iş.
-   - **Girdi uzunluğu sınırı yok** (security review, bilgi): tek satırlık 1 MB ilan tur 4 öncesinde de 5–17 sn sürüyor. Arayüzden önce `analyze()` girişine ~100–200 KB sınır konmalı (Faz 4).
+   - ~~Girdi uzunluğu sınırı yok~~ (Faz 4'te kapandı): `analyze()` 30.000 karakterden uzun ilan ya da CV metninde `RangeError` fırlatır. 572 ilanlık korpusta en uzun ilan 12,7k; 100k'da çok satırlı girdi 2–3 sn, 30k'da ≤1 sn sürdü.
    - **skipFirst** (typescript review, LOW): girintili ya da numaralı maddede ("1. Track …") baştaki EN fiil atlanmıyor; şimdilik yalnız LEADING_VERBS'teki fiiller yakalanıyor.
 2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), "Personal Training certification". CV dilinden dil becerisi çıkarmak, aynı dil kararıyla önemini kaybetti.
 3. **Ağırlıkların gerçek ilanda kontrolü:** tur 4'ten sonra.
-4. **Faz 4 (arayüz, tur 4'ten sonra, ana plandaki tam kapsam):** analiz sayfası, pazarlama sayfalarının silinmesi, `/resume-parser` → "ATS Testi". Silent-failure review'dan (2032a70) gelen iki zorunluluk:
-   - Boilerplate filtresinin sildiği cümleler arayüzde "yok sayıldı" olarak gösterilmeli (sessiz veri kaybı olmasın).
-   - `score` yalnızca `insufficient` bayrağıyla birlikte gösterilmeli (tip ya da bileşen kuralı); aşçı ilanındaki "100" bayraksız görünmemeli.
-   - Tur 4: `kind: "phrase"` anahtar kelimeleri sözlük becerilerinden ayrı ve daha düşük öncelikle gösterilmeli ("İlanda geçen diğer ifadeler"); precision'ları ~%47.
+4. ~~Faz 4 (arayüz)~~ bitti (2026-10-31): analiz sayfası, pazarlama ve `/resume-parser` sayfaları silindi (ayrı "ATS Testi" yerine sayfadaki ATS paneli; kullanıcı kararı). Üç zorunluluk karşılandı:
+   - `extractJobAd` artık `ignored` döndürür (boilerplate cümleleri, yan haklar gibi atlanan blok satırları, şirket satırı, başlık parantezi); arayüzde "Analize alınmayan ilan metni" olarak üstü çizili gösterilir. Eval etkilenmedi (dev 88.6).
+   - Skor yalnız `ScoreCard` bileşeninde ve `insufficient` ile birlikte gösterilir (bileşen kuralı, tip değil).
+   - `kind: "phrase"` terimleri "İlanda geçen diğer ifadeler" açılır listesinde, kesikli işaretle ve düşük güven notuyla ayrı.
+   - `Suggestion.terms` (isteğe bağlı) arayüz başlığı için eklendi; eval yalnız `kind` okur.
+   - Faz 4'ten kalanlar (finish review, bilinçli ertelendi): aynı ilan satırından gelen iki `missing-in-experience` önerisi ("vergi", "vergi beyannamesi") tek tabelada birleşmeli (motor işi). Tasarım tavanı: bölüm piktogramları ve tek bir hareket anı (skorun yerleşmesi ya da tabelaların sırayla açılması) eklenmedi. Düşük öncelikli ("İsteğe bağlı") tabela ekranda hiç görülmedi; kodda 2px üst çizgiyle çiziliyor.
 5. **Kalan dev hataları (tur 2 raporu):**
    - Çıkarılamayan satış terimleri: saha satışı, bayi yönetimi, müşteri portföyü yönetimi, teklif hazırlama, pipeline management, discovery calls.
    - Fazladan çıkarılan kelimeler: bölüm adları (Economics, İktisat / İşletme). Gold kuralı bunları anahtar kelime saymıyor, motor ise eğitim önerisi için çıkarıyor; bu bir karar konusu.
