@@ -41,3 +41,6 @@ next-env.d.ts
 # impeccable local artifacts (decision-page logs, review captures)
 .impeccable/questions/
 .impeccable/review/
+
+# wrangler local dev cache
+.wrangler/
