@@ -91,7 +91,7 @@ Klasik döngü: `/autoresearch Metric: EVAL_SCORE (higher is better) Verify: npm
 - Tur sonu reviewer düzeltmeleri motoru değiştirirse dev ve holdout yeniden ölçülür ve sonuç commit mesajına yazılır.
 
 ## Durum (2026-10-30)
-Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0–B4) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
+Ölçüm ya da veri seti her değiştiğinde yeni bir baseline (B0–B7) alındı. Farklı baseline'lardaki skorlar birbiriyle karşılaştırılamaz.
 
 | Aşama | Ne değişti | Dev | Holdout |
 |---|---|---|---|
@@ -199,6 +199,8 @@ Eski holdout'a 6 kez toplam skor olarak bakıldıktan sonra bu set dev'e taşın
    - **"ve/and" bölünüyor** (plandan sapma): "ölçme ve değerlendirme" gibi terimler yalnız sözlükle yakalanır.
    - **Tüm CV'de sırasız ifade eşleşmesi** gerçek CV'de yanlış "var" riskini artırabilir; gerçek CV'lerle kontrol edilmeli.
    - **Eval bağlama ayrıntısı:** daha kısa motor terimi daha uzun gold terimine bağlanıyor ("personal training" → "personal training sales"); ölçüm düzeltmesi ayrı bir iş.
+   - **Girdi uzunluğu sınırı yok** (security review, bilgi): tek satırlık 1 MB ilan tur 4 öncesinde de 5–17 sn sürüyor. Arayüzden önce `analyze()` girişine ~100–200 KB sınır konmalı (Faz 4).
+   - **skipFirst** (typescript review, LOW): girintili ya da numaralı maddede ("1. Track …") baştaki EN fiil atlanmıyor; şimdilik yalnız LEADING_VERBS'teki fiiller yakalanıyor.
 2. **Kaçan eşleşmeler (bulgu 6):** "BESYO veya Spor Bilimleri" alternatifi, araç → kategori (SAP HR → HRIS), "Personal Training certification". CV dilinden dil becerisi çıkarmak, aynı dil kararıyla önemini kaybetti.
 3. **Ağırlıkların gerçek ilanda kontrolü:** tur 4'ten sonra.
 4. **Faz 4 (arayüz, tur 4'ten sonra, ana plandaki tam kapsam):** analiz sayfası, pazarlama sayfalarının silinmesi, `/resume-parser` → "ATS Testi". Silent-failure review'dan (2032a70) gelen iki zorunluluk:
