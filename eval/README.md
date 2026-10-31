@@ -4,7 +4,7 @@ CV ile iş ilanı anahtar kelime eşleştirme aracı için **tamamen kurgusal** 
 
 ## İçerik
 - Her ilan için 3 CV: `strong`, `medium`, `weak` (çapraz dil çiftleri dahil). CV'ler her zaman yapaydır.
-- `dev/` (28 ilan): yazılım, veri, pazarlama, finans, İK, satış, sağlık, lojistik, eğitim (yapay ilanlar, EN + TR), artı temizlik, yemek, spor, İK, yazılım (10 **gerçek** ilan, gerçek ilan denemesinden; kaynaklar `C:\Users\tasde\OneDrive\Masaüstü\cvreviewer-try\SOURCES.md`).
+- `dev/` (28 ilan): yazılım, veri, pazarlama, finans, İK, satış, sağlık, lojistik, eğitim (yapay ilanlar, EN + TR), artı temizlik, yemek, spor, İK, yazılım (10 **gerçek** ilan, gerçek ilan denemesinden; kaynakları repo dışındaki deneme klasöründe, `cvreviewer-try/SOURCES.md`).
   - İK ve satış 2026-10-29'a kadar holdout'tu; 6 kez toplam skoruna bakıldığı için dev'e taşındı.
   - Sağlık, lojistik ve eğitim holdout v2'ydi (`autoresearch/scenario-261029-2122/` kenar durumlarıyla); 5 bakıştan sonra, 2026-10-30'da dev'e taşındı.
   - Gerçek ilanların gold'unu motor çıktısını görmemiş bir agent yazdı; dev olduğu için ikinci etiketleyici kullanılmadı.

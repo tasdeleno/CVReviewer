@@ -25,7 +25,14 @@ export default function RootLayout({
           >
             OpenResume
           </a>{" "}
-          tabanlıdır ve AGPL-3.0 lisansıyla dağıtılır.
+          tabanlıdır ve AGPL-3.0 lisansıyla dağıtılır.{" "}
+          {/* AGPL §13: every user of the hosted site can get the source */}
+          <a
+            className="underline underline-offset-2 hover:text-ink"
+            href="https://github.com/tasdeleno/CVReviewer"
+          >
+            Kaynak kodu
+          </a>
         </footer>
       </body>
     </html>

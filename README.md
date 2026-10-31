@@ -35,9 +35,9 @@ veya üçüncü taraf istek yoktur.
   sayfaları ve `/resume-parser` silindi; `/resume-builder` ve `/resume-import` menüde yok, kodu duruyor.
   Girdi sınırları: ilan ve CV metni 30.000 karakter, PDF 10 MB ve 10 sayfa. Dış istek yok.
   Yerelde: `npm run build` sonra `out/` klasörünü herhangi bir statik sunucuyla aç.
-- Sırada: deploy (Cloudflare Pages + Access + CSP). AGPL §13: ağ üzerinden kullananlara kaynak erişimi
-  (public repo, repo erişimi ya da sürüm arşivi + altbilgi bağlantısı) deploy adımında çözülecek;
-  altbilgideki lisans notu tek başına yetmez. İlan linkinden yükleme sonraki faza aday (tarayıcı başka
+- Deploy (hazırlanıyor): Cloudflare Pages, Access yok (link herkese açık; veri zaten cihazdan çıkmıyor).
+  Güvenlik başlıkları ve CSP `public/_headers`'ta (build ile `out/`'a kopyalanır; `connect-src 'self' blob:`).
+  AGPL §13 için repo public yapılıyor ve altbilgide "Kaynak kodu" bağlantısı var. İlan linkinden yükleme sonraki faza aday (tarayıcı başka
   sitenin sayfasını okuyamaz, sunucu gerekir).
 
 Aşağısı upstream'in orijinal README'sidir.
