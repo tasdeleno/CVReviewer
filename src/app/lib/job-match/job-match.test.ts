@@ -12,7 +12,8 @@ import {
   computeScore,
   matchKeywords,
 } from "lib/job-match";
-import { suggest } from "lib/job-match/suggest";
+import { checkAts, suggest } from "lib/job-match/suggest";
+import type { TextItem } from "lib/parse-resume-from-pdf/types";
 import { SKILLS, getSkillLabel } from "lib/job-match/dictionary";
 import { foldText } from "lib/fold-text";
 import { initialResumeState } from "lib/redux/resumeSlice";
@@ -940,5 +941,91 @@ describe("job-match - ignored ad text and input limit (Faz 4)", () => {
       InputTooLongError
     );
     expect(() => analyze("Requirements: Excel", [])).not.toThrow();
+  });
+
+  it("refuses a resume past the limit too, and accepts exactly the limit", () => {
+    const resumeOf = (length: number) => [toItem("a".repeat(length), 50, 700)];
+    expect(() =>
+      analyze("Requirements: Excel", resumeOf(MAX_INPUT_CHARS + 1))
+    ).toThrow(InputTooLongError);
+    expect(() =>
+      analyze("Requirements: Excel", resumeOf(MAX_INPUT_CHARS))
+    ).not.toThrow();
+  });
+});
+
+// A one-column text layer: one line per item, top to bottom
+const toItem = (text: string, x: number, y: number): TextItem => ({
+  text,
+  x,
+  y,
+  width: text.length * 5,
+  height: 10,
+  fontName: "Regular",
+  hasEOL: true,
+});
+const toItems = (lines: string[], x = 50, top = 760) =>
+  lines.map((line, i) => toItem(line, x, top - i * 20));
+
+describe("job-match - ATS checks and analyze() end to end", () => {
+  const filled = {
+    ...initialResumeState,
+    profile: {
+      ...initialResumeState.profile,
+      name: "Jane Doe",
+      email: "jane@example.com",
+      phone: "+1 555 010 0000",
+    },
+  };
+  const failedOf = (items: TextItem[], resume = filled) =>
+    checkAts(items, resume)
+      .filter((check) => !check.ok)
+      .map((check) => check.message);
+
+  it("says a PDF without a text layer cannot be read, and nothing else", () => {
+    const ats = checkAts([toItem("  ", 50, 700)], filled);
+    expect(ats).toHaveLength(1);
+    expect(ats[0].ok).toBe(false);
+  });
+
+  it("flags a second column that starts back at the top, not a single column", () => {
+    // A page-long left column, then the right column starts back near the top
+    const left = toItems(["Jane Doe", "Experience", "Analyst", "Acme", "2021",
+      "Reports", "Education", "BSc"]);
+    const right = toItems(["Skills", "SQL", "Power BI", "Tableau"], 320);
+    const multiColumn = (items: TextItem[]) =>
+      failedOf(items).some((m) => m.startsWith("Çok sütunlu"));
+    expect(multiColumn(left)).toBe(false);
+    expect(multiColumn([...left, ...right])).toBe(true);
+  });
+
+  it("fails the e-mail check, not name or phone, when only the e-mail is missing", () => {
+    const noEmail = { ...filled, profile: { ...filled.profile, email: "" } };
+    const failed = failedOf(toItems(["Jane Doe"]), noEmail);
+    expect(failed.some((m) => m.startsWith("E-posta"))).toBe(true);
+    expect(failed.some((m) => /^(İsim|Telefon)/.test(m))).toBe(false);
+  });
+
+  it("wires a real analysis together: score, matches, languages, ATS, ignored", () => {
+    const result = analyze(
+      "Data Analyst (Remote)\nRequirements\n- Excel\n- SQL\n- Power BI",
+      toItems([
+        "Jane Doe",
+        "jane@example.com",
+        "EXPERIENCE",
+        "Data Analyst, Acme",
+        "Built Excel reports for 5 teams",
+      ])
+    );
+    const found = Object.fromEntries(
+      result.matches.map((m) => [m.label, m.found])
+    );
+    expect(found).toMatchObject({ Excel: true, SQL: false, "Power BI": false });
+    expect(result.score).toBeGreaterThan(0);
+    expect(result.score).toBeLessThan(100);
+    expect(result.langs).toEqual({ ad: "en", resume: "en" });
+    expect(result.ats.length).toBeGreaterThan(1);
+    expect(result.ignored).toEqual(["Remote"]);
+    expect(result.conditions).toEqual([]);
   });
 });
