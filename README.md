@@ -35,9 +35,11 @@ veya üçüncü taraf istek yoktur.
   sayfaları ve `/resume-parser` silindi; `/resume-builder` ve `/resume-import` menüde yok, kodu duruyor.
   Girdi sınırları: ilan ve CV metni 30.000 karakter, PDF 10 MB ve 10 sayfa. Dış istek yok.
   Yerelde: `npm run build` sonra `out/` klasörünü herhangi bir statik sunucuyla aç.
-- Deploy (hazırlanıyor): Cloudflare Pages, Access yok (link herkese açık; veri zaten cihazdan çıkmıyor).
+- Yayında: https://cvreviewer.tasdelengokturk.workers.dev (Cloudflare Workers statik varlıkları, Access yok;
+  veri zaten cihazdan çıkmıyor). Deploy: `npm run build && npx wrangler@4 deploy` (`wrangler.toml`).
+  `pages.dev` Türkiye'de internet sağlayıcı DNS'iyle engelli olduğu için Pages yerine Workers kullanılıyor.
   Güvenlik başlıkları ve CSP `public/_headers`'ta (build ile `out/`'a kopyalanır; `connect-src 'self' blob:`).
-  AGPL §13 için repo public yapılıyor ve altbilgide "Kaynak kodu" bağlantısı var. İlan linkinden yükleme sonraki faza aday (tarayıcı başka
+  AGPL §13: repo public, altbilgide "Kaynak kodu" bağlantısı var. İlan linkinden yükleme sonraki faza aday (tarayıcı başka
   sitenin sayfasını okuyamaz, sunucu gerekir).
 
 Aşağısı upstream'in orijinal README'sidir.
