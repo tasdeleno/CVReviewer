@@ -1,0 +1,10 @@
+# Static site on Cloudflare Workers (workers.dev). pages.dev is DNS-blocked by Turkish
+# ISPs; workers.dev is not. No Worker script: only the `next build` output in out/,
+# with public/_headers (copied into out/) applied to every response.
+# Deploy: npm run build && npx wrangler@4 deploy
+name = "cvreviewer"
+compatibility_date = "2025-10-01"
+
+[assets]
+directory = "./out"
+not_found_handling = "404-page"
